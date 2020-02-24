@@ -10,7 +10,16 @@
 <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
 <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
 <link href="/statics/css/style.min.css" rel="stylesheet">
+<script type="text/javascript" src="/statics/jquery-3.3.1.min.js"></script>
 </head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".pagination li").click(function () {
+            $(".pagination li").removeClass("active");
+            $(this).addClass('active');
+        })
+    });
+</script>
 <body>
 <div class="lyear-layout-web">
   <div class="lyear-layout-container">
@@ -41,7 +50,7 @@
                                 <input name="keyword" type="text" class="form-control" placeholder="请输入关键词...">
                             </div>
                         </div>
-                </form><a href="/teacher/manageStudent"><button class="btn btn-success">返回</button></a> <br/>
+                </form><a href="/teacher/manageStudent">返回</a> <br/>
 
               <div class="card-body">
                 <div class="table-responsive">
@@ -59,8 +68,9 @@
                       </tr>
                     </thead>
                     <tbody>
+
                         <#assign count=0>
-                        <#list studentList as stu>
+                        <#list pageInfo.list as stu>
                             <tr>
                                 <#assign count = count + 1>
                                 <td>${count}</td>
@@ -74,51 +84,76 @@
                             </tr>
                         </#list>
                     </tbody>
-                    <#--<tbody>-->
-                      <#--<tr>-->
-                        <#--<td><button class="btn btn-default btn-w-md" type="button">默认按钮</button></td>-->
-                        <#--<td><code>btn btn-default</code></td>-->
-                        <#--<td><button class="btn btn-primary btn-w-md" type="button">主要颜色按钮</button></td>-->
-                        <#--<td><code>btn btn-primary</code></td>-->
-                      <#--</tr>-->
-                      <#--<tr>-->
-                        <#--<td><button class="btn btn-success btn-w-md" type="button">绿色按钮</button></td>-->
-                        <#--<td><code>btn btn-success</code></td>-->
-                        <#--<td><button class="btn btn-info btn-w-md" type="button">一般信息按钮</button></td>-->
-                        <#--<td><code>btn btn-info</code></td>-->
-                      <#--</tr>-->
-                      <#--<tr>-->
-                        <#--<td><button class="btn btn-warning btn-w-md" type="button">橙色按钮</button></td>-->
-                        <#--<td><code>btn btn-warning</code></td>-->
-                        <#--<td><button class="btn btn-danger btn-w-md" type="button">红色按钮</button></td>-->
-                        <#--<td><code>btn btn-danger</code></td>-->
-                      <#--</tr>-->
-                      <#--<tr>-->
-                        <#--<td><button class="btn btn-secondary btn-w-md" type="button">次要颜色按钮</button></td>-->
-                        <#--<td><code>btn btn-secondary</code></td>-->
-                        <#--<td><button class="btn btn-dark btn-w-md" type="button">黑色按钮</button></td>-->
-                        <#--<td><code>btn btn-dark</code></td>-->
-                      <#--</tr>-->
-                      <#--<tr>-->
-                        <#--<td><button class="btn btn-purple btn-w-md" type="button">紫色按钮</button></td>-->
-                        <#--<td><code>btn btn-purple</code></td>-->
-                        <#--<td><button class="btn btn-pink btn-w-md" type="button">粉红色按钮</button></td>-->
-                        <#--<td><code>btn btn-pink</code></td>-->
-                      <#--</tr>-->
-                      <#--<tr>-->
-                        <#--<td><button class="btn btn-cyan btn-w-md" type="button">青色按钮</button></td>-->
-                        <#--<td><code>btn btn-cyan</code></td>-->
-                        <#--<td><button class="btn btn-yellow btn-w-md" type="button">黄色按钮</button></td>-->
-                        <#--<td><code>btn btn-yellow</code></td>-->
-                      <#--</tr>-->
-                      <#--<tr>-->
-                        <#--<td><button class="btn btn-brown btn-w-md" type="button">棕色按钮</button></td>-->
-                        <#--<td><code>btn btn-brown</code></td>-->
-                        <#--<td><button class="btn btn-link" type="button">链接形式</button></td>-->
-                        <#--<td><code>btn btn-link</code></td>-->
-                      <#--</tr>-->
-                    <#--</tbody>-->
                   </table>
+                    <#--<a href="/teacher/manageStudent?pageNum=2&pageSize=1">下一页</a>-->
+                    <nav>
+                        <ul class="pagination pagination-circle">
+                            <#--返回第一页-->
+                            <#if pageInfo.isFirstPage>
+                                <li class="disabled">
+                                    <a href="#!">
+                                        <span><i class="mdi mdi-chevron-left"></i></span>
+                                    </a>
+                                </li>
+                            <#else>
+                                <li>
+                                    <a href="/teacher/manageStudent?pageNum=${pageInfo.firstPage}&pageSize=1">
+                                        <span><i class="mdi mdi-chevron-left"></i></span>
+                                    </a>
+                                </li>
+                            </#if>
+
+                            <#if (pageInfo.pages == 0)>
+                                <li class="active disabled" ><a href="#!">1</a></li>
+                            <#elseif (pageInfo.pages==1)>
+                                <li class="active disabled" ><a href="#!">1</a></li>
+                            <#elseif (pageInfo.pages==2)>
+                                <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=1">1</a></li>
+                                <li><a href="/teacher/manageStudent?pageNum=2&pageSize=1">2</a></li>
+                            <#elseif (pageInfo.pages == 3)>
+                                <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=1">1</a></li>
+                                <li><a href="#!"></a></li>
+                                <li><a href="/teacher/manageStudent?pageNum=2&pageSize=1">2</a></li>
+                                <li><a href="/teacher/manageStudent?pageNum=3&pageSize=1">3</a></li>
+                            <#else>
+                                <#if pageInfo.isFirstPage>
+                                    <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=1">1</a></li>
+                                    <li><a href="/teacher/manageStudent?pageNum=2&pageSize=1">2</a></li>
+                                    <li><a href="/teacher/manageStudent?pageNum=3&pageSize=1">3</a></li>
+                                <#else>
+                                    <#if pageInfo.hasPreviousPage>
+                                        <li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage}</a></li>
+                                    <#else>
+                                        <li><a href="#!">${pageInfo.pageNum}</a></li>
+                                    </#if>
+                                    <li class="active"><a href="/teacher/manageStudent?pageNum=2&pageSize=1">${pageInfo.pageNum}</a></li>
+                                    <#if pageInfo.hasNextPage>
+                                        <li><a href="/teacher/manageStudent?pageNum=${pageInfo.nextPage}&pageSize=1">${pageInfo.nextPage}</a></li>
+                                    <#else>
+                                        <#--<li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage - 1}</a></li>-->
+                                        <#--<li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage}</a></li>-->
+                                        <#--<li><a href="#!">${pageInfo.pageNum}</a></li>-->
+                                    </#if>
+                                </#if>
+                            </#if>
+
+                            <#--去到最后一页-->
+                            <#if pageInfo.isLastPage>
+                                <li class="disabled">
+                                    <a href="#!">
+                                        <span><i class="mdi mdi-chevron-right"></i></span>
+                                    </a>
+                                </li>
+                            <#else>
+                                <li>
+                                    <a href="/teacher/manageStudent?pageNum=${pageInfo.lastPage}&pageSize=1">
+                                        <span><i class="mdi mdi-chevron-right"></i></span>
+                                    </a>
+                                </li>
+                            </#if>
+
+                        </ul>
+                    </nav>
                 </div>
               </div>
             </div>  

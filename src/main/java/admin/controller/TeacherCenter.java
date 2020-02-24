@@ -3,11 +3,15 @@ package admin.controller;
 
 import admin.generator.entity.Student;
 import admin.service.StudentService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -32,24 +36,28 @@ public class TeacherCenter
     * @Date: 20-2-14
     */
     @RequestMapping(value = "manageStudent")
-    public String manageStudent(@RequestParam(value = "keyword", defaultValue = "[")String conditions, Model model)
+    public String manageStudent(@RequestParam(value = "keyword", defaultValue = "[")String conditions, Model model,
+                                @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                                @RequestParam(value = "pageSize", defaultValue = "2")int pageSize)
     {
-        long count = studentService.selectByCountPrimaryKey();
+        long count = studentService.selectByCountPrimaryKey() / pageSize;
+
+        PageHelper.startPage(pageNum, pageSize);
 
         try
         {
             if (conditions.equals("["))
             {
                 List<Student> studentList = studentService.queryAll();
-                model.addAttribute("studentList", studentList);
-
+                PageInfo<Student> pageInfo = new PageInfo(studentList);
+                model.addAttribute("pageInfo", pageInfo);
             }
             else
             {
                 List<Student> studentList = studentService.fuzzySearch(conditions);
-                model.addAttribute("studentList", studentList);
-
-
+//                model.addAttribute("studentList", studentList);
+                PageInfo<Student> pageInfo = new PageInfo(studentList);
+                model.addAttribute("pageInfo", pageInfo);
             }
         }catch (NullPointerException e){
             e.printStackTrace();
@@ -57,8 +65,10 @@ public class TeacherCenter
 
         model.addAttribute("count", count);
 
+
         return "manageStudent.ftl";
     }
+
     
     /**
     * @Description: 作业管理主界面
@@ -70,6 +80,7 @@ public class TeacherCenter
     @RequestMapping("manageHomework")
     public String manageHomework()
     {
+
         return "manageHomework.ftl";
     }
 
