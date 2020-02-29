@@ -27,6 +27,16 @@
   <sql id="Blob_Column_List" >
     imageURL
   </sql>
+  <sql id="Admin_Column_Update">
+      teaname, username,sex,id
+  </sql>
+  <select id="queryRes" resultMap="BaseResultMap">
+      select
+      id, teaname,username,registeredTime
+      from
+      teacher
+      where registeredTime between #{startTime} and #{endTime}
+  </select>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -35,9 +45,28 @@
     from teacher
     where id=#{id}
   </select>
+  <select id="adminUpdateEdit" resultType="Teacher">
+      select
+      <include refid="Admin_Column_Update"/>
+      from
+      teacher
+      where id=#{id}
+  </select>
   <select id="selectByCountPrimaryKey" resultType="long">
     select count(id)
     from teacher
+  </select>
+  <select id="queryAll" resultType="Teacher">
+      select *
+      from
+      teacher
+      where is_delete != 1
+  </select>
+  <select id="queryFuzzyRegistered" resultType="Teacher">
+      select *
+      from
+      teacher
+      where teaname like #{teaname} or (registeredTime between #{startTime} and #{endTime})
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from teacher

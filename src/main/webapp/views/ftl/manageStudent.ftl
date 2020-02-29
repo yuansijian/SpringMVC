@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>按钮 - 光年(Light Year Admin)后台管理系统模板</title>
+<title>教师中心-学生管理</title>
 <link rel="icon" href="/statics/favicon.ico" type="image/ico">
 <meta name="keywords" content="Defend的后台管理">
 <meta name="author" content="YSJ">
@@ -40,17 +40,38 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-header"><h4>学生信息</h4></div>
-                <form method="get" action="/teacher/manageStudent">
-                    <div class="row m-b-10">
-                        <div class="col-lg-6">
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                  <button class="btn btn-cyan" type="submit" >搜索</button>
-                                </span>
-                                <input name="keyword" type="text" class="form-control" placeholder="请输入关键词...">
+                <div class="card-toolbar clearfix">
+                    <form class="well form-search form-horizontal" method="POST" action="/teacher/manageStudent">
+                        <div class="container">
+                            <div class="form-group">
+                                <label class="col-xs-2" id="name-input">姓名</label>
+                                <div class="col-xs-2">
+                                    <input class="form-control input-sm " type="text" id="input-small" name="stuname" placeholder="请输入姓名">
+                                </div>
+                                <label class="col-xs-2" id="class-input">班级</label>
+                                <div class="col-xs-2">
+                                    <select class="form-control" id="select" name="stuclass" size="1  ">
+                                        <option value="0">全部</option>
+                                        <option value="1">1班</option>
+                                        <option value="2">2班</option>
+                                        <option value="6">6班</option>
+                                    </select>
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="搜索" />
+                                <a class="btn btn-danger" href="/teacher/manageStudent?pageNum=1&pageSize=1">返回</a>
+                            </div>
+                            <div class="form-group">
+
                             </div>
                         </div>
-                </form><a href="/teacher/manageStudent">返回</a> <br/>
+                    </form>
+                <#--<div class="toolbar-btn-action">-->
+                <#--<a class="btn btn-primary m-r-5" href="/teacher/manageStudent?pageNum=1&pageSize=1"><i class="mdi mdi-plus"></i>返回</a>-->
+                <#--<a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>-->
+                <#--<a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>-->
+                <#--<a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>-->
+                <#--</div>-->
+                </div>
 
               <div class="card-body">
                 <div class="table-responsive">
@@ -65,6 +86,7 @@
                         <th class="w-5">性别</th>
                         <th class="w-5">电话号码</th>
                         <th class="w-5">邮箱</th>
+                        <th class="w-5">状态</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -81,6 +103,7 @@
                                 <td>${stu.sex}</td>
                                 <td>${stu.stuphone}</td>
                                 <td>${stu.stumail}</td>
+                                <td><font class="text-success">正常</font></td>
                             </tr>
                         </#list>
                     </tbody>

@@ -30,16 +30,26 @@
     loginNumber, delete_time, loginTime, endTime, is_delete, grade, sex, updateTime, 
     class1, updatePasswordTime
   </sql>
+  <sql id="Update_Admin">
+      id,stuName, username, stuMail, stuNumber, class1, grade, sex
+  </sql>
   <sql id="Blob_Column_List" >
     imageURL
   </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultType="Student" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from Student
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="adminUpdateSelect" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+      select
+      <include refid="Update_Admin"/>
+      from
+      Student
+      where id=#{id, jdbcType=INTEGER};
   </select>
   <select id="selectByCountPrimaryKey" resultType="long">
       select count(id)
@@ -50,6 +60,14 @@
       select *
       from
       Student
+      where is_delete != 1
+  </select>
+  <select id="queryRes" resultType="Student">
+      select
+      id, stuname,username,registeredTime
+      from
+      Student
+      where registeredTime between #{startTime} and #{endTime}
   </select>
   <select id="fuzzySearch" resultType="Student">
       select *
@@ -57,6 +75,37 @@
       Student
       where stuname like #{conditions} or stunumber like  #{conditions}
       or stuPhone like #{conditions} or stumail like #{conditions}
+  </select>
+  <select id="queryFuzzyRegistered" resultType="Student">
+      select *
+      from
+      Student
+      where stuname like #{stuname} or class1=#{stuclass} or
+      (registeredTime between #{startTime} and #{endTime})
+  </select>
+  <select id="registeredQuery" resultType="hashmap">
+      select registeredTime, count(registeredTime) as registeredCount
+      from
+      Student
+      where registeredTime between #{startTime} and #{endTime}
+      group by registeredTime
+  </select>
+  <select id="queryByClass" resultType="Student">
+    select *
+    from
+    Student
+    where class1=#{stuclass}
+  </select>
+  <select id="queryByName" resultType="Student">
+      select *
+      from
+      Student
+      where stuname like #{stuname}
+  </select>
+  <select id="queryByNameAndClass" resultType="Student">
+      select *
+      from Student
+      where stuname like #{stuname} and class1=#{stuclass}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from Student

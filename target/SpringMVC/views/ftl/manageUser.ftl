@@ -25,97 +25,124 @@
       <!--End 头部信息-->
     
     <!--页面主要内容-->
-    <main class="lyear-layout-content">
-      
-      <div class="container-fluid">
-        
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="card">
-              <ul class="nav nav-tabs page-tabs">
-                <li> <a href="lyear_pages_config.html">基本</a> </li>
-                <li class="active"> <a href="#!">系统</a> </li>
-                <li> <a href="videoTeacher.ftl">上传</a> </li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane active">
-                  
-                  <form action="#!" method="post" name="edit-form" class="edit-form">
-                    <div class="form-group">
-                      <label for="config_group">配置分组</label>
-<textarea class="form-control" id="config_group" rows="5" name="config_group" placeholder="请输入配置分组" >
-base:基本
-system:系统
-develop:开发
-upload:上传</textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="form_item_type">配置类型</label>
-<textarea class="form-control" id="form_item_type" rows="5" name="form_item_type" placeholder="请输入配置类型" >text:单行文本
-textarea:多行文本
-checkbox:复选框
-radio:单选按钮
-switch:开关
-array:数组
-select:下拉框
-image:单张图片
-ueditor:UEditor 编辑器
-tags:标签</textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="wipe_cache_type">清除缓存类型</label>
-                      <div class="controls-box">
-                        <label class="lyear-checkbox checkbox-inline checkbox-primary">
-                          <input type="checkbox" name="wipe_cache_type[]" checked><span>应用缓存</span>
-                        </label>
-                        <label class="lyear-checkbox checkbox-inline checkbox-primary">
-                          <input type="checkbox" name="wipe_cache_type[]"><span>应用日志</span>
-                        </label>
-                        <label class="lyear-checkbox checkbox-inline checkbox-primary">
-                          <input type="checkbox" name="wipe_cache_type[]"><span>模板缓存</span>
-                        </label>
+      <main class="lyear-layout-content">
+
+          <div class="container-fluid">
+
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="card">
+                          <div class="card-header"><h4>学生信息</h4></div>
+                          <div class="card-body">
+                              <div class="card-toolbar clearfix">
+                                  <form class="well form-search" method="POST" action="">
+                                      姓名：
+                                      <input type="text" name="user_login" style="width: 100px;"  placeholder="">
+                                      &nbsp;&nbsp;
+                                  <#--班级：-->
+                                  <#--<input type="text" name="store_id" style="width: 100px;"  placeholder="">-->
+                                  <#--&nbsp;&nbsp;-->
+
+                                      注册时间：
+                                      <input type="text" name="user_nicename" style="width: 150px;" placeholder="">
+                                      &nbsp;&nbsp;
+                                      注册时间：
+                                      <input type="text" name="user_nicename" style="width: 150px;" placeholder="">
+                                      <input type="submit" class="btn btn-primary" value="搜索" />
+                                      <a class="btn btn-danger" href="">清空</a>
+                                  </form>
+                              <#--<div class="toolbar-btn-action">-->
+                              <#--<a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>-->
+                              <#--<a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>-->
+                              <#--<a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>-->
+                              <#--<a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>-->
+                              <#--</div>-->
+                              </div>
+                              <div class="card-body">
+
+                                  <div class="table-responsive">
+                                      <table class="table table-bordered">
+                                          <thead>
+                                          <tr>
+                                              <th>
+                                                  <label class="lyear-checkbox checkbox-primary">
+                                                      <input type="checkbox" id="check-all"><span></span>
+                                                  </label>
+                                              </th>
+                                              <th>编号</th>
+                                              <th>学生姓名</th>
+                                              <th>用户名</th>
+                                              <th>年级</th>
+                                              <th>班级</th>
+                                              <th>电话号码</th>
+                                              <th>邮箱</th>
+                                              <th>登录次数</th>
+                                              <th>性别</th>
+                                              <th>最近登录时间</th>
+                                              <th>最近下线时间</th>
+                                              <th>注册时间</th>
+                                              <th>状态</th>
+                                              <th>操作</th>
+                                          </tr>
+                                          </thead>
+                                          <tbody>
+                                      <#list studentList as student>
+                                      <tr>
+                                          <td>
+                                              <label class="lyear-checkbox checkbox-primary">
+                                                  <input type="checkbox" name="ids[]" value="1"><span></span>
+                                              </label>
+                                          </td>
+                                          <td>${student.id}</td>
+                                          <td>${student.stuname}</td>
+                                          <td>${student.username}</td>
+                                          <td>${student.grade}</td>
+                                          <td>${student.class1}</td>
+                                          <td>${student.stuphone}</td>
+                                          <td>${student.stumail}</td>
+                                          <td>${student.loginnumber}</td>
+                                          <td>${student.sex}</td>
+                                          <td>${student.logintime}</td>
+                                          <td>${student.endtime}</td>
+                                          <td>${student.registeredtime}</td>
+                                          <td><font class="text-success">正常</font></td>
+                                          <td>
+                                              <div class="btn-group">
+                                                  <a class="btn btn-xs btn-default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                  <a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      </#list>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  <ul class="pagination">
+                                      <li class="disabled"><span>«</span></li>
+                                      <li class="active"><span>1</span></li>
+                                      <li><a href="#1">2</a></li>
+                                      <li><a href="#1">3</a></li>
+                                      <li><a href="#1">4</a></li>
+                                      <li><a href="#1">5</a></li>
+                                      <li><a href="#1">6</a></li>
+                                      <li><a href="#1">7</a></li>
+                                      <li><a href="#1">8</a></li>
+                                      <li class="disabled"><span>...</span></li>
+                                      <li><a href="#!">14452</a></li>
+                                      <li><a href="#!">14453</a></li>
+                                      <li><a href="#!">»</a></li>
+                                  </ul>
+
+                              </div>
+                          </div>
                       </div>
-                      <small class="help-block">清除缓存时，要删除的缓存类型</small>
-                    </div>
-                    <div class="form-group">
-                      <label for="develop_mode">开发模式</label>
-                      <div class="controls-box">
-                        <label class="lyear-radio radio-inline radio-primary">
-                          <input type="radio" name="develop_mode" value="0" checked><span>关闭</span>
-                        </label>
-                        <label class="lyear-radio radio-inline radio-primary">
-                          <input type="radio" name="develop_mode" value="1"><span>开启</span>
-                        </label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="app_trace">显示页面Trace</label>
-                      <div class="controls-box">
-                        <label class="lyear-radio radio-inline radio-primary">
-                          <input type="radio" name="app_trace" value="0" checked><span>否</span>
-                        </label>
-                        <label class="lyear-radio radio-inline radio-primary">
-                          <input type="radio" name="app_trace" value="1"><span>是</span>
-                        </label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-primary m-r-5">确 定</button>
-                      <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
-                    </div>
-                  </form>
-                  
-                </div>
+                  </div>
+
               </div>
 
-            </div>
           </div>
-          
-        </div>
-        
-      </div>
-      
-    </main>
+
+      </main>
     <!--End 页面主要内容-->
   </div>
 </div>

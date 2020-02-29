@@ -1,7 +1,20 @@
 package admin.controller;
 
+import admin.generator.entity.Student;
+import admin.generator.entity.Systempicture;
+import admin.generator.entity.Teacher;
+import admin.service.StudentService;
+import admin.service.SystempictureService;
+import admin.service.TeacherService;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @program: SpringMVC
@@ -11,8 +24,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
  **/
 @Controller
 @RequestMapping("community")
+@CrossOrigin
 public class Community
 {
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private TeacherService teacherService;
+    @Autowired
+    private SystempictureService systempictureService;
     /**
     * @Description: 用户管理
     * @Param: null
@@ -20,11 +40,17 @@ public class Community
     * @Author: Defend
     * @Date: 20-2-14
     */
-    @RequestMapping("manageUser.ftl")
-    public String manageUser()
-    {
-        return "manageUser.ftl";
-    }
+//    @RequestMapping("manageUser.ftl")
+//    public String manageUser(Model model)
+//    {
+//        List<Student> studentList = studentService.queryAll();
+//        List<Teacher> teacherList = teacherService.queryAll();
+//
+//        model.addAttribute("studentList", studentList);
+//        model.addAttribute("teacherList", teacherList);
+//
+//        return "manageUser.ftl";
+//    }
     
     /**
     * @Description: 视频教学
@@ -98,11 +124,11 @@ public class Community
     * @Author: Defend
     * @Date: 20-2-14
     */
-    @RequestMapping("registrationMaintenance.ftl")
-    public String registrationMaintenance()
-    {
-        return "registrationMaintenance.ftl";
-    }
+//    @RequestMapping("registrationMaintenance")
+//    public String registrationMaintenance()
+//    {
+//        return "registrationMaintenance.ftl";
+//    }
 
     /**
     * @Description: 权限管理
@@ -111,10 +137,61 @@ public class Community
     * @Author: Defend
     * @Date: 20-2-14
     */
-    @RequestMapping("authorityControl.ftl")
-    public String authorityControl()
+//    @RequestMapping("authorityControl")
+//    public String authorityControl()
+//    {
+//        return "authorityControl.ftl";
+//    }
+
+    /**
+    * @Description: 网站基本配置
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-25
+    */
+    @RequestMapping("baseConfig")
+    public String baseConfig(Model model)
     {
-        return "authorityControl.ftl";
+        Systempicture systempicture = systempictureService.selectByPrimaryKey(1);
+
+        model.addAttribute("logoPicturePath", systempicture);
+
+        return "baseConfig.ftl";
+    }
+    
+    /**
+    * @Description: 网站系统配置
+    * @Param: 
+    * @return: systemConfig.ftl
+    * @Author: Defend
+    * @Date: 20-2-25
+    */
+    @RequestMapping("systemConfig")
+    public String systemConfig(Model model)
+    {
+        String system = System.getProperty("os.name");
+
+
+
+        model.addAttribute("system", system);
+
+        return "systemConfig.ftl";
+    }
+
+    /**
+    * @Description: 网站上传配置
+    * @Param: model
+    * @return: uploadConfig
+    * @Author: Defend
+    * @Date: 20-2-25
+    */
+    @RequestMapping("uploadConfig")
+    public String uploadConfig(Model model)
+    {
+
+
+        return "uploadConfig.ftl";
     }
 
 }

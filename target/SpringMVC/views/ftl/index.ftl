@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>首页 - 光年(Light Year Admin)后台管理系统模板</title>
+    <title>首页 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
     <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
@@ -34,7 +34,7 @@
                             <div class="card-body clearfix">
                                 <div class="pull-right">
                                     <p class="h6 text-white m-t-0">今日活跃度</p>
-                                    <p class="h3 text-white m-b-0">102,125</p>
+                                    <p class="h3 text-white m-b-0">10</p>
                                 </div>
                                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-react fa-1-5x"></i></span> </div>
                             </div>
@@ -58,7 +58,7 @@
                             <div class="card-body clearfix">
                                 <div class="pull-right">
                                     <p class="h6 text-white m-t-0">下载总量</p>
-                                    <p class="h3 text-white m-b-0">34,005,000</p>
+                                    <p class="h3 text-white m-b-0">0</p>
                                 </div>
                                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
                             </div>
@@ -70,7 +70,7 @@
                             <div class="card-body clearfix">
                                 <div class="pull-right">
                                     <p class="h6 text-white m-t-0">新增留言</p>
-                                    <p class="h3 text-white m-b-0">153 条</p>
+                                    <p class="h3 text-white m-b-0">0 条</p>
                                 </div>
                                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
                             </div>
@@ -104,132 +104,6 @@
 
                 </div>
 
-                <div class="row">
-
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>项目信息</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>项目名称</th>
-                                            <th>开始日期</th>
-                                            <th>截止日期</th>
-                                            <th>状态</th>
-                                            <th>进度</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>设计新主题</td>
-                                            <td>10/02/2019</td>
-                                            <td>12/05/2019</td>
-                                            <td><span class="label label-warning">待定</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-warning" style="width: 45%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>网站重新设计</td>
-                                            <td>01/03/2019</td>
-                                            <td>12/04/2019</td>
-                                            <td><span class="label label-success">进行中</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-success" style="width: 30%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>模型设计</td>
-                                            <td>10/10/2019</td>
-                                            <td>12/11/2019</td>
-                                            <td><span class="label label-warning">待定</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-warning" style="width: 25%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>后台管理系统模板设计</td>
-                                            <td>25/01/2019</td>
-                                            <td>09/05/2019</td>
-                                            <td><span class="label label-success">进行中</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-success" style="width: 55%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>前端设计</td>
-                                            <td>10/10/2019</td>
-                                            <td>12/12/2019</td>
-                                            <td><span class="label label-danger">未开始</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-danger" style="width: 0%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>桌面软件测试</td>
-                                            <td>10/01/2019</td>
-                                            <td>29/03/2019</td>
-                                            <td><span class="label label-success">进行中</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-success" style="width: 75%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>APP改版开发</td>
-                                            <td>25/02/2019</td>
-                                            <td>12/05/2019</td>
-                                            <td><span class="label label-danger">暂停</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-danger" style="width: 15%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Logo设计</td>
-                                            <td>10/02/2019</td>
-                                            <td>01/03/2019</td>
-                                            <td><span class="label label-warning">完成</span></td>
-                                            <td>
-                                                <div class="progress progress-striped progress-sm">
-                                                    <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
 
         </main>
@@ -249,6 +123,15 @@
         var $dashChartBarsCnt  = jQuery( '.js-chartjs-bars' )[0].getContext( '2d' ),
                 $dashChartLinesCnt = jQuery( '.js-chartjs-lines' )[0].getContext( '2d' );
 
+
+        var arr = new Array();
+        arr[0]=3;
+        arr[1]=2;
+        var i=0;
+        <#list hashMapList as list>
+            i = i + 1;
+            arr[i-1] =${list.registeredCount};
+        </#list>
         var $dashChartBarsData = {
             labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
             datasets: [
@@ -259,15 +142,17 @@
                     backgroundColor: 'rgba(51,202,185,0.5)',
                     hoverBackgroundColor: "rgba(51,202,185,0.7)",
                     hoverBorderColor: "rgba(0,0,0,0)",
-                    data: [2500, 1500, 1200, 3200, 4800, 3500, 1500]
+                    // data: [2500, 1500, 1200, 3200, 4800, 3500, 1500]
+                    data: arr
+
                 }
             ]
         };
         var $dashChartLinesData = {
-            labels: ['2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+            labels: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
             datasets: [
                 {
-                    label: '活跃度',
+                    label: '整体活跃度',
                     data: [20, 25, 40, 30, 45, 40, 55, 40, 48, 40, 42, 50],
                     borderColor: '#358ed7',
                     backgroundColor: 'rgba(53, 142, 215, 0.175)',

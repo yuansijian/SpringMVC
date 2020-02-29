@@ -6,6 +6,8 @@ import admin.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @program: SpringMVC
  * @description: 教师service层
@@ -44,4 +46,81 @@ public class TeacherServiceImpl implements TeacherService
         return teacherMapper.selectByCountPrimaryKey();
     }
 
+    /**
+    * @Description: 查找所有老师信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-25
+    */
+    @Override
+    public List<Teacher> queryAll()
+    {
+        return teacherMapper.queryAll();
+    }
+
+    /**
+    * @Description: 注册界面模糊查找老师信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-27
+    */
+    @Override
+    public List<Teacher> queryFuzzyRegistered(String teaname, String startTime, String endTime)
+    {
+        return teacherMapper.queryFuzzyRegistered(teaname, startTime, endTime);
+    }
+
+    /**
+    * @Description: 查找老师信息用于更新
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-28
+    */
+    @Override
+    public Teacher adminUpdateEdit(Integer id)
+    {
+        return teacherMapper.adminUpdateEdit(id);
+    }
+
+    /**
+    * @Description: 更新老师信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-28
+    */
+    @Override
+    public int updateByPrimaryKeySelective(Teacher record)
+    {
+        return teacherMapper.updateByPrimaryKeySelective(record);
+    }
+
+    /**
+    * @Description: 删除数据（真删除
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-28
+    */
+    @Override
+    public int deleteByPrimaryKey(Integer id)
+    {
+        return deleteByPrimaryKey(id);
+    }
+
+    /**
+    * @Description: 查找最近注册的教师信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-29
+    */
+    @Override
+    public List<Teacher> queryRes(String startTime, String endTime)
+    {
+        return teacherMapper.queryRes(startTime, endTime);
+    }
 }

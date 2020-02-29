@@ -13,7 +13,7 @@
                 <a href="javascript:void(0)"><i class="mdi mdi-palette"></i> 教师中心</a>
                 <ul class="nav nav-subnav">
                     <#--<w:hyperlink w:anchor="/views/ftl/manageStudent.ftl">按钮</w:hyperlink>-->
-                    <li> <a href="/teacher/manageStudent">学生管理</a> </li>
+                    <li> <a href="/teacher/manageStudent?pageNum=1&pageSize=1">学生管理</a> </li>
                     <li> <a href="/teacher/manageHomework">作业管理</a> </li>
                     <li> <a href="#!">其他</a> </li>
                 </ul>
@@ -21,10 +21,11 @@
             <li class="nav-item nav-item-has-subnav">
                 <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 用户分析</a>
                 <ul class="nav nav-subnav">
-                    <li> <a href="/user/newuser">新加入的用户</a> </li>
-                    <li> <a href="/user/activity">活跃度</a> </li>
-                    <li> <a href="/user/studentInformation">学生信息</a> </li>
-                    <li> <a href="/user/schedule">学生学习进度</a> </li>
+                    <li> <a href="/user/newStudent?pageNum=1&pageSize=1">新加入的用户</a> </li>
+                    <#--<li><a href="/user/newTeacher?pageNum=1&pageSize=1">新加入的教师</a></li>-->
+                    <#--<li> <a href="/user/activity">活跃度</a> </li>-->
+                    <li> <a href="/user/studentInformation?pageNum=1&pageSize=1">学生信息</a> </li>
+                    <li> <a href="/user/teacherInformation?pageNum=1&pageSize=1">教师信息</a> </li>
                 </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
@@ -53,28 +54,31 @@
                             </li>
                         </ul>
                     </li>
-                    <li> <a href="/community/manageUser.ftl">用户管理</a></li>
-                    <li> <a href="/community/registrationMaintenance.ftl">注册维护</a> </li>
-                    <li> <a href="/community/authorityControl.ftl">设置权限</a></li>
+                    <#--<li> <a href="/community/manageUser.ftl">用户管理</a></li>-->
+                    <#--<li> <a href="/community/registrationMaintenance.ftl">注册维护</a> </li>-->
+                    <#--<li> <a href="/community/authorityControl">设置权限</a></li>-->
                 </ul>
             </li>
-            <li class="nav-item nav-item-has-subnav">
-                <a href="javascript:void(0)"><i class="mdi mdi-menu"></i> 多级菜单</a>
-                <ul class="nav nav-subnav">
-                    <li class="nav-item nav-item-has-subnav">
-                        <a href="#!">一级菜单</a>
-                        <ul class="nav nav-subnav">
-                            <li class="nav-item nav-item-has-subnav">
-                                <a href="#!">二级菜单</a>
-                                <ul class="nav nav-subnav">
-                                    <li> <a href="#!">三级菜单</a> </li>
-                                    <li> <a href="#!">三级菜单</a> </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <li class="nav-item">
+                <a href="/community/baseConfig"><i class="mdi mdi-wrench"></i>系统</a>
             </li>
+            <#--<li class="nav-item nav-item-has-subnav">-->
+                <#--<a href="javascript:void(0)"><i class="mdi mdi-menu"></i> 多级菜单</a>-->
+                <#--<ul class="nav nav-subnav">-->
+                    <#--<li class="nav-item nav-item-has-subnav">-->
+                        <#--<a href="#!">一级菜单</a>-->
+                        <#--<ul class="nav nav-subnav">-->
+                            <#--<li class="nav-item nav-item-has-subnav">-->
+                                <#--<a href="#!">二级菜单</a>-->
+                                <#--<ul class="nav nav-subnav">-->
+                                    <#--<li> <a href="#!">三级菜单</a> </li>-->
+                                    <#--<li> <a href="#!">三级菜单</a> </li>-->
+                                <#--</ul>-->
+                            <#--</li>-->
+                        <#--</ul>-->
+                    <#--</li>-->
+                <#--</ul>-->
+            <#--</li>-->
         </ul>
     </nav>
 

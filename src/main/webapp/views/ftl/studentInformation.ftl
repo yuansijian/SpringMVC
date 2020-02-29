@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>复选框 - 光年(Light Year Admin)后台管理系统模板</title>
+<title>学生信息 - 后台管理系统</title>
 <link rel="icon" href="/statics/favicon.ico" type="image/ico">
 <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
 <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
@@ -32,92 +32,161 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header"><h4>基本样式</h4></div>
+              <div class="card-header"><h4>学生信息</h4></div>
               <div class="card-body">
-                
-                <p>这很容易。将 <code>.checkbox</code> 类添加到<code>&lt;label&gt;</code>。</p>
-                <div class="example-box">
-                  <label class="lyear-checkbox">
-                    <input type="checkbox">
-                    <span>默认复选框</span>
-                  </label>
-                  <label class="lyear-checkbox m-t-10">
-                    <input type="checkbox" checked="">
-                    <span>选中的</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-grey m-t-10">
-                    <input type="checkbox">
-                    <span>灰色背景复选框</span>
-                  </label>
-                  <label class="lyear-checkbox m-t-10">
-                    <input type="checkbox" disabled="">
-                    <span>禁用的</span>
-                  </label>
-                </div>
-                
-                <p class="m-t-10">对于内联复选框 <code>.checkbox-inline</code>。</p>
-                <div class="example-box">
-                  <label class="lyear-checkbox checkbox-inline checkbox-primary">
-                    <input type="checkbox"><span>篮球</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-inline checkbox-primary">
-                    <input type="checkbox"><span>足球</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-inline checkbox-primary">
-                    <input type="checkbox"><span>排球</span>
-                  </label>
-                </div>
-                
+                  <div class="card-toolbar clearfix">
+                      <form class="well form-search" method="POST" action="">
+                          姓名：
+                          <input type="text" name="stuname" style="width: 100px;"  placeholder="">
+                          &nbsp;&nbsp;
+                          班级：
+                          <input type="text" name="stuclass" style="width: 100px;"  placeholder="">
+                          &nbsp;&nbsp;
+
+                          注册时间：
+                          <input type="text" name="registeredStartTime" style="width: 150px;" placeholder="">
+                          &nbsp;&nbsp;
+                          注册时间：
+                          <input type="text" name="registeredEndTime" style="width: 150px;" placeholder="">
+                          <input type="submit" class="btn btn-primary" value="搜索" />
+                          <a class="btn btn-danger" href="/user/studentInformation?pageNum=1&pageSize=1">返回</a>
+                      </form>
+                  <#--<div class="toolbar-btn-action">-->
+                  <#--<a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>-->
+                  <#--<a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>-->
+                  <#--<a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>-->
+                  <#--<a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>-->
+                  <#--</div>-->
+                  </div>
+                  <div class="card-body">
+
+                      <div class="table-responsive">
+                          <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                  <th>
+                                      <label class="lyear-checkbox checkbox-primary">
+                                          <input type="checkbox" id="check-all"><span></span>
+                                      </label>
+                                  </th>
+                                  <th>编号</th>
+                                  <th>姓名</th>
+                                  <th>用户名</th>
+                                  <th>年级</th>
+                                  <th>班级</th>
+                                  <th>电话号码</th>
+                                  <th>邮箱</th>
+                                  <th>登录次数</th>
+                                  <th>性别</th>
+                                  <th>登录时间</th>
+                                  <th>下线时间</th>
+                                  <th>注册时间</th>
+                                  <th>状态</th>
+                                  <th>操作</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                      <#list studentList.list as student>
+                                      <tr>
+                                          <td>
+                                              <label class="lyear-checkbox checkbox-primary">
+                                                  <input type="checkbox" name="ids[]" value="1"><span></span>
+                                              </label>
+                                          </td>
+                                          <td >${student.id}</td>
+                                          <td>${student.stuname}</td>
+                                          <td>${student.username}</td>
+                                          <td>${student.grade}</td>
+                                          <td>${student.class1}</td>
+                                          <td>${student.stuphone}</td>
+                                          <td>${student.stumail}</td>
+                                          <td>${student.loginnumber}</td>
+                                          <td>${student.sex}</td>
+                                          <td>${student.logintime}</td>
+                                          <td>${student.endtime}</td>
+                                          <td>${student.registeredtime}</td>
+                                          <td><font class="text-success">正常</font></td>
+                                          <td>
+                                              <div class="btn-group">
+                                                  <a class="btn btn-xs btn-default" href="/user/editStudentInfo/${student.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                  <a class="btn btn-xs btn-default" href="/user/deleteStudent/${student.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      </#list>
+                              </tbody>
+                          </table>
+                      </div>
+                      <nav>
+                          <ul class="pagination pagination-circle">
+                          <#--返回第一页-->
+                                          <#if studentList.isFirstPage>
+                                            <li class="disabled">
+                                                <a href="#!">
+                                                    <span><i class="mdi mdi-chevron-left"></i></span>
+                                                </a>
+                                            </li>
+                                          <#else>
+                                            <li>
+                                                <a href="/user/studentInformation?pageNum=${studentList.firstPage}&pageSize=1">
+                                                    <span><i class="mdi mdi-chevron-left"></i></span>
+                                                </a>
+                                            </li>
+                                          </#if>
+
+                                        <#if (studentList.pages == 0)>
+                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                        <#elseif (studentList.pages==1)>
+                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                        <#elseif (studentList.pages==2)>
+                                            <li class="active"><a href="/user/studentInformation?pageNum=1&pageSize=1">1</a></li>
+                                            <li><a href="/user/studentInformation?pageNum=2&pageSize=1">2</a></li>
+                                        <#elseif (studentList.pages == 3)>
+                                            <li class="active"><a href="/user/studentInformation?pageNum=1&pageSize=1">1</a></li>
+                                            <li><a href="#!"></a></li>
+                                            <li><a href="/user/studentInformation?pageNum=2&pageSize=1">2</a></li>
+                                            <li><a href="/user/studentInformation?pageNum=3&pageSize=1">3</a></li>
+                                        <#else>
+                                            <#if studentList.isFirstPage>
+                                                <li class="active"><a href="/user/studentInformation?pageNum=1&pageSize=1">1</a></li>
+                                                <li><a href="/user/studentInformation?pageNum=2&pageSize=1">2</a></li>
+                                                <li><a href="/user/studentInformation?pageNum=3&pageSize=1">3</a></li>
+                                            <#else>
+                                                <#if studentList.hasPreviousPage>
+                                                    <li><a href="/user/studentInformation?pageNum=${studentList.prePage}&pageSize=1">${studentList.prePage}</a></li>
+                                                <#else>
+                                                    <li><a href="#!">${studentList.pageNum}</a></li>
+                                                </#if>
+                                                <li class="active"><a href="/user/studentInformation?pageNum=2&pageSize=1">${studentList.pageNum}</a></li>
+                                                <#if studentList.hasNextPage>
+                                                    <li><a href="/user/studentInformation?pageNum=${studentList.nextPage}&pageSize=1">${studentList.nextPage}</a></li>
+                                                <#else>
+                                                <#--<li><a href="/user/studentInformation?pageNum=${studentList.prePage}&pageSize=1">${studentList.prePage - 1}</a></li>-->
+                                                <#--<li><a href="/user/studentInformation?pageNum=${studentList.prePage}&pageSize=1">${studentList.prePage}</a></li>-->
+                                                <#--<li><a href="#!">${studentList.pageNum}</a></li>-->
+                                                </#if>
+                                            </#if>
+                                        </#if>
+
+                          <#--去到最后一页-->
+                                          <#if studentList.isLastPage>
+                                                <li class="disabled">
+                                                    <a href="#!">
+                                                        <span><i class="mdi mdi-chevron-right"></i></span>
+                                                    </a>
+                                                </li>
+                                          <#else>
+                                                <li>
+                                                    <a href="/user/studentInformation?pageNum=${studentList.lastPage}&pageSize=1">
+                                                        <span><i class="mdi mdi-chevron-right"></i></span>
+                                                    </a>
+                                                </li>
+                                          </#if>
+                          </ul>
+                      </nav>
+                  </div>
               </div>
             </div>
-            
-            <div class="card">
-              <div class="card-header"><h4>颜色</h4></div>
-              <div class="card-body">
-                
-                <p>添加 <code>.checkbox-*</code> 用于更改复选框的外观：<code>.checkbox-primary</code> <code>.checkbox-info</code>...</p>
-                <div class="example-box">
-                  <label class="lyear-checkbox checkbox-primary m-t-10">
-                    <input type="checkbox" checked=""><span>Primary（主色）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-success m-t-10">
-                    <input type="checkbox" checked=""><span>Success（成功）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-secondary m-t-10">
-                    <input type="checkbox" checked=""><span>Secondary（灰色）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-info m-t-10">
-                    <input type="checkbox" checked=""><span>Info（一般信息）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-warning m-t-10">
-                    <input type="checkbox" checked=""><span>Warning（警告）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-danger m-t-10">
-                    <input type="checkbox" checked=""><span>Danger（危险）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-dark m-t-10">
-                    <input type="checkbox" checked=""><span>Dark（黑色）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-purple m-t-10">
-                    <input type="checkbox" checked=""><span>Purple（紫色）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-pink m-t-10">
-                    <input type="checkbox" checked=""><span>Pink（粉红色）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-cyan m-t-10">
-                    <input type="checkbox" checked=""><span>Cyan（青色）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-yellow m-t-10">
-                    <input type="checkbox" checked=""><span>Yellow（黄色）</span>
-                  </label>
-                  <label class="lyear-checkbox checkbox-brown m-t-10">
-                    <input type="checkbox" checked=""><span>Brown（棕色）</span>
-                  </label>
-                </div>
-                
-              </div>
-            </div>
-            
           </div>
           
         </div>

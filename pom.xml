@@ -183,6 +183,12 @@
       <artifactId>reflectasm</artifactId>
       <version>1.09</version>
     </dependency>
+    <!--分页-->
+    <dependency>
+        <groupId>com.github.pagehelper</groupId>
+        <artifactId>pagehelper</artifactId>
+        <version>5.1.2</version>
+    </dependency>
     </dependencies>
 
   <build>

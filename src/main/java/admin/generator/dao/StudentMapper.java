@@ -1,7 +1,9 @@
 package admin.generator.dao;
 
 import admin.generator.entity.Student;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface StudentMapper {
@@ -11,6 +13,12 @@ public interface StudentMapper {
 
     int insertSelective(Student record);
 
+    List<Student> queryByClass(@Param("stuclass")String stuclass);
+
+    List<Student> queryByName(@Param("stuname")String stuname);
+
+    List<Student> queryByNameAndClass(@Param("stuname")String stuname, @Param("stuclass")String stuclass);
+
     Student selectByPrimaryKey(Integer id);
 
     List<Student> queryAll();
@@ -19,9 +27,17 @@ public interface StudentMapper {
 
     List<Student> fuzzySearch(String conditions);
 
+    List<HashMap> registeredQuery(@Param("startTime")String startTime, @Param("endTime")String endTime);
+
+    List<Student> queryFuzzyRegistered(@Param("stuname")String stuname, @Param("stuclass")String stuclass, @Param("startTime")String startTime, @Param("endTime")String endTime);
+
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKeyWithBLOBs(Student record);
 
     int updateByPrimaryKey(Student record);
+
+    Student adminUpdateSelect(Integer id);
+
+    List<Student> queryRes(@Param("startTime")String startTime, @Param("endTime")String endTime);
 }
