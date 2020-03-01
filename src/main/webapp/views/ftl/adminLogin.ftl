@@ -57,7 +57,7 @@
             <div class="login-header text-center">
                 <a href="/index"> <img alt="light year admin" src="/statics/images/logo-sidebar.png"> </a>
             </div>
-            <form action="#!" method="post">
+            <form action="/redirect" method="post">
                 <div class="form-group has-feedback feedback-left">
                     <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" />
                     <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
@@ -66,22 +66,22 @@
                     <input type="password" placeholder="请输入密码" class="form-control" id="password" name="password" />
                     <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
                 </div>
-                <div class="form-group has-feedback feedback-left row">
-                    <div class="col-xs-7">
-                        <input type="text" name="captcha" class="form-control" placeholder="验证码">
-                        <span class="mdi mdi-check-all form-control-feedback" aria-hidden="true"></span>
-                    </div>
-                    <div class="col-xs-5">
-                        <img src="/statics/images/captcha.png" class="pull-right" id="captcha" style="cursor: pointer;" onclick="this.src=this.src+'?d='+Math.random();" title="点击刷新" alt="captcha">
-                    </div>
-                </div>
+                <#--<div class="form-group has-feedback feedback-left row">-->
+                    <#--<div class="col-xs-7">-->
+                        <#--<input type="text" name="captcha" class="form-control" placeholder="验证码">-->
+                        <#--<span class="mdi mdi-check-all form-control-feedback" aria-hidden="true"></span>-->
+                    <#--</div>-->
+                    <#--<div class="col-xs-5">-->
+                        <#--<img src="/statics/images/captcha.png" class="pull-right" id="captcha" style="cursor: pointer;" onclick="this.src=this.src+'?d='+Math.random();" title="点击刷新" alt="captcha">-->
+                    <#--</div>-->
+                <#--</div>-->
                 <div class="form-group">
-                    <button class="btn btn-block btn-primary" type="button">立即登录</button>
+                    <button class="btn btn-block btn-primary" type="submit">立即登录</button>
                 </div>
             </form>
             <hr>
             <footer class="col-sm-12 text-center">
-                <p class="m-b-0">Copyright © 2019 <a href="http://lyear.itshubao.com">Defend</a>. All right reserved</p>
+                <p class="m-b-0">Copyright © 2019 <a href="https://yuansijian.github.io/">Defend</a>. All right reserved</p>
             </footer>
         </div>
     </div>

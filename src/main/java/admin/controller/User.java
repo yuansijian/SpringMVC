@@ -1,5 +1,6 @@
 package admin.controller;
 
+import admin.generator.entity.Administrator;
 import admin.generator.entity.Student;
 import admin.generator.entity.Teacher;
 import admin.service.StudentService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -42,12 +44,12 @@ public class User
     * @Date: 20-2-14
     */
     @RequestMapping("newStudent")
-    public String newuser(@RequestParam(value = "stuname", defaultValue = "")String stuname ,Model model,
+    public String newuser(@RequestParam(value = "stuname", defaultValue = "")String stuname , Model model,
                           @RequestParam(value = "stuclass", defaultValue = "")String stuclass,
                           @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                           @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                           @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                          @RequestParam(value = "pageSize", defaultValue = "2")int pageSize)
+                          @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -78,6 +80,10 @@ public class User
             model.addAttribute("studentList", pageInfo1);
         }
 
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
         return "newStudent.ftl";
     }
 
@@ -93,7 +99,7 @@ public class User
                              @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                              @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                              @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                             @RequestParam(value = "pageSize", defaultValue = "2")int pageSize)
+                             @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -116,6 +122,9 @@ public class User
             PageInfo<Student> pageInfo2 = new PageInfo(teacherList);
             model.addAttribute("teacherList", pageInfo2);
         }
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
 
         return "newTeacher.ftl";
     }
@@ -146,7 +155,7 @@ public class User
                                      @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                                      @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                                      @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                     @RequestParam(value = "pageSize", defaultValue = "2")int pageSize)
+                                     @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -166,6 +175,9 @@ public class User
             model.addAttribute("studentList", pageInfo1);
         }
 
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
         return "studentInformation.ftl";
     }
 
@@ -181,7 +193,7 @@ public class User
                                      @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                                      @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                                      @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                     @RequestParam(value = "pageSize", defaultValue = "2")int pageSize)
+                                     @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -198,6 +210,9 @@ public class User
             PageInfo<Student> pageInfo2 = new PageInfo(teacherList);
             model.addAttribute("teacherList", pageInfo2);
         }
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
 
         return "teacherInformation.ftl";
     }
@@ -223,8 +238,11 @@ public class User
     * @Date: 20-2-26
     */
     @RequestMapping("profile")
-    public String profile()
+    public String profile(Model model, HttpSession session)
     {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
         return "profile.ftl";
     }
 
@@ -236,8 +254,11 @@ public class User
     * @Date: 20-2-26
     */
     @RequestMapping("editPwd")
-    public String editPwd()
+    public String editPwd(Model model, HttpSession session)
     {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
         return "editPwd.ftl";
     }
     
@@ -249,11 +270,15 @@ public class User
     * @Date: 20-2-28
     */
     @RequestMapping("editStudentInfo/{id}")
-    public String editStudentInfo(@PathVariable("id")Integer id, Model model)
+    public String editStudentInfo(@PathVariable("id")Integer id, Model model, HttpSession session)
     {
         Student student = studentService.adminUpdateSelect(id);
 
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        model.addAttribute("administrator", administrator);
         model.addAttribute("student", student);
+
 
 
         return "editStudentInfo.ftl";
@@ -266,7 +291,7 @@ public class User
     * @Date: 20-2-28
     */
     @RequestMapping("updateStudentInfo/{id}")
-    public String updateStudentInfo(Student student, @PathVariable("id")int id, Model model)
+    public String updateStudentInfo(Student student, @PathVariable("id")int id, Model model, HttpSession session)
     {
 //        System.out.println(student);
 //        System.out.println(id);
@@ -274,6 +299,9 @@ public class User
         System.out.println(studentService.updateByPrimaryKeySelective(student));
 
         student = studentService.adminUpdateSelect(id);
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
 
         model.addAttribute("student", student);
 
@@ -288,7 +316,7 @@ public class User
     * @Date: 20-2-28
     */
     @RequestMapping("deleteStudent/{id}")
-    public String deleteStudent(@PathVariable("id")Integer id, Model model)
+    public String deleteStudent(@PathVariable("id")Integer id, Model model, HttpSession session)
     {
 
         PageHelper.startPage(1, 1);
@@ -300,6 +328,9 @@ public class User
 
         List<Student> studentList = studentService.queryAll();
         PageInfo<Student> pageInfo1 = new PageInfo(studentList);
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
         model.addAttribute("studentList", pageInfo1);
 
 
@@ -314,11 +345,14 @@ public class User
     * @Date: 20-2-28
     */
     @RequestMapping("editTeacherInfo/{id}")
-    public String editTeacherInfo(@PathVariable("id")Integer id, Model model)
+    public String editTeacherInfo(@PathVariable("id")Integer id, Model model, HttpSession session)
     {
 
         Teacher teacher = teacherService.adminUpdateEdit(id);
         model.addAttribute("teacher", teacher);
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
 
         return "editTeacherInfo.ftl";
     }
@@ -331,12 +365,15 @@ public class User
     * @Date: 20-2-28
     */
     @RequestMapping("updateTeacherInfo/{id}")
-    public String updateTeacherInfo(Teacher teacher, @PathVariable("id")Integer id, Model model)
+    public String updateTeacherInfo(Teacher teacher, @PathVariable("id")Integer id, Model model, HttpSession session)
     {
         teacher.setId(id);
         teacherService.updateByPrimaryKeySelective(teacher);
 
         teacher = teacherService.adminUpdateEdit(id);
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
 
         model.addAttribute("teacher", teacher);
 
@@ -351,7 +388,7 @@ public class User
     * @Date: 20-2-28
     */
     @RequestMapping("deleteTeacher/{id}")
-    public String deleteTeacher(@PathVariable("id")Integer id, Model model)
+    public String deleteTeacher(@PathVariable("id")Integer id, Model model, HttpSession session)
     {
         Teacher teacher = new Teacher();
         teacher.setId(id);
@@ -362,6 +399,9 @@ public class User
 
         List<Teacher> teacherList = teacherService.queryAll();
         PageInfo<Student> pageInfo2 = new PageInfo(teacherList);
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
         model.addAttribute("teacherList", pageInfo2);
 
         return "newTeacher.ftl";

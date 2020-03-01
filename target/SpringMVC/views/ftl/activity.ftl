@@ -22,6 +22,12 @@
 
       <!--头部信息-->
       <#include "layout/header.ftl">
+      <li class="dropdown dropdown-profile">
+          <a href="javascript:void(0)" data-toggle="dropdown">
+              <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+              <span>${administrator.username} <span class="caret"></span></span>
+          </a>
+        <#include "layout/header2.ftl">
       <!--End 头部信息-->
     
     <!--页面主要内容-->

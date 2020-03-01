@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="admin.generator.dao.UploadconfigMapper" >
+  <resultMap id="BaseResultMap" type="admin.generator.entity.Uploadconfig" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="image" property="image" jdbcType="INTEGER" />
+    <result column="imageConfig" property="imageconfig" jdbcType="VARCHAR" />
+    <result column="limit1" property="limit1" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Uploadconfig" extends="BaseResultMap" >
+    <result column="type1" property="type1" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, image, imageConfig, limit1
+  </sql>
+  <sql id="Blob_Column_List" >
+    type1
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from uploadConfig
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from uploadConfig
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="admin.generator.entity.Uploadconfig" >
+    insert into uploadConfig (id, image, imageConfig, 
+      limit1, type1)
+    values (#{id,jdbcType=INTEGER}, #{image,jdbcType=INTEGER}, #{imageconfig,jdbcType=VARCHAR}, 
+      #{limit1,jdbcType=INTEGER}, #{type1,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="admin.generator.entity.Uploadconfig" >
+    insert into uploadConfig
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="imageconfig != null" >
+        imageConfig,
+      </if>
+      <if test="limit1 != null" >
+        limit1,
+      </if>
+      <if test="type1 != null" >
+        type1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=INTEGER},
+      </if>
+      <if test="imageconfig != null" >
+        #{imageconfig,jdbcType=VARCHAR},
+      </if>
+      <if test="limit1 != null" >
+        #{limit1,jdbcType=INTEGER},
+      </if>
+      <if test="type1 != null" >
+        #{type1,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Uploadconfig" >
+    update uploadConfig
+    <set >
+      <if test="image != null" >
+        image = #{image,jdbcType=INTEGER},
+      </if>
+      <if test="imageconfig != null" >
+        imageConfig = #{imageconfig,jdbcType=VARCHAR},
+      </if>
+      <if test="limit1 != null" >
+        limit1 = #{limit1,jdbcType=INTEGER},
+      </if>
+      <if test="type1 != null" >
+        type1 = #{type1,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Uploadconfig" >
+    update uploadConfig
+    set image = #{image,jdbcType=INTEGER},
+      imageConfig = #{imageconfig,jdbcType=VARCHAR},
+      limit1 = #{limit1,jdbcType=INTEGER},
+      type1 = #{type1,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Uploadconfig" >
+    update uploadConfig
+    set image = #{image,jdbcType=INTEGER},
+      imageConfig = #{imageconfig,jdbcType=VARCHAR},
+      limit1 = #{limit1,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

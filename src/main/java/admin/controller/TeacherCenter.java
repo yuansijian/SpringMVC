@@ -1,6 +1,7 @@
 package admin.controller;
 
 
+import admin.generator.entity.Administrator;
 import admin.generator.entity.Student;
 import admin.service.StudentService;
 import com.github.pagehelper.PageHelper;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
@@ -37,9 +39,13 @@ public class TeacherCenter
     public String manageStudent(@RequestParam(value = "stuname", defaultValue = "")String stuname, Model model,
                                 @RequestParam(value = "stuclass", defaultValue = "")String stuclass,
                                 @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                @RequestParam(value = "pageSize", defaultValue = "2")int pageSize)
+                                @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
+
+        //获取session的值
+        Administrator administrator = (Administrator)session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
 
 //        System.out.println(stuname + stuclass);
 
@@ -100,8 +106,10 @@ public class TeacherCenter
     * @Date: 20-2-14
     */
     @RequestMapping("manageHomework")
-    public String manageHomework()
+    public String manageHomework(Model model, HttpSession session)
     {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
 
         return "manageHomework.ftl";
     }

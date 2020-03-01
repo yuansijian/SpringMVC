@@ -17,7 +17,8 @@
                 <li class="dropdown dropdown-profile">
                     <a href="javascript:void(0)" data-toggle="dropdown">
                         <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
-                        <span>{昵称} <span class="caret"></span></span>
+                        <span>${administrator.username} <span class="caret"></span></span>
+                        <!--切换主题配色-->
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li> <a href="/user/profile"><i class="mdi mdi-account"></i> 个人信息</a> </li>
@@ -27,7 +28,6 @@
                         <li> <a href="#!"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
                     </ul>
                 </li>
-                <!--切换主题配色-->
                 <li class="dropdown dropdown-skin">
                     <span data-toggle="dropdown" class="icon-palette"><i class="mdi mdi-palette"></i></span>
                     <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">

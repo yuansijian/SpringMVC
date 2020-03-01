@@ -1,0 +1,78 @@
+
+
+
+
+
+
+
+
+
+
+<select id="queryByUsernameAndPassword" resultMap="ResultMapWithBLOBs">
+      select *
+      from administrator
+      where username=#{username} and password=#{password}
+  </select>
+
+
+
+wget -N –no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ss-go.sh && chmod +x ss-go.sh && bash ss-go.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+server {
+ listen 80;
+	root /var/www/attendance20190122;
+ index index.html index.htm index.php;
+	server_name www.kaoqin.com;
+
+ location / { 
+ if (!-e $request_filename) {
+ rewrite ^(.*)$ /index.php?s=$1 last;
+ break;
+ }
+ }
+
+ # 开启PHP支持
+ location ~ \.php {
+ fastcgi_split_path_info ^(.+\.php)(.*)$;
+ fastcgi_pass unix:/var/run/php5-fpm.sock;
+ fastcgi_index index.php;
+
+# PATH_INFO配置
+ fastcgi_param PATH_INFO $fastcgi_path_info;
+
+ # 环境变量
+fastcgi_param CT_DEV_MODE 'true';
+
+ # 加载Nginx默认"服务器环境变量"配置
+ include fastcgi_params;
+ }
+}
+
+http://localhost:8001/index.php?g=admin&m=public&a=login	//后台登录入口
+###667fd615def284ba2747a511578b144b	//密码admin原密码
+SELECT `name`,`dep_name`,`sn`,`dep_id`,`date`,sum(work_effect) as work_effect,sum(overtime) as overtime,sum(work_actual) as work_actual,sum(work_effect_918) as work_effect_918,( sum(leave_compensatory)+ sum(leave_casual)+ sum(leave_annual)+ sum(leave_marriage)+ sum(leave_maternity)+ sum(leave_maternity_cesarean)+ sum(leave_antenatal)+ sum(leave_awaiting_delivery)+ sum(leave_funeral)+ sum(leave_breastfeeding)+ sum(leave_paternity)+ sum(leave_sick_min)+ sum(leave_sick_full)+ sum(leave_sick_half)+ sum(leave_other)) as total_leave,sum(leave_compensatory) as leave_compensatory,sum(leave_casual) as leave_casual,sum(leave_annual) as leave_annual,sum(leave_marriage) as leave_marriage,sum(leave_maternity) as leave_maternity,sum(leave_maternity_cesarean) as leave_maternity_cesarean,sum(leave_antenatal) as leave_antenatal,sum(leave_awaiting_delivery) as leave_awaiting_delivery,sum(leave_funeral) as leave_funeral,sum(leave_breastfeeding) as leave_breastfeeding,sum(leave_paternity) as leave_paternity,sum(leave_sick_min) as leave_sick_min,sum(leave_sick_full) as leave_sick_full,sum(leave_sick_half) as leave_sick_half,sum(leave_other) as leave_other,sum(leave_evection) as leave_evection,sum(leave_long_distance) as leave_long_distance FROM `cmf_attendance_day` WHERE `date` BETWEEN '2019-08-01' AND '2019-08-05' AND `name`  GROUP BY sn LIMIT 0,20
+
+域名: weiphptest.intech.gdinsight.com
+ip : 118.190.41.120
+FTP 账号: weiphptest
+FTP 密码: weiphptest0.123
+
+object(mysqli)#3 (19) { ["affected_rows"]=> int(0) ["client_info"]=> string(79) "mysqlnd 5.0.11-dev - 20120503 - $Id: 76b08b24596e12d4553bd41fc93cccd5bac2fe7a $" ["client_version"]=> int(50011) ["connect_errno"]=> int(0) ["connect_error"]=> NULL ["errno"]=> int(0) ["error"]=> string(0) "" ["error_list"]=> array(0) { } ["field_count"]=> int(0) ["host_info"]=> string(25) "118.190.41.120 via TCP/IP" ["info"]=> NULL ["insert_id"]=> int(0) ["server_info"]=> string(10) "5.5.56-log" ["server_version"]=> int(50556) ["stat"]=> string(141) "Uptime: 1968573 Threads: 3 Questions: 321725 Slow queries: 0 Opens: 893 Flush tables: 1 Open tables: 512 Queries per second avg: 0.163" ["sqlstate"]=> string(5) "00000" ["protocol_version"]=> int(10) ["thread_id"]=> int(21243) ["warning_count"]=> int(0) }

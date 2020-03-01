@@ -1,20 +1,24 @@
 package admin.controller;
 
-import admin.generator.entity.Student;
+import admin.generator.entity.Administrator;
 import admin.generator.entity.Systempicture;
-import admin.generator.entity.Teacher;
-import admin.service.StudentService;
+import admin.generator.entity.Uploadconfig;
+import admin.generator.entity.Uploadfile;
 import admin.service.SystempictureService;
-import admin.service.TeacherService;
-import org.apache.ibatis.annotations.Select;
+import admin.service.UploadconfigService;
+import admin.service.UploadfileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import javax.jws.WebParam;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+
 
 /**
  * @program: SpringMVC
@@ -28,11 +32,12 @@ import java.util.List;
 public class Community
 {
     @Autowired
-    private StudentService studentService;
-    @Autowired
-    private TeacherService teacherService;
-    @Autowired
     private SystempictureService systempictureService;
+    @Autowired
+    private UploadconfigService uploadconfigService;
+    @Autowired
+    private UploadfileService uploadfileService;
+
     /**
     * @Description: 用户管理
     * @Param: null
@@ -151,10 +156,12 @@ public class Community
     * @Date: 20-2-25
     */
     @RequestMapping("baseConfig")
-    public String baseConfig(Model model)
+    public String baseConfig(Model model, HttpSession session)
     {
         Systempicture systempicture = systempictureService.selectByPrimaryKey(1);
 
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
         model.addAttribute("logoPicturePath", systempicture);
 
         return "baseConfig.ftl";
@@ -168,12 +175,14 @@ public class Community
     * @Date: 20-2-25
     */
     @RequestMapping("systemConfig")
-    public String systemConfig(Model model)
+    public String systemConfig(Model model, HttpSession session)
     {
         String system = System.getProperty("os.name");
 
 
 
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
         model.addAttribute("system", system);
 
         return "systemConfig.ftl";
@@ -187,11 +196,120 @@ public class Community
     * @Date: 20-2-25
     */
     @RequestMapping("uploadConfig")
-    public String uploadConfig(Model model)
+    public String uploadConfig(Model model, HttpSession session)
     {
+        Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
 
+//        System.out.println(uploadconfig);
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+        model.addAttribute("uploadconfig", uploadconfig);
 
         return "uploadConfig.ftl";
     }
 
+    /**
+    * @Description: 上传配置更新
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-2-29
+    */
+    @RequestMapping("uploadUpdate")
+    public String uploadUpdate(Uploadconfig uploadconfig, Model model, HttpSession session)
+    {
+        uploadconfig.setId(1);
+
+        System.out.println(uploadconfig);
+
+        System.out.println(uploadconfigService.updateByPrimaryKeySelective(uploadconfig));
+
+        uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
+        model.addAttribute("uploadconfig", uploadconfig);
+
+        return "uploadConfig.ftl";
+    }
+
+    /**
+    * @Description: 文件上传功能
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-1
+    */
+    @RequestMapping("uploadFile")
+    public String uploadFile(Model model, HttpSession session)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
+        return "uploadFile.ftl";
+    }
+    /**
+    * @Description: 上传文件保存
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-1
+    */
+    @RequestMapping("uploadFileAchieve")
+    public String test(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session)
+    {
+//        System.out.println(multipartFile + "123");
+        Uploadfile uploadfile = new Uploadfile();
+
+
+
+        if(!multipartFile.isEmpty())
+        {
+            try
+            {
+                String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/uploadFile";
+
+                File dir = new File(rootPath + File.separator);
+
+                if(!dir.exists())
+                {
+                    dir.mkdirs();
+                }
+
+                File serverFile = new File(dir.getAbsolutePath() + File.separator + multipartFile.getOriginalFilename());
+
+                //将上传文件的信息插入数据库
+                uploadfile.setFilename(multipartFile.getOriginalFilename());
+                uploadfile.setFilesize((int)multipartFile.getSize());
+                uploadfile.setFileurl(rootPath);
+                uploadfile.setIsDelete(0);
+                System.out.println(uploadfileService.insert(uploadfile));
+//                System.out.println(uploadfile);
+
+                multipartFile.transferTo(serverFile);
+
+                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
+        return "uploadFile.ftl";
+    }
+    
+    /**
+    * @Description: 上传图片
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-1
+    */
+    
+    
 }

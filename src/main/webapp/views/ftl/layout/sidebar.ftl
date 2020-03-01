@@ -50,7 +50,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item nav-item-has-subnav">
-                                <a href="#!">上传文件</a>
+                                <a href="/community/uploadFile">上传文件</a>
                             </li>
                         </ul>
                     </li>

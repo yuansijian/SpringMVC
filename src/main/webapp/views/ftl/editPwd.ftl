@@ -21,7 +21,30 @@
         <!--End 左侧导航-->
 
         <!--头部信息-->
-        <#include "layout/header.ftl">
+        <header class="lyear-layout-header">
+
+            <nav class="navbar navbar-default">
+                <div class="topbar">
+
+                    <#include "layout/header1.ftl">
+
+                    <ul class="topbar-right">
+                        <li class="dropdown dropdown-profile">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+                                <span>${administrator.username} <span class="caret"></span></span>
+                                <!--切换主题配色-->
+                            </a>
+                            <#include "layout/header2.ftl">
+                        </li>
+                        <#include "layout/header3.ftl">
+                        <!--切换主题配色-->
+                    </ul>
+
+                </div>
+            </nav>
+
+        </header>
         <!--End 头部信息-->
 
         <!--页面主要内容-->

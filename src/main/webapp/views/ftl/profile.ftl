@@ -21,7 +21,30 @@
         <!--End 左侧导航-->
 
         <!--头部信息-->
-        <#include "layout/header.ftl">
+        <header class="lyear-layout-header">
+
+            <nav class="navbar navbar-default">
+                <div class="topbar">
+
+                    <#include "layout/header1.ftl">
+
+                    <ul class="topbar-right">
+                        <li class="dropdown dropdown-profile">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+                                <span>${administrator.username} <span class="caret"></span></span>
+                                <!--切换主题配色-->
+                            </a>
+                            <#include "layout/header2.ftl">
+                        </li>
+                        <#include "layout/header3.ftl">
+                        <!--切换主题配色-->
+                    </ul>
+
+                </div>
+            </nav>
+
+        </header>
         <!--End 头部信息-->
 
         <!--页面主要内容-->
@@ -44,22 +67,20 @@
                                 </div>
                                 <hr>
                                 <form method="post" action="#!" class="site-form">
+
                                     <div class="form-group">
-                                        <label for="username">用户名</label>
-                                        <input type="text" class="form-control" name="username" id="username" value="lightyear" disabled="disabled" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nickname">昵称</label>
-                                        <input type="text" class="form-control" name="nickname" id="nickname" placeholder="输入您的昵称" value="笔下光年">
+                                        <label for="nickname">用户名</label>
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="${administrator.username}">
                                     </div>
                                     <div class="form-group">
                                         <label for="email">邮箱</label>
-                                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="3331653644@qq.com">
+                                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${administrator.email}">
                                         <small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>
                                     </div>
                                     <div class="form-group">
-                                        <label for="remark">简介</label>
-                                        <textarea class="form-control" name="remark" id="remark" rows="3"></textarea>
+                                        <label for="phone">电话号码</label>
+                                        <input type="text" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" placeholder="请输入正确的邮箱地址" value="${administrator.phone}">
+                                        <small id="phoneHelp" class="form-text text-muted">请保证您填写的电话号码是正确的。</small>
                                     </div>
                                     <button type="submit" class="btn btn-primary">保存</button>
                                 </form>
