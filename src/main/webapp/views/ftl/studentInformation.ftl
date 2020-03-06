@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>学生信息 - 后台管理系统</title>
 <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-<meta name="author" content="yinqi">
+<meta name="author" content="Defend">
 <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
 <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
 <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -31,7 +29,7 @@
                   <ul class="topbar-right">
                       <li class="dropdown dropdown-profile">
                           <a href="javascript:void(0)" data-toggle="dropdown">
-                              <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+                              <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
                               <span>${administrator.username} <span class="caret"></span></span>
                               <!--切换主题配色-->
                           </a>
@@ -58,7 +56,7 @@
               <div class="card-header"><h4>学生信息</h4></div>
               <div class="card-body">
                   <div class="card-toolbar clearfix">
-                      <form class="well form-search" method="POST" action="">
+                      <form class="well form-search" method="POST" action="/user/studentInformation">
                           姓名：
                           <input type="text" name="stuname" style="width: 100px;"  placeholder="">
                           &nbsp;&nbsp;
@@ -74,12 +72,6 @@
                           <input type="submit" class="btn btn-primary" value="搜索" />
                           <a class="btn btn-danger" href="/user/studentInformation?pageNum=1&pageSize=1">返回</a>
                       </form>
-                  <#--<div class="toolbar-btn-action">-->
-                  <#--<a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>-->
-                  <#--<a class="btn btn-success m-r-5" href="#!"><i class="mdi mdi-check"></i> 启用</a>-->
-                  <#--<a class="btn btn-warning m-r-5" href="#!"><i class="mdi mdi-block-helper"></i> 禁用</a>-->
-                  <#--<a class="btn btn-danger" href="#!"><i class="mdi mdi-window-close"></i> 删除</a>-->
-                  <#--</div>-->
                   </div>
                   <div class="card-body">
 

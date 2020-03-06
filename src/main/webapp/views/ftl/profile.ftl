@@ -3,11 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>个人信息 - 光年(Light Year Admin)后台管理系统模板</title>
+    <title>个人信息 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-    <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-    <meta name="author" content="yinqi">
+    <meta name="author" content="Defend">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -31,7 +29,7 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -56,17 +54,24 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
+                                <form method="post" action="/user/changePhoto" enctype="multipart/form-data">
+                                    <div class="edit-avatar">
 
-                                <div class="edit-avatar">
-                                    <img src="/statics/images/users/avatar.jpg" alt="..." class="img-avatar">
-                                    <div class="avatar-divider"></div>
-                                    <div class="edit-avatar-content">
-                                        <button class="btn btn-default">修改头像</button>
-                                        <p class="m-0">选择一张你喜欢的图片，裁剪后会自动生成264x264大小，上传图片大小不能超过2M。</p>
+                                        <input type="hidden" class="form-control" name="id" id="id"  value="${administrator.id}">
+                                        <div>
+                                            <input type="file" name="imageURL">
+                                            <img src="${administrator.imageurl}" alt="..." class="img-avatar">
+                                        </div>
+                                        <div class="avatar-divider"></div>
+                                        <div class="edit-avatar-content">
+                                            <button class="btn btn-default" type="submit">修改头像</button>
+                                            <p class="m-0">选择一张你喜欢的图片，裁剪后会自动生成264x264大小，上传图片大小不能超过2M。</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <hr>
-                                <form method="post" action="#!" class="site-form">
+                                    <hr>
+                                </form>
+
+                                <form method="post" action="/user/updateProfile" class="site-form">
 
                                     <div class="form-group">
                                         <label for="nickname">用户名</label>

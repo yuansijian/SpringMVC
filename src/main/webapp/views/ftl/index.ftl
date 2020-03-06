@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>首页 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-    <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-    <meta name="author" content="yinqi">
+    <meta name="author" content="Defend">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -30,7 +28,7 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -148,14 +146,7 @@
                 $dashChartLinesCnt = jQuery( '.js-chartjs-lines' )[0].getContext( '2d' );
 
 
-        var arr = new Array();
-        arr[0]=3;
-        arr[1]=2;
-        var i=0;
-        <#list hashMapList as list>
-            i = i + 1;
-            arr[i-1] =${list.registeredCount};
-        </#list>
+
         var $dashChartBarsData = {
             labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
             datasets: [
@@ -167,17 +158,18 @@
                     hoverBackgroundColor: "rgba(51,202,185,0.7)",
                     hoverBorderColor: "rgba(0,0,0,0)",
                     // data: [2500, 1500, 1200, 3200, 4800, 3500, 1500]
-                    data: arr
+                    data: [${hashMapList[0]}, ${hashMapList[1]}, ${hashMapList[2]}, ${hashMapList[3]}, ${hashMapList[4]}, ${hashMapList[5]}, ${hashMapList[6]}]
 
                 }
             ]
         };
+
         var $dashChartLinesData = {
             labels: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
             datasets: [
                 {
                     label: '整体活跃度',
-                    data: [20, 25, 40, 30, 45, 40, 55, 40, 48, 40, 42, 50],
+                    data: [${activity[0]}, ${activity[1]}, ${activity[2]}, ${activity[3]}, ${activity[4]}, ${activity[5]}, ${activity[0]}, ${activity[6]}, ${activity[0]}, ${activity[7]}, ${activity[8]}, ${activity[9]}],
                     borderColor: '#358ed7',
                     backgroundColor: 'rgba(53, 142, 215, 0.175)',
                     borderWidth: 1,

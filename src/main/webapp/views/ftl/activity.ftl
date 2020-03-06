@@ -7,7 +7,7 @@
 <link rel="icon" href="/statics/favicon.ico" type="image/ico">
 <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
 <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-<meta name="author" content="yinqi">
+<meta name="author" content="Defend">
 <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
 <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
 <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
       <#include "layout/header.ftl">
       <li class="dropdown dropdown-profile">
           <a href="javascript:void(0)" data-toggle="dropdown">
-              <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+              <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
               <span>${administrator.username} <span class="caret"></span></span>
           </a>
         <#include "layout/header2.ftl">
