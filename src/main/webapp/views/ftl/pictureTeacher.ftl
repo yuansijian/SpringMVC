@@ -113,8 +113,8 @@
                                           <td>${list.updater}</td>
                                           <td>
                                               <div class="btn-group">
-                                                  <a class="btn btn-xs btn-default" href="#!" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                  <a class="btn btn-xs btn-default" href="#!" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                  <a class="btn btn-xs btn-default" href="/community/editPictureTeacher/${list.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                  <a class="btn btn-xs btn-default" href="/community/deletePictureTeacher/${list.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
                                               </div>
                                           </td>
                                       </tr>

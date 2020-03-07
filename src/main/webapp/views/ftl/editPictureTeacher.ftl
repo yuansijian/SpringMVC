@@ -1,3 +1,4 @@
+<#--noinspection ALL-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
     <script src="/statics/js/jquery.min.js"></script>
 
     <script src="/statics/assets/layer/layer.js" type="text/javascript"></script>
-    <title>新增图文教学 - 后台管理系统</title>
+    <title>编辑图文教学 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Defend">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +32,7 @@
 <div class="lyear-layout-web">
     <div class="lyear-layout-container">
         <!--左侧导航-->
-      <#--<#include "layout/sidebar.ftl">-->
+    <#--<#include "layout/sidebar.ftl">-->
         <!--End 左侧导航-->
 
         <!--头部信息-->
@@ -68,14 +69,16 @@
         </div>
         <!--End 头部信息-->
         <div class="card">
-            <div class="card-header"><h4>添加图文</h4></div>
+            <div class="card-header"><h4>编辑图文</h4></div>
             <div class="card-body">
-                <form  enctype="multipart/form-data" action="/community/pictureTeacherAchieve" method="post">
+                <form  enctype="multipart/form-data" action="/community/updatePictureTeacher" method="post">
                     <ul class='carouselbox'>
                         <div class="col-xs-12">
-                            <input class="form-control" type="text" name="pname" placeholder="标题">
-                            <input class="form-control" type="text" name="description" placeholder="图片描述">
+                            <input class="form-control" type="text" name="pname" value="${pictureTeacher.pname}">
+                            <input class="form-control" type="text" name="description" value="${pictureTeacher.world}">
+                            <input type="hidden" name="id" value="${id}">
                         </div>
+
                     </ul>
                     <div class='preview_footer'>
                         <input type="button" value='添加' id="carouselplus" class="preview_btn" >&nbsp;
@@ -89,7 +92,35 @@
 
 <script type="text/javascript" src="/statics/js/jquery.min.js"></script>
 <script type="text/javascript" src="/statics/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+    let length =${length}
+    <#assign i = 1>
+                <#list pictures as picture>
 
+
+                    $('ul.carouselbox').append(`<li>
+                                <div class="carselhead">第<span>`+${i}+`</span>张：</div>
+                                <div class='carselconborder'>
+                                    <input type="file" name="image" accept="image/png, image/jpeg, image/gif, image/jpg"
+                                           class="carselcon"/>
+                                    <p class="carselplus" style="display: none;">+</p>
+                                    <p style="display: none;">点击上传图片</p>
+                                    <input type="hidden" name="iname" value="${picture}" class="tt">
+                                    <img src="/statics/pictureTeacher/${picture}" alt="" class="previewimg">
+                                </div>
+                                <div class="previewimgbtn">
+                                    <div class="carselcheck carselpreview">预览</div>
+                                    <div class="carselcheck carseldelete">删除</div>
+                                </div>
+                            </li>`);
+                    <#assign i = i + 1>
+                </#list>
+
+
+
+    })
+</script>
 <script>
     //JavaScript代码区域
     $(function () {
@@ -99,6 +130,7 @@
             var srcs = getObjectURL(this.files[0]);   //获取路径
             $(this).siblings('p').hide();//隐藏+号，文字
             $(this).siblings('img').attr("src", srcs);//展示图片
+            $(this).siblings('.tt').remove();
         }
         $("ul").on("click", ".carselpreview",function () { //图片预览
             var imgdiv=$(this).parent('.previewimgbtn').siblings('.carselconborder').children('.previewimg');

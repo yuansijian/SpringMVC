@@ -20,6 +20,7 @@ import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -136,11 +137,16 @@ public class Community
     */
     @RequestMapping("pictureTeacherAchieve")
     public String pictureTeacherAchieve(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
-                                        @RequestParam(value = "description", defaultValue = "")String word)
+                                        @RequestParam(value = "description", defaultValue = "")String word,
+                                        @RequestParam(value = "pname", defaultValue = "")String pname)
     {
         Administrator administrator = (Administrator) session.getAttribute("user");
 
-        if(multipartFile.length > 1)
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String currentDate = simpleDateFormat.format(date);     //当前时间
+
+        if(multipartFile.length >= 1)
         {
 //            System.out.println("111111111111111111");
             Pictureteacher pictureteacher = new Pictureteacher();
@@ -162,7 +168,7 @@ public class Community
                         dir.mkdirs();
                     }
 
-                    File serverFile = new File(dir.getAbsolutePath() + File.separator + multipartFile[i].getOriginalFilename());
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator + (multipartFile[i].getOriginalFilename()));
 
 
                     multipartFile[i].transferTo(serverFile);
@@ -179,15 +185,15 @@ public class Community
             {
                 word = "NULL";
             }
-            Date date = new Date();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
-            String currentDate = simpleDateFormat.format(date);
+
             pictureteacher.setWorld(word);
-            pictureteacher.setPname("1");
+            pictureteacher.setPname(pname);
             pictureteacher.setPictureurl(fileName);
             pictureteacher.setIsDelete(0);
             pictureteacher.setAuthor(administrator.getUsername());
             pictureteacher.setCreatetime(currentDate);
+            pictureteacher.setUpdater(administrator.getUsername());
+            pictureteacher.setUpdatetime(currentDate);
             if(pictureteacherService.insert(pictureteacher) == 0)
             {
                 return "redirect:/error500";
@@ -199,6 +205,216 @@ public class Community
 
         return "redirect:/community/addPictureTeacher";
     }
+
+    /**
+    * @Description: 图文教学删除
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-7
+    */
+    @RequestMapping("deletePictureTeacher/{id}")
+    public String deletePictureTeacher(@PathVariable("id")int id)
+    {
+        Pictureteacher pictureteacher = new Pictureteacher();
+        pictureteacher.setId(id);
+        pictureteacher.setIsDelete(1);
+
+        if(pictureteacherService.updateByPrimaryKeySelective(pictureteacher) == 0)
+        {
+            return "redirect:/error500";
+        }
+
+        return "redirect:/community/pictureTeacher";
+
+    }
+
+    /**
+    * @Description: 图文教学编辑
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-7
+    */
+    @RequestMapping("editPictureTeacher/{id}")
+    public String editPictureTeacher(Model model, HttpSession session, @PathVariable("id")int id)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        Pictureteacher pictureteacher = pictureteacherService.selectByPrimaryKey(id);
+
+        String path = "/statics/pictureTeacher";
+        String temp = pictureteacher.getPictureurl();
+        String picture[] = temp.split(",");
+        int length = picture.length;
+
+        model.addAttribute("administrator", administrator);
+        model.addAttribute("pictures", picture);
+        model.addAttribute("pictureTeacher", pictureteacher);
+        model.addAttribute("length", length);
+        model.addAttribute("id", id);
+
+        System.out.println(length);
+
+        return "editPictureTeacher.ftl";
+    }
+
+    /**
+    * @Description: 更新图文教学
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-7
+    */
+    @RequestMapping("updatePictureTeacher")
+    public String updatePictureTeacher(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
+                                        @RequestParam(value = "description", defaultValue = "")String word,
+                                        @RequestParam(value = "pname", defaultValue = "")String pname,
+                                       @RequestParam(value = "id", defaultValue = "")int id,
+                                       @RequestParam(value = "iname")String iname[])
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String currentDate = simpleDateFormat.format(date);     //当前时间
+
+        System.out.println(iname[0]);
+
+
+        if(multipartFile.length >= 1)
+        {
+
+            //            System.out.println("111111111111111111");
+            Pictureteacher pictureteacher = new Pictureteacher();
+
+            //将图片上传到服务器
+            String fileName = "";
+            for(int i=0; i<multipartFile.length; i++)
+            {
+                if(multipartFile[i].isEmpty())
+                {
+                    continue;
+                }
+
+                fileName = fileName + ","  + multipartFile[i].getOriginalFilename();
+
+                System.out.println(fileName);
+
+                try
+                {
+                    String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/pictureTeacher";
+
+                    File dir = new File(rootPath + File.separator);
+
+                    if(!dir.exists())
+                    {
+                        dir.mkdirs();
+
+                    }
+
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator  + multipartFile[i].getOriginalFilename());
+
+
+                    multipartFile[i].transferTo(serverFile);
+
+                    System.out.println("You successfully uploaded file=" +  multipartFile[i].getOriginalFilename());
+
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            //将上传文件的信息插入数据库
+            if(word.equals(""))
+            {
+                word = "NULL";
+            }
+
+            Pictureteacher temp = pictureteacherService.selectByPrimaryKey(id);
+            String pictureUrl = temp.getPictureurl();
+            String pi[] = pictureUrl.split(",");
+
+            fileName = fileName.substring(1);
+            String []temp1 = fileName.split(",");
+
+            String []arr;
+            if(temp1.length+iname.length > pi.length)
+            {
+                arr = new String[(temp1.length+iname.length)];
+            }
+            else
+            {
+                arr = new String[pi.length];
+            }
+
+
+            int k=0,i=0,j=0;
+            for( ;i<pi.length; i++)
+            {
+                System.out.println(pi[i]);
+//                if(i > temp1.length && i > iname.length)
+//                {
+//                    break;
+//                }
+
+                if(pi[i].equals(iname[j]))
+                {
+                    System.out.println(iname[j]);
+                    arr[i] = pi[i];
+                    j++;
+                }
+                else
+                {
+                    arr[i] = temp1[k];
+                    k++;
+                }
+            }
+            if(k < temp1.length)
+            {
+                for(; k<temp1.length; k++)
+                {
+                    arr[i++] = temp1[k];
+                }
+            }
+
+            pictureUrl = Arrays.toString(arr);
+            pictureUrl = pictureUrl.substring(1, pictureUrl.length()-1);
+            pictureUrl = pictureUrl.replace(" ","");
+            System.out.println(pictureUrl);
+
+            pictureteacher.setId(id);
+            pictureteacher.setWorld(word);
+            pictureteacher.setPname(pname);
+            pictureteacher.setPictureurl(pictureUrl);
+            pictureteacher.setUpdater(administrator.getUsername());
+            pictureteacher.setUpdatetime(currentDate);
+            if(pictureteacherService.updateByPrimaryKeySelective(pictureteacher) == 0)
+            {
+                return "redirect:/error500";
+            }
+
+        }
+
+        model.addAttribute("administrator", administrator);
+
+        return ("redirect:/community/editPictureTeacher/"+String.valueOf(id));
+    }
+    /**
+    * @Description: 查看图片是否已存入服务器
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-7
+    */
+//    private boolean exists(String name, int id)
+//    {
+//        Pictureteacher pictureteacher = pictureteacherService.selectByPrimaryKey(id);
+//        String temp = pictureteacher.getPictureurl();
+//    }
+
+
 
     /**
     * @Description: 文字教学

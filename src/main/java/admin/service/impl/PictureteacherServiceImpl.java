@@ -57,4 +57,30 @@ public class PictureteacherServiceImpl implements PictureteacherService
     {
         return pictureteacherMapper.insert(record);
     }
+
+    /**
+    * @Description: 更新（假删除)
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-7
+    */
+    @Override
+    public int updateByPrimaryKeySelective(Pictureteacher record)
+    {
+        return pictureteacherMapper.updateByPrimaryKeySelective(record);
+    }
+
+    /**
+    * @Description: 查询
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-7
+    */
+    @Override
+    public Pictureteacher selectByPrimaryKey(Integer id)
+    {
+        return pictureteacherMapper.selectByPrimaryKey(id);
+    }
 }
