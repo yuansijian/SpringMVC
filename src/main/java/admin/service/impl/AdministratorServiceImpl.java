@@ -29,4 +29,30 @@ public class AdministratorServiceImpl implements AdministratorService
     {
         return administratorMapper.queryByUsernameAndPassword(username, password);
     }
+
+    /**
+    * @Description: 更新管理员信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-3
+    */
+    @Override
+    public int updateByPrimaryKeySelective(Administrator record)
+    {
+        return administratorMapper.updateByPrimaryKeySelective(record);
+    }
+
+    /**
+    * @Description: 根据主键查找信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-3
+    */
+    @Override
+    public Administrator selectByPrimaryKey(Integer id)
+    {
+        return administratorMapper.selectByPrimaryKey(id);
+    }
 }

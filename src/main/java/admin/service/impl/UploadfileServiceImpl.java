@@ -7,6 +7,8 @@ import admin.service.UploadfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @program: SpringMVC
  * @description: 上传文件
@@ -29,5 +31,57 @@ public class UploadfileServiceImpl implements UploadfileService
     public int insert(Uploadfile record)
     {
         return uploadfileMapper.insert(record);
+    }
+
+    /**
+    * @Description: 查询已上传文件信息
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-5
+    */
+    @Override
+    public List<Uploadfile> queryAll()
+    {
+        return uploadfileMapper.queryAll();
+    }
+
+    /**
+    * @Description: 模糊查询功能
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-5
+    */
+    @Override
+    public List<Uploadfile> fuzzyQuery(String fileName, String startTime, String endTime)
+    {
+        return uploadfileMapper.fuzzyQuery(fileName, startTime, endTime);
+    }
+
+    /**
+    * @Description: 删除文件
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-5
+    */
+    @Override
+    public int deleteByPrimaryKey(Integer id)
+    {
+        return uploadfileMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+    * @Description: 更新上传文件信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-5
+    */
+    @Override
+    public int updateByPrimaryKeySelective(Uploadfile record)
+    {
+        return uploadfileMapper.updateByPrimaryKeySelective(record);
     }
 }

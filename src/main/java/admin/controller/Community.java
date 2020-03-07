@@ -1,16 +1,17 @@
 package admin.controller;
 
-import admin.generator.entity.Administrator;
-import admin.generator.entity.Systempicture;
-import admin.generator.entity.Uploadconfig;
-import admin.generator.entity.Uploadfile;
+import admin.generator.entity.*;
+import admin.service.PictureteacherService;
 import admin.service.SystempictureService;
 import admin.service.UploadconfigService;
 import admin.service.UploadfileService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,6 +19,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -37,6 +41,8 @@ public class Community
     private UploadconfigService uploadconfigService;
     @Autowired
     private UploadfileService uploadfileService;
+    @Autowired
+    private PictureteacherService pictureteacherService;
 
     /**
     * @Description: 用户管理
@@ -78,9 +84,120 @@ public class Community
     * @Date: 20-2-14
     */
     @RequestMapping("pictureTeacher")
-    public String pictureTeacher()
+    public String pictureTeacher(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
+                                 @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "name", defaultValue = "")String pname,
+                                 @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                                 @RequestParam(value = "pageSize", defaultValue = "1")int pageSize)
     {
+        PageHelper.startPage(pageNum, pageSize);
+        if(startTime.equals("1970-01-01") && endTime.equals("1970-01-01")&&pname.equals(""))
+        {
+            List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+            PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+            model.addAttribute("pageInfo", pageInfo);
+
+        }
+        else
+        {
+            List<Pictureteacher> pictureteacherList = pictureteacherService.fuzzySearch(startTime, endTime, pname);
+            PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+            model.addAttribute("pageInfo", pageInfo);
+        }
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
         return "pictureTeacher.ftl";
+    }
+
+    /**
+    * @Description: 新增图文教学
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-6
+    */
+    @RequestMapping("addPictureTeacher")
+    public String addPictureTeacher(Model model, HttpSession session)
+    {
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
+        return "addPictureTeacher.ftl";
+    }
+
+    /**
+    * @Description: 图文教学保存
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-6
+    */
+    @RequestMapping("pictureTeacherAchieve")
+    public String pictureTeacherAchieve(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
+                                        @RequestParam(value = "description", defaultValue = "")String word)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        if(multipartFile.length > 1)
+        {
+//            System.out.println("111111111111111111");
+            Pictureteacher pictureteacher = new Pictureteacher();
+
+
+            //将图片上传到服务器
+            String fileName = "";
+            for(int i=0; i<multipartFile.length; i++)
+            {
+                fileName = fileName + "," + multipartFile[i].getOriginalFilename();
+                try
+                {
+                    String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/pictureTeacher";
+
+                    File dir = new File(rootPath + File.separator);
+
+                    if(!dir.exists())
+                    {
+                        dir.mkdirs();
+                    }
+
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator + multipartFile[i].getOriginalFilename());
+
+
+                    multipartFile[i].transferTo(serverFile);
+
+                    System.out.println("You successfully uploaded file=" +  multipartFile[i].getOriginalFilename());
+
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            //将上传文件的信息插入数据库
+            if(word.equals(""))
+            {
+                word = "NULL";
+            }
+            Date date = new Date();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+            String currentDate = simpleDateFormat.format(date);
+            pictureteacher.setWorld(word);
+            pictureteacher.setPname("1");
+            pictureteacher.setPictureurl(fileName);
+            pictureteacher.setIsDelete(0);
+            pictureteacher.setAuthor(administrator.getUsername());
+            pictureteacher.setCreatetime(currentDate);
+            if(pictureteacherService.insert(pictureteacher) == 0)
+            {
+                return "redirect:/error500";
+            }
+
+        }
+
+        model.addAttribute("administrator", administrator);
+
+        return "redirect:/community/addPictureTeacher";
     }
 
     /**
@@ -242,8 +359,28 @@ public class Community
     * @Date: 20-3-1
     */
     @RequestMapping("uploadFile")
-    public String uploadFile(Model model, HttpSession session)
+    public String uploadFile(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
+                             @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "fileName", defaultValue = "")String fileName,
+                             @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                             @RequestParam(value = "pageSize", defaultValue = "1")int pageSize)
     {
+        PageHelper.startPage(pageNum, pageSize);
+
+        if(startTime.equals("1970-01-01") && endTime.equals("1970-01-01")&&fileName.equals(""))
+        {
+            List<Uploadfile> uploadfileList = uploadfileService.queryAll();
+            PageInfo<Student> pageInfo = new PageInfo(uploadfileList);
+            model.addAttribute("uploadfileList", pageInfo);
+
+        }
+        else
+        {
+            List<Uploadfile> uploadfileList = uploadfileService.fuzzyQuery(fileName, startTime, endTime);
+            PageInfo<Student> pageInfo = new PageInfo(uploadfileList);
+            model.addAttribute("uploadfileList", pageInfo);
+        }
+
+
         Administrator administrator = (Administrator) session.getAttribute("user");
         model.addAttribute("administrator", administrator);
 
@@ -257,11 +394,13 @@ public class Community
     * @Date: 20-3-1
     */
     @RequestMapping("uploadFileAchieve")
-    public String test(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session)
+    public String uploadFileAchieve(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
+                                    @RequestParam("description")String description)
     {
 //        System.out.println(multipartFile + "123");
         Uploadfile uploadfile = new Uploadfile();
 
+        Administrator administrator = (Administrator) session.getAttribute("user");
 
 
         if(!multipartFile.isEmpty())
@@ -280,16 +419,28 @@ public class Community
                 File serverFile = new File(dir.getAbsolutePath() + File.separator + multipartFile.getOriginalFilename());
 
                 //将上传文件的信息插入数据库
+                if(description.equals(""))
+                {
+                    description = "NULL";
+                }
+                Date date = new Date();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+                String currentDate = simpleDateFormat.format(date);
                 uploadfile.setFilename(multipartFile.getOriginalFilename());
                 uploadfile.setFilesize((int)multipartFile.getSize());
                 uploadfile.setFileurl(rootPath);
                 uploadfile.setIsDelete(0);
-                System.out.println(uploadfileService.insert(uploadfile));
+                uploadfile.setAuthor(administrator.getUsername());
+                uploadfile.setUploadtime(currentDate);
+                uploadfile.setDescription(description);
+                if(uploadfileService.insert(uploadfile) == 0)
+                {
+                    return "redirect:/error500";
+                }
 //                System.out.println(uploadfile);
-
                 multipartFile.transferTo(serverFile);
 
-                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+//                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
 
 
             }catch (Exception e){
@@ -297,10 +448,31 @@ public class Community
             }
         }
 
-        Administrator administrator = (Administrator) session.getAttribute("user");
         model.addAttribute("administrator", administrator);
 
-        return "uploadFile.ftl";
+        return "redirect:/community/uploadFile";
+    }
+
+    /**
+    * @Description: 删除上传文件
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-5
+    */
+    @RequestMapping("deleteFile/{id}")
+    public String deleteFile(@PathVariable("id")Integer id)
+    {
+        Uploadfile uploadfile = new Uploadfile();
+        uploadfile.setIsDelete(1);
+        uploadfile.setId(id);
+
+        if(uploadfileService.updateByPrimaryKeySelective(uploadfile) == 0)
+        {
+            return "redirect:/error500";
+        }
+
+        return "redirect:/community/uploadFile";
     }
     
     /**

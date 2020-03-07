@@ -3,6 +3,7 @@ package admin.generator.dao;
 import admin.generator.entity.Teacher;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface TeacherMapper {
@@ -28,4 +29,6 @@ public interface TeacherMapper {
     Teacher adminUpdateEdit(Integer id);
 
     List<Teacher> queryRes(@Param("startTime")String startTime, @Param("endTime")String endTime);
+
+    int queryCountLogin(@Param("startTime")String startTime, @Param("endTime")String endTime);
 }

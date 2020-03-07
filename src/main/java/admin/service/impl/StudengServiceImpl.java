@@ -72,10 +72,11 @@ public class StudengServiceImpl implements StudentService
     * @Date: 20-2-26
     */
     @Override
-    public List<HashMap> registeredQuery(String startTime, String endTime)
+    public List<Integer> registeredQuery(String startTime, String endTime)
     {
         return studentMapper.registeredQuery(startTime, endTime);
     }
+
 
     /**
     * @Description: 按班级查找学生
@@ -192,5 +193,18 @@ public class StudengServiceImpl implements StudentService
     public List<Student> queryRes(String startTime, String endTime)
     {
         return studentMapper.queryRes(startTime, endTime);
+    }
+
+    /**
+    * @Description: 活跃度功能
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-4
+    */
+    @Override
+    public int queryCountLogin(String startTime, String endTime)
+    {
+        return studentMapper.queryCountLogin(startTime, endTime);
     }
 }

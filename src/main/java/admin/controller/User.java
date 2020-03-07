@@ -3,10 +3,13 @@ package admin.controller;
 import admin.generator.entity.Administrator;
 import admin.generator.entity.Student;
 import admin.generator.entity.Teacher;
+import admin.service.AdministratorService;
 import admin.service.StudentService;
 import admin.service.TeacherService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import net.coobird.thumbnailator.Thumbnailator;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,8 +17,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +40,8 @@ public class User
     private StudentService studentService;
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private AdministratorService administratorService;
 
     /**
     * @Description: 新学生
@@ -245,6 +252,29 @@ public class User
 
         return "profile.ftl";
     }
+    /**
+    * @Description: 修改个人信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-3
+    */
+    @RequestMapping("updateProfile")
+    public String updateProfile(Model model, Administrator administrator, HttpSession session)
+    {
+        Administrator temp = (Administrator) session.getAttribute("user");
+        int id = temp.getId();
+        administrator.setId(id);
+        if(administratorService.updateByPrimaryKeySelective(administrator) == 1)
+        {
+//            session.invalidate();
+            administrator = administratorService.selectByPrimaryKey(id);
+            session.setAttribute("user", administrator);
+        }
+
+        return "profile.ftl";
+    }
+
 
     /**
     * @Description: 修改密码
@@ -261,7 +291,84 @@ public class User
 
         return "editPwd.ftl";
     }
-    
+    /**
+    * @Description: 更新密码
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-3
+    */
+    @RequestMapping("updatePwd")
+    public String updatePwd(Model model, HttpSession session,
+                            @RequestParam("newpwd")String newpwd, @RequestParam("oldpwd")String oldpwd)
+    {
+
+        Administrator  administrator = (Administrator) session.getAttribute("user");
+        String pwd = administrator.getPassword();
+        Administrator temp = new Administrator();
+
+        if(pwd.equals(oldpwd))
+        {
+            temp.setPassword(newpwd);
+            temp.setId(administrator.getId());
+            administratorService.updateByPrimaryKeySelective(temp);
+
+            return "redirect:/user/editPwd";
+        }
+
+
+        return "error.html";
+    }
+
+    /**
+    * @Description: 更改头像
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-3
+    */
+    @RequestMapping("changePhoto")
+    public String changePhoto(@RequestParam("imageURL")MultipartFile multipartFile, @RequestParam("id")int id, HttpSession session)
+    {
+        Administrator administrator = new Administrator();
+
+        if(!multipartFile.isEmpty())
+        {
+            try{
+                String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/headerPicture/";
+
+                //获取原文件名
+                String name = multipartFile.getOriginalFilename();
+                //获取扩展名
+                String type = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+                String newFileName = id + "." +type;
+
+                File dir = new File(rootPath + newFileName);
+
+                if(!dir.exists())
+                {
+                    dir.mkdirs();
+                }
+
+                multipartFile.transferTo(dir);
+
+                Thumbnails.of(dir).size(68, 68).keepAspectRatio(false).toFile(dir);
+
+                administrator.setId(id);
+                administrator.setImageurl("/statics/headerPicture/" + newFileName);
+                administratorService.updateByPrimaryKeySelective(administrator);
+
+                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        return "redirect:/user/profile";
+    }
+
     /**
     * @Description: 编辑学生信息
     * @Param: 

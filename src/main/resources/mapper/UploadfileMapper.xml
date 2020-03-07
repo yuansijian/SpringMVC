@@ -28,6 +28,16 @@
     from uploadFile
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="queryAll" resultType="Uploadfile">
+      select id, fileName, uploadTime, description, author,fileSize
+      from uploadFile
+      where is_delete = 0
+  </select>
+  <select id="fuzzyQuery" resultType="Uploadfile">
+      select id, fileName, uploadTime, description, author, fileSize
+      from uploadFile
+      where fileName like #{fileName} or (uploadTime between #{startTime} and #{endTime}) and is_delete = 0
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from uploadFile
     where id = #{id,jdbcType=INTEGER}

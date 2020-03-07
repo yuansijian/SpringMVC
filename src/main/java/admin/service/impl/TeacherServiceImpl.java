@@ -6,6 +6,7 @@ import admin.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -122,5 +123,18 @@ public class TeacherServiceImpl implements TeacherService
     public List<Teacher> queryRes(String startTime, String endTime)
     {
         return teacherMapper.queryRes(startTime, endTime);
+    }
+
+    /**
+    * @Description: 活跃度功能
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-4
+    */
+    @Override
+    public int queryCountLogin(String startTime, String endTime)
+    {
+        return teacherMapper.queryCountLogin(startTime, endTime);
     }
 }
