@@ -74,7 +74,7 @@
       from
       Student
       where stuname like #{conditions} or stunumber like  #{conditions}
-      or stuPhone like #{conditions} or stumail like #{conditions}
+      or stuPhone like #{conditions} or stumail like #{conditions} and is_delete=0
   </select>
   <select id="queryFuzzyRegistered" resultType="Student">
       select *
@@ -83,12 +83,11 @@
       where stuname like #{stuname} or class1=#{stuclass} or
       (registeredTime between #{startTime} and #{endTime})
   </select>
-  <select id="registeredQuery" resultType="hashmap">
-      select registeredTime, count(registeredTime) as registeredCount
+  <select id="registeredQuery" resultType="java.lang.Integer">
+      select count(id)
       from
       Student
       where registeredTime between #{startTime} and #{endTime}
-      group by registeredTime
   </select>
   <select id="queryByClass" resultType="Student">
     select *
@@ -106,6 +105,11 @@
       select *
       from Student
       where stuname like #{stuname} and class1=#{stuclass}
+  </select>
+  <select id="queryCountLogin" resultType="Integer">
+      select IFNULL(sum(loginNumber), 0)as activity
+      from Student
+      where loginTime between #{startTime} and #{endTime}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from Student

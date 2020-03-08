@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="admin.generator.dao.VideoMapper" >
+  <resultMap id="BaseResultMap" type="admin.generator.entity.Video" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+    <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
+    <result column="updateTime" property="updatetime" jdbcType="VARCHAR" />
+    <result column="updater" property="updater" jdbcType="VARCHAR" />
+    <result column="vsizes" property="vsizes" jdbcType="VARCHAR" />
+    <result column="vname" property="vname" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.VideoWithBLOBs" extends="BaseResultMap" >
+    <result column="videoURL" property="videourl" jdbcType="LONGVARCHAR" />
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, is_delete, uploadTime, author, delete_time, updateTime, updater, vsizes, vname
+  </sql>
+  <sql id="Blob_Column_List" >
+    videoURL, description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from video
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryAll" resultType="VideoWithBLOBs">
+      select *
+      from video
+      where is_delete = 0
+  </select>
+  <select id="fuzzyQuery" resultType="VideoWithBLOBs">
+      select *
+      from video
+      where is_delete = 0 and (uploadTime between #{startTime} and #{endTime}) or vname={#vname}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from video
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="admin.generator.entity.VideoWithBLOBs" >
+    insert into video (id, is_delete, uploadTime, 
+      author, delete_time, updateTime, 
+      updater, vsizes, vname, 
+      videoURL, description)
+    values (#{id,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER}, #{uploadtime,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{deleteTime,jdbcType=VARCHAR}, #{updatetime,jdbcType=VARCHAR}, 
+      #{updater,jdbcType=VARCHAR}, #{vsizes,jdbcType=VARCHAR}, #{vname,jdbcType=VARCHAR}, 
+      #{videourl,jdbcType=LONGVARCHAR}, #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="admin.generator.entity.VideoWithBLOBs" >
+    insert into video
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="uploadtime != null" >
+        uploadTime,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="deleteTime != null" >
+        delete_time,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="updater != null" >
+        updater,
+      </if>
+      <if test="vsizes != null" >
+        vsizes,
+      </if>
+      <if test="vname != null" >
+        vname,
+      </if>
+      <if test="videourl != null" >
+        videoURL,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="uploadtime != null" >
+        #{uploadtime,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null" >
+        #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="vsizes != null" >
+        #{vsizes,jdbcType=VARCHAR},
+      </if>
+      <if test="vname != null" >
+        #{vname,jdbcType=VARCHAR},
+      </if>
+      <if test="videourl != null" >
+        #{videourl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.VideoWithBLOBs" >
+    update video
+    <set >
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="uploadtime != null" >
+        uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null" >
+        updater = #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="vsizes != null" >
+        vsizes = #{vsizes,jdbcType=VARCHAR},
+      </if>
+      <if test="vname != null" >
+        vname = #{vname,jdbcType=VARCHAR},
+      </if>
+      <if test="videourl != null" >
+        videoURL = #{videourl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.VideoWithBLOBs" >
+    update video
+    set is_delete = #{isDelete,jdbcType=INTEGER},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      delete_time = #{deleteTime,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=VARCHAR},
+      vsizes = #{vsizes,jdbcType=VARCHAR},
+      vname = #{vname,jdbcType=VARCHAR},
+      videoURL = #{videourl,jdbcType=LONGVARCHAR},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Video" >
+    update video
+    set is_delete = #{isDelete,jdbcType=INTEGER},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      delete_time = #{deleteTime,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=VARCHAR},
+      vsizes = #{vsizes,jdbcType=VARCHAR},
+      vname = #{vname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

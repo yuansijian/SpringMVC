@@ -1,10 +1,7 @@
 package admin.controller;
 
 import admin.generator.entity.*;
-import admin.service.PictureteacherService;
-import admin.service.SystempictureService;
-import admin.service.UploadconfigService;
-import admin.service.UploadfileService;
+import admin.service.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +41,8 @@ public class Community
     private UploadfileService uploadfileService;
     @Autowired
     private PictureteacherService pictureteacherService;
+    @Autowired
+    private VideoService videoService;
 
     /**
     * @Description: 用户管理
@@ -72,9 +71,144 @@ public class Community
     * @Date: 20-2-14
     */
     @RequestMapping("videoTeacher")
-    public String videoTeacher()
+    public String videoTeacher(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
+                               @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "vname", defaultValue = "")String vname,
+                               @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                               @RequestParam(value = "pageSize", defaultValue = "1")int pageSize)
     {
+        PageHelper.startPage(pageNum, pageSize);
+
+        if(startTime.equals("1970-01-01") && endTime.equals("1970-01-01")&&vname.equals(""))
+        {
+            List<VideoWithBLOBs> videoList = videoService.queryAll();
+            PageInfo<Student> pageInfo = new PageInfo(videoList);
+            model.addAttribute("pageInfo", pageInfo);
+
+        }
+        else
+        {
+            List<VideoWithBLOBs> videoList = videoService.fuzzyQuery(startTime, endTime, vname);
+            PageInfo<Student> pageInfo = new PageInfo(videoList);
+            model.addAttribute("pageInfo", pageInfo);
+        }
+
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
         return "videoTeacher.ftl";
+    }
+
+    /**
+    * @Description: 上传视频保存
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-8
+    */
+    @RequestMapping("videoTeacherAchieve")
+    public String videoTeacherAchieve(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
+                                      @RequestParam("description")String description)
+    {
+                System.out.println( "123");
+        VideoWithBLOBs video = new VideoWithBLOBs();
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+
+        if(!multipartFile.isEmpty())
+        {
+            try
+            {
+                String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/video";
+
+                File dir = new File(rootPath + File.separator);
+
+                if(!dir.exists())
+                {
+                    dir.mkdirs();
+                }
+
+                File serverFile = new File(dir.getAbsolutePath() + File.separator + multipartFile.getOriginalFilename());
+
+                //将上传文件的信息插入数据库
+                if(description.equals(""))
+                {
+                    description = "NULL";
+                }
+                Date date = new Date();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+                String currentDate = simpleDateFormat.format(date);
+                video.setAuthor(administrator.getUsername());
+                video.setVname(multipartFile.getOriginalFilename());
+                video.setIsDelete(0);
+                video.setUpdater(administrator.getUsername());
+                video.setUpdatetime(currentDate);
+                video.setUploadtime(currentDate);
+                video.setVsizes(String.valueOf(multipartFile.getSize()));
+                video.setDescription(description);
+                video.setVideourl("/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/video");
+
+                if(videoService.insert(video) == 0)
+                {
+                    return "redirect:/error500";
+                }
+                //                System.out.println(uploadfile);
+                multipartFile.transferTo(serverFile);
+
+                                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        model.addAttribute("administrator", administrator);
+
+        return "redirect:/community/videoTeacher";
+    }
+
+    /**
+    * @Description: 视频预览
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-8
+    */
+    @RequestMapping("videoPreview/{id}")
+    public String videoPreview(Model model, HttpSession session, @PathVariable("id")int id)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        VideoWithBLOBs videoWithBLOBs = videoService.selectByPrimaryKey(id);
+
+        model.addAttribute("administrator", administrator);
+        model.addAttribute("video", videoWithBLOBs);
+
+        return "videoPreview.ftl";
+    }
+
+    /**
+    * @Description: 视频删除
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-8
+    */
+    @RequestMapping("deleteVideo/{id}")
+    public String deleteVideo(@PathVariable("id")int id)
+    {
+        VideoWithBLOBs videoWithBLOBs = new VideoWithBLOBs();
+        videoWithBLOBs.setId(id);
+        videoWithBLOBs.setIsDelete(1);
+
+        if(videoService.updateByPrimaryKeySelective(videoWithBLOBs) == 0)
+        {
+            return "redirect:/error500";
+        }
+
+        return "redirect:/community/videoTeacher";
     }
 
     /**

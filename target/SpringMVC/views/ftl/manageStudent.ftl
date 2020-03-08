@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>教师中心-学生管理</title>
 <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-<meta name="keywords" content="Defend的后台管理">
-<meta name="author" content="YSJ">
+<meta name="author" content="Defend">
 <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
 <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
 <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -38,7 +37,7 @@
                   <ul class="topbar-right">
                       <li class="dropdown dropdown-profile">
                           <a href="javascript:void(0)" data-toggle="dropdown">
-                              <img class="img-avatar img-avatar-48 m-r-10" src="/statics/images/users/avatar.jpg" alt="笔下光年" />
+                              <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
                               <span>${administrator.username} <span class="caret"></span></span>
                               <!--切换主题配色-->
                           </a>

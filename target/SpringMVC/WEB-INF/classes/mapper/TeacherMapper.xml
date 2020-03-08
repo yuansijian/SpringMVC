@@ -68,6 +68,11 @@
       teacher
       where teaname like #{teaname} or (registeredTime between #{startTime} and #{endTime})
   </select>
+  <select id="queryCountLogin" resultType="Integer">
+      select sum(loginNumber)
+      from teacher
+      where loginTime between #{startTime} and #{endTime};
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from teacher
     where id = #{id,jdbcType=INTEGER}

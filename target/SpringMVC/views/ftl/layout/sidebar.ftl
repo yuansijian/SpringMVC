@@ -39,18 +39,18 @@
                                 <ul class="nav nav-subnav">
                                     <li> <a href="/community/videoTeacher">视频教学</a> </li>
                                     <li> <a href="/community/pictureTeacher">图文教学</a> </li>
-                                    <li> <a href="/community/wordTeacher">文字教学</a> </li>
+                                    <#--<li> <a href="/community/wordTeacher">文字教学</a> </li>-->
                                 </ul>
                             </li>
                             <li class="nav-item nav-item-has-subnav">
                                 <a href="#!">练习部分</a>
                                 <ul class="nav nav-subnav">
                                     <li> <a href="/community/shortAnswerDatabase">简答题库</a> </li>
-                                    <li> <a href="/community/chooseDatabase.ftl">选择题库</a> </li>
+                                    <#--<li> <a href="/community/chooseDatabase.ftl">选择题库</a> </li>-->
                                 </ul>
                             </li>
                             <li class="nav-item nav-item-has-subnav">
-                                <a href="/community/uploadFile">上传文件</a>
+                                <a href="/community/uploadFile?pageNum=1&pageSize=1">上传文件</a>
                             </li>
                         </ul>
                     </li>
