@@ -9,6 +9,36 @@
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <!--日期选择插件-->
+    <link rel="stylesheet" href="/statics/js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+    <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script>
+        function deleteTea(id, vname)
+        {
+            if(confirm("是否删除"+vname+"这个教师"))
+            {
+
+                //   通过ajax请求springmvc
+                $.ajax({
+                    type:"POST",
+                    url:"/user/deleteTeacher/" + id,
+                    success:function (data) {
+                        if(data === 1)
+                        {
+                            alert("删除成功");
+                            location.reload();
+                        }
+                        else
+                        {
+                            alert("删除失败");
+                        }
+                    }
+                })
+            }
+        }
+
+    </script>
+
 </head>
 
 <body>
@@ -65,12 +95,11 @@
                                         <#--&nbsp;&nbsp;-->
 
                                             注册时间：
-                                            <input type="text" name="registeredStartTime" style="width: 150px;" placeholder="">
-                                            &nbsp;&nbsp;
-                                            注册时间：
-                                            <input type="text" name="registeredEndTime" style="width: 150px;" placeholder="">
+                                            <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text" style="width: 150px;" id="registeredStartTime" name="registeredStartTime" placeholder="从">
+                                            &nbsp;&nbsp;===>
+                                            <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"  style="width: 150px;" id="registeredEndTime" name="registeredEndTime" placeholder="至">
                                             <input type="submit" class="btn btn-primary" value="搜索" />
-                                            <a class="btn btn-danger" href="/user/teacherInformation?pageNUm=1&pageSize=1">清空</a>
+                                            <a class="btn btn-danger" href="/user/teacherInformation">清空</a>
                                         </form>
                                     <#--<div class="toolbar-btn-action">-->
                                     <#--<a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>-->
@@ -93,9 +122,9 @@
                                                     <th>编号</th>
                                                     <th>姓名</th>
                                                     <th>用户名</th>
-                                                    <#--<th>年级</th>-->
-                                                    <#--<th>班级</th>-->
-                                                    <th>电话号码</th>
+                                                    <th>教学年级班级</th>
+                                                    <#--<th>教学班级</th>-->
+                                                    <#--<th>电话号码</th>-->
                                                     <th>邮箱</th>
                                                     <th>登录次数</th>
                                                     <th>性别</th>
@@ -117,12 +146,19 @@
                                                       <td >${teacher.id}</td>
                                                       <td>${teacher.teaname}</td>
                                                       <td>${teacher.username}</td>
-                                                      <#--<td>${teacher.grade}</td>-->
-                                                      <#--<td>${teacher.class1}</td>-->
+                                                      <td>${teacher.grade}</td>
+                                                      <#--<td>${teacher.classes}</td>-->
                                                       <#--<td>${teacher.stuphone}</td>-->
                                                       <#--<td>${teacher.stumail}</td>-->
+                                                      <td>${teacher.teamail}</td>
                                                       <td>${teacher.loginnumber}</td>
-                                                      <td>${teacher.sex}</td>
+                                                      <td>
+                                                          <#if teacher.sex == 1>
+                                                              男
+                                                          <#else>
+                                                                女
+                                                          </#if>
+                                                      </td>
                                                       <td>${teacher.logintime}</td>
                                                       <td>${teacher.endtime}</td>
                                                       <td>${teacher.registeredtime}</td>
@@ -130,7 +166,7 @@
                                                       <td>
                                                           <div class="btn-group">
                                                               <a class="btn btn-xs btn-default" href="/user/editTeacherInfo/${teacher.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                              <a class="btn btn-xs btn-default" href="/user/deleteTeacher/${teacher.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                              <a class="btn btn-xs btn-default" onclick="deleteTea(${teacher.id}, '${teacher.username}')" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
                                                           </div>
                                                       </td>
                                                   </tr>
@@ -149,7 +185,7 @@
                                                     </li>
                                                 <#else>
                                                     <li>
-                                                        <a href="/user/teacherInformation?pageNum=${teacherList.firstPage}&pageSize=1">
+                                                        <a href="/user/teacherInformation?pageNum=${teacherList.firstPage}&pageSize=10">
                                                             <span><i class="mdi mdi-chevron-left"></i></span>
                                                         </a>
                                                     </li>
@@ -160,30 +196,30 @@
                                             <#elseif (teacherList.pages==1)>
                                                     <li class="active disabled" ><a href="#!">1</a></li>
                                             <#elseif (teacherList.pages==2)>
-                                                    <li class="active"><a href="/user/teacherInformation?pageNum=1&pageSize=1">1</a></li>
-                                                    <li><a href="/user/teacherInformation?pageNum=2&pageSize=1">2</a></li>
+                                                    <li class="active"><a href="/user/teacherInformation?pageNum=1&pageSize=10">1</a></li>
+                                                    <li><a href="/user/teacherInformation?pageNum=2&pageSize=10">2</a></li>
                                             <#elseif (teacherList.pages == 3)>
-                                                    <li class="active"><a href="/user/teacherInformation?pageNum=1&pageSize=1">1</a></li>
+                                                    <li class="active"><a href="/user/teacherInformation?pageNum=1&pageSize=10">1</a></li>
                                                     <li><a href="#!"></a></li>
-                                                    <li><a href="/user/teacherInformation?pageNum=2&pageSize=1">2</a></li>
-                                                    <li><a href="/user/teacherInformation?pageNum=3&pageSize=1">3</a></li>
+                                                    <li><a href="/user/teacherInformation?pageNum=2&pageSize=10">2</a></li>
+                                                    <li><a href="/user/teacherInformation?pageNum=3&pageSize=10">3</a></li>
                                             <#else>
                                                 <#if teacherList.isFirstPage>
-                                                        <li class="active"><a href="/user/teacherInformation?pageNum=1&pageSize=1">1</a></li>
-                                                        <li><a href="/user/teacherInformation?pageNum=2&pageSize=1">2</a></li>
-                                                        <li><a href="/user/teacherInformation?pageNum=3&pageSize=1">3</a></li>
+                                                        <li class="active"><a href="/user/teacherInformation?pageNum=1&pageSize=10">1</a></li>
+                                                        <li><a href="/user/teacherInformation?pageNum=2&pageSize=10">2</a></li>
+                                                        <li><a href="/user/teacherInformation?pageNum=3&pageSize=10">3</a></li>
                                                 <#else>
                                                     <#if teacherList.hasPreviousPage>
-                                                            <li><a href="/user/teacherInformation?pageNum=${teacherList.prePage}&pageSize=1">${teacherList.prePage}</a></li>
+                                                            <li><a href="/user/teacherInformation?pageNum=${teacherList.prePage}&pageSize=10">${teacherList.prePage}</a></li>
                                                     <#else>
                                                             <li><a href="#!">${teacherList.pageNum}</a></li>
                                                     </#if>
-                                                        <li class="active"><a href="/user/teacherInformation?pageNum=2&pageSize=1">${teacherList.pageNum}</a></li>
+                                                        <li class="active"><a href="/user/teacherInformation?pageNum=2&pageSize=10">${teacherList.pageNum}</a></li>
                                                     <#if teacherList.hasNextPage>
-                                                            <li><a href="/user/teacherInformation?pageNum=${teacherList.nextPage}&pageSize=1">${teacherList.nextPage}</a></li>
+                                                            <li><a href="/user/teacherInformation?pageNum=${teacherList.nextPage}&pageSize=10">${teacherList.nextPage}</a></li>
                                                     <#else>
-                                                    <#--<li><a href="/user/teacherInformation?pageNum=${teacher.prePage}&pageSize=1">${teacher.prePage - 1}</a></li>-->
-                                                    <#--<li><a href="/user/teacherInformation?pageNum=${teacher.prePage}&pageSize=1">${teacher.prePage}</a></li>-->
+                                                    <#--<li><a href="/user/teacherInformation?pageNum=${teacher.prePage}&pageSize=10">${teacher.prePage - 1}</a></li>-->
+                                                    <#--<li><a href="/user/teacherInformation?pageNum=${teacher.prePage}&pageSize=10">${teacher.prePage}</a></li>-->
                                                     <#--<li><a href="#!">${teacher.pageNum}</a></li>-->
                                                     </#if>
                                                 </#if>
@@ -198,7 +234,7 @@
                                                 </li>
                                             <#else>
                                                 <li>
-                                                    <a href="/user/teacherInformation?pageNum=${teacherList.lastPage}&pageSize=1">
+                                                    <a href="/user/teacherInformation?pageNum=${teacherList.lastPage}&pageSize=10">
                                                         <span><i class="mdi mdi-chevron-right"></i></span>
                                                     </a>
                                                 </li>
@@ -225,5 +261,9 @@
 <script type="text/javascript" src="/statics/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/statics/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/statics/js/main.min.js"></script>
+<!--日期选择插件-->
+<script src="/statics/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/statics/js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<#--<script type="text/javascript" src="/statics/js/main.min.js"></script>-->
 </body>
 </html>

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>新学生 - 后台管理系统</title>
-<link rel="icon" href="/statics/favicon.ico" type="image/ico">
-<meta name="author" content="Defend">
-<link href="/statics/css/bootstrap.min.css" rel="stylesheet">
-<link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="/statics/css/style.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>新学生 - 后台管理系统</title>
+    <link rel="icon" href="/statics/favicon.ico" type="image/ico">
+    <meta name="author" content="Defend">
+    <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="/statics/css/style.min.css" rel="stylesheet">
+    <!--日期选择插件-->
+    <link rel="stylesheet" href="/statics/js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+    <link href="/statics/css/style.min.css" rel="stylesheet">
 </head>
   
 <body>
@@ -58,7 +61,7 @@
                                   <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">选择<span class="caret"></span></a>
                                   <ul class="dropdown-menu" id="myTabDrop1-contents">
                                       <li><a href="#student" id="student-tab" data-toggle="tab">学生</a></li>
-                                      <li><a href="/user/newTeacher?pageNum=1&pageSize=1">教师</a></li>
+                                      <li><a href="/user/newTeacher?pageNum=1&pageSize=10">教师</a></li>
                                   </ul>
                               </li>
                           </ul>
@@ -74,12 +77,11 @@
                                           &nbsp;&nbsp;
 
                                           注册时间：
-                                          <input type="text" name="registeredStartTime" style="width: 150px;" placeholder="">
-                                          &nbsp;&nbsp;
-                                          注册时间：
-                                          <input type="text" name="registeredEndTime" style="width: 150px;" placeholder="">
+                                          <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text" style="width: 150px;" id="registeredStartTime" name="registeredStartTime" placeholder="从">
+                                          &nbsp;&nbsp;===>
+                                          <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"  style="width: 150px;" id="registeredEndTime" name="registeredEndTime" placeholder="至">
                                           <input type="submit" class="btn btn-primary" value="搜索" />
-                                          <a class="btn btn-danger" href="/user/newStudent?pageNum=1&pageSize=1">返回</a>
+                                          <a class="btn btn-danger" href="/user/newStudent">返回</a>
                                       </form>
                                   <#--<div class="toolbar-btn-action">-->
                                   <#--<a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>-->
@@ -142,7 +144,7 @@
                                             </li>
                                         <#else>
                                             <li>
-                                                <a href="/user/newStudent?pageNum=${studentList.firstPage}&pageSize=1">
+                                                <a href="/user/newStudent?pageNum=${studentList.firstPage}&pageSize=10">
                                                     <span><i class="mdi mdi-chevron-left"></i></span>
                                                 </a>
                                             </li>
@@ -153,30 +155,30 @@
                                         <#elseif (studentList.pages==1)>
                                             <li class="active disabled" ><a href="#!">1</a></li>
                                         <#elseif (studentList.pages==2)>
-                                            <li class="active"><a href="/user/newStudent?pageNum=1&pageSize=1">1</a></li>
-                                            <li><a href="/user/newStudent?pageNum=2&pageSize=1">2</a></li>
+                                            <li class="active"><a href="/user/newStudent?pageNum=1&pageSize=10">1</a></li>
+                                            <li><a href="/user/newStudent?pageNum=2&pageSize=10">2</a></li>
                                         <#elseif (studentList.pages == 3)>
-                                            <li class="active"><a href="/user/newStudent?pageNum=1&pageSize=1">1</a></li>
+                                            <li class="active"><a href="/user/newStudent?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="#!"></a></li>
-                                            <li><a href="/user/newStudent?pageNum=2&pageSize=1">2</a></li>
-                                            <li><a href="/user/newStudent?pageNum=3&pageSize=1">3</a></li>
+                                            <li><a href="/user/newStudent?pageNum=2&pageSize=10">2</a></li>
+                                            <li><a href="/user/newStudent?pageNum=3&pageSize=10">3</a></li>
                                         <#else>
                                             <#if studentList.isFirstPage>
-                                                <li class="active"><a href="/user/newStudent?pageNum=1&pageSize=1">1</a></li>
-                                                <li><a href="/user/newStudent?pageNum=2&pageSize=1">2</a></li>
-                                                <li><a href="/user/newStudent?pageNum=3&pageSize=1">3</a></li>
+                                                <li class="active"><a href="/user/newStudent?pageNum=1&pageSize=10">1</a></li>
+                                                <li><a href="/user/newStudent?pageNum=2&pageSize=10">2</a></li>
+                                                <li><a href="/user/newStudent?pageNum=3&pageSize=10">3</a></li>
                                             <#else>
                                                 <#if studentList.hasPreviousPage>
-                                                    <li><a href="/user/newStudent?pageNum=${studentList.prePage}&pageSize=1">${studentList.prePage}</a></li>
+                                                    <li><a href="/user/newStudent?pageNum=${studentList.prePage}&pageSize=10">${studentList.prePage}</a></li>
                                                 <#else>
                                                     <li><a href="#!">${studentList.pageNum}</a></li>
                                                 </#if>
-                                                <li class="active"><a href="/user/newStudent?pageNum=2&pageSize=1">${studentList.pageNum}</a></li>
+                                                <li class="active"><a href="/user/newStudent?pageNum=2&pageSize=10">${studentList.pageNum}</a></li>
                                                 <#if studentList.hasNextPage>
-                                                    <li><a href="/user/newStudent?pageNum=${studentList.nextPage}&pageSize=1">${studentList.nextPage}</a></li>
+                                                    <li><a href="/user/newStudent?pageNum=${studentList.nextPage}&pageSize=10">${studentList.nextPage}</a></li>
                                                 <#else>
-                                                <#--<li><a href="/user/newStudent?pageNum=${studentList.prePage}&pageSize=1">${studentList.prePage - 1}</a></li>-->
-                                                <#--<li><a href="/user/newStudent?pageNum=${studentList.prePage}&pageSize=1">${studentList.prePage}</a></li>-->
+                                                <#--<li><a href="/user/newStudent?pageNum=${studentList.prePage}&pageSize=10">${studentList.prePage - 1}</a></li>-->
+                                                <#--<li><a href="/user/newStudent?pageNum=${studentList.prePage}&pageSize=10">${studentList.prePage}</a></li>-->
                                                 <#--<li><a href="#!">${studentList.pageNum}</a></li>-->
                                                 </#if>
                                             </#if>
@@ -191,7 +193,7 @@
                                                 </li>
                                           <#else>
                                                 <li>
-                                                    <a href="/user/newStudent?pageNum=${studentList.lastPage}&pageSize=1">
+                                                    <a href="/user/newStudent?pageNum=${studentList.lastPage}&pageSize=10">
                                                         <span><i class="mdi mdi-chevron-right"></i></span>
                                                     </a>
                                                 </li>
@@ -218,5 +220,9 @@
 <script type="text/javascript" src="/statics/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/statics/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/statics/js/main.min.js"></script>
+<!--日期选择插件-->
+<script src="/statics/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/statics/js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<#--<script type="text/javascript" src="/statics/js/main.min.js"></script>-->
 </body>
 </html>

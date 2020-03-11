@@ -31,7 +31,7 @@ public interface StudentMapper {
 
     int queryCountLogin(@Param("startTime")String startTime, @Param("endTime")String endTime);
 
-    List<Student> queryFuzzyRegistered(@Param("stuname")String stuname, @Param("stuclass")String stuclass, @Param("startTime")String startTime, @Param("endTime")String endTime);
+    List<Student> queryFuzzyRegistered(@Param("stuname")String stuname, @Param("stuclass")String stuclass, @Param("stugrade")String stugrade, @Param("startTime")String startTime, @Param("endTime")String endTime);
 
     int updateByPrimaryKeySelective(Student record);
 
@@ -42,4 +42,6 @@ public interface StudentMapper {
     Student adminUpdateSelect(Integer id);
 
     List<Student> queryRes(@Param("startTime")String startTime, @Param("endTime")String endTime);
+
+    List<Integer> queryClass();
 }

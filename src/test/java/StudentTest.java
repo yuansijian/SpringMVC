@@ -29,7 +29,7 @@ public class StudentTest extends BaseTest
     public void testFuzzySerach() throws Exception
     {
         String test = null;
-        System.out.println(studentMapper.queryFuzzyRegistered("袁思健","", "1970-01-01", "1970-01-01"));
+//        System.out.println(studentMapper.queryFuzzyRegistered("袁思健","", "1970-01-01", "1970-01-01"));
     }
     @Test
     public void page() throws Exception

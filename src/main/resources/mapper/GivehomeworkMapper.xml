@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="admin.generator.dao.GivehomeworkMapper" >
+  <resultMap id="BaseResultMap" type="admin.generator.entity.Givehomework" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
+    <result column="id_delete" property="idDelete" jdbcType="INTEGER" />
+    <result column="updateTime" property="updatetime" jdbcType="VARCHAR" />
+    <result column="updater" property="updater" jdbcType="VARCHAR" />
+    <result column="endTime" property="endtime" jdbcType="VARCHAR" />
+    <result column="startTime" property="starttime" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Givehomework" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, author, create_time, delete_time, id_delete, updateTime, updater, endTime, startTime,
+    title
+  </sql>
+  <sql id="Blob_Column_List" >
+    description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from giveHomework
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryAll" resultType="Givehomework">
+    select *
+    from giveHomework
+    where id_delete = 0
+  </select>
+  <select id="fuzzyQuery" resultType="Givehomework">
+    select *
+    from giveHomework
+    where title like #{homeworkname} or (startTime between #{startTime} and #{endTime}) and id_delete = 0
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from giveHomework
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="admin.generator.entity.Givehomework" >
+    insert into giveHomework (id, author, create_time,
+      delete_time, id_delete, updateTime,
+      updater, endTime, startTime,
+      title, description)
+    values (#{id,jdbcType=INTEGER}, #{author,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR},
+      #{deleteTime,jdbcType=VARCHAR}, #{idDelete,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR},
+      #{updater,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR},
+      #{title,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="admin.generator.entity.Givehomework" >
+    insert into giveHomework
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteTime != null" >
+        delete_time,
+      </if>
+      <if test="idDelete != null" >
+        id_delete,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="updater != null" >
+        updater,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=VARCHAR},
+      </if>
+      <if test="idDelete != null" >
+        #{idDelete,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null" >
+        #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Givehomework" >
+    update giveHomework
+    <set >
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+      </if>
+      <if test="idDelete != null" >
+        id_delete = #{idDelete,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="updater != null" >
+        updater = #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Givehomework" >
+    update giveHomework
+    set author = #{author,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      delete_time = #{deleteTime,jdbcType=VARCHAR},
+      id_delete = #{idDelete,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Givehomework" >
+    update giveHomework
+    set author = #{author,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      delete_time = #{deleteTime,jdbcType=VARCHAR},
+      id_delete = #{idDelete,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      updater = #{updater,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

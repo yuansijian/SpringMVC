@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header"><a href="/community/videoTeacher"><h4>返回</h4></a> </div>
+                            <div class="card-header"><a href="javascript:history.go(-1);"><h4>返回</h4></a> </div>
                             <div class="card-body">
                                 <video width="780" height="585" controls>
                                     <source src="/statics/video/${video.vname}" type="video/mp4">

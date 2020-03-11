@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="admin.generator.dao.HomeworkMapper" >
+  <resultMap id="BaseResultMap" type="admin.generator.entity.Homework" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stuname" property="stuname" jdbcType="VARCHAR" />
+    <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR" />
+    <result column="updateTime" property="updatetime" jdbcType="VARCHAR" />
+    <result column="student" property="student" jdbcType="VARCHAR" />
+    <result column="teacher" property="teacher" jdbcType="VARCHAR" />
+    <result column="givehomeid" property="givehomeid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.HomeworkWithBLOBs" extends="BaseResultMap" >
+    <result column="fileURL" property="fileurl" jdbcType="LONGVARCHAR" />
+    <result column="comment" property="comment" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stuname, uploadTime, updateTime, student, teacher, givehomeid, title
+  </sql>
+  <sql id="Blob_Column_List" >
+    fileURL, comment
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from homework
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryAll" resultMap="ResultMapWithBLOBs">
+    select *
+    from homework
+    order by givehomeid desc
+  </select>
+  <select id="fuzzyQuery" resultMap="ResultMapWithBLOBs">
+    select *
+    from homework
+    where stuname like #{stuname} or title like #{homeworkname} or (uploadTime between #{startTime} and #{endTime})
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from homework
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="admin.generator.entity.HomeworkWithBLOBs" >
+    insert into homework (id, stuname, uploadTime, 
+      updateTime, student, teacher, 
+      givehomeid, title, fileURL, 
+      comment)
+    values (#{id,jdbcType=INTEGER}, #{stuname,jdbcType=VARCHAR}, #{uploadtime,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=VARCHAR}, #{student,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, 
+      #{givehomeid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{fileurl,jdbcType=LONGVARCHAR}, 
+      #{comment,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="admin.generator.entity.HomeworkWithBLOBs" >
+    insert into homework
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stuname != null" >
+        stuname,
+      </if>
+      <if test="uploadtime != null" >
+        uploadTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="student != null" >
+        student,
+      </if>
+      <if test="teacher != null" >
+        teacher,
+      </if>
+      <if test="givehomeid != null" >
+        givehomeid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="fileurl != null" >
+        fileURL,
+      </if>
+      <if test="comment != null" >
+        comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stuname != null" >
+        #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null" >
+        #{uploadtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="student != null" >
+        #{student,jdbcType=VARCHAR},
+      </if>
+      <if test="teacher != null" >
+        #{teacher,jdbcType=VARCHAR},
+      </if>
+      <if test="givehomeid != null" >
+        #{givehomeid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="fileurl != null" >
+        #{fileurl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.HomeworkWithBLOBs" >
+    update homework
+    <set >
+      <if test="stuname != null" >
+        stuname = #{stuname,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadtime != null" >
+        uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="student != null" >
+        student = #{student,jdbcType=VARCHAR},
+      </if>
+      <if test="teacher != null" >
+        teacher = #{teacher,jdbcType=VARCHAR},
+      </if>
+      <if test="givehomeid != null" >
+        givehomeid = #{givehomeid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="fileurl != null" >
+        fileURL = #{fileurl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="comment != null" >
+        comment = #{comment,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.HomeworkWithBLOBs" >
+    update homework
+    set stuname = #{stuname,jdbcType=VARCHAR},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      student = #{student,jdbcType=VARCHAR},
+      teacher = #{teacher,jdbcType=VARCHAR},
+      givehomeid = #{givehomeid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      fileURL = #{fileurl,jdbcType=LONGVARCHAR},
+      comment = #{comment,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Homework" >
+    update homework
+    set stuname = #{stuname,jdbcType=VARCHAR},
+      uploadTime = #{uploadtime,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=VARCHAR},
+      student = #{student,jdbcType=VARCHAR},
+      teacher = #{teacher,jdbcType=VARCHAR},
+      givehomeid = #{givehomeid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

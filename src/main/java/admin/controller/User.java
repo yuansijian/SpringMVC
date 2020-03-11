@@ -13,10 +13,7 @@ import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
@@ -51,12 +48,12 @@ public class User
     * @Date: 20-2-14
     */
     @RequestMapping("newStudent")
-    public String newuser(@RequestParam(value = "stuname", defaultValue = "")String stuname , Model model,
+    public String newStudent(@RequestParam(value = "stuname", defaultValue = "")String stuname , Model model,
                           @RequestParam(value = "stuclass", defaultValue = "")String stuclass,
                           @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                           @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                           @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                          @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
+                          @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -82,7 +79,7 @@ public class User
         else
         {
 
-            List<Student> studentList = studentService.queryFuzzyRegistered(stuname, stuclass, startTime, endTime);
+            List<Student> studentList = studentService.queryFuzzyRegistered(stuname, stuclass,"", startTime, endTime);
             PageInfo<Student> pageInfo1 = new PageInfo(studentList);
             model.addAttribute("studentList", pageInfo1);
         }
@@ -106,7 +103,7 @@ public class User
                              @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                              @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                              @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                             @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
+                             @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -162,13 +159,14 @@ public class User
                                      @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                                      @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                                      @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                     @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
+                                     @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session,
+                                     @RequestParam(value = "stugrade", defaultValue = "")String stugrade)
     {
         PageHelper.startPage(pageNum, pageSize);
 
         //        System.out.println(stuname+stuclass+startTime+endTime + teaname);
 
-        if(stuname.equals("")&&stuclass.equals("")&&startTime.equals("1970-01-01")&&endTime.equals("1970-01-01"))
+        if(stuname.equals("")&&stuclass.equals("")&&startTime.equals("1970-01-01")&&endTime.equals("1970-01-01")&&stugrade.equals(""))
         {
             List<Student> studentList = studentService.queryAll();
             PageInfo<Student> pageInfo1 = new PageInfo(studentList);
@@ -177,7 +175,7 @@ public class User
         else
         {
 
-            List<Student> studentList = studentService.queryFuzzyRegistered(stuname, stuclass, startTime, endTime);
+            List<Student> studentList = studentService.queryFuzzyRegistered(stuname, stuclass, stugrade,startTime, endTime);
             PageInfo<Student> pageInfo1 = new PageInfo(studentList);
             model.addAttribute("studentList", pageInfo1);
         }
@@ -200,7 +198,7 @@ public class User
                                      @RequestParam(value = "registeredStartTime",defaultValue = "1970-01-01")String startTime,
                                      @RequestParam(value = "registeredEndTime", defaultValue = "1970-01-01")String endTime,
                                      @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                     @RequestParam(value = "pageSize", defaultValue = "2")int pageSize, HttpSession session)
+                                     @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -397,22 +395,23 @@ public class User
     * @Author: Defend
     * @Date: 20-2-28
     */
+    @ResponseBody
     @RequestMapping("updateStudentInfo/{id}")
-    public String updateStudentInfo(Student student, @PathVariable("id")int id, Model model, HttpSession session)
+    public int updateStudentInfo(Student student, @PathVariable("id")int id, Model model, HttpSession session)
     {
 //        System.out.println(student);
 //        System.out.println(id);
         student.setId(id);
-        System.out.println(studentService.updateByPrimaryKeySelective(student));
+        return studentService.updateByPrimaryKeySelective(student);
 
-        student = studentService.adminUpdateSelect(id);
-
-        Administrator administrator = (Administrator) session.getAttribute("user");
-        model.addAttribute("administrator", administrator);
-
-        model.addAttribute("student", student);
-
-        return "editStudentInfo.ftl";
+//        student = studentService.adminUpdateSelect(id);
+//
+//        Administrator administrator = (Administrator) session.getAttribute("user");
+//        model.addAttribute("administrator", administrator);
+//
+//        model.addAttribute("student", student);
+//
+//        return "editStudentInfo.ftl";
     }
 
     /**
@@ -422,26 +421,27 @@ public class User
     * @Author: Defend
     * @Date: 20-2-28
     */
+    @ResponseBody
     @RequestMapping("deleteStudent/{id}")
-    public String deleteStudent(@PathVariable("id")Integer id, Model model, HttpSession session)
+    public int deleteStudent(@PathVariable("id")Integer id, Model model, HttpSession session)
     {
 
-        PageHelper.startPage(1, 1);
+//        PageHelper.startPage(1, 10);
 
         Student student = new Student();
         student.setId(id);
         student.setIsDelete(1);
-        studentService.updateByPrimaryKeySelective(student);
+        return studentService.updateByPrimaryKeySelective(student);
 
-        List<Student> studentList = studentService.queryAll();
-        PageInfo<Student> pageInfo1 = new PageInfo(studentList);
+//        List<Student> studentList = studentService.queryAll();
+//        PageInfo<Student> pageInfo1 = new PageInfo(studentList);
+//
+//        Administrator administrator = (Administrator) session.getAttribute("user");
+//        model.addAttribute("administrator", administrator);
+//        model.addAttribute("studentList", pageInfo1);
 
-        Administrator administrator = (Administrator) session.getAttribute("user");
-        model.addAttribute("administrator", administrator);
-        model.addAttribute("studentList", pageInfo1);
 
-
-        return "newStudent.ftl";
+//        return "newStudent.ftl";
     }
 
     /**
@@ -471,20 +471,23 @@ public class User
     * @Author: Defend
     * @Date: 20-2-28
     */
+    @ResponseBody
     @RequestMapping("updateTeacherInfo/{id}")
-    public String updateTeacherInfo(Teacher teacher, @PathVariable("id")Integer id, Model model, HttpSession session)
+    public int updateTeacherInfo(Teacher teacher, @PathVariable("id")Integer id, Model model, HttpSession session)
     {
         teacher.setId(id);
-        teacherService.updateByPrimaryKeySelective(teacher);
 
-        teacher = teacherService.adminUpdateEdit(id);
+        return teacherService.updateByPrimaryKeySelective(teacher);
 
-        Administrator administrator = (Administrator) session.getAttribute("user");
-        model.addAttribute("administrator", administrator);
 
-        model.addAttribute("teacher", teacher);
-
-        return "editTeacherInfo.ftl";
+        //        teacher = teacherService.adminUpdateEdit(id);
+//
+//        Administrator administrator = (Administrator) session.getAttribute("user");
+//        model.addAttribute("administrator", administrator);
+//
+//        model.addAttribute("teacher", teacher);
+//
+//        return "editTeacherInfo.ftl";
     }
 
     /**
@@ -494,24 +497,25 @@ public class User
     * @Author: Defend
     * @Date: 20-2-28
     */
+    @ResponseBody
     @RequestMapping("deleteTeacher/{id}")
-    public String deleteTeacher(@PathVariable("id")Integer id, Model model, HttpSession session)
+    public int deleteTeacher(@PathVariable("id")Integer id, Model model, HttpSession session)
     {
         Teacher teacher = new Teacher();
         teacher.setId(id);
         teacher.setIsDelete(1);
-        teacherService.updateByPrimaryKeySelective(teacher);
+        return teacherService.updateByPrimaryKeySelective(teacher);
 
-        PageHelper.startPage(1, 1);
-
-        List<Teacher> teacherList = teacherService.queryAll();
-        PageInfo<Student> pageInfo2 = new PageInfo(teacherList);
-
-        Administrator administrator = (Administrator) session.getAttribute("user");
-        model.addAttribute("administrator", administrator);
-        model.addAttribute("teacherList", pageInfo2);
-
-        return "newTeacher.ftl";
+//        PageHelper.startPage(1, 10);
+//
+//        List<Teacher> teacherList = teacherService.queryAll();
+//        PageInfo<Student> pageInfo2 = new PageInfo(teacherList);
+//
+//        Administrator administrator = (Administrator) session.getAttribute("user");
+//        model.addAttribute("administrator", administrator);
+//        model.addAttribute("teacherList", pageInfo2);
+//
+//        return "newTeacher.ftl";
 
     }
 }

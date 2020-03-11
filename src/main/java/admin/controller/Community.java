@@ -7,16 +7,14 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +32,7 @@ import java.util.List;
 public class Community
 {
     @Autowired
-    private SystempictureService systempictureService;
+    private BaseconfigService baseconfigService;
     @Autowired
     private UploadconfigService uploadconfigService;
     @Autowired
@@ -43,6 +41,55 @@ public class Community
     private PictureteacherService pictureteacherService;
     @Autowired
     private VideoService videoService;
+
+    /**
+    * @Description: 查找数组是否有该元素
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-10
+    */
+    public static boolean isexist(String arr[], String a)
+    {
+        for(int i=0; i<arr.length; i++)
+        {
+            if(arr[i].equals(a))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+    * @Description: 去除数组为空的元素
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-10
+    */
+    public static String[] deleteNull(String[] strArray)
+    {
+        List<String> strList= Arrays.asList(strArray);
+
+        List<String> strListNew=new ArrayList<>();
+
+        for (int i = 0; i <strList.size(); i++)
+        {
+
+            if (strList.get(i)!=null && !strList.get(i).equals(""))
+            {
+
+                strListNew.add(strList.get(i));
+            }
+
+        }
+
+        String[] strNewArray = strListNew.toArray(new String[strListNew.size()]);
+
+        return   strNewArray;
+    }
 
     /**
     * @Description: 用户管理
@@ -74,7 +121,7 @@ public class Community
     public String videoTeacher(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
                                @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "vname", defaultValue = "")String vname,
                                @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                               @RequestParam(value = "pageSize", defaultValue = "1")int pageSize)
+                               @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -106,14 +153,38 @@ public class Community
     * @Author: Defend
     * @Date: 20-3-8
     */
+    @ResponseBody
     @RequestMapping("videoTeacherAchieve")
-    public String videoTeacherAchieve(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
+    public int videoTeacherAchieve(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
                                       @RequestParam("description")String description)
     {
-                System.out.println( "123");
+//        System.out.println("11111111111");
+//        System.out.println(description);
+//        System.out.println(multipartFile.getOriginalFilename());
+
         VideoWithBLOBs video = new VideoWithBLOBs();
 
         Administrator administrator = (Administrator) session.getAttribute("user");
+
+        //获取文件允许上传的类型
+        Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+        String types = uploadconfig.getType1();
+        String []arr = types.split(",");
+
+        //文件扩展名
+        String type = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf(".") + 1);
+
+        if(!isexist(arr, type))
+        {
+            return 303;
+//            return "redirect:/error500";
+        }
+
+        if(multipartFile.getSize() > 204800000)
+        {
+            return 202;
+//            return "redirect:/error500";
+        }
 
 
         if(!multipartFile.isEmpty())
@@ -149,14 +220,15 @@ public class Community
                 video.setDescription(description);
                 video.setVideourl("/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/video");
 
-                if(videoService.insert(video) == 0)
+                if(videoService.insert(video) == 1)
                 {
-                    return "redirect:/error500";
+                    return 1;
+//                    return "redirect:/community/videoTeacher";
                 }
+
                 //                System.out.println(uploadfile);
                 multipartFile.transferTo(serverFile);
 
-                                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
 
 
             }catch (Exception e){
@@ -164,10 +236,11 @@ public class Community
             }
         }
 
-        model.addAttribute("administrator", administrator);
+        return 0;
 
-        return "redirect:/community/videoTeacher";
+//        return "redirect:/error500";
     }
+
 
     /**
     * @Description: 视频预览
@@ -196,19 +269,15 @@ public class Community
     * @Author: Defend
     * @Date: 20-3-8
     */
+    @ResponseBody
     @RequestMapping("deleteVideo/{id}")
-    public String deleteVideo(@PathVariable("id")int id)
+    public int deleteVideo(@PathVariable("id")int id)
     {
         VideoWithBLOBs videoWithBLOBs = new VideoWithBLOBs();
         videoWithBLOBs.setId(id);
         videoWithBLOBs.setIsDelete(1);
 
-        if(videoService.updateByPrimaryKeySelective(videoWithBLOBs) == 0)
-        {
-            return "redirect:/error500";
-        }
-
-        return "redirect:/community/videoTeacher";
+        return videoService.updateByPrimaryKeySelective(videoWithBLOBs);
     }
 
     /**
@@ -222,7 +291,7 @@ public class Community
     public String pictureTeacher(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
                                  @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "name", defaultValue = "")String pname,
                                  @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                 @RequestParam(value = "pageSize", defaultValue = "1")int pageSize)
+                                 @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
     {
         PageHelper.startPage(pageNum, pageSize);
         if(startTime.equals("1970-01-01") && endTime.equals("1970-01-01")&&pname.equals(""))
@@ -269,8 +338,9 @@ public class Community
     * @Author: Defend
     * @Date: 20-3-6
     */
+    @ResponseBody
     @RequestMapping("pictureTeacherAchieve")
-    public String pictureTeacherAchieve(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
+    public int pictureTeacherAchieve(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
                                         @RequestParam(value = "description", defaultValue = "")String word,
                                         @RequestParam(value = "pname", defaultValue = "")String pname)
     {
@@ -282,7 +352,9 @@ public class Community
 
         if(multipartFile.length >= 1)
         {
-//            System.out.println("111111111111111111");
+            System.out.println("111111111111111111");
+
+
             Pictureteacher pictureteacher = new Pictureteacher();
 
 
@@ -290,6 +362,26 @@ public class Community
             String fileName = "";
             for(int i=0; i<multipartFile.length; i++)
             {
+                //获取文件允许上传的类型
+                Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+                String types = uploadconfig.getImageconfig();
+                String []arr = types.split(",");
+
+                //文件扩展名
+                String type = multipartFile[i].getOriginalFilename().substring(multipartFile[i].getOriginalFilename().lastIndexOf(".") + 1);
+
+                if(!isexist(arr, type))
+                {
+                    return 303;
+                    //            return "redirect:/error500";
+                }
+
+                if(multipartFile[i].getSize() > 204800000)
+                {
+                    return 202;
+                    //            return "redirect:/error500";
+                }
+
                 fileName = fileName + "," + multipartFile[i].getOriginalFilename();
                 try
                 {
@@ -307,7 +399,7 @@ public class Community
 
                     multipartFile[i].transferTo(serverFile);
 
-                    System.out.println("You successfully uploaded file=" +  multipartFile[i].getOriginalFilename());
+//                    System.out.println("You successfully uploaded file=" +  multipartFile[i].getOriginalFilename());
 
 
                 }catch (Exception e){
@@ -322,22 +414,24 @@ public class Community
 
             pictureteacher.setWorld(word);
             pictureteacher.setPname(pname);
+            fileName = fileName.substring(1);
             pictureteacher.setPictureurl(fileName);
             pictureteacher.setIsDelete(0);
             pictureteacher.setAuthor(administrator.getUsername());
             pictureteacher.setCreatetime(currentDate);
             pictureteacher.setUpdater(administrator.getUsername());
             pictureteacher.setUpdatetime(currentDate);
-            if(pictureteacherService.insert(pictureteacher) == 0)
+            if(pictureteacherService.insert(pictureteacher) == 1)
             {
-                return "redirect:/error500";
+                return 1;
             }
 
         }
 
-        model.addAttribute("administrator", administrator);
+//        model.addAttribute("administrator", administrator);
 
-        return "redirect:/community/addPictureTeacher";
+        return 0;
+
     }
 
     /**
@@ -347,19 +441,16 @@ public class Community
     * @Author: Defend
     * @Date: 20-3-7
     */
+    @ResponseBody
     @RequestMapping("deletePictureTeacher/{id}")
-    public String deletePictureTeacher(@PathVariable("id")int id)
+    public int deletePictureTeacher(@PathVariable("id")int id)
     {
         Pictureteacher pictureteacher = new Pictureteacher();
         pictureteacher.setId(id);
         pictureteacher.setIsDelete(1);
 
-        if(pictureteacherService.updateByPrimaryKeySelective(pictureteacher) == 0)
-        {
-            return "redirect:/error500";
-        }
+        return pictureteacherService.updateByPrimaryKeySelective(pictureteacher);
 
-        return "redirect:/community/pictureTeacher";
 
     }
 
@@ -400,13 +491,18 @@ public class Community
     * @Author: Defend
     * @Date: 20-3-7
     */
+    @ResponseBody
     @RequestMapping("updatePictureTeacher")
-    public String updatePictureTeacher(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
+    public int updatePictureTeacher(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
                                         @RequestParam(value = "description", defaultValue = "")String word,
                                         @RequestParam(value = "pname", defaultValue = "")String pname,
                                        @RequestParam(value = "id", defaultValue = "")int id,
                                        @RequestParam(value = "iname")String iname[])
     {
+//        System.out.println("1111111111111111111111");
+//        System.out.println(multipartFile.length);
+//        System.out.println(multipartFile[0].getOriginalFilename());
+
         Administrator administrator = (Administrator) session.getAttribute("user");
 
 
@@ -414,9 +510,14 @@ public class Community
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
         String currentDate = simpleDateFormat.format(date);     //当前时间
 
-        System.out.println(iname[0]);
+        //获取文件允许上传的类型
+        Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+        String types = uploadconfig.getImageconfig();
+        String []arr1 = types.split(",");
+        String type;
+        int count = 0;
 
-
+        //图片新增或替换
         if(multipartFile.length >= 1)
         {
 
@@ -425,11 +526,32 @@ public class Community
 
             //将图片上传到服务器
             String fileName = "";
+
             for(int i=0; i<multipartFile.length; i++)
             {
-                if(multipartFile[i].isEmpty())
+                if(multipartFile[i].getOriginalFilename().equals(""))
                 {
+                    count++;
+                    System.out.println(1);
+                    System.out.println(iname[i]);
                     continue;
+                }
+
+
+
+                //文件扩展名
+                type = multipartFile[i].getOriginalFilename().substring(multipartFile[i].getOriginalFilename().lastIndexOf(".") + 1);
+
+                if(!isexist(arr1, type))
+                {
+                    return 303;
+                    //            return "redirect:/error500";
+                }
+
+                if(multipartFile[i].getSize() > 204800000)
+                {
+                    return 202;
+                    //            return "redirect:/error500";
                 }
 
                 fileName = fileName + ","  + multipartFile[i].getOriginalFilename();
@@ -460,6 +582,7 @@ public class Community
                     e.printStackTrace();
                 }
             }
+
             //将上传文件的信息插入数据库
             if(word.equals(""))
             {
@@ -467,49 +590,69 @@ public class Community
             }
 
             Pictureteacher temp = pictureteacherService.selectByPrimaryKey(id);
-            String pictureUrl = temp.getPictureurl();
+            String pictureUrl = temp.getPictureurl();       //以前的图片
             String pi[] = pictureUrl.split(",");
 
-            fileName = fileName.substring(1);
-            String []temp1 = fileName.split(",");
-
-            String []arr;
-            if(temp1.length+iname.length > pi.length)
+            System.out.println(12);
+            String temp1[] = new String[multipartFile.length];
+            if(count != multipartFile.length)
             {
-                arr = new String[(temp1.length+iname.length)];
+                fileName = fileName.substring(1);
+                System.out.println(fileName);
+                temp1 = fileName.split(",");       //新增或更新的图片
             }
-            else
-            {
-                arr = new String[pi.length];
-            }
+            String []temp2 = deleteNull(temp1);
 
 
-            int k=0,i=0,j=0;
+
+
+            String []arr = new String[(temp2.length+iname.length)];       //更新要存的图片
+
+
+            int k=0,i=0,j=0, h=0;
+            //匹配,看以前的图片剩下多少
             for( ;i<pi.length; i++)
             {
                 System.out.println(pi[i]);
+                System.out.println(i);
+                System.out.println(iname[0]+"   " + iname[1]);
+                System.out.println(temp1[0]);
+
+
 //                if(i > temp1.length && i > iname.length)
 //                {
 //                    break;
 //                }
 
-                if(pi[i].equals(iname[j]))
+                //图片未更新de
+                if(j< iname.length)
                 {
-                    System.out.println(iname[j]);
-                    arr[i] = pi[i];
-                    j++;
+                    if(pi[i].equals(iname[j]))
+                    {
+                        System.out.println(0);
+                        System.out.println(iname[j]);
+                        arr[h] = pi[i];
+                        j++;
+                        h++;
+                    }
                 }
-                else
+
+                else if(k < temp2.length)
                 {
-                    arr[i] = temp1[k];
+                    System.out.println(1);
+                    arr[h] = temp2[k];
+                    h++;
                     k++;
                 }
+                System.out.println(3);
             }
-            if(k < temp1.length)
+
+            System.out.println(2);
+            if(k < temp2.length)
             {
-                for(; k<temp1.length; k++)
+                for(; k<temp2.length; k++)
                 {
-                    arr[i++] = temp1[k];
+                    arr[h++] = temp2[k];
                 }
             }
 
@@ -524,16 +667,16 @@ public class Community
             pictureteacher.setPictureurl(pictureUrl);
             pictureteacher.setUpdater(administrator.getUsername());
             pictureteacher.setUpdatetime(currentDate);
-            if(pictureteacherService.updateByPrimaryKeySelective(pictureteacher) == 0)
+            if(pictureteacherService.updateByPrimaryKeySelective(pictureteacher) == 1)
             {
-                return "redirect:/error500";
+                return 1;
             }
 
         }
 
-        model.addAttribute("administrator", administrator);
+//        model.addAttribute("administrator", administrator);
 
-        return ("redirect:/community/editPictureTeacher/"+String.valueOf(id));
+        return 0;
     }
     /**
     * @Description: 查看图片是否已存入服务器
@@ -625,13 +768,50 @@ public class Community
     @RequestMapping("baseConfig")
     public String baseConfig(Model model, HttpSession session)
     {
-        Systempicture systempicture = systempictureService.selectByPrimaryKey(1);
+        BaseconfigWithBLOBs baseconfig = baseconfigService.selectByPrimaryKey(1);
 
         Administrator administrator = (Administrator) session.getAttribute("user");
         model.addAttribute("administrator", administrator);
-        model.addAttribute("logoPicturePath", systempicture);
+        model.addAttribute("system", baseconfig);
 
         return "baseConfig.ftl";
+    }
+
+    /**
+    * @Description: 更新基本配置
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-10
+    */
+    @ResponseBody
+    @RequestMapping("updateConfig/{id}")
+    public int updateConfig(@RequestParam(value = "logopic")String logopic, HttpSession session,
+                            @RequestParam(value = "keyword")String keyword, @RequestParam(value = "description")String description,
+                            @RequestParam(value = "copyright")String copyright, @RequestParam(value = "record")String record,
+                            @RequestParam(value = "switch1")String switch1, @PathVariable("id")int id)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        BaseconfigWithBLOBs baseconfigWithBLOBs = new BaseconfigWithBLOBs();
+
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String currentDate = simpleDateFormat.format(date);     //当前时间
+
+        baseconfigWithBLOBs.setUpdater(administrator.getUsername());
+        baseconfigWithBLOBs.setUpdatetime(currentDate);
+        baseconfigWithBLOBs.setId(id);
+        baseconfigWithBLOBs.setCopyright(copyright);
+        baseconfigWithBLOBs.setDescription(description);
+        baseconfigWithBLOBs.setLogopic(logopic);
+        baseconfigWithBLOBs.setKeyword(keyword);
+        baseconfigWithBLOBs.setSwitch1(Integer.parseInt(switch1));
+        baseconfigWithBLOBs.setRecord(record);
+
+        System.out.println(baseconfigWithBLOBs.getSwitch1());
+
+        return baseconfigService.updateByPrimaryKeySelective(baseconfigWithBLOBs);
     }
     
     /**
@@ -682,23 +862,13 @@ public class Community
     * @Author: Defend
     * @Date: 20-2-29
     */
+    @ResponseBody
     @RequestMapping("uploadUpdate")
-    public String uploadUpdate(Uploadconfig uploadconfig, Model model, HttpSession session)
+    public int uploadUpdate(Uploadconfig uploadconfig, Model model, HttpSession session)
     {
         uploadconfig.setId(1);
 
-        System.out.println(uploadconfig);
-
-        System.out.println(uploadconfigService.updateByPrimaryKeySelective(uploadconfig));
-
-        uploadconfig = uploadconfigService.selectByPrimaryKey(1);
-
-        Administrator administrator = (Administrator) session.getAttribute("user");
-        model.addAttribute("administrator", administrator);
-
-        model.addAttribute("uploadconfig", uploadconfig);
-
-        return "uploadConfig.ftl";
+        return uploadconfigService.updateByPrimaryKeySelective(uploadconfig);
     }
 
     /**
@@ -712,7 +882,7 @@ public class Community
     public String uploadFile(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
                              @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "fileName", defaultValue = "")String fileName,
                              @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                             @RequestParam(value = "pageSize", defaultValue = "1")int pageSize)
+                             @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -743,14 +913,35 @@ public class Community
     * @Author: Defend
     * @Date: 20-3-1
     */
+    @ResponseBody
     @RequestMapping("uploadFileAchieve")
-    public String uploadFileAchieve(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
+    public int uploadFileAchieve(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
                                     @RequestParam("description")String description)
     {
 //        System.out.println(multipartFile + "123");
         Uploadfile uploadfile = new Uploadfile();
 
         Administrator administrator = (Administrator) session.getAttribute("user");
+
+        //获取文件允许上传的类型
+        Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+        String types = uploadconfig.getType1();
+        String []arr = types.split(",");
+
+        //文件扩展名
+        String type = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf(".") + 1);
+
+        if(!isexist(arr, type))
+        {
+            return 303;
+            //            return "redirect:/error500";
+        }
+
+        if(multipartFile.getSize() > 204800000)
+        {
+            return 202;
+            //            return "redirect:/error500";
+        }
 
 
         if(!multipartFile.isEmpty())
@@ -783,9 +974,9 @@ public class Community
                 uploadfile.setAuthor(administrator.getUsername());
                 uploadfile.setUploadtime(currentDate);
                 uploadfile.setDescription(description);
-                if(uploadfileService.insert(uploadfile) == 0)
+                if(uploadfileService.insert(uploadfile) == 1)
                 {
-                    return "redirect:/error500";
+                    return 1;
                 }
 //                System.out.println(uploadfile);
                 multipartFile.transferTo(serverFile);
@@ -800,7 +991,7 @@ public class Community
 
         model.addAttribute("administrator", administrator);
 
-        return "redirect:/community/uploadFile";
+        return 0;
     }
 
     /**
@@ -810,19 +1001,15 @@ public class Community
     * @Author: Defend
     * @Date: 20-3-5
     */
+    @ResponseBody
     @RequestMapping("deleteFile/{id}")
-    public String deleteFile(@PathVariable("id")Integer id)
+    public int deleteFile(@PathVariable("id")Integer id)
     {
         Uploadfile uploadfile = new Uploadfile();
         uploadfile.setIsDelete(1);
         uploadfile.setId(id);
 
-        if(uploadfileService.updateByPrimaryKeySelective(uploadfile) == 0)
-        {
-            return "redirect:/error500";
-        }
-
-        return "redirect:/community/uploadFile";
+        return uploadfileService.updateByPrimaryKeySelective(uploadfile);
     }
     
     /**

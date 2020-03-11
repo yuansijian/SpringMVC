@@ -9,6 +9,26 @@
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script>
+        function update(id) {
+            $.ajax({
+                type:"POST",
+                url:"/user/updateTeacherInfo/"+id,
+                data: $("#form1").serialize(),
+                success: function (data) {
+                    if(data === 1)
+                    {
+                        alert("更新成功");
+                        location.reload();
+                    }
+                    else
+                    {
+                        alert("更新失败")
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -53,9 +73,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
+                            <div class="card-header">
+                                <a href="javascript:history.go(-1);"><h4 style="color: #0FB25F">返回</h4></a>
+                            </div>
                             <div class="card-body">
                                 <hr>
-                                <form method="post" action="/user/updateTeacherInfo/${teacher.id}" class="site-form">
+                                <form id="form1" method="post" action="" class="site-form">
                                     <div class="form-group">
                                         <label for="teaname">教师姓名</label>
                                         <input type="text" class="form-control" name="teaname" id="teaname" value="${teacher.teaname}" />
@@ -78,8 +101,17 @@
                                         <#--<input type="text" class="form-control" name="class1" id="class1" value="${teacher.class1}">-->
                                     <#--</div>-->
                                     <div class="form-group">
-                                        <label for="sex">性别</label>
-                                        <input type="text" class="form-control" name="sex" id="sex" value="${teacher.sex}">
+                                        <label class="sex" >性别</label>
+                                        <select class="form-control" id="select" name="sex" size="1  ">
+                                            <#if teacher.sex == 1>
+                                                <option  value="1">男</option>
+                                                <option value="0">女</option>
+                                            <#else>
+                                                <option value="0">女</option>
+                                                <option  value="1">男</option>
+                                            </#if>
+
+                                        </select>
                                     </div>
                                 <#--<input type="hidden" class="form-control" name="password" id="password" value="${teacher.password}">-->
                                 <#--<input type="hidden" class="form-control" name="lastname" id="lastname" value="${teacher.lastname}">-->
@@ -91,7 +123,7 @@
                                 <#--<input type="hidden" class="form-control" name="updatetime" id="updatetime" value="${teacher.updatetime}">-->
                                 <#--<input type="hidden" class="form-control" name="updatepasswordtime" id="updatepasswordtime" value="${teacher.updatepasswordtime}">-->
                                 <#--<input type="hidden" class="form-control" name="sex" id="sex" value="${teacher.sex}">-->
-                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <button onclick="update(${teacher.id})" type="button" class="btn btn-primary">保存</button>
                                 </form>
 
                             </div>

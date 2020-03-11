@@ -13,19 +13,20 @@
                 <a href="javascript:void(0)"><i class="mdi mdi-palette"></i> 教师中心</a>
                 <ul class="nav nav-subnav">
                     <#--<w:hyperlink w:anchor="/views/ftl/manageStudent.ftl">按钮</w:hyperlink>-->
-                    <li> <a href="/teacher/manageStudent?pageNum=1&pageSize=1">学生管理</a> </li>
+                    <li> <a href="/teacher/manageStudent">学生管理</a> </li>
                     <li> <a href="/teacher/manageHomework">作业管理</a> </li>
+                    <li> <a href="/teacher/listHomework">作业列表</a> </li>
                     <li> <a href="#!">其他</a> </li>
                 </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
                 <a href="javascript:void(0)"><i class="mdi mdi-format-align-justify"></i> 用户分析</a>
                 <ul class="nav nav-subnav">
-                    <li> <a href="/user/newStudent?pageNum=1&pageSize=1">新加入的用户</a> </li>
+                    <li> <a href="/user/newStudent">新加入的用户</a> </li>
                     <#--<li><a href="/user/newTeacher?pageNum=1&pageSize=1">新加入的教师</a></li>-->
                     <#--<li> <a href="/user/activity">活跃度</a> </li>-->
-                    <li> <a href="/user/studentInformation?pageNum=1&pageSize=1">学生信息</a> </li>
-                    <li> <a href="/user/teacherInformation?pageNum=1&pageSize=1">教师信息</a> </li>
+                    <li> <a href="/user/studentInformation">学生信息</a> </li>
+                    <li> <a href="/user/teacherInformation">教师信息</a> </li>
                 </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">
@@ -50,7 +51,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item nav-item-has-subnav">
-                                <a href="/community/uploadFile?pageNum=1&pageSize=1">上传文件</a>
+                                <a href="/community/uploadFile">上传文件</a>
                             </li>
                         </ul>
                     </li>

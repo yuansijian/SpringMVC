@@ -9,6 +9,26 @@
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script>
+        function save(id) {
+            $.ajax({
+                type: "POST",
+                url: "/community/updateConfig/"+id,
+                data: $("#edit-form").serialize(),
+                success: function (data) {
+                    if(data === 1)
+                    {
+                        alert("更新成功");
+                        location.reload();
+                    }
+                    else
+                    {
+                        alert("更新失败");
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -63,7 +83,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active">
 
-                                    <form action="#!" method="post" name="edit-form" class="edit-form">
+                                    <form action="" method="post" id="edit-form" name="edit-form" class="edit-form">
                                         <#--<div class="form-group">-->
                                             <#--<label for="web_site_title">网站标题</label>-->
                                             <#--<input class="form-control" type="text" id="web_site_title" name="web_site_title" value="光年后台管理系统HTML模板" placeholder="请输入站点标题" >-->
@@ -71,41 +91,44 @@
                                         <#--</div>-->
                                         <div class="form-group">
                                             <label for="web_site_logo">LOGO图片</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="web_site_logo" id="web_site_logo" value="${logoPicturePath.pictureurl}" />
-                                                <div class="input-group-btn"><button class="btn btn-default" type="button">上传图片</button></div>
-                                            </div>
+                                            <input type="text" class="form-control" name="logopic" id="web_site_logo" value="${system.logopic}" />
                                         </div>
                                         <div class="form-group">
                                             <label for="web_site_keywords">站点关键词</label>
-                                            <input class="form-control" type="text" id="web_site_keywords" name="web_site_keywords" value="后台系统" placeholder="请输入站点关键词" >
+                                            <input class="form-control" type="text" id="web_site_keywords" name="keyword" value="${system.keyword}" placeholder="请输入站点关键词" >
                                             <small class="help-block">网站搜索引擎关键字</small>
                                         </div>
                                         <div class="form-group">
                                             <label for="web_site_description">站点描述</label>
-                                            <textarea class="form-control" id="web_site_description" rows="5" name="web_site_description" placeholder="请输入站点描述" >态势语后台管理系统</textarea>
+                                            <textarea class="form-control" id="web_site_description" rows="5" name="description" placeholder="请输入站点描述" >${system.description}</textarea>
                                             <small class="help-block">网站描述，有利于搜索引擎抓取相关信息</small>
                                         </div>
                                         <div class="form-group">
                                             <label for="web_site_copyright">版权信息</label>
-                                            <input class="form-control" type="text" id="web_site_copyright" name="web_site_copyright" value="©2020 - 2020, content by Defend. All Rights Reserved." placeholder="请输入版权信息" >
+                                            <input class="form-control" type="text" id="web_site_copyright" name="copyright" value="${system.copyright}" placeholder="请输入版权信息" >
                                             <small class="help-block"></small>
                                         </div>
                                         <div class="form-group">
                                             <label for="web_site_icp">备案信息</label>
-                                            <input class="form-control" type="text" id="web_site_icp" name="web_site_icp" value="" placeholder="请输入备案信息" >
+                                            <input class="form-control" type="text" id="web_site_icp" name="record" value="${system.record}" placeholder="请输入备案信息" >
                                             <small class="help-block"></small>
                                         </div>
                                         <div class="form-group">
-                                            <label class="btn-block" for="web_site_status">站点开关</label>
-                                            <label class="lyear-switch switch-solid switch-primary">
-                                                <input type="checkbox" checked="">
-                                                <span></span>
-                                            </label>
+                                            <label class="sex" >站点开关</label>
+                                            <select class="form-control" id="select" name="switch1" size="1 ">
+                                            <#if system.switch1 == 1>
+                                                <option  value="1">开</option>
+                                                <option value="0">关</option>
+                                            <#else>
+                                                <option  value="1">关</option>
+                                                <option value="0">开</option>
+                                            </#if>
+
+                                            </select>
                                             <small class="help-block">站点关闭后将不能访问，后台可正常登录</small>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary m-r-5">确 定</button>
+                                            <a onclick="save(1)" class="btn btn-primary m-r-5">确 定</a>
                                             <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                                         </div>
                                     </form>

@@ -125,9 +125,9 @@ public class StudengServiceImpl implements StudentService
     * @Date: 20-2-27
     */
     @Override
-    public List<Student> queryFuzzyRegistered(String stuname, @Param("stuclass") String stuclass, String startTime, String endTime)
+    public List<Student> queryFuzzyRegistered(String stuname, String stuclass, String stugrade,  String startTime, String endTime)
     {
-        return studentMapper.queryFuzzyRegistered(stuname, stuclass, startTime, endTime);
+        return studentMapper.queryFuzzyRegistered(stuname, stuclass, stugrade, startTime, endTime);
     }
 
     /**
@@ -206,5 +206,18 @@ public class StudengServiceImpl implements StudentService
     public int queryCountLogin(String startTime, String endTime)
     {
         return studentMapper.queryCountLogin(startTime, endTime);
+    }
+
+    /**
+    * @Description: 统计班级
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-9
+    */
+    @Override
+    public List<Integer> queryClass()
+    {
+        return studentMapper.queryClass();
     }
 }

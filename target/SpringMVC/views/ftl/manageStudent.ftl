@@ -75,13 +75,15 @@
                                 <div class="col-xs-2">
                                     <select class="form-control" id="select" name="stuclass" size="1  ">
                                         <option value="0">全部</option>
-                                        <option value="1">1班</option>
-                                        <option value="2">2班</option>
-                                        <option value="6">6班</option>
+                                        <#list class as cl>
+                                            <script>
+                                                $("#select").append("<option value=\"${cl}\">${cl}班</option>\n")
+                                            </script>
+                                        </#list>
                                     </select>
                                 </div>
                                 <input type="submit" class="btn btn-primary" value="搜索" />
-                                <a class="btn btn-danger" href="/teacher/manageStudent?pageNum=1&pageSize=1">返回</a>
+                                <a class="btn btn-danger" href="/teacher/manageStudent">返回</a>
                             </div>
                             <div class="form-group">
 
@@ -123,7 +125,12 @@
                                 <td>${stu.stunumber}</td>
                                 <td>${stu.grade}</td>
                                 <td>${stu.class1}</td>
-                                <td>${stu.sex}</td>
+                                <td><#if stu.sex == 1>
+                                        男
+                                    <#else>
+                                        女
+                                    </#if>
+                                </td>
                                 <td>${stu.stuphone}</td>
                                 <td>${stu.stumail}</td>
                                 <td><font class="text-success">正常</font></td>
@@ -143,7 +150,7 @@
                                 </li>
                             <#else>
                                 <li>
-                                    <a href="/teacher/manageStudent?pageNum=${pageInfo.firstPage}&pageSize=1">
+                                    <a href="/teacher/manageStudent?pageNum=${pageInfo.firstPage}&pageSize=10">
                                         <span><i class="mdi mdi-chevron-left"></i></span>
                                     </a>
                                 </li>
@@ -154,30 +161,30 @@
                             <#elseif (pageInfo.pages==1)>
                                 <li class="active disabled" ><a href="#!">1</a></li>
                             <#elseif (pageInfo.pages==2)>
-                                <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=1">1</a></li>
-                                <li><a href="/teacher/manageStudent?pageNum=2&pageSize=1">2</a></li>
+                                <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=10">1</a></li>
+                                <li><a href="/teacher/manageStudent?pageNum=2&pageSize=10">2</a></li>
                             <#elseif (pageInfo.pages == 3)>
-                                <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=1">1</a></li>
+                                <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=10">1</a></li>
                                 <li><a href="#!"></a></li>
-                                <li><a href="/teacher/manageStudent?pageNum=2&pageSize=1">2</a></li>
-                                <li><a href="/teacher/manageStudent?pageNum=3&pageSize=1">3</a></li>
+                                <li><a href="/teacher/manageStudent?pageNum=2&pageSize=10">2</a></li>
+                                <li><a href="/teacher/manageStudent?pageNum=3&pageSize=10">3</a></li>
                             <#else>
                                 <#if pageInfo.isFirstPage>
-                                    <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=1">1</a></li>
-                                    <li><a href="/teacher/manageStudent?pageNum=2&pageSize=1">2</a></li>
-                                    <li><a href="/teacher/manageStudent?pageNum=3&pageSize=1">3</a></li>
+                                    <li class="active"><a href="/teacher/manageStudent?pageNum=1&pageSize=10">1</a></li>
+                                    <li><a href="/teacher/manageStudent?pageNum=2&pageSize=10">2</a></li>
+                                    <li><a href="/teacher/manageStudent?pageNum=3&pageSize=10">3</a></li>
                                 <#else>
                                     <#if pageInfo.hasPreviousPage>
-                                        <li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage}</a></li>
+                                        <li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>
                                     <#else>
                                         <li><a href="#!">${pageInfo.pageNum}</a></li>
                                     </#if>
-                                    <li class="active"><a href="/teacher/manageStudent?pageNum=2&pageSize=1">${pageInfo.pageNum}</a></li>
+                                    <li class="active"><a href="/teacher/manageStudent?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
                                     <#if pageInfo.hasNextPage>
-                                        <li><a href="/teacher/manageStudent?pageNum=${pageInfo.nextPage}&pageSize=1">${pageInfo.nextPage}</a></li>
+                                        <li><a href="/teacher/manageStudent?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a></li>
                                     <#else>
-                                        <#--<li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage - 1}</a></li>-->
-                                        <#--<li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage}</a></li>-->
+                                        <#--<li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage - 1}</a></li>-->
+                                        <#--<li><a href="/teacher/manageStudent?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>-->
                                         <#--<li><a href="#!">${pageInfo.pageNum}</a></li>-->
                                     </#if>
                                 </#if>
@@ -192,7 +199,7 @@
                                 </li>
                             <#else>
                                 <li>
-                                    <a href="/teacher/manageStudent?pageNum=${pageInfo.lastPage}&pageSize=1">
+                                    <a href="/teacher/manageStudent?pageNum=${pageInfo.lastPage}&pageSize=10">
                                         <span><i class="mdi mdi-chevron-right"></i></span>
                                     </a>
                                 </li>

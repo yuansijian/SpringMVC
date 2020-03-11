@@ -26,6 +26,42 @@
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
 
+    <script>
+        function save1() {
+            let formData = new FormData($("#edit-pic")[0]);
+
+            $.ajax({
+                type: "POST",
+                url: "/community/updatePictureTeacher",
+                data: formData,
+                contentType : false,
+                processData : false,
+
+                success:function (data) {
+                    console.log(data);
+                    console.log(222);
+                    if(data === 1)
+                    {
+                        alert("更新成功");
+                        location.reload();
+                    }
+                    else if(data === 202)
+                    {
+                        alert("文件大于200M")
+                    }
+                    else if(data === 303)
+                    {
+                        alert("文件格式不对")
+                    }
+                    else
+                    {
+                        alert("上传失败,刷新或重命名试试")
+                    }
+                }
+            })
+        }
+    </script>
+
 </head>
 
 <body>
@@ -47,7 +83,7 @@
                             <span class="lyear-toggler-bar"></span>
                             <span class="lyear-toggler-bar"></span>
                         </div>
-                        <a  href="/community/pictureTeacher" > <h4 style="color: #0FB25F">返回</h4> </a>
+                        <a  href="javascript:history.go(-1)" > <h4 style="color: #0FB25F">返回</h4> </a>
                     </div>
 
                     <ul class="topbar-right">
@@ -68,10 +104,11 @@
 
         </div>
         <!--End 头部信息-->
+
         <div class="card">
             <div class="card-header"><h4>编辑图文</h4></div>
             <div class="card-body">
-                <form  enctype="multipart/form-data" action="/community/updatePictureTeacher" method="post">
+                <form id="edit-pic" enctype="multipart/form-data" action="" method="post">
                     <ul class='carouselbox'>
                         <div class="col-xs-12">
                             <input class="form-control" type="text" name="pname" value="${pictureTeacher.pname}">
@@ -82,7 +119,7 @@
                     </ul>
                     <div class='preview_footer'>
                         <input type="button" value='添加' id="carouselplus" class="preview_btn" >&nbsp;
-                        <input type="submit" value='保存' id="carouselsubmit" class="preview_btn" >
+                        <input type="button" onclick="save1()" value='保存' id="carouselsubmit" class="preview_btn" >
                     </div>
                 </form>
             </div>
@@ -111,7 +148,7 @@
                                 </div>
                                 <div class="previewimgbtn">
                                     <div class="carselcheck carselpreview">预览</div>
-                                    <div class="carselcheck carseldelete">删除</div>
+                                    <div id="dele" class="carselcheck carseldelete">删除</div>
                                 </div>
                             </li>`);
                     <#assign i = i + 1>
@@ -125,12 +162,14 @@
     //JavaScript代码区域
     $(function () {
         $("ul").on("change", ".carselcon",togglePic ); //图片替换
+
         function togglePic(){
             console.log(this.files[0]);
             var srcs = getObjectURL(this.files[0]);   //获取路径
             $(this).siblings('p').hide();//隐藏+号，文字
             $(this).siblings('img').attr("src", srcs);//展示图片
             $(this).siblings('.tt').remove();
+
         }
         $("ul").on("click", ".carselpreview",function () { //图片预览
             var imgdiv=$(this).parent('.previewimgbtn').siblings('.carselconborder').children('.previewimg');
@@ -156,6 +195,7 @@
             console.log($(this).text());
             console.log($(this).parent('.previewimgbtn').parent('li'));
             $(this).parent('.previewimgbtn').parent('li').css("display","none")
+            $(this).parent('.previewimgbtn').parent('li').children().remove();
         } );
 
         $('#carouselplus').on('click',function () {  //添加一个轮播图框

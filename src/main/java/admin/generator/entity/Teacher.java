@@ -29,6 +29,8 @@ public class Teacher {
 
     private String classes;
 
+    private String teamail;
+
     private String imageurl;
 
     public Integer getId() {
@@ -143,17 +145,19 @@ public class Teacher {
         this.classes = classes == null ? null : classes.trim();
     }
 
+    public String getTeamail() {
+        return teamail;
+    }
+
+    public void setTeamail(String teamail) {
+        this.teamail = teamail == null ? null : teamail.trim();
+    }
+
     public String getImageurl() {
         return imageurl;
     }
 
     public void setImageurl(String imageurl) {
         this.imageurl = imageurl == null ? null : imageurl.trim();
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Teacher{" + "id=" + id + ", teaname='" + teaname + '\'' + ", username='" + username + '\'' + ", password='" + password + '\'' + ", registeredtime='" + registeredtime + '\'' + ", loginnumber=" + loginnumber + ", logintime='" + logintime + '\'' + ", endtime='" + endtime + '\'' + ", sex=" + sex + ", deleteTime='" + deleteTime + '\'' + ", isDelete=" + isDelete + ", grade='" + grade + '\'' + ", updatepasswordtime='" + updatepasswordtime + '\'' + ", classes='" + classes + '\'' + ", imageurl='" + imageurl + '\'' + '}';
     }
 }

@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>图文教学 - 后台管理系统</title>
-<link rel="icon" href="/statics/favicon.ico" type="image/ico">
-<meta name="author" content="Defend">
-<link href="/statics/css/bootstrap.min.css" rel="stylesheet">
-<link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
-<link href="/statics/css/style.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>图文教学 - 后台管理系统</title>
+    <link rel="icon" href="/statics/favicon.ico" type="image/ico">
+    <meta name="author" content="Defend">
+    <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="/statics/css/style.min.css" rel="stylesheet">
+    <!--日期选择插件-->
+    <link rel="stylesheet" href="/statics/js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+    <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script>
+        function deletePic(id, pname) {
+            if(confirm("确定删除"+pname+"吗"))
+            {
+                $.ajax({
+                    type: "POST",
+                    url:"/community/deletePictureTeacher/"+id,
+                    success: function (data) {
+                        if(data === 1)
+                        {
+                            alert("删除成功");
+                            location.reload();
+                        }
+                        else
+                        {
+                            alert("删除失败");
+                        }
+                    }
+                })
+            }
+        }
+    </script>
 </head>
   
 <body>
@@ -64,12 +89,11 @@
 
 
                                       开始时间：
-                                      <input type="text" name="registeredStartTime" style="width: 150px;" placeholder="">
-                                      &nbsp;&nbsp;
-                                      结束时间：
-                                      <input type="text" name="registeredEndTime" style="width: 150px;" placeholder="">
+                                      <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text" style="width: 150px;" id="startTime" name="startTime" placeholder="从">
+                                      &nbsp;&nbsp;===>
+                                      <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"  style="width: 150px;" id="endTime" name="endTime" placeholder="至">
                                       <input type="submit" class="btn btn-primary" value="搜索" />
-                                      <a class="btn btn-danger" href="/community/pictureTeacher?pageNum=1&pageSize=1">返回</a>
+                                      <a class="btn btn-danger" href="/community/pictureTeacher">返回</a>
                                       <a class="btn btn-success" href="/community/addPictureTeacher">新增</a>
                                   </form>
                               </div>
@@ -114,7 +138,7 @@
                                           <td>
                                               <div class="btn-group">
                                                   <a class="btn btn-xs btn-default" href="/community/editPictureTeacher/${list.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                  <a class="btn btn-xs btn-default" href="/community/deletePictureTeacher/${list.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                  <a onclick="deletePic(${list.id}, '${list.pname}')" class="btn btn-xs btn-default"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
                                               </div>
                                           </td>
                                       </tr>
@@ -133,7 +157,7 @@
                                             </li>
                                           <#else>
                                             <li>
-                                                <a href="/community/pictureTeacher?pageNum=${pageInfo.firstPage}&pageSize=1">
+                                                <a href="/community/pictureTeacher?pageNum=${pageInfo.firstPage}&pageSize=10">
                                                     <span><i class="mdi mdi-chevron-left"></i></span>
                                                 </a>
                                             </li>
@@ -144,30 +168,30 @@
                                         <#elseif (pageInfo.pages==1)>
                                             <li class="active disabled" ><a href="#!">1</a></li>
                                         <#elseif (pageInfo.pages==2)>
-                                            <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=1">1</a></li>
-                                            <li><a href="/community/pictureTeacher?pageNum=2&pageSize=1">2</a></li>
+                                            <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
+                                            <li><a href="/community/pictureTeacher?pageNum=2&pageSize=10">2</a></li>
                                         <#elseif (pageInfo.pages == 3)>
-                                            <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=1">1</a></li>
+                                            <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="#!"></a></li>
-                                            <li><a href="/community/pictureTeacher?pageNum=2&pageSize=1">2</a></li>
-                                            <li><a href="/community/pictureTeacher?pageNum=3&pageSize=1">3</a></li>
+                                            <li><a href="/community/pictureTeacher?pageNum=2&pageSize=10">2</a></li>
+                                            <li><a href="/community/pictureTeacher?pageNum=3&pageSize=10">3</a></li>
                                         <#else>
                                             <#if pageInfo.isFirstPage>
-                                                <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=1">1</a></li>
-                                                <li><a href="/community/pictureTeacher?pageNum=2&pageSize=1">2</a></li>
-                                                <li><a href="/community/pictureTeacher?pageNum=3&pageSize=1">3</a></li>
+                                                <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
+                                                <li><a href="/community/pictureTeacher?pageNum=2&pageSize=10">2</a></li>
+                                                <li><a href="/community/pictureTeacher?pageNum=3&pageSize=10">3</a></li>
                                             <#else>
                                                 <#if pageInfo.hasPreviousPage>
-                                                    <li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage}</a></li>
+                                                    <li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>
                                                 <#else>
                                                     <li><a href="#!">${pageInfo.pageNum}</a></li>
                                                 </#if>
-                                                <li class="active"><a href="/community/pictureTeacher?pageNum=2&pageSize=1">${pageInfo.pageNum}</a></li>
+                                                <li class="active"><a href="/community/pictureTeacher?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
                                                 <#if pageInfo.hasNextPage>
-                                                    <li><a href="/community/pictureTeacher?pageNum=${pageInfo.nextPage}&pageSize=1">${pageInfo.nextPage}</a></li>
+                                                    <li><a href="/community/pictureTeacher?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a></li>
                                                 <#else>
-                                                <#--<li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage - 1}</a></li>-->
-                                                <#--<li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=1">${pageInfo.prePage}</a></li>-->
+                                                <#--<li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage - 1}</a></li>-->
+                                                <#--<li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>-->
                                                 <#--<li><a href="#!">${pageInfo.pageNum}</a></li>-->
                                                 </#if>
                                             </#if>
@@ -182,7 +206,7 @@
                                                 </li>
                                           <#else>
                                                 <li>
-                                                    <a href="/community/pictureTeacher?pageNum=${pageInfo.lastPage}&pageSize=1">
+                                                    <a href="/community/pictureTeacher?pageNum=${pageInfo.lastPage}&pageSize=10">
                                                         <span><i class="mdi mdi-chevron-right"></i></span>
                                                     </a>
                                                 </li>
@@ -209,5 +233,9 @@
 <script type="text/javascript" src="/statics/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/statics/js/Chart.js"></script>
 <script type="text/javascript" src="/statics/js/main.min.js"></script>
+<!--日期选择插件-->
+<script src="/statics/js/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="/statics/js/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<#--<script type="text/javascript" src="/statics/js/main.min.js"></script>-->
 </body>
 </html>

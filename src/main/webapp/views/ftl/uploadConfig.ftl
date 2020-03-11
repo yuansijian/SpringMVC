@@ -9,6 +9,26 @@
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script>
+        function upload() {
+            $.ajax({
+                type: "POST",
+                url: "/community/uploadUpdate",
+                data: $("#upload-file").serialize(),
+                success: function (data) {
+                    if(data === 1)
+                    {
+                        alert("更新成功");
+                        location.reload();
+                    }
+                    else
+                    {
+                        alert("更新失败");
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -61,7 +81,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active">
 
-                                    <form action="/community/uploadUpdate" method="post" name="edit-form" class="edit-form">
+                                    <form id="upload-file" action="" method="post" name="edit-form" class="edit-form">
                                         <div class="form-group">
                                             <label for="upload_file_ext">文件上传限制</label>
                                             <input class="js-tags-input form-control" type="text" id="type1" name="type1" value="${uploadconfig.type1}" >
@@ -83,7 +103,7 @@
                                             <small class="help-block">0为不限制大小，单位：kb</small>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary m-r-5">确 定</button>
+                                            <button type="button" onclick="upload()" class="btn btn-primary m-r-5">确 定</button>
                                             <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                                         </div>
                                     </form>

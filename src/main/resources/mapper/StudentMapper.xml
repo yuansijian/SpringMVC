@@ -76,11 +76,16 @@
       where stuname like #{conditions} or stunumber like  #{conditions}
       or stuPhone like #{conditions} or stumail like #{conditions} and is_delete=0
   </select>
+  <select id="queryClass" resultType="Integer">
+      select distinct(class1)
+      from Student
+      order by class1
+  </select>
   <select id="queryFuzzyRegistered" resultType="Student">
       select *
       from
       Student
-      where stuname like #{stuname} or class1=#{stuclass} or
+      where stuname like #{stuname} or class1=#{stuclass} or grade=#{stugrade}
       (registeredTime between #{startTime} and #{endTime})
   </select>
   <select id="registeredQuery" resultType="java.lang.Integer">

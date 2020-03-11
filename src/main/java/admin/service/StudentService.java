@@ -15,12 +15,13 @@ public interface StudentService
     List<Student> queryByClass(String stuclass);
     List<Student> queryByName(String stuname);
     List<Student> queryByNameAndClass(String stuname, String stuclass);
-    List<Student> queryFuzzyRegistered(String stuname, String stuclass, String startTime, String endTime);
+    List<Student> queryFuzzyRegistered(String stuname, String stuclass, String stugrade, String startTime, String endTime);
     Student selectByPrimaryKey(Integer id);
     Student adminUpdateSelect(Integer id);
     int updateByPrimaryKeySelective(Student record);
     int deleteByPrimaryKey(Integer id);
     List<Student> queryRes(String startTime, String endTime);
     int queryCountLogin(String startTime, String endTime);
+    List<Integer> queryClass();
 
 }

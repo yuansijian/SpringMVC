@@ -9,6 +9,11 @@
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script>
+        function A() {
+            alert("清除成功");
+        }
+    </script>
 </head>
 
 <body>
@@ -123,7 +128,7 @@ upload:上传
                                             <#--</div>-->
                                         <#--</div>-->
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary m-r-5">确 定</button>
+                                            <button type="button" onclick="A()" class="btn btn-primary m-r-5">确 定</button>
                                             <button type="button" class="btn btn-default" onclick="javascript:history.back(-1);return false;">返 回</button>
                                         </div>
                                     </form>
