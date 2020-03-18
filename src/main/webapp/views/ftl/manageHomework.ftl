@@ -59,10 +59,10 @@
                           <div class="card-toolbar clearfix">
                               <form class="well form-search" method="POST" action="/teacher/manageHomework">
                               姓名：
-                              <input type="text" name="stuname" style="width: 100px;"  placeholder="输入数字">
+                              <input type="text" name="stuname" style="width: 100px;"  placeholder="。。。">
                               &nbsp;&nbsp;
                               作业标题：
-                              <input type="text" name="homeworkname" style="width: 100px;"  placeholder="输入数字">
+                              <input type="text" name="homeworkname" style="width: 100px;"  placeholder="。。。">
                               &nbsp;&nbsp;
                               <#--日期选择:-->
                               <#--<div class="input-daterange input-group">-->

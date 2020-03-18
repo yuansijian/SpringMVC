@@ -9,10 +9,7 @@ import admin.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Array;
@@ -125,6 +122,22 @@ public class Admin
         return format.format(calendar.getTime());
     }
 
+    /**
+     * @Description: 获得当天日期
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-3-16
+     */
+    public static String getDate()
+    {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String currentDate = simpleDateFormat.format(date);
+
+        return currentDate;
+    }
+
 
 
     /**
@@ -171,12 +184,17 @@ public class Admin
             activitys[i] = studentService.queryCountLogin(getFirstDayOfMonth(currentYear, months[i]), getLastDayOfMonth(currentYear, months[i]));
         }
 
+        //今日活跃度
+        String today = getDate();
+        int activity = studentService.queryCountLogin(today, today);
+
 
 
         model.addAttribute("count", count);
         model.addAttribute("hashMapList", arr);
         model.addAttribute("administrator", administrator);
         model.addAttribute("activity", activitys);
+        model.addAttribute("activite", activity);
 
 
         return "index.ftl";
@@ -203,8 +221,9 @@ public class Admin
     * @Author: Defend
     * @Date: 20-3-1
     */
+    @ResponseBody
     @RequestMapping("redirect")
-    public String redirect(Model model, @RequestParam("username")String username,
+    public int redirect(@RequestParam("username")String username,
                            @RequestParam("password")String password, HttpSession session)
     {
         Administrator administrator = administratorService.queryByUsernameAndPassword(username, password);
@@ -253,10 +272,10 @@ public class Admin
 //            model.addAttribute("hashMapList", list);
 //            model.addAttribute("administrator", administrator);
 
-            return "redirect:/index";
+            return 1;
         }
 
-        return "error.html";
+        return 0;
     }
 
     /**
@@ -300,5 +319,6 @@ public class Admin
     {
         return "error500.html";
     }
+
 
 }

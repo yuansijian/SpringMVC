@@ -12,6 +12,7 @@ public interface TeacherMapper {
     List<Teacher> queryAll();
 
     List<Teacher> queryFuzzyRegistered(@Param("teaname") String teaname, @Param("startTime")String startTime, @Param("endTime") String endTime);
+
     int insert(Teacher record);
 
     long selectByCountPrimaryKey();

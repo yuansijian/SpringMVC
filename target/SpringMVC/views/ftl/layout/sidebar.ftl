@@ -16,7 +16,7 @@
                     <li> <a href="/teacher/manageStudent">学生管理</a> </li>
                     <li> <a href="/teacher/manageHomework">作业管理</a> </li>
                     <li> <a href="/teacher/listHomework">作业列表</a> </li>
-                    <li> <a href="#!">其他</a> </li>
+                    <li> <a href="/teacher/other">其他</a> </li>
                 </ul>
             </li>
             <li class="nav-item nav-item-has-subnav">

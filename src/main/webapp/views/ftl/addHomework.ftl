@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>学生信息 - 后台管理系统</title>
+    <title>新增作业 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Defend">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
@@ -91,9 +91,19 @@
                                         <input type="text" class="form-control" name="description" id="description" >
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-xs-2" id="class-input">年级</label>
+                                        <div class="col-xs-2">
+                                            <select class="form-control" id="select" name="stugrade" size="1  ">
+                                                <option value="0">全部</option>
+                                                <#list class as cl>
+                                                <script>
+                                                    $("#select").append("<option value=\"${cl}\">${cl}</option>\n")
+                                                </script>
+                                                </#list>
+                                            </select>
+                                        </div>
                                         <label for="updatetime">布置学生</label>
                                         <input type="text" class="form-control" name="updatetime" id="updatetime" >
-                                        <small>输入格式为例如2016级6班输入2016-6,多个输入用英文逗号,隔开</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="starttime">开始时间</label>

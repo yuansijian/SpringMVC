@@ -71,13 +71,13 @@
                                 <div class="col-xs-2">
                                     <input class="form-control input-sm " type="text" id="input-small" name="stuname" placeholder="请输入姓名">
                                 </div>
-                                <label class="col-xs-2" id="class-input">班级</label>
+                                <label class="col-xs-2" id="class-input">年级</label>
                                 <div class="col-xs-2">
-                                    <select class="form-control" id="select" name="stuclass" size="1  ">
+                                    <select class="form-control" id="select" name="stugrade" size="1  ">
                                         <option value="0">全部</option>
                                         <#list class as cl>
                                             <script>
-                                                $("#select").append("<option value=\"${cl}\">${cl}班</option>\n")
+                                                $("#select").append("<option value=\"${cl}\">${cl}</option>\n")
                                             </script>
                                         </#list>
                                     </select>
@@ -106,8 +106,7 @@
                         <th class="w-5">编号</th>
                         <th class="w-5">姓名</th>
                         <th class="w-5">学号</th>
-                        <th class="w-5">年级</th>
-                        <th class="w-5">班级</th>
+                        <th class="w-5">年级班级</th>
                         <th class="w-5">性别</th>
                         <th class="w-5">电话号码</th>
                         <th class="w-5">邮箱</th>
@@ -124,7 +123,6 @@
                                 <td>${stu.stuname}</td>
                                 <td>${stu.stunumber}</td>
                                 <td>${stu.grade}</td>
-                                <td>${stu.class1}</td>
                                 <td><#if stu.sex == 1>
                                         男
                                     <#else>

@@ -48,6 +48,44 @@
             left: 15px;
         }
     </style>
+    <script>
+        function login() {
+            let username = $("#username").val();
+            let password = $("#password").val();
+
+            if(username.length === 0)
+            {
+                alert("用户民不能为空");
+                
+                return;
+            }
+            if(password.length === 0)
+            {
+                alert("密码不能为空");
+                return;
+            }
+            
+            $.ajax({
+                type: "POST",
+                url: "/redirect",
+                data: $("#form1").serialize(),
+                success: function (data) {
+                    if(data === 1)
+                    {
+                        window.location.replace("/index")
+                    }
+                    else
+                    {
+                        alert("账号或密码错误");
+                    }
+                },
+                error: function () {
+                    alert("账号或密码错误1");
+                }
+            })
+            
+        }
+    </script>
 </head>
 
 <body>
@@ -57,13 +95,13 @@
             <div class="login-header text-center">
                 <a href="/index"> <img alt="light year admin" src="/statics/images/logo-sidebar.png"> </a>
             </div>
-            <form action="/redirect" method="post">
+            <form id="form1">
                 <div class="form-group has-feedback feedback-left">
-                    <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" />
+                    <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" required="required"/>
                     <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <div class="form-group has-feedback feedback-left">
-                    <input type="password" placeholder="请输入密码" class="form-control" id="password" name="password" />
+                    <input type="password" placeholder="请输入密码" class="form-control" id="password" name="password" required="required"/>
                     <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
                 </div>
                 <#--<div class="form-group has-feedback feedback-left row">-->
@@ -76,7 +114,7 @@
                     <#--</div>-->
                 <#--</div>-->
                 <div class="form-group">
-                    <button class="btn btn-block btn-primary" type="submit">立即登录</button>
+                    <button class="btn btn-block btn-primary" type="button" onclick="login()">立即登录</button>
                 </div>
             </form>
             <hr>

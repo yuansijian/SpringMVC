@@ -7,7 +7,8 @@
     <display-name>Archetype Created Web Application</display-name>
     <!--welcome pages-->
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <!--<welcome-file>index.jsp</welcome-file>-->
+        <welcome-file>/views/ftl/main/login.html</welcome-file>
     </welcome-file-list>
 
     <!--配置springmvc DispatcherServlet-->

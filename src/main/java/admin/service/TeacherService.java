@@ -17,6 +17,8 @@ public interface TeacherService
     int deleteByPrimaryKey(Integer id);
     List<Teacher> queryRes(String startTime, String endTime);
     int queryCountLogin(String startTime, String endTime);
+    int insert(Teacher record);
+
 
 
 }

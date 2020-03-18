@@ -86,9 +86,9 @@ public class StudengServiceImpl implements StudentService
     * @Date: 20-2-27
     */
     @Override
-    public List<Student> queryByClass(String stuclass)
+    public List<Student> queryByGrade(String stugrade)
     {
-        return studentMapper.queryByClass(stuclass);
+        return studentMapper.queryByGrade(stugrade);
     }
 
     /**
@@ -112,9 +112,9 @@ public class StudengServiceImpl implements StudentService
     * @Date: 20-2-27
     */
     @Override
-    public List<Student> queryByNameAndClass(String stuname, String stuclass)
+    public List<Student> queryByNameAndGrade(String stuname, String stugrade)
     {
-        return studentMapper.queryByNameAndClass(stuname, stuclass);
+        return studentMapper.queryByNameAndGrade(stuname, stugrade);
     }
 
     /**
@@ -216,8 +216,34 @@ public class StudengServiceImpl implements StudentService
     * @Date: 20-3-9
     */
     @Override
-    public List<Integer> queryClass()
+    public List<Integer> queryGrade()
     {
-        return studentMapper.queryClass();
+        return studentMapper.queryGrade();
+    }
+
+    /**
+    * @Description: 登录查找
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-17
+    */
+    @Override
+    public Student queryUsernameAndPassword(String username, String password)
+    {
+        return studentMapper.queryUsernameAndPassword(username, password);
+    }
+
+    /**
+    * @Description: 插入
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-17
+    */
+    @Override
+    public int insert(Student record)
+    {
+        return studentMapper.insert(record);
     }
 }

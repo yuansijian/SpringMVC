@@ -35,6 +35,10 @@ public class main
     private CommentService commentService;
     @Autowired
     private CommentParentChildService commentParentChildService;
+    @Autowired
+    private StudentService studentService;
+    @Autowired
+    private TeacherService teacherService;
 
     /**
     * @Description: 获得当天日期
@@ -237,6 +241,7 @@ public class main
         comment.setUid(1);
         comment.setUsername("admin");
         comment.setFlag(0);
+        comment.setUp(0);
 
         return commentService.insert(comment);
     }
@@ -258,6 +263,83 @@ public class main
         commentParentChild.setIsDelete(0);
 
         return commentParentChildService.insert(commentParentChild);
+    }
+
+    /**
+    * @Description: 登录
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-17
+    */
+    @ResponseBody
+    @RequestMapping("login")
+    public int login(@RequestParam("username")String username, @RequestParam("password")String password, HttpSession session)
+    {
+        System.out.println(username+password);
+
+        Student student = studentService.queryUsernameAndPassword(username, password);
+
+
+        System.out.println(student.getUsername()+student.getPassword());
+
+        if(student.getUsername().equals(username) && student.getPassword().equals(password))
+        {
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
+    * @Description: 注册
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-17
+    */
+    @RequestMapping("signupstu")
+    public String signup()
+    {
+        return "main/signupstu.ftl";
+    }
+    @RequestMapping("signuptea")
+    public String signuptea()
+    {
+        return "main/signuptea.ftl";
+    }
+
+    /**
+    * @Description: 注册保存
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-17
+    */
+    @ResponseBody
+    @RequestMapping("saveStudent")
+    public int saveStudent(Student student)
+    {
+        System.out.println(student);
+
+        student.setIsDelete(0);
+        student.setRegisteredtime(getDate());
+        student.setLogintime(getDate());
+        student.setLoginnumber(1);
+        System.out.println(student);
+//        System.out.println();
+
+        return studentService.insert(student);
+    }
+    @ResponseBody
+    @RequestMapping("saveTeacher")
+    public int saveTeacher(Teacher teacher)
+    {
+        teacher.setIsDelete(0);
+        teacher.setRegisteredtime(getDate());
+        teacher.setLoginnumber(1);
+        teacher.setLogintime(getDate());
+
+        return teacherService.insert(teacher);
     }
 
 }

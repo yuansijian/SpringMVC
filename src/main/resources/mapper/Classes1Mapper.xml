@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="admin.generator.dao.Classes1Mapper" >
+  <resultMap id="BaseResultMap" type="admin.generator.entity.Classes1" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="grade" property="grade" jdbcType="VARCHAR" />
+    <result column="teacher" property="teacher" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="VARCHAR" />
+    <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
+    <result column="creater" property="creater" jdbcType="VARCHAR" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Classes1" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, grade, teacher, create_time, delete_time, creater, is_delete
+  </sql>
+  <sql id="Blob_Column_List" >
+    description
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from classes1
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryAll" resultMap="ResultMapWithBLOBs">
+    select *
+    from classes1
+    order by id desc
+  </select>
+  <select id="queryClass" resultMap="ResultMapWithBLOBs">
+    select distinct grade
+    from classes1
+  </select>
+  <select id="fuzzyQuery" resultMap="ResultMapWithBLOBs">
+    select *
+    from classes1
+    where grade like #{keyword} or description like #{keyword} or teacher like #{keyword} or creater like#{keyword}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from classes1
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="admin.generator.entity.Classes1" >
+    insert into classes1 (id, grade, teacher, 
+      create_time, delete_time, creater, 
+      is_delete, description)
+    values (#{id,jdbcType=INTEGER}, #{grade,jdbcType=VARCHAR}, #{teacher,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=VARCHAR}, #{deleteTime,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="admin.generator.entity.Classes1" >
+    insert into classes1
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="grade != null" >
+        grade,
+      </if>
+      <if test="teacher != null" >
+        teacher,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="deleteTime != null" >
+        delete_time,
+      </if>
+      <if test="creater != null" >
+        creater,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="teacher != null" >
+        #{teacher,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Classes1" >
+    update classes1
+    <set >
+      <if test="grade != null" >
+        grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="teacher != null" >
+        teacher = #{teacher,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteTime != null" >
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Classes1" >
+    update classes1
+    set grade = #{grade,jdbcType=VARCHAR},
+      teacher = #{teacher,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      delete_time = #{deleteTime,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      description = #{description,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Classes1" >
+    update classes1
+    set grade = #{grade,jdbcType=VARCHAR},
+      teacher = #{teacher,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      delete_time = #{deleteTime,jdbcType=VARCHAR},
+      creater = #{creater,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

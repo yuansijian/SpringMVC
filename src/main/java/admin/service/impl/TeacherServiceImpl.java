@@ -137,4 +137,17 @@ public class TeacherServiceImpl implements TeacherService
     {
         return teacherMapper.queryCountLogin(startTime, endTime);
     }
+
+    /**
+    * @Description: 插入
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-17
+    */
+    @Override
+    public int insert(Teacher record)
+    {
+        return teacherMapper.insert(record);
+    }
 }

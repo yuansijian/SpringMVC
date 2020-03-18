@@ -13,11 +13,11 @@ public interface StudentMapper {
 
     int insertSelective(Student record);
 
-    List<Student> queryByClass(@Param("stuclass")String stuclass);
+    List<Student> queryByGrade(@Param("stugrade")String stugrade);
 
     List<Student> queryByName(@Param("stuname")String stuname);
 
-    List<Student> queryByNameAndClass(@Param("stuname")String stuname, @Param("stuclass")String stuclass);
+    List<Student> queryByNameAndGrade(@Param("stuname")String stuname, @Param("stugrade")String stugrade);
 
     Student selectByPrimaryKey(Integer id);
 
@@ -43,5 +43,7 @@ public interface StudentMapper {
 
     List<Student> queryRes(@Param("startTime")String startTime, @Param("endTime")String endTime);
 
-    List<Integer> queryClass();
+    List<Integer> queryGrade();
+
+    Student queryUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 }

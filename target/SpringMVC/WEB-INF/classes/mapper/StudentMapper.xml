@@ -56,6 +56,11 @@
       from
       Student
   </select>
+  <select id="queryUsernameAndPassword" resultType="Student">
+    select *
+    from Student
+    where username = #{username} and password = #{password}
+  </select>
   <select id="queryAll" resultType="Student">
       select *
       from
@@ -76,10 +81,10 @@
       where stuname like #{conditions} or stunumber like  #{conditions}
       or stuPhone like #{conditions} or stumail like #{conditions} and is_delete=0
   </select>
-  <select id="queryClass" resultType="Integer">
-      select distinct(class1)
+  <select id="queryGrade" resultType="Integer">
+      select distinct(grade)
       from Student
-      order by class1
+      order by grade
   </select>
   <select id="queryFuzzyRegistered" resultType="Student">
       select *
@@ -94,11 +99,11 @@
       Student
       where registeredTime between #{startTime} and #{endTime}
   </select>
-  <select id="queryByClass" resultType="Student">
+  <select id="queryByGrade" resultType="Student">
     select *
     from
     Student
-    where class1=#{stuclass}
+    where grade=#{stugrade}
   </select>
   <select id="queryByName" resultType="Student">
       select *
@@ -106,10 +111,10 @@
       Student
       where stuname like #{stuname}
   </select>
-  <select id="queryByNameAndClass" resultType="Student">
+  <select id="queryByNameAndGrade" resultType="Student">
       select *
       from Student
-      where stuname like #{stuname} and class1=#{stuclass}
+      where stuname like #{stuname} and grade=#{stugrade}
   </select>
   <select id="queryCountLogin" resultType="Integer">
       select IFNULL(sum(loginNumber), 0)as activity

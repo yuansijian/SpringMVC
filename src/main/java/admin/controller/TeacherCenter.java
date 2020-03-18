@@ -1,15 +1,14 @@
 package admin.controller;
 
 
-import admin.generator.entity.Administrator;
-import admin.generator.entity.Givehomework;
-import admin.generator.entity.HomeworkWithBLOBs;
-import admin.generator.entity.Student;
+import admin.generator.entity.*;
+import admin.service.Classes1Service;
 import admin.service.GivehomeworkService;
 import admin.service.HomeworkService;
 import admin.service.StudentService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +37,8 @@ public class TeacherCenter
     private HomeworkService homeworkService;
     @Autowired
     private GivehomeworkService givehomeworkService;
+    @Autowired
+    private Classes1Service classes1Service;
     /**
     * @Description: 管理学生界面
     * @Param: null
@@ -47,24 +48,26 @@ public class TeacherCenter
     */
     @RequestMapping(value = "manageStudent")
     public String manageStudent(@RequestParam(value = "stuname", defaultValue = "")String stuname, Model model,
-                                @RequestParam(value = "stuclass", defaultValue = "")String stuclass,
+                                @RequestParam(value = "stugrade", defaultValue = "")String stugrade,
                                 @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
                                 @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
         //统计班级
-        List<Integer> class1 = studentService.queryClass();
+        List<Integer> class1 = studentService.queryGrade();
+
+        stugrade = stugrade.replace(",", "");
 
         //获取session的值
         Administrator administrator = (Administrator)session.getAttribute("user");
         model.addAttribute("administrator", administrator);
 
-//        System.out.println(stuname + stuclass);
+        System.out.println(stuname);
 
         try
         {
-            if ((stuname.equals("") && stuclass.equals("")) || ((stuname.equals("") && stuclass.equals("0"))))
+            if ((stuname.equals("") && stugrade.equals("")) || ((stuname.equals("") && stugrade.equals("0"))))
             {
 //                System.out.println(1);
 
@@ -72,15 +75,15 @@ public class TeacherCenter
                 PageInfo<Student> pageInfo = new PageInfo(studentList);
                 model.addAttribute("pageInfo", pageInfo);
             }
-            else if(stuname.equals("") && !stuclass.equals("0"))
+            else if(stuname.equals("") && !stugrade.equals("0"))
             {
 //                System.out.println(2);
 
-                List<Student> studentList = studentService.queryByClass(stuclass);
+                List<Student> studentList = studentService.queryByGrade(stugrade);
                 PageInfo<Student> pageInfo = new PageInfo(studentList);
                 model.addAttribute("pageInfo", pageInfo);
             }
-            else if(!stuname.equals("") && stuclass.equals("0"))
+            else if(!stuname.equals("") && stugrade.equals("0"))
             {
 //                System.out.println(3);
 
@@ -92,7 +95,7 @@ public class TeacherCenter
             {
 //                System.out.println(4);
 
-                List<Student> studentList = studentService.queryByNameAndClass(stuname, stuclass);
+                List<Student> studentList = studentService.queryByNameAndGrade(stuname, stugrade);
                 PageInfo<Student> pageInfo = new PageInfo(studentList);
                 model.addAttribute("pageInfo", pageInfo);
 
@@ -287,4 +290,140 @@ public class TeacherCenter
         return givehomeworkService.updateByPrimaryKeySelective(givehomework);
     }
 
+    /**
+    * @Description: 班级年级
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-18
+    */
+    @RequestMapping("other")
+    public String other(Model model, @RequestParam(value = "keyword", defaultValue = "")String keyword,
+                        @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                        @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session)
+    {
+        Administrator administrator = (Administrator)session.getAttribute("user");
+
+        PageHelper.startPage(pageNum, pageSize);
+
+        if(keyword.equals(""))
+        {
+            List<Classes1> classes1List = classes1Service.queryAll();
+            PageInfo<Classes1> pageInfo = new PageInfo(classes1List);
+            model.addAttribute("pageInfo", pageInfo);
+        }
+        else
+        {
+            List<Classes1> classes1List = classes1Service.fuzzyQuery(keyword);
+            PageInfo<Classes1> pageInfo = new PageInfo(classes1List);
+            model.addAttribute("pageInfo", pageInfo);
+        }
+
+
+        model.addAttribute("administrator", administrator);
+
+        return "other.ftl";
+    }
+
+    /**
+    * @Description: 新增年级
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-18
+    */
+    @RequestMapping("addGrade")
+    public String addGrade(Model model, HttpSession session)
+    {
+        Administrator administrator = (Administrator)session.getAttribute("user");
+
+        model.addAttribute("administrator", administrator);
+
+        return "addGrade.ftl";
+    }
+    /**
+    * @Description: 保存
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-18
+    */
+    @ResponseBody
+    @RequestMapping("saveGrade")
+    public int saveGrade(Classes1 classes1, HttpSession session)
+    {
+        Administrator administrator = (Administrator)session.getAttribute("user");
+
+        classes1.setCreater(administrator.getUsername());
+        classes1.setCreateTime(main.getDate());
+        classes1.setIsDelete(0);
+
+        return classes1Service.insert(classes1);
+    }
+
+    /**
+    * @Description: 更新年级班级
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-18
+    */
+    @ResponseBody
+    @RequestMapping("updateGrade")
+    public int updateGrade(@RequestParam("id")int id, @RequestParam("val")int isDelete)
+    {
+//        System.out.println("11111111111111");
+//        System.out.println(isDelete);
+//        System.out.println(id);
+
+        Classes1 classes1 = new Classes1();
+
+        if(isDelete == 0)
+        {
+            isDelete = 1;
+        }
+        else
+        {
+            isDelete = 0;
+        }
+
+        classes1.setId(id);
+        classes1.setIsDelete(isDelete);
+
+        return classes1Service.updateByPrimaryKeySelective(classes1);
+    }
+
+    /**
+    * @Description: 编辑年级班级
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-18
+    */
+    @RequestMapping("editGrade/{id}")
+    public String editGrade(Model model, HttpSession session, @PathVariable("id")int id)
+    {
+        Administrator administrator = (Administrator)session.getAttribute("user");
+
+        Classes1 classes1 = classes1Service.selectByPrimaryKey(id);
+
+        model.addAttribute("grade", classes1);
+        model.addAttribute("administrator", administrator);
+
+        return "editGrade.ftl";
+    }
+
+    /**
+    * @Description: 更新年级班级信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-18
+    */
+    @ResponseBody
+    @RequestMapping("updateG")
+    public int updateG(Classes1 classes1)
+    {
+        return classes1Service.updateByPrimaryKeySelective(classes1);
+    }
 }
