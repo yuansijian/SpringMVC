@@ -32,4 +32,6 @@ public interface TeacherMapper {
     List<Teacher> queryRes(@Param("startTime")String startTime, @Param("endTime")String endTime);
 
     int queryCountLogin(@Param("startTime")String startTime, @Param("endTime")String endTime);
+
+    List<Teacher> checkTea();
 }

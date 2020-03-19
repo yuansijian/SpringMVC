@@ -202,7 +202,11 @@ public class TeacherCenter
     {
         Administrator administrator = (Administrator) session.getAttribute("user");
 
+        List<Classes1> list = classes1Service.queryUsed();
+
+        model.addAttribute("gradeList", list);
         model.addAttribute("administrator", administrator);
+
 
         return "addHomework.ftl";
     }
@@ -247,6 +251,10 @@ public class TeacherCenter
         Givehomework givehomework = givehomeworkService.selectByPrimaryKey(id);
 
         Administrator administrator = (Administrator) session.getAttribute("user");
+
+        List<Classes1> list = classes1Service.queryUsed();
+
+        model.addAttribute("gradeList", list);
 
         model.addAttribute("administrator", administrator);
         model.addAttribute("homework", givehomework);

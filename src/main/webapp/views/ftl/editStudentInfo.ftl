@@ -97,8 +97,17 @@
                                         <input type="text" class="form-control" name="stunumber" id="stunumber" value="${student.stunumber}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="class1">班级</label>
-                                        <input type="text" class="form-control" name="class1" id="class1" value="${student.class1}">
+                                        <label class="col-12" id="class-input">年级</label>
+                                        <div class="col-12">
+                                            <select class="form-control" id="select" name="updatetime" size="1">
+                                            <option value="${student.grade}">${student.grade}</option>
+                                            <#list gradeList as cl>
+                                                <script>
+                                                    $("#select").append("<option value=\"${cl.grade}\">${cl.grade}</option>\n")
+                                                </script>
+                                            </#list>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="sex" >性别</label>

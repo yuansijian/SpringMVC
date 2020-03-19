@@ -13,6 +13,7 @@ public interface Classes1Service
     int insert(Classes1 record);
     int updateByPrimaryKeySelective(Classes1 record);
     Classes1 selectByPrimaryKey(Integer id);
+    List<Classes1> queryUsed();
 
 
 }

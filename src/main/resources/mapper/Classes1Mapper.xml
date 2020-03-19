@@ -41,6 +41,11 @@
     from classes1
     where grade like #{keyword} or description like #{keyword} or teacher like #{keyword} or creater like#{keyword}
   </select>
+  <select id="queryUsed" resultMap="ResultMapWithBLOBs">
+    select *
+    from classes1
+    where is_delete = 0
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from classes1
     where id = #{id,jdbcType=INTEGER}

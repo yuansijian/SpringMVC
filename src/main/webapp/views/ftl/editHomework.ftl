@@ -92,9 +92,17 @@
                                         <input type="text" class="form-control" name="description" id="description" value="${homework.description}" >
                                     </div>
                                     <div class="form-group">
-                                        <label for="updatetime">布置学生</label>
-                                        <input type="text" class="form-control" name="updateTime" id="updatetime" value="${homework.updatetime}">
-                                        <small>输入格式为例如2016级6班输入2016-6,多个输入用英文逗号,隔开</small>
+                                        <label class="col-12" id="class-input">年级</label>
+                                        <div class="col-12">
+                                            <select class="form-control" id="select" name="updatetime" size="1">
+                                            <option value="${homework.updatetime}">${homework.updatetime}</option>
+                                            <#list gradeList as cl>
+                                                <script>
+                                                    $("#select").append("<option value=\"${cl.grade}\">${cl.grade}</option>\n")
+                                                </script>
+                                            </#list>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="starttime">开始时间</label>

@@ -1,9 +1,11 @@
 package admin.controller;
 
 import admin.generator.entity.Administrator;
+import admin.generator.entity.Classes1;
 import admin.generator.entity.Student;
 import admin.generator.entity.Teacher;
 import admin.service.AdministratorService;
+import admin.service.Classes1Service;
 import admin.service.StudentService;
 import admin.service.TeacherService;
 import com.github.pagehelper.PageHelper;
@@ -39,6 +41,8 @@ public class User
     private TeacherService teacherService;
     @Autowired
     private AdministratorService administratorService;
+    @Autowired
+    private Classes1Service classes1Service;
 
     /**
     * @Description: 新学生
@@ -115,7 +119,7 @@ public class User
             String monday = dateFormat.format(Admin.getThisWeekMonday(date));
             String sunday = dateFormat.format(Admin.getThisWeekSunday(date));
 
-            List<Teacher> teacherList = teacherService.queryRes(monday, sunday);
+            List<Teacher> teacherList = teacherService.checkTea();
 
             PageInfo<Student> pageInfo2 = new PageInfo(teacherList);
             model.addAttribute("teacherList", pageInfo2);
@@ -133,6 +137,24 @@ public class User
         return "newTeacher.ftl";
     }
 
+    /**
+    * @Description: 教师审核
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @ResponseBody
+    @RequestMapping("checkTea")
+    public int checkTea(@RequestParam("id")int id, @RequestParam("isDelete")int isDelete)
+    {
+        Teacher teacher = new Teacher();
+
+        teacher.setIsDelete(isDelete);
+        teacher.setId(id);
+
+        return teacherService.updateByPrimaryKeySelective(teacher);
+    }
     /**
     * @Description: 活跃度
     * @Param: null
@@ -381,6 +403,9 @@ public class User
 
         Administrator administrator = (Administrator) session.getAttribute("user");
 
+        List<Classes1> list = classes1Service.queryUsed();
+
+        model.addAttribute("gradeList", list);
         model.addAttribute("administrator", administrator);
         model.addAttribute("student", student);
 

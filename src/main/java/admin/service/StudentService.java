@@ -1,9 +1,7 @@
 package admin.service;
 
 import admin.generator.entity.Student;
-import org.apache.ibatis.annotations.Param;
 
-import java.util.HashMap;
 import java.util.List;
 
 public interface StudentService

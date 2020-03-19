@@ -96,4 +96,17 @@ public class Classes1ServiceImpl implements Classes1Service
     {
         return classes1Mapper.selectByPrimaryKey(id);
     }
+
+    /**
+    * @Description: 查找已启用的年级班级,用于注册选择
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @Override
+    public List<Classes1> queryUsed()
+    {
+        return classes1Mapper.queryUsed();
+    }
 }

@@ -19,7 +19,7 @@
                 success: function (data) {
                     if(data === 1)
                     {
-                        alert("注册成功");
+                        alert("已提交审核");
                     }
                     else
                     {

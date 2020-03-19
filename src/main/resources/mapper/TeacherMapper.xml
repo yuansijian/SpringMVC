@@ -53,6 +53,11 @@
         teacher
         where id=#{id}
     </select>
+    <select id="checkTea" resultType="Teacher">
+        select *
+        from teacher
+        where is_delete = 2
+    </select>
     <select id="selectByCountPrimaryKey" resultType="long">
       select count(id)
       from teacher

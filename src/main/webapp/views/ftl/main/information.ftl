@@ -26,6 +26,7 @@
                         <ul class="nav nav-tabs page-tabs">
                             <li> <a href="/main/index">图文教学</a> </li>
                             <li><a href="#!">视频教学</a> </li>
+                            <li><a href="/main/practice">练习中心</a></li>
                             <li><a href="/main/resource">资源中心</a> </li>
                             <li> <a href="/main/message">留言</a></li>
                             <li><a href="/main/homework">作业中心</a> </li>
@@ -44,51 +45,38 @@
                                         <div class="avatar-divider"></div>
                                         <div class="edit-avatar-content">
                                             <button class="btn btn-default" type="submit">修改头像</button>
+                                            <button class="btn btn-primary" type="button">
+                                                消息 <span class="badge">4</span>
+                                            </button>
                                             <p class="m-0">选择一张你喜欢的图片，裁剪后会自动生成264x264大小，上传图片大小不能超过2M。</p>
                                         </div>
                                     </div>
                                     <hr>
                                 </form>
-
                                 <form method="post" action="/user/updateProfile" class="site-form">
 
                                     <div class="form-group">
                                         <label for="nickname">用户名</label>
-                                        <input type="text" class="form-control" name="username" id="username">
+                                        <input type="text" class="form-control" name="username" id="username" placeholder="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="stunumber">学号</label>
-                                        <input type="text" class="form-control" name="stunumber" id="stunumber" value="">
+                                        <label for="nickname">年级班级</label>
+                                        <input type="text" class="form-control" name="username" id="username" value="">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="grade">年级</label>
-                                        <input type="text" class="form-control" name="grade" id="grade" >
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="class1">班级</label>
-                                        <input type="text" class="form-control" name="class1" id="class1">
-                                    </div>
-
                                     <div class="form-group">
                                         <label for="email">邮箱</label>
-                                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" >
+                                        <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="">
                                         <small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">电话号码</label>
-                                        <input type="text" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" placeholder="请输入正确的邮箱地址">
+                                        <input type="text" class="form-control" name="phone" id="phone" aria-describedby="phoneHelp" placeholder="请输入正确的电话号码" value="">
                                         <small id="phoneHelp" class="form-text text-muted">请保证您填写的电话号码是正确的。</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="sex" >性别</label>
-                                        <select class="form-control" id="select" name="sex" size="1  ">
-                                            <option value="0">女</option>
-                                            <option  value="1">男</option>
-
-                                        </select>
                                     </div>
                                     <button type="submit" class="btn btn-primary">保存</button>
                                 </form>
+
+
 
                             </div>
                         </div>

@@ -26,6 +26,7 @@
                         <ul class="nav nav-tabs page-tabs">
                             <li > <a href="/main/index">图文教学</a> </li>
                             <li><a href="#!">视频教学</a> </li>
+                            <li><a href="/main/practice">练习中心</a></li>
                             <li class="active"><a href="">资源中心</a> </li>
                             <li> <a href="/main/message">留言</a></li>
                             <li><a href="/main/homework">作业中心</a> </li>

@@ -12,6 +12,33 @@
     <!--日期选择插件-->
     <link rel="stylesheet" href="/statics/js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script>
+        function check2(id, isDelete) {
+            let state = document.getElementById("check1").innerText;
+            $.ajax({
+                type: "POST",
+                url: "/user/checkTea",
+                data: "id="+id+"&isDelete="+isDelete,
+                success: function (data) {
+                    if(data === 1)
+                    {
+
+                        if(state === "审核通过")
+                        {
+                            alert("已撤销");
+                            $("#check1").text("未审核");
+                        }
+                        if(state === "未审核")
+                        {
+                            alert("审核通过")
+                            $("#check1").text("已审核");
+
+                        }
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -124,8 +151,11 @@
                                                       <td><font class="text-success">正常</font></td>
                                                       <td>
                                                           <div class="btn-group">
-                                                              <a class="btn btn-xs btn-default" href="/user/editTeacherInfo/${teacher.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                              <a class="btn btn-xs btn-default" href="/user/deleteTeacher/${teacher.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                              <#if teacher.isDelete == 2>
+                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})" title="删除" data-toggle="tooltip">未审核</a>
+                                                              <#else>
+                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})" title="删除" data-toggle="tooltip">已审核</a>
+                                                              </#if>
                                                           </div>
                                                       </td>
                                                   </tr>

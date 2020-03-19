@@ -25,4 +25,6 @@ public interface Classes1Mapper {
     List<String> queryClass();
 
     List<Classes1> fuzzyQuery(@Param("keyword")String keyword);
+
+    List<Classes1> queryUsed();
 }

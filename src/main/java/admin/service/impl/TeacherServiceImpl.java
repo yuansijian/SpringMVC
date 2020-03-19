@@ -150,4 +150,17 @@ public class TeacherServiceImpl implements TeacherService
     {
         return teacherMapper.insert(record);
     }
+
+    /**
+    * @Description: 审核教师
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @Override
+    public List<Teacher> checkTea()
+    {
+        return teacherMapper.checkTea();
+    }
 }

@@ -121,7 +121,6 @@
                                   <th>姓名</th>
                                   <th>用户名</th>
                                   <th>年级</th>
-                                  <th>班级</th>
                                   <th>电话号码</th>
                                   <th>邮箱</th>
                                   <th>登录次数</th>
@@ -145,7 +144,6 @@
                                           <td>${student.stuname}</td>
                                           <td>${student.username}</td>
                                           <td>${student.grade}</td>
-                                          <td>${student.class1}</td>
                                           <td>${student.stuphone}</td>
                                           <td>${student.stumail}</td>
                                           <td>${student.loginnumber}</td>

@@ -12,6 +12,8 @@
     <!--日期选择插件-->
     <link rel="stylesheet" href="/statics/js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/statics/js/jquery.min.js"></script>
+
     <script>
         function save1() {
             $.ajax({
@@ -91,20 +93,19 @@
                                         <input type="text" class="form-control" name="description" id="description" >
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-xs-2" id="class-input">年级</label>
-                                        <div class="col-xs-2">
-                                            <select class="form-control" id="select" name="stugrade" size="1  ">
-                                                <option value="0">全部</option>
-                                                <#list class as cl>
+                                        <label class="col-12" id="class-input">年级</label>
+                                        <div class="col-12">
+                                            <select class="form-control" id="select" name="updatetime" size="1">
+                                            <#--<option value="0">全部</option>-->
+                                            <#list gradeList as cl>
                                                 <script>
-                                                    $("#select").append("<option value=\"${cl}\">${cl}</option>\n")
+                                                    $("#select").append("<option value=\"${cl.grade}\">${cl.grade}</option>\n")
                                                 </script>
-                                                </#list>
+                                            </#list>
                                             </select>
                                         </div>
-                                        <label for="updatetime">布置学生</label>
-                                        <input type="text" class="form-control" name="updatetime" id="updatetime" >
                                     </div>
+
                                     <div class="form-group">
                                         <label for="starttime">开始时间</label>
                                         <input class="form-control js-datepicker" data-date-format="yyyy-mm-dd" type="text" id="starttime" name="starttime" placeholder="从">
@@ -129,7 +130,6 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/statics/js/jquery.min.js"></script>
 <script type="text/javascript" src="/statics/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/statics/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/statics/js/main.min.js"></script>

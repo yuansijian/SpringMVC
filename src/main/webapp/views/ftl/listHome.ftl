@@ -118,6 +118,7 @@
                                             <th>编号</th>
                                             <th>作业标题</th>
                                             <th>作业描述</th>
+                                            <th>布置学生</th>
                                             <th>开始时间</th>
                                             <th>结束时间</th>
                                             <th>作者</th>
@@ -139,6 +140,7 @@
                                                     <td>${count}</td>
                                                     <td>${hw.title}</td>
                                                     <td>${hw.description}</td>
+                                                    <td>${hw.updatetime}</td>
                                                     <td>${hw.starttime}</td>
                                                     <td>${hw.endtime}</td>
                                                     <td>${hw.author}</td>

@@ -39,6 +39,8 @@ public class main
     private StudentService studentService;
     @Autowired
     private TeacherService teacherService;
+    @Autowired
+    private Classes1Service classes1Service;
 
     /**
     * @Description: 获得当天日期
@@ -298,8 +300,12 @@ public class main
     * @Date: 20-3-17
     */
     @RequestMapping("signupstu")
-    public String signup()
+    public String signup(Model model)
     {
+        List<Classes1> list = classes1Service.queryUsed();
+
+        model.addAttribute("gradeList", list);
+
         return "main/signupstu.ftl";
     }
     @RequestMapping("signuptea")
@@ -325,6 +331,7 @@ public class main
         student.setRegisteredtime(getDate());
         student.setLogintime(getDate());
         student.setLoginnumber(1);
+        student.setEndtime("");
         System.out.println(student);
 //        System.out.println();
 
@@ -334,12 +341,69 @@ public class main
     @RequestMapping("saveTeacher")
     public int saveTeacher(Teacher teacher)
     {
-        teacher.setIsDelete(0);
+        teacher.setIsDelete(2);//审核
         teacher.setRegisteredtime(getDate());
         teacher.setLoginnumber(1);
         teacher.setLogintime(getDate());
+        teacher.setGrade("无");
+        teacher.setEndtime("");
 
         return teacherService.insert(teacher);
     }
 
+    /**
+    * @Description: 练习中心
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @RequestMapping("practice")
+    public String practice(Model model, HttpSession session,
+                           @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                           @RequestParam(value = "pageSize", defaultValue = "25")int pageSize,
+                           @RequestParam(value = "id", defaultValue = "0")int id)
+    {
+        PageHelper.startPage(pageNum, pageSize);
+
+        System.out.println("id="+id);
+
+        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+        model.addAttribute("pageInfo", pageInfo);
+
+        model.addAttribute("ids", id);
+        System.out.println("id="+id);
+
+
+        return "main/practice.ftl";
+    }
+
+    /**
+    * @Description: 联系答案
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @RequestMapping("practiceText/{id}")
+    public String practiceText(@PathVariable("id")int id, Model model)
+    {
+        PageHelper.startPage(1, 25);
+
+        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+        model.addAttribute("pageInfo", pageInfo);
+
+
+        Pictureteacher pictureteacher = pictureteacherService.selectByPrimaryKey(id);
+
+        String type = pictureteacher.getPictureurl();
+        String pictures[] = type.split(",");
+
+        model.addAttribute("pictureTeacher", pictureteacher);
+        model.addAttribute("pictures", pictures);
+
+        return "main/practiceText.ftl";
+    }
 }

@@ -18,6 +18,8 @@ public interface TeacherService
     List<Teacher> queryRes(String startTime, String endTime);
     int queryCountLogin(String startTime, String endTime);
     int insert(Teacher record);
+    List<Teacher> checkTea();
+
 
 
 

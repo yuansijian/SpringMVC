@@ -4,13 +4,13 @@ import admin.generator.entity.*;
 import admin.service.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -41,6 +41,8 @@ public class Community
     private PictureteacherService pictureteacherService;
     @Autowired
     private VideoService videoService;
+    @Autowired
+    private Short1Service short1Service;
 
     /**
     * @Description: 查找数组是否有该元素
@@ -615,7 +617,6 @@ public class Community
             {
                 System.out.println(pi[i]);
                 System.out.println(i);
-                System.out.println(iname[0]+"   " + iname[1]);
                 System.out.println(temp1[0]);
 
 
@@ -714,9 +715,402 @@ public class Community
     * @Date: 20-2-14
     */
     @RequestMapping("shortAnswerDatabase")
-    public String shortAnswerDatabase()
+    public String shortAnswerDatabase(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
+                                      @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "keyword", defaultValue = "")String keyword,
+                                      @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                                      @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
     {
+        PageHelper.startPage(pageNum, pageSize);
+        if(startTime.equals("1970-01-01") && endTime.equals("1970-01-01")&&keyword.equals(""))
+        {
+            List<Short1WithBLOBs> list = short1Service.queryAll();
+            PageInfo<Short1WithBLOBs> pageInfo = new PageInfo(list);
+            model.addAttribute("pageInfo", pageInfo);
+
+        }
+        else
+        {
+            List<Short1WithBLOBs> list = short1Service.fuzzyQuery(startTime, endTime, keyword);
+            PageInfo<Short1WithBLOBs> pageInfo = new PageInfo(list);
+            model.addAttribute("pageInfo", pageInfo);
+        }
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
         return "shortAnswerDatabase.ftl";
+    }
+
+    /**
+    * @Description: 简答题库删除
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @ResponseBody
+    @RequestMapping("deleteShort/{id}")
+    public int deleteShort(@PathVariable("id")int id)
+    {
+        Short1WithBLOBs shortWithBLOBs = new Short1WithBLOBs();
+
+        shortWithBLOBs.setId(id);
+        shortWithBLOBs.setIsDelete(1);
+
+        return short1Service.updateByPrimaryKeySelective(shortWithBLOBs);
+    }
+    
+    /**
+    * @Description: 编辑简答题
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @RequestMapping("editShort/{id}")
+    public String editShort(Model model, HttpSession session, @PathVariable("id")int id)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        Short1WithBLOBs shortWithBLOBs = short1Service.selectByPrimaryKey(id);
+//        Pictureteacher pictureteacher = pictureteacherService.selectByPrimaryKey(id);
+
+        String path = "/statics/short";
+        String temp = shortWithBLOBs.getImageurl();
+        String picture[] = temp.split(",");
+        int length = picture.length;
+
+        model.addAttribute("administrator", administrator);
+        model.addAttribute("pictures", picture);
+        model.addAttribute("shortWithBLOBs", shortWithBLOBs);
+        model.addAttribute("length", length);
+        model.addAttribute("id", id);
+
+        System.out.println(length);
+
+        return "editShort.ftl";
+    }
+
+    /**
+    * @Description: 更新简答题
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @ResponseBody
+    @RequestMapping("updateShort")
+    public int updateShort(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
+                           @RequestParam(value = "content", defaultValue = "")String content,
+                           @RequestParam(value = "title", defaultValue = "")String title,
+                           @RequestParam(value = "id", defaultValue = "")int id,
+                           @RequestParam(value = "answer", defaultValue = "")String answer,
+                           @RequestParam(value = "iname")String iname[])
+    {
+        //        System.out.println("1111111111111111111111");
+        //        System.out.println(multipartFile.length);
+        //        System.out.println(multipartFile[0].getOriginalFilename());
+
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String currentDate = simpleDateFormat.format(date);     //当前时间
+
+        //获取文件允许上传的类型
+        Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+        String types = uploadconfig.getImageconfig();
+        String []arr1 = types.split(",");
+        String type;
+        int count = 0;
+
+        //图片新增或替换
+        if(multipartFile.length >= 1)
+        {
+
+            //            System.out.println("111111111111111111");
+//            Pictureteacher pictureteacher = new Pictureteacher();
+            Short1WithBLOBs shortWithBLOBs = new Short1WithBLOBs();
+
+            //将图片上传到服务器
+            String fileName = "";
+
+            for(int i=0; i<multipartFile.length; i++)
+            {
+                if(multipartFile[i].getOriginalFilename().equals(""))
+                {
+                    count++;
+                    System.out.println(1);
+                    System.out.println(iname[i]);
+                    continue;
+                }
+
+
+
+                //文件扩展名
+                type = multipartFile[i].getOriginalFilename().substring(multipartFile[i].getOriginalFilename().lastIndexOf(".") + 1);
+
+                if(!isexist(arr1, type))
+                {
+                    return 303;
+                    //            return "redirect:/error500";
+                }
+
+                if(multipartFile[i].getSize() > 204800000)
+                {
+                    return 202;
+                    //            return "redirect:/error500";
+                }
+
+                fileName = fileName + ","  + multipartFile[i].getOriginalFilename();
+
+                System.out.println(fileName);
+
+                try
+                {
+                    String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/short";
+
+                    File dir = new File(rootPath + File.separator);
+
+                    if(!dir.exists())
+                    {
+                        dir.mkdirs();
+
+                    }
+
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator  + multipartFile[i].getOriginalFilename());
+
+
+                    multipartFile[i].transferTo(serverFile);
+
+                    System.out.println("You successfully uploaded file=" +  multipartFile[i].getOriginalFilename());
+
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+            //将上传文件的信息插入数据库
+            if(content.equals(""))
+            {
+                content = "NULL";
+            }
+
+            Short1WithBLOBs temp = short1Service.selectByPrimaryKey(id);
+            String pictureUrl = temp.getImageurl();       //以前的图片
+            String pi[] = pictureUrl.split(",");
+
+            System.out.println("11111111111111");
+            System.out.println(pi[0]);
+
+            System.out.println(pi.length);
+
+            System.out.println(12);
+
+            String temp1[] = new String[multipartFile.length];
+            if(count != multipartFile.length)
+            {
+                fileName = fileName.substring(1);
+                System.out.println(fileName);
+                temp1 = fileName.split(",");       //新增或更新的图片
+            }
+            String []temp2 = deleteNull(temp1);
+
+
+
+
+            String []arr = new String[(temp2.length+iname.length)];       //更新要存的图片
+
+
+            int k=0,i=0,j=0, h=0;
+            //匹配,看以前的图片剩下多少
+            for( ;i<pi.length; i++)
+            {
+
+
+
+                //                if(i > temp1.length && i > iname.length)
+                //                {
+                //                    break;
+                //                }
+
+                //图片未更新de
+                if(j< iname.length)
+                {
+                    if(pi[i].equals(iname[j]))
+                    {
+                        System.out.println(0);
+                        System.out.println(iname[j]);
+                        arr[h] = pi[i];
+                        j++;
+                        h++;
+                    }
+                }
+
+                else if(k < temp2.length)
+                {
+                    System.out.println(1);
+                    arr[h] = temp2[k];
+                    h++;
+                    k++;
+                }
+                System.out.println(3);
+            }
+
+            System.out.println(2);
+            if(k < temp2.length)
+            {
+                for(; k<temp2.length; k++)
+                {
+                    arr[h++] = temp2[k];
+                }
+            }
+
+            pictureUrl = Arrays.toString(arr);
+            pictureUrl = pictureUrl.substring(1, pictureUrl.length()-1);
+            pictureUrl = pictureUrl.replace(" ","");
+            System.out.println(pictureUrl);
+
+            shortWithBLOBs.setId(id);
+            shortWithBLOBs.setContent(content);
+            shortWithBLOBs.setTitle(title);
+            shortWithBLOBs.setImageurl(pictureUrl);
+            shortWithBLOBs.setUpdater(administrator.getUsername());
+            shortWithBLOBs.setUpdatetime(currentDate);
+            shortWithBLOBs.setAnswer(answer);
+            if(short1Service.updateByPrimaryKeySelective(shortWithBLOBs) == 1)
+            {
+                return 1;
+            }
+
+        }
+
+        //        model.addAttribute("administrator", administrator);
+
+        return 0;
+    }
+    
+    /**
+    * @Description: 新增简答题
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @RequestMapping("addShort")
+    public String addShort(Model model, HttpSession session)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+        model.addAttribute("administrator", administrator);
+
+        return "addShort.ftl";
+    }
+    /**
+    * @Description: 新增简答题保存
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-19
+    */
+    @ResponseBody
+    @RequestMapping("shortAchieve")
+    public int shortAchieve(Model model, HttpSession session, @RequestParam(value = "image")MultipartFile []multipartFile,
+                            @RequestParam(value = "content", defaultValue = "")String content,
+                            @RequestParam(value = "title", defaultValue = "")String title,
+                            @RequestParam(value = "answer", defaultValue = "")String answer)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String currentDate = simpleDateFormat.format(date);     //当前时间
+
+        if(multipartFile.length >= 1)
+        {
+            System.out.println("111111111111111111");
+
+
+            Short1WithBLOBs shortWithBLOBs = new Short1WithBLOBs();
+//            Pictureteacher pictureteacher = new Pictureteacher();
+
+
+            //将图片上传到服务器
+            String fileName = "";
+            for(int i=0; i<multipartFile.length; i++)
+            {
+                //获取文件允许上传的类型
+                Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+                String types = uploadconfig.getImageconfig();
+                String []arr = types.split(",");
+
+                //文件扩展名
+                String type = multipartFile[i].getOriginalFilename().substring(multipartFile[i].getOriginalFilename().lastIndexOf(".") + 1);
+
+                if(!isexist(arr, type))
+                {
+                    return 303;
+                    //            return "redirect:/error500";
+                }
+
+                if(multipartFile[i].getSize() > 204800000)
+                {
+                    return 202;
+                    //            return "redirect:/error500";
+                }
+
+                fileName = fileName + "," + multipartFile[i].getOriginalFilename();
+                try
+                {
+                    String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/short";
+
+                    File dir = new File(rootPath + File.separator);
+
+                    if(!dir.exists())
+                    {
+                        dir.mkdirs();
+                    }
+
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator + (multipartFile[i].getOriginalFilename()));
+
+
+                    multipartFile[i].transferTo(serverFile);
+
+                    //                    System.out.println("You successfully uploaded file=" +  multipartFile[i].getOriginalFilename());
+
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            //将上传文件的信息插入数据库
+            if(content.equals(""))
+            {
+                content = "NULL";
+            }
+
+            shortWithBLOBs.setContent(content);
+            shortWithBLOBs.setTitle(title);
+            fileName = fileName.substring(1);
+            shortWithBLOBs.setImageurl(fileName);
+            shortWithBLOBs.setIsDelete(0);
+            shortWithBLOBs.setQuestioner(administrator.getUsername());
+            shortWithBLOBs.setCreatetime(currentDate);
+            shortWithBLOBs.setUpdater(administrator.getUsername());
+            shortWithBLOBs.setUpdatetime(currentDate);
+            shortWithBLOBs.setAnswer(answer);
+            if(short1Service.insert(shortWithBLOBs) == 1)
+            {
+                return 1;
+            }
+
+        }
+
+        //        model.addAttribute("administrator", administrator);
+
+        return 0;
+
     }
 
     /**
@@ -1011,14 +1405,7 @@ public class Community
 
         return uploadfileService.updateByPrimaryKeySelective(uploadfile);
     }
-    
-    /**
-    * @Description: 上传图片
-    * @Param: 
-    * @return: 
-    * @Author: Defend
-    * @Date: 20-3-1
-    */
+
     
     
 }

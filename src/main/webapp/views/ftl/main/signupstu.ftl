@@ -50,12 +50,17 @@
             <input type="text" class="form-control" name="stunumber" id="stunumber" value="" required>
         </div>
         <div class="form-group">
-            <label for="grade">年级</label>
-            <input type="text" class="form-control" name="grade" id="grade" required>
-        </div>
-        <div class="form-group">
-            <label for="class1">班级</label>
-            <input type="text" class="form-control" name="class1" id="class1" required>
+            <label class="col-12" id="class-input">年级</label>
+            <div class="col-12">
+                <select class="form-control" id="select" name="grade" size="1  ">
+                    <#--<option value="0">全部</option>-->
+                        <#list gradeList as cl>
+                            <script>
+                                $("#select").append("<option value=\"${cl.grade}\">${cl.grade}</option>\n")
+                            </script>
+                        </#list>
+                </select>
+            </div>
         </div>
 
         <div class="form-group">
@@ -73,7 +78,6 @@
             <select class="form-control" id="select" name="sex" size="1  ">
                 <option value="0">女</option>
                 <option  value="1">男</option>
-
             </select>
         </div>
         <button onclick="save()" type="button" class="btn btn-primary">保存</button>

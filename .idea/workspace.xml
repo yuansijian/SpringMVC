@@ -7,61 +7,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbda3827-dfec-4d61-8655-86a708c31e55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/controller/login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/Classes1Mapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/generator/entity/Classes1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/Classes1Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/Classes1ServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/Classes1Mapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/addGrade.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/editGrade.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signupstu.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/other.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1WithBLOBs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/Short1Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/Short1ServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/Short1Mapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/addShort.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/checkTea.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/editShort.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practiceText.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/TeacherCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/TeacherCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/generator/dao/Classes1Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/Classes1Mapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/Classes1Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/Classes1Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/StudentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/Classes1ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/Classes1ServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/Classes1Mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/Classes1Mapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/addHomework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/addHomework.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/adminLogin.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/adminLogin.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/editHomework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/editHomework.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/editStudentInfo.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/editStudentInfo.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signupstu.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signupstu.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/profile.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/profile.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/shortAnswerDatabase.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/shortAnswerDatabase.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/studentInformation.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/studentInformation.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Community.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Community.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/TeacherCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/TeacherCenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/StudentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/StudentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/StudentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/TeacherMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/TeacherMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/TeacherService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/TeacherService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/StudengServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/StudengServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/TeacherServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/index.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/index.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/layout/sidebar.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/layout/sidebar.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageStudent.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageStudent.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/TeacherMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageHomework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageHomework.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/shortAnswerDatabase.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/shortAnswerDatabase.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/studentInformation.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/studentInformation.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/Community.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/Community.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/TeacherCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/TeacherCenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/generator/dao/StudentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/generator/dao/StudentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/StudentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/admin/generator/dao/TeacherMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/generator/dao/TeacherMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/admin/service/TeacherService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/TeacherService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/service/impl/StudengServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/impl/StudengServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/admin/service/impl/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/impl/TeacherServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/TeacherMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,15 +114,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="1" value="20" />
+          <entry key="1" value="23" />
           <entry key="JPEG" value="1" />
           <entry key="SpringLocalModels/module=SpringMVC" value="1" />
-          <entry key="class" value="25" />
+          <entry key="class" value="28" />
           <entry key="css" value="3" />
-          <entry key="ftl" value="345" />
+          <entry key="ftl" value="387" />
           <entry key="header1" value="1" />
-          <entry key="html" value="55" />
-          <entry key="java" value="408" />
+          <entry key="html" value="56" />
+          <entry key="java" value="437" />
           <entry key="jpg" value="13" />
           <entry key="js" value="2" />
           <entry key="jsp" value="4" />
@@ -127,87 +132,73 @@
           <entry key="properties" value="10" />
           <entry key="teacherInformation" value="1" />
           <entry key="txt" value="1" />
-          <entry key="xml" value="203" />
+          <entry key="xml" value="211" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="25" />
+          <entry key="CLASS" value="28" />
           <entry key="CSS" value="3" />
-          <entry key="FTL" value="346" />
-          <entry key="HTML" value="55" />
+          <entry key="FTL" value="388" />
+          <entry key="HTML" value="56" />
           <entry key="Image" value="16" />
-          <entry key="JAVA" value="408" />
+          <entry key="JAVA" value="437" />
           <entry key="JSP" value="4" />
           <entry key="JavaScript" value="2" />
           <entry key="Log" value="2" />
-          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="PLAIN_TEXT" value="28" />
           <entry key="Properties" value="10" />
           <entry key="UML" value="1" />
-          <entry key="XML" value="203" />
+          <entry key="XML" value="211" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="1" value="4" />
-          <entry key="dummy" value="56" />
-          <entry key="ftl" value="18248" />
+          <entry key="1" value="6" />
+          <entry key="dummy" value="57" />
+          <entry key="ftl" value="18977" />
           <entry key="html" value="730" />
-          <entry key="java" value="28586" />
+          <entry key="java" value="30155" />
           <entry key="jsp" value="13" />
           <entry key="properties" value="48" />
-          <entry key="txt" value="110" />
-          <entry key="xml" value="6941" />
+          <entry key="txt" value="140" />
+          <entry key="xml" value="7222" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="FTL" value="18243" />
+          <entry key="FTL" value="18972" />
           <entry key="HTML" value="735" />
-          <entry key="JAVA" value="28586" />
+          <entry key="JAVA" value="30155" />
           <entry key="JSP" value="13" />
-          <entry key="PLAIN_TEXT" value="170" />
+          <entry key="PLAIN_TEXT" value="203" />
           <entry key="Properties" value="48" />
-          <entry key="SQL" value="111" />
-          <entry key="XML" value="6830" />
+          <entry key="SQL" value="120" />
+          <entry key="XML" value="7102" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
-              <caret line="61" column="103" selection-start-line="61" selection-start-column="103" selection-end-line="61" selection-end-column="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/addHomework.ftl">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="95" column="99" selection-start-line="95" selection-start-column="99" selection-end-line="95" selection-end-column="99" />
+            <state relative-caret-position="105">
+              <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/other.ftl">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/profile.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1504">
-              <caret line="139" column="125" selection-start-line="139" selection-start-column="125" selection-end-line="139" selection-end-column="125" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="83" selection-end-column="38" />
+            <state relative-caret-position="178">
+              <caret line="73" column="36" lean-forward="true" selection-start-line="73" selection-end-line="91" />
+              <folding>
+                <element signature="n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#form#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -226,16 +217,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>studentList</find>
-      <find>/user/studentInformation</find>
-      <find>lrtk.js</find>
-      <find>lyear-layout-container</find>
-      <find>jquery</find>
-      <find>Name</find>
-      <find>260</find>
-      <find>upload</find>
-      <find>updateP</find>
-      <find>uploadfileList</find>
       <find>/community/uploadFile</find>
       <find>pageSize=1</find>
       <find>dele</find>
@@ -247,7 +228,6 @@
       <find>basecon</find>
       <find>Switch</find>
       <find>student</find>
-      <find>edit</find>
       <find>videoTea</find>
       <find>addP</find>
       <find>uploadFi</find>
@@ -256,13 +236,19 @@
       <find>manageStudent</find>
       <find>manageHomework</find>
       <find>/teacher/manageStudent</find>
+      <find>sign</find>
+      <find>edit</find>
+      <find>editS</find>
+      <find>titleid</find>
+      <find>/community/pictureTeacher</find>
+      <find>short</find>
+      <find>shortService</find>
+      <find>简答题</find>
+      <find>count</find>
+      <find>newT</find>
+      <find>picture</find>
     </findStrings>
     <replaceStrings>
-      <replace>index.ftl</replace>
-      <replace>/views/ftl</replace>
-      <replace />
-      <replace>studentList</replace>
-      <replace>/user/newuser</replace>
       <replace>newStudent</replace>
       <replace>newTeacher</replace>
       <replace>teaname</replace>
@@ -287,7 +273,12 @@
       <replace>manageHomework</replace>
       <replace>listHome</replace>
       <replace>listHomework</replace>
+      <replace>title</replace>
+      <replace>/community/shortAnswerDatabase</replace>
       <replace>/teacher/other</replace>
+      <replace>short1</replace>
+      <replace>short1Service</replace>
+      <replace>practiceText</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -304,57 +295,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChild.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/CommentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/test.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/temp.html" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/entity/Comment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/entity/CommentWithBLOBs.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/entity/CommentParentChild.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CommentParentChildMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/controller/login.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/login.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signup.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signup.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Classes1Mapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/Classes1Mapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/StudentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/Classes1Service.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/Classes1ServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signupstu.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/addHomework.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/controller/TeacherCenter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/editHomework.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/studentInformation.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/editStudentInfo.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/ShortMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/entity/Short.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/addShort.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/editShort.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ShortMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/ShortService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/Short1Service.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/ShortServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/Short1ServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.java.1" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1WithBLOBs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/Short1Mapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/shortAnswerDatabase.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/controller/User.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/admin/controller/main.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Classes1Mapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/Classes1Mapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/profile.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/adminLogin.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/Classes1Service.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/Classes1ServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/other.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/editGrade.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/addGrade.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/StudentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/controller/TeacherCenter.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/addHomework.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practiceText.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl" />
       </list>
     </option>
   </component>
@@ -536,6 +527,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="generator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -547,17 +557,6 @@
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="generator" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="generator" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentMapper" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
@@ -587,26 +586,6 @@
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="StudentService" type="1a9f42e2:ClassTreeNode" />
-            </path>
-            <path>
-              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="TeacherService" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
@@ -644,6 +623,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="statics" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -663,7 +650,7 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="ftl" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
@@ -683,7 +670,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584548980033" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584634893870" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -936,7 +923,7 @@
       <workItem from="1583850356841" duration="1422000" />
       <workItem from="1583914095420" duration="16494000" />
       <workItem from="1583997188904" duration="39136000" />
-      <workItem from="1584255999854" duration="69052000" />
+      <workItem from="1584255999854" duration="88576000" />
     </task>
     <task id="LOCAL-00001" summary="教师中心修改">
       <created>1582554609918</created>
@@ -1008,7 +995,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584375861225</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="班级管理统一为一个整体，即一季度创建一个班">
+      <created>1584549051119</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1584549051119</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1044,7 +1038,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593647000" />
+    <option name="totallyTimeSpent" value="613171000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1145,558 +1139,32 @@
     <MESSAGE value="新增视频文件功能" />
     <MESSAGE value="新增作业布置功能" />
     <MESSAGE value="留言板块" />
-    <option name="LAST_COMMIT_MESSAGE" value="留言板块" />
+    <MESSAGE value="班级管理统一为一个整体，即一季度创建一个班" />
+    <option name="LAST_COMMIT_MESSAGE" value="班级管理统一为一个整体，即一季度创建一个班" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="43" column="48" lean-forward="true" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1022#1023#0" expanded="true" />
-            <element signature="e#1046#1047#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/CommentParentChild.java.1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="24" lean-forward="true" selection-end-line="132" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java.1">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/CommentParentChild.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="132" column="1" selection-start-line="132" selection-start-column="1" selection-end-line="132" selection-end-column="1" />
-          <folding>
-            <element signature="e#477#478#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#603#604#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#683#684#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-            <element signature="e#760#761#0" expanded="true" />
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#960#961#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1118#1119#0" expanded="true" />
-            <element signature="e#1154#1155#0" expanded="true" />
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1234#1235#0" expanded="true" />
-            <element signature="e#1274#1275#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-            <element signature="e#1344#1345#0" expanded="true" />
-            <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1512#1513#0" expanded="true" />
-            <element signature="e#1545#1546#0" expanded="true" />
-            <element signature="e#1597#1598#0" expanded="true" />
-            <element signature="e#1676#1677#0" expanded="true" />
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1735#1736#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
-            <element signature="e#1808#1809#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1874#1875#0" expanded="true" />
-            <element signature="e#1922#1923#0" expanded="true" />
-            <element signature="e#1995#1996#0" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2117#2118#0" expanded="true" />
-            <element signature="e#2196#2197#0" expanded="true" />
-            <element signature="e#2226#2227#0" expanded="true" />
-            <element signature="e#2251#2252#0" expanded="true" />
-            <element signature="e#2288#2289#0" expanded="true" />
-            <element signature="e#2316#2317#0" expanded="true" />
-            <element signature="e#2347#2348#0" expanded="true" />
-            <element signature="e#2373#2374#0" expanded="true" />
-            <element signature="e#2412#2413#0" expanded="true" />
-            <element signature="e#2442#2443#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="19" column="14" lean-forward="true" selection-end-line="215" selection-end-column="9" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CommentParentChildMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="13" selection-start-line="9" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="158" column="36" lean-forward="true" selection-start-line="158" selection-start-column="36" selection-end-line="158" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="157" column="34" lean-forward="true" selection-start-line="127" selection-start-column="32" selection-end-line="157" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-service.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="11" column="37" selection-start-line="11" selection-end-line="12" />
-          <folding>
-            <element signature="e#305#311#0" expanded="true" />
-            <element signature="e#311#317#0" expanded="true" />
-            <element signature="e#317#323#0" expanded="true" />
-            <element signature="e#323#329#0" expanded="true" />
-            <element signature="e#329#335#0" expanded="true" />
-            <element signature="n#style#0;n#small#0;n#h4#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#724#730#0" expanded="true" />
-            <element signature="e#730#736#0" expanded="true" />
-            <element signature="e#736#742#0" expanded="true" />
-            <element signature="e#742#748#0" expanded="true" />
-            <element signature="e#748#754#0" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#i#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#1120#1922#0#HTML" />
-            <element signature="e#76#82#0" expanded="true" />
-            <element signature="e#82#88#0" expanded="true" />
-            <element signature="e#88#94#0" expanded="true" />
-            <element signature="e#94#100#0" expanded="true" />
-            <element signature="e#3109#3133#0#HTML" />
-            <element signature="e#587#593#0" expanded="true" />
-            <element signature="e#593#599#0" expanded="true" />
-            <element signature="e#599#605#0" expanded="true" />
-            <element signature="e#605#611#0" expanded="true" />
-            <element signature="e#1921#1945#0#HTML" />
-            <element signature="e#4393#4417#0#HTML" />
-            <element signature="e#2063#2087#0#HTML" />
-            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#textarea#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#6946#13332#0#FTL&gt;" />
-            <element signature="n#style#0;n#img#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#7490#7496#0#HTML" expanded="true" />
-            <element signature="e#7496#7502#0#HTML" expanded="true" />
-            <element signature="e#7502#7508#0#HTML" expanded="true" />
-            <element signature="e#7508#7514#0#HTML" expanded="true" />
-            <element signature="e#7514#7520#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#small#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#7367#7373#0#HTML" expanded="true" />
-            <element signature="e#7373#7379#0#HTML" expanded="true" />
-            <element signature="e#7379#7385#0#HTML" expanded="true" />
-            <element signature="e#7385#7391#0#HTML" expanded="true" />
-            <element signature="e#7391#7397#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#i#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#9333#9339#0#HTML" expanded="true" />
-            <element signature="e#9339#9345#0#HTML" expanded="true" />
-            <element signature="e#9345#9351#0#HTML" expanded="true" />
-            <element signature="e#9351#9357#0#HTML" expanded="true" />
-            <element signature="e#9357#9363#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#i#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#nav#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#nav#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#li#2;n#ul#0;n#nav#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#nav#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/editHomework.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1950" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2959">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="92" column="34" lean-forward="true" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/signupstu.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="66" column="43" lean-forward="true" selection-end-line="83" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="150" column="42" selection-start-line="150" selection-start-column="42" selection-end-line="150" selection-end-column="42" />
-          <folding>
-            <element signature="e#3016#3017#0" expanded="true" />
-            <element signature="e#3040#3041#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="76" column="64" lean-forward="true" selection-start-line="76" selection-start-column="64" selection-end-line="76" selection-end-column="64" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Admin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="196" column="49" selection-start-line="196" selection-start-column="49" selection-end-line="196" selection-end-column="49" />
-          <folding>
-            <element signature="method#getThisWeekMonday#0;class#Admin#0" />
-            <element signature="method#getThisWeekSunday#0;class#Admin#0" />
-            <element signature="method#getFirstDayOfMonth#0;class#Admin#0" />
-            <element signature="method#getLastDayOfMonth#0;class#Admin#0" />
-            <element signature="method#getDate#0;class#Admin#0" />
-            <element signature="e#6013#6015#0" />
-            <element signature="method#loginout#0;class#Admin#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="52" column="33" lean-forward="true" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="44" column="34" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Classes1Mapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="38" column="14" lean-forward="true" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="24" />
-          <folding>
-            <element signature="n#resultMap#0;n#mapper#0;n#!!top" />
-            <element signature="n#resultMap#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/profile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="86" column="156" selection-start-line="86" selection-start-column="156" selection-end-line="86" selection-end-column="156" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3870">
-          <caret line="45" column="14" lean-forward="true" selection-start-line="45" selection-start-column="14" selection-end-line="45" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getDate#0;class#main#0" />
-            <element signature="method#main#0;class#main#0" />
-            <element signature="docComment;method#picture#0;class#main#0" />
-            <element signature="method#picture#0;class#main#0" />
-            <element signature="method#resource#0;class#main#0" />
-            <element signature="method#homework#0;class#main#0" />
-            <element signature="method#message#0;class#main#0" />
-            <element signature="method#addMessage#0;class#main#0" />
-            <element signature="method#addReply#0;class#main#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/studentInformation.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="164" column="163" lean-forward="true" selection-start-line="164" selection-end-line="165" />
-          <folding>
-            <element signature="e#760#1387#0#HTML" />
-          </folding>
+        <state relative-caret-position="231">
+          <caret line="123" selection-start-line="123" selection-end-line="123" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/Classes1ServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/addHomework.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="96" column="53" lean-forward="true" selection-start-line="96" selection-start-column="53" selection-end-line="96" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#465#466#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#1162#1163#0" expanded="true" />
-            <element signature="e#1362#1363#0" expanded="true" />
-            <element signature="e#1386#1387#0" expanded="true" />
-            <element signature="e#1864#1865#0" expanded="true" />
-            <element signature="e#1891#1892#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/Classes1Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/adminLogin.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="81" column="36" lean-forward="true" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/Classes1Mapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="25" selection-start-line="14" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/newStudent.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1200" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/editStudentInfo.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="75" column="28" lean-forward="true" selection-start-line="75" selection-start-column="28" selection-end-line="77" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/editGrade.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/addGrade.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
-          <folding>
-            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="116" column="68" lean-forward="true" selection-start-line="116" selection-start-column="68" selection-end-line="116" selection-end-column="68" />
-          <folding>
-            <element signature="e#1867#1868#0" expanded="true" />
-            <element signature="e#1926#1927#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="104" column="11" lean-forward="true" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#3;n#mapper#0;n#!!top" />
-            <element signature="n#select#4;n#mapper#0;n#!!top" />
-            <element signature="n#select#5;n#mapper#0;n#!!top" />
-            <element signature="n#select#6;n#mapper#0;n#!!top" />
-            <element signature="n#select#7;n#mapper#0;n#!!top" />
-            <element signature="n#select#8;n#mapper#0;n#!!top" />
-            <element signature="n#select#9;n#mapper#0;n#!!top" />
-            <element signature="n#select#11;n#mapper#0;n#!!top" />
-            <element signature="n#select#12;n#mapper#0;n#!!top" />
-            <element signature="n#select#13;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="100">
+          <caret line="94" column="36" selection-start-line="94" selection-start-column="36" selection-end-line="106" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/TeacherCenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="112" column="35" lean-forward="true" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
+        <state relative-caret-position="178">
+          <caret line="410" column="25" selection-start-line="410" selection-start-column="21" selection-end-line="410" selection-end-column="25" />
           <folding>
             <element signature="method#manageHomework#0;class#TeacherCenter#0" />
             <element signature="method#listHomework#0;class#TeacherCenter#0" />
@@ -1709,37 +1177,483 @@
             <element signature="method#saveGrade#0;class#TeacherCenter#0" />
             <element signature="method#updateGrade#0;class#TeacherCenter#0" />
             <element signature="method#editGrade#0;class#TeacherCenter#0" />
-            <element signature="e#13395#13396#0" expanded="true" />
-            <element signature="e#13471#13472#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/editStudentInfo.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="102" column="92" selection-start-line="102" selection-start-column="92" selection-end-line="102" selection-end-column="92" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="61" column="103" selection-start-line="61" selection-start-column="103" selection-end-line="61" selection-end-column="103" />
+        <state relative-caret-position="-575">
+          <caret line="64" column="105" selection-start-line="64" selection-start-column="105" selection-end-line="64" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/teacherInformation.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="148" column="61" lean-forward="true" selection-start-line="148" selection-start-column="61" selection-end-line="148" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/pictureTeacher.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/addPictureTeacher.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/PictureteacherMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/Short1Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="30" lean-forward="true" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/Short1ServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#658#659#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#1468#1469#0" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="32" selection-start-line="31" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.java.1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="17" lean-forward="true" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1.java.1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="30" lean-forward="true" selection-end-line="82" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+          <folding>
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#347#348#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1WithBLOBs.java.1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="26" lean-forward="true" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1WithBLOBs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="16" column="43" lean-forward="true" selection-end-line="191" selection-end-column="9" />
+          <folding>
+            <element signature="n#sql#0;n#mapper#0;n#!!top" />
+            <element signature="n#sql#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#2;n#mapper#0;n#!!top" />
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Short1Mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="38" column="56" lean-forward="true" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
+          <folding>
+            <element signature="n#sql#0;n#mapper#0;n#!!top" />
+            <element signature="n#sql#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#0;n#mapper#0;n#!!top" />
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="38" column="53" lean-forward="true" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/addShort.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/shortAnswerDatabase.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="130" column="61" selection-start-line="130" selection-start-column="61" selection-end-line="130" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/editShort.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/editPictureTeacher.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1100">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="485" lean-forward="true" selection-start-line="485" selection-end-line="485" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-webmvc-5.2.3.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="396" column="19" selection-start-line="396" selection-start-column="19" selection-end-line="396" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-web-5.2.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="97" column="21" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Community.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="619" column="45" lean-forward="true" selection-start-line="619" selection-start-column="45" selection-end-line="619" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10322#13849#0" />
+            <element signature="e#22129#23659#0" />
+            <element signature="e#24121#25122#0" />
+            <element signature="e#25128#31476#0" />
+            <element signature="e#31882#35555#0" />
+            <marker date="1584622471773" expanded="true" signature="2353:2734" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/checkTea.ftl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="24" />
+          <folding>
+            <element signature="n#resultMap#1;n#mapper#0;n#!!top" />
+            <element signature="n#sql#0;n#mapper#0;n#!!top" />
+            <element signature="n#sql#1;n#mapper#0;n#!!top" />
+            <element signature="n#sql#2;n#mapper#0;n#!!top" />
+            <element signature="n#select#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#1;n#mapper#0;n#!!top" />
+            <element signature="n#select#2;n#mapper#0;n#!!top" />
+            <element signature="n#select#3;n#mapper#0;n#!!top" />
+            <element signature="n#select#4;n#mapper#0;n#!!top" />
+            <element signature="n#select#5;n#mapper#0;n#!!top" />
+            <element signature="n#select#6;n#mapper#0;n#!!top" />
+            <element signature="n#delete#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#0;n#mapper#0;n#!!top" />
+            <element signature="n#insert#1;n#mapper#0;n#!!top" />
+            <element signature="n#update#0;n#mapper#0;n#!!top" />
+            <element signature="n#update#1;n#mapper#0;n#!!top" />
+            <element signature="n#update#2;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="163" column="39" selection-start-line="163" selection-start-column="39" selection-end-line="163" selection-end-column="39" />
+          <folding>
+            <element signature="e#3236#3237#0" expanded="true" />
+            <element signature="e#3263#3264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="155" column="67" selection-start-line="155" selection-start-column="67" selection-end-line="155" selection-end-column="67" />
+          <folding>
+            <element signature="method#newTeacher#0;class#User#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/signupstu.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="50" column="14" lean-forward="true" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/mypage.ftl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/other.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1504">
-          <caret line="139" column="125" selection-start-line="139" selection-start-column="125" selection-end-line="139" selection-end-column="125" />
+        <state relative-caret-position="-2400">
+          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="83" selection-end-column="38" />
+        <state relative-caret-position="851">
+          <caret line="156" column="209" selection-start-line="156" selection-start-column="209" selection-end-line="156" selection-end-column="209" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/addHomework.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="95" column="99" selection-start-line="95" selection-start-column="99" selection-end-line="95" selection-end-column="99" />
+        <state relative-caret-position="325">
+          <caret line="28" column="44" selection-start-line="28" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="125" column="70" selection-start-line="125" selection-start-column="70" selection-end-line="125" selection-end-column="70" />
+          <folding>
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="e#305#311#0" expanded="true" />
+            <element signature="e#311#317#0" expanded="true" />
+            <element signature="e#317#323#0" expanded="true" />
+            <element signature="e#323#329#0" expanded="true" />
+            <element signature="e#329#335#0" expanded="true" />
+            <element signature="n#style#0;n#small#0;n#h4#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#724#730#0" expanded="true" />
+            <element signature="e#730#736#0" expanded="true" />
+            <element signature="e#736#742#0" expanded="true" />
+            <element signature="e#742#748#0" expanded="true" />
+            <element signature="e#748#754#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#i#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#581#587#0" expanded="true" />
+            <element signature="e#587#593#0" expanded="true" />
+            <element signature="e#593#599#0" expanded="true" />
+            <element signature="e#599#605#0" expanded="true" />
+            <element signature="e#583#589#0" expanded="true" />
+            <element signature="e#589#595#0" expanded="true" />
+            <element signature="e#595#601#0" expanded="true" />
+            <element signature="e#601#607#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="163" column="40" lean-forward="true" selection-start-line="163" selection-start-column="40" selection-end-line="163" selection-end-column="40" />
+          <folding>
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/picture.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="388" column="21" lean-forward="true" selection-start-line="388" selection-start-column="21" selection-end-line="388" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getDate#0;class#main#0" />
+            <element signature="method#main#0;class#main#0" />
+            <element signature="docComment;method#picture#0;class#main#0" />
+            <element signature="method#resource#0;class#main#0" />
+            <element signature="method#homework#0;class#main#0" />
+            <element signature="method#message#0;class#main#0" />
+            <element signature="method#addMessage#0;class#main#0" />
+            <element signature="method#addReply#0;class#main#0" />
+            <element signature="method#login#0;class#main#0" />
+            <element signature="method#signup#0;class#main#0" />
+            <element signature="method#saveStudent#0;class#main#0" />
+            <element signature="method#saveTeacher#0;class#main#0" />
+            <element signature="method#practice#0;class#main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/practiceText.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="65" column="45" lean-forward="true" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="119" column="67" lean-forward="true" selection-start-line="119" selection-start-column="67" selection-end-line="119" selection-end-column="67" />
+          <folding>
+            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#iframe#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="28" column="70" selection-start-line="28" selection-start-column="70" selection-end-line="28" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/profile.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="73" column="36" lean-forward="true" selection-start-line="73" selection-end-line="91" />
+          <folding>
+            <element signature="n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#form#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="61" column="19" selection-start-line="61" selection-start-column="19" selection-end-line="61" selection-end-column="19" />
         </state>
       </provider>
     </entry>
