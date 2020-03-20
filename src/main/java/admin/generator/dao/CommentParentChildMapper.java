@@ -1,6 +1,7 @@
 package admin.generator.dao;
 
 import admin.generator.entity.CommentParentChild;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,4 +21,6 @@ public interface CommentParentChildMapper {
     int updateByPrimaryKey(CommentParentChild record);
 
     List<CommentParentChild> queryAll();
+
+    List<CommentParentChild> queryByUsername(@Param("username")String username);
 }

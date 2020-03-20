@@ -44,4 +44,17 @@ public class HomeworkServiceImpl implements HomeworkService
     {
         return homeworkMapper.fuzzyQuery(stuname, homeworkname, startTime, endTime);
     }
+
+    /**
+    * @Description: 作业提交功能，插入作业
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-21
+    */
+    @Override
+    public int insert(HomeworkWithBLOBs record)
+    {
+        return homeworkMapper.insert(record);
+    }
 }

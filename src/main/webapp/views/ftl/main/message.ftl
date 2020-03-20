@@ -26,20 +26,31 @@
                     }
                     else
                     {
-                        let html = "<div class=\"card-header bg-brown\">\n" +
-                                "                                                        <h4>\n" +
-                                "                                                            <img src=\"/statics/headerPicture/1.jpg\" alt="+name+" style=\"width: 30px; height: 30px\">\n" +
-                                "                                                            "+name+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small style=\"color: white\">"+name+"</small>\n" +
-                                "                                                        </h4>\n" +
-                                "                                                        <ul class=\"card-actions\">\n" +
-                                "                                                            <li>\n" +
-                                "                                                                <button type=\"button\"><i  class=\"mdi mdi-arrow-up-bold-circle\">顶(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id=\"replay\" style=\"background: white\" onclick=\"reply(1, 'test')\" >回复</a></i></button>\n" +
-                                "                                                            </li>\n" +
-                                "                                                        </ul>\n" +
-                                " </div><div class=\"card-body\" >\n" +
-                                "                                                        <p id=\"content"+id+"\">"+content+"</p><br>";
 
-                        $("#card").append(html);
+                        let html = "\t\t\t\t\t\t<div class=\"col-12\">\n" +
+                                "                                                    <div class=\"card\" id=\"card\">\n" +
+                                "                                                        <div class=\"card-header bg-brown\">\n" +
+                                "                                                            <h4>\n" +
+                                "                                                                <img src=\"/statics/studentHeader/${student.imageurl}\" alt=\"\" style=\"width: 30px; height: 30px\">\n" +
+                                "                                                                ${student.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small style=\"color: white\"></small>\n" +
+                                "                                                            </h4>\n" +
+                                "                                                            <ul class=\"card-actions\">\n" +
+                                "                                                                <li>\n" +
+                                "                                                                    <button type=\"button\">\n" +
+                                "                                                                        <i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+                                "                                                                            <a id=\"replay\" style=\"background: white\" ></a></i></button>\n" +
+                                "                                                                </li>\n" +
+                                "                                                            </ul>\n" +
+                                "                                                        </div>\n" +
+                                "                                                        <div class=\"card-body\">\n" +
+                                "                                                            <p id=\"content9\">"+content+"</p><br>\n" +
+                                "\n" +
+                                "                                                            <div id=\"download9\">\n" +
+                                "                                                            </div>\n" +
+                                "                                                        </div>\n" +
+                                "                                                    </div>\n" +
+                                "                                                </div>"
+                        $("#messagebody").prepend(html);
 
                     }
                 }
@@ -69,18 +80,38 @@
             $("#content"+id).append(a)
         }
         //主楼下的回复框
-        function reply1(id, username) {
+        function reply1(id, pid, username) {
             let a = "<form id=re"+id+" action=\"\" method=\"post\">\n" +
                     "                        <div class=\"form-group\">\n" +
                     "                            <label class=\"col-12\" for=\"textarea-input\">回复"+username+"</label>\n" +
                     "                            <div class=\"col-12\">\n" +
-                    "                                <textarea class=\"form-control\" id=\"textarea-input\" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
-                    "                                <input type='hidden' name='parentname' value='"+username+"'><input type='hidden' name='parentid' value='"+id+"'> " +
-                    "<input class='btn btn-primary' type='button' onclick='save2("+id+")' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR1("+id+")' value='取消回复'>\n" +
+                    "                                <textarea class=\"form-control\" id=res"+id+" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
+                    "                                <input type='hidden' name='parentname' value='"+username+"'><input type='hidden' name='parentid' value='"+pid+"'> " +
+                    "<input class='btn btn-primary' type='button' onclick='save2("+id+","+pid+", \" "+username+" \")\' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR1("+id+")' value='取消回复'>\n" +
                     "                            </div>\n" +
                     "                        </div>\n" +
                     "                    </form>";
             $("#reply"+id).append(a)
+        }
+        //主楼回复保存
+        function save3(id, pid, username) {
+
+        }
+        //异步回复
+        function reply2(id, pid, username) {
+            id = id + 1;
+            let a = "<form id=re"+id+" action=\"\" method=\"post\">\n" +
+                    "                        <div class=\"form-group\">\n" +
+                    "                            <label class=\"col-12\" for=\"textarea-input\">回复"+username+"</label>\n" +
+                    "                            <div class=\"col-12\">\n" +
+                    "                                <textarea class=\"form-control\" id=res"+id+" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
+                    "                                <input type='hidden' name='parentname' value='"+username+"'><input type='hidden' name='parentid' value='"+pid+"'> " +
+                    "<input class='btn btn-primary' type='button' onclick='save2("+id+","+pid+", \" "+username+" \")\' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR1("+id+")' value='取消回复'>\n" +
+                    "                            </div>\n" +
+                    "                        </div>\n" +
+                    "                    </form>";
+            id = id - 1;
+            $("#temp"+id).append(a)
         }
         //主楼回复取消
         function cancelR(id) {
@@ -92,8 +123,8 @@
             let a =document.getElementById("re"+id);
             a.remove();
         }
-        //住楼下的回复保存
-        function save2(id) {
+        //主楼下的回复保存
+        function save2(id, pid, parentname) {
             $.ajax({
                 type: "POST",
                 url: "/main/addReply",
@@ -101,7 +132,28 @@
                 success: function (data) {
                     if(data === 1)
                     {
-                        cancelR(id);
+                        let text = $("#res"+id).val();
+
+                        let html = "<div class=\"col-12\">\n" +
+                                "                                                                        <div class=\"card\">\n" +
+                                "                                                                            <ul class=\"card-actions\">\n" +
+                                "                                                                                <li>\n" +
+                                "                                                                                    <button type=\"button\"><i class=\"mdi mdi-arrow-up-bold-circle\">顶(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+                                "    <a id=\"replay\" style=\"background: white\" onclick=\"reply2("+id+", "+pid+",\' "+ parentname +" \')\">回复</a></i></button>\n" +
+                                "                                                                                </li>\n" +
+                                "                                                                            </ul>\n" +
+                                "                                                                            <div class=\"card-body\" style=\"background: #c0c0c0;\">\n" +
+                                "                                                                                <p id=\"temp"+id+"\">\n" +
+                                "                                                                                    <label style=\"background: white\">${student.username}</label>回复<label style=\"background: white\">"+parentname+"</label><br>\n" +
+                                "                                                                                    "+text+"<br>\n" +
+                                "                                                                                    ${student.logintime}\n" +
+                                "                                                                                </p>\n" +
+                                "                                                                            </div>\n" +
+                                "                                                                        </div>\n" +
+                                "                                                                    </div>";
+
+                                $("#download"+pid).append(html);
+                                cancelR1(id);
                     }
                 }
 
@@ -158,41 +210,42 @@
                                         <!-- .card-actions -->
                                     </div>
                                     <div class="card-body">
-                                        <form id="form1" method="post" action="">
+                                        <form id="form1" >
                                             <textarea id="message" name="message" class="col-sm-push-12" style=" width: 100%">
                                             </textarea>
-                                            <button onclick="save1('test')" class="btn btn-primary">新增留言</button>
+                                            <button onclick="save1('${student.username}', ${student.id})" class="btn btn-primary">新增留言</button>
                                         </form>
-                                        <#list pageInfo.list as list>
-                                            <div class="col-12">
-                                                <div class="card" id="card">
-                                                    <div class="card-header bg-brown">
-                                                        <h4>
-                                                            <img src="/statics/headerPicture/1.jpg" alt="${list.username}" style="width: 30px; height: 30px">
-                                                            ${list.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small style="color: white">${list.commenttime}</small>
-                                                        </h4>
-                                                        <ul class="card-actions">
-                                                            <li>
-                                                                <button type="button">
-                                                                    <i  class="mdi mdi-arrow-up-bold-circle">顶(${list.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                        <a id="replay" style="background: white" onclick="reply(${list.id}, '${list.username}')" >回复</a></i></button>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="card-body" >
-                                                        <p id="content${list.id}">${list.comment}</p><br>
+                                        <div id="messagebody">
+                                            <#list pageInfo.list as list>
+                                                <div class="col-12">
+                                                    <div class="card" id="card">
+                                                        <div class="card-header bg-brown">
+                                                            <h4>
+                                                                <img src="/statics/studentHeader/${list.commenturl}" alt="${list.username}" style="width: 30px; height: 30px">
+                                                                ${list.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small style="color: white">${list.commenttime}</small>
+                                                            </h4>
+                                                            <ul class="card-actions">
+                                                                <li>
+                                                                    <button type="button">
+                                                                        <i  class="mdi mdi-arrow-up-bold-circle">顶(${list.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                            <a id="replay" style="background: white" onclick="reply(${list.id}, '${list.username}')" >回复</a></i></button>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="card-body" >
+                                                            <p id="content${list.id}">${list.comment}</p><br>
                                                         <#--<p>-->
-                                                            <#--${list.commenttime}-->
+                                                        <#--${list.commenttime}-->
                                                         <#--</p>-->
 
-                                                        <div>
+                                                            <div id="download${list.id}">
                                                             <#list reply as re>
                                                                 <#if re.parentid == list.id>
                                                                     <div class="col-12">
                                                                         <div class="card">
                                                                             <ul class="card-actions">
                                                                                 <li>
-                                                                                    <button type="button"><i class="mdi mdi-arrow-up-bold-circle">顶(${re.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="replay" style="background: white" onclick="reply1(${re.id}, '${re.username}')" >回复</a></i></button>
+                                                                                    <button type="button"><i class="mdi mdi-arrow-up-bold-circle">顶(${re.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="replay" style="background: white" onclick="reply1(${re.id}, ${list.id}, '${re.username}')" >回复</a></i></button>
                                                                                 </li>
                                                                             </ul>
                                                                             <div class="card-body" style="background: #c0c0c0;">
@@ -207,41 +260,45 @@
 
                                                                 </#if>
                                                             </#list>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             <#--<div id="" class="card mb-4">-->
-                                                <#--<div class="card-body p-3">-->
-                                                    <#--<div class="row">-->
-                                                        <#--<div class="col-2">-->
-                                                            <#--<small></small>-->
-                                                        <#--</div>-->
-                                                        <#--<div class="col-10">-->
-                                                            <#--<div class="row mb-3">-->
-                                                                <#--<div class="col-6 text-left">-->
-                                                                    <#--<img src="/statics/headerPicture/1.jpg" alt="${list.username}" style="width: 30px; height: 30px">-->
-                                                                    <#--<strong class="text-muted">${list.username}</strong>-->
-                                                                    <#--&nbsp;<small>${list.commenttime}</small>-->
-
-                                                                <#--</div>-->
-
-                                                            <#--</div>-->
-                                                            <#--${list.comment}-->
-                                                            <#---->
-                                                        <#--</div>-->
-                                                        <#--<div class="col-10 text-right">-->
-                                                            <#--<div class="mb-4">-->
-                                                                <#--<a href="" class="btn btn-primary" role="button">Reply</a>-->
-                                                            <#--</div>-->
-                                                        <#--</div>-->
-                                                    <#--</div>-->
-                                                <#--</div>-->
+                                            <#--<div class="card-body p-3">-->
+                                            <#--<div class="row">-->
+                                            <#--<div class="col-2">-->
+                                            <#--<small></small>-->
                                             <#--</div>-->
-                                        </#list>
-                                        <nav>
-                                            <ul class="pagination pagination-circle">
-                                            <#--返回上一页-->
+                                            <#--<div class="col-10">-->
+                                            <#--<div class="row mb-3">-->
+                                            <#--<div class="col-6 text-left">-->
+                                            <#--<img src="/statics/headerPicture/1.jpg" alt="${list.username}" style="width: 30px; height: 30px">-->
+                                            <#--<strong class="text-muted">${list.username}</strong>-->
+                                            <#--&nbsp;<small>${list.commenttime}</small>-->
+
+                                            <#--</div>-->
+
+                                            <#--</div>-->
+                                            <#--${list.comment}-->
+                                            <#---->
+                                            <#--</div>-->
+                                            <#--<div class="col-10 text-right">-->
+                                            <#--<div class="mb-4">-->
+                                            <#--<a href="" class="btn btn-primary" role="button">Reply</a>-->
+                                            <#--</div>-->
+                                            <#--</div>-->
+                                            <#--</div>-->
+                                            <#--</div>-->
+                                            <#--</div>-->
+                                            </#list>
+                                        </div>
+
+
+                                    </div>
+                                    <nav>
+                                        <ul class="pagination pagination-circle">
+                                        <#--返回上一页-->
                                         <#if pageInfo.isFirstPage>
                                             <li class="disabled">
                                                 <span style="background: brown"><i class="mdi mdi-chevron-left"></i></span>
@@ -253,7 +310,7 @@
                                                 </a>
                                             </li>
                                         </#if>
-                                            <#--下一页-->
+                                        <#--下一页-->
                                         <#if pageInfo.isLastPage>
                                             <li class="disabled">
                                                 <span style="background: brown"><i class="mdi mdi-chevron-right"></i></span>
@@ -265,9 +322,8 @@
                                                 </a>
                                             </li>
                                         </#if>
-                                            </ul>
-                                        </nav>
-                                    </div>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>

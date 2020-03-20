@@ -45,4 +45,17 @@ public class CommentParentChildImpl implements CommentParentChildService
     {
         return commentParentChildMapper.insert(record);
     }
+
+    /**
+    * @Description: 按用户名查找，查看自身回复消息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-20
+    */
+    @Override
+    public List<CommentParentChild> queryByUsername(String username)
+    {
+        return commentParentChildMapper.queryByUsername(username);
+    }
 }

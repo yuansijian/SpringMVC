@@ -8,4 +8,6 @@ public interface HomeworkService
 {
     List<HomeworkWithBLOBs> queryAll();
     List<HomeworkWithBLOBs> fuzzyQuery(String stuname, String homeworkname, String startTime, String endTime);
+    int insert(HomeworkWithBLOBs record);
+
 }

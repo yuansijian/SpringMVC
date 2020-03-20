@@ -37,7 +37,13 @@
     select *
     from comment_parent_child
     where is_delete=0
+    order by id desc
   </select>
+    <select id="queryByUsername" resultMap="ResultMapWithBLOBs">
+        select *
+        from comment_parent_child
+        where is_delete = 0 and parentname = #{username}
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from comment_parent_child

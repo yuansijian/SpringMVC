@@ -4,15 +4,20 @@ import admin.generator.entity.*;
 import admin.service.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import static admin.controller.Community.isexist;
 
 /**
  * @program: SpringMVC
@@ -41,6 +46,11 @@ public class main
     private TeacherService teacherService;
     @Autowired
     private Classes1Service classes1Service;
+    @Autowired
+    private UploadconfigService uploadconfigService;
+    @Autowired
+    private HomeworkService homeworkService;
+
 
     /**
     * @Description: 获得当天日期
@@ -148,9 +158,89 @@ public class main
     * @Date: 20-3-13
     */
     @RequestMapping("information")
-    public String information()
+    public String information(Model model, HttpSession session)
     {
+        Student student = (Student) session.getAttribute("student");
+
+        System.out.println(student.getImageurl());
+
+        model.addAttribute("student", student);
+
         return "main/information.ftl";
+    }
+
+    /**
+    * @Description: 更改头像
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-20
+    */
+    @RequestMapping("changePhoto")
+    public String changePhoto(HttpSession session, @RequestParam("imageURL") MultipartFile multipartFile, @RequestParam("id")int id)
+    {
+        Student student = new Student();
+
+
+        if(!multipartFile.isEmpty())
+        {
+            try{
+                String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/studentHeader/";
+
+                //获取原文件名
+                String name = multipartFile.getOriginalFilename();
+                //获取扩展名
+                String type = name.substring(name.lastIndexOf(".")+1).toLowerCase();
+                String newFileName = id + "." +type;
+
+                File dir = new File(rootPath + newFileName);
+
+                if(!dir.exists())
+                {
+                    dir.mkdirs();
+                }
+
+                multipartFile.transferTo(dir);
+
+                Thumbnails.of(dir).size(68, 68).keepAspectRatio(false).toFile(dir);
+
+                student.setId(id);
+                student.setImageurl(newFileName);
+                studentService.updateByPrimaryKeySelective(student);
+
+                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        student = studentService.selectByPrimaryKey(id);
+
+        session.setAttribute("student", student);
+
+        return "redirect:/main/information";
+    }
+
+    /**
+    * @Description: 更改个人信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-20
+    */
+    @RequestMapping("updateProfile")
+    public String updateProfile(HttpSession session, Student student)
+    {
+
+        studentService.updateByPrimaryKeySelective(student);
+
+        student = studentService.selectByPrimaryKey(student.getId());
+
+        session.setAttribute("student",student);
+
+        return "redirect:/main/information";
     }
 
     /**
@@ -177,6 +267,93 @@ public class main
     }
 
     /**
+    * @Description: 上传作业保存
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-20
+    */
+    @ResponseBody
+    @RequestMapping("saveHomework")
+    public int saveHomework(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
+                            @RequestParam("description")String description,
+                            @RequestParam("id")int id)
+    {
+        {
+            //        System.out.println(multipartFile + "123");
+//            Uploadfile uploadfile = new Uploadfile();
+            HomeworkWithBLOBs homeworkWithBLOBs = new HomeworkWithBLOBs();
+
+            Student student = (Student)session.getAttribute("student");
+            //获取文件允许上传的类型
+            Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
+            String types = uploadconfig.getType1();
+            String []arr = types.split(",");
+
+            //文件扩展名
+            String type = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf(".") + 1);
+
+            if(!isexist(arr, type))
+            {
+                return 303;
+                //            return "redirect:/error500";
+            }
+
+            if(multipartFile.getSize() > 204800000)
+            {
+                return 202;
+                //            return "redirect:/error500";
+            }
+
+
+            if(!multipartFile.isEmpty())
+            {
+                try
+                {
+                    String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/homework";
+
+                    File dir = new File(rootPath + File.separator);
+
+                    if(!dir.exists())
+                    {
+                        dir.mkdirs();
+                    }
+
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator + multipartFile.getOriginalFilename());
+
+                    //将上传文件的信息插入数据库
+                    if(description.equals(""))
+                    {
+                        description = "NULL";
+                    }
+                    Date date = new Date();
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+                    String currentDate = simpleDateFormat.format(date);
+                    homeworkWithBLOBs.setFileurl(currentDate+multipartFile.getOriginalFilename());
+                    homeworkWithBLOBs.setGivehomeid(id);
+                    homeworkWithBLOBs.setStudent(student.getStunumber());
+                    homeworkWithBLOBs.setStuname(student.getStuname());
+                    homeworkWithBLOBs.setUploadtime(currentDate);
+                    if(homeworkService.insert(homeworkWithBLOBs) == 1)
+                    {
+                        return 1;
+                    }
+                    //                System.out.println(uploadfile);
+                    multipartFile.transferTo(serverFile);
+
+                    //                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+
+
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+            return 0;
+        }
+    }
+
+    /**
     * @Description: 留言功能
     * @Param:
     * @return:
@@ -186,7 +363,7 @@ public class main
     @RequestMapping("message")
     public String message(Model model, HttpSession session,
                           @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                          @RequestParam(value = "pageSize", defaultValue = "25")int pageSize)
+                          @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
     {
 //        if(!message.equals(""))
 //        {
@@ -204,7 +381,7 @@ public class main
 //
 //            System.out.println(commentService.insert(comment));
 //        }
-
+        Student student = (Student)session.getAttribute("student");
         PageHelper.startPage(pageNum, pageSize);
         List<CommentWithBLOBs> comment = commentService.queryAll();
         List<CommentParentChild> reply = commentParentChildService.queryAll();
@@ -212,8 +389,29 @@ public class main
 
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("reply", reply);
+        model.addAttribute("student", student);
 
         return "main/message.ftl";
+    }
+    
+    /**
+    * @Description: 回复消息
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-20
+    */
+    @RequestMapping("news/{username}")
+    public String news(Model model, HttpSession session, @PathVariable("username")String username)
+    {
+        List<CommentParentChild> list = commentParentChildService.queryByUsername(username);
+
+        Student student = (Student)session.getAttribute("student");
+
+        model.addAttribute("news", list);
+        model.addAttribute("student", student);
+
+        return "main/news.ftl";
     }
 
     /**
@@ -225,11 +423,12 @@ public class main
     */
     @ResponseBody
     @RequestMapping("addMessage")
-    public int addMessage(@RequestParam("message")String message)
+    public int addMessage(@RequestParam("message")String message, HttpSession session)
     {
-        System.out.println("111111111111111111");
-        System.out.println(message);
+//        System.out.println("111111111111111111");
+//        System.out.println(message);
 
+        Student student = (Student)session.getAttribute("student");
 
         CommentWithBLOBs comment = new CommentWithBLOBs();
 
@@ -241,15 +440,16 @@ public class main
         comment.setIsDelete(0);
         comment.setComment(message);
         comment.setUid(1);
-        comment.setUsername("admin");
+        comment.setUsername(student.getUsername());
         comment.setFlag(0);
         comment.setUp(0);
+        comment.setCommenturl(student.getImageurl());
 
         return commentService.insert(comment);
     }
     
     /**
-    * @Description: 新增回复
+    * @Description: 新增主楼下回复
     * @Param: 
     * @return: 
     * @Author: Defend
@@ -259,10 +459,13 @@ public class main
     @RequestMapping("addReply")
     public int addReply(Model model, HttpSession session, CommentParentChild commentParentChild)
     {
+        Student student = (Student)session.getAttribute("student");
 
         commentParentChild.setCreatTime(getDate());
         commentParentChild.setFlag(0);
         commentParentChild.setIsDelete(0);
+        commentParentChild.setUp(0);
+        commentParentChild.setUsername(student.getUsername());
 
         return commentParentChildService.insert(commentParentChild);
     }
@@ -287,6 +490,7 @@ public class main
 
         if(student.getUsername().equals(username) && student.getPassword().equals(password))
         {
+            session.setAttribute("student", student);
             return 1;
         }
         return 0;
@@ -405,5 +609,21 @@ public class main
         model.addAttribute("pictures", pictures);
 
         return "main/practiceText.ftl";
+    }
+
+    /**
+    * @Description: 退出
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-20
+    */
+    @ResponseBody
+    @RequestMapping("logout")
+    public int logout(HttpSession session)
+    {
+        session.invalidate();
+
+        return 1;
     }
 }
