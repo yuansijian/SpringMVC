@@ -84,6 +84,7 @@
   <select id="queryGrade" resultType="Integer">
       select distinct(grade)
       from Student
+      where grade != 'teacher'
       order by grade
   </select>
   <select id="queryFuzzyRegistered" resultType="Student">
@@ -120,6 +121,11 @@
       select IFNULL(sum(loginNumber), 0)as activity
       from Student
       where loginTime between #{startTime} and #{endTime}
+  </select>
+  <select id="checkHomework" resultType="hashmap">
+    select Student.stuName, homework.fileURL, giveHomework.title, giveHomework.endTime, homework.uploadTime
+    from Student left join homework on Student.stuNumber=homework.student left join giveHomework on homework.givehomeid=giveHomework.id
+    where Student.grade=#{grade}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from Student

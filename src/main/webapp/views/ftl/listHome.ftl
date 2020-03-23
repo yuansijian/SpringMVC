@@ -41,7 +41,11 @@
 <div class="lyear-layout-web">
     <div class="lyear-layout-container">
         <!--左侧导航-->
-      <#include "layout/sidebar.ftl">
+      <#if administrator.authority == 2>
+          <#include "layout/sidebar1.ftl">
+      <#else>
+          <#include "layout/sidebar.ftl">
+      </#if>
         <!--End 左侧导航-->
 
         <!--头部信息-->
@@ -148,7 +152,7 @@
                                                     <td>
                                                         <div class="btn-group">
                                                             <a  class="btn btn-xs btn-default" href="/teacher/editHomework/${hw.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                        <#--<a class="btn btn-xs btn-default" href="/user/deleteStudent/${student.id}" title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>-->
+                                                            <a class="btn btn-xs btn-default" href="/teacher/checkHomework/${hw.id}/${hw.updatetime}" title="查看作业情况" data-toggle="tooltip"><i class="mdi mdi-account"></i></a>
                                                             <a  id="delete" onclick="delethw(${hw.id}, '${hw.title}')" class="btn btn-xs btn-default"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
                                                         </div>
                                                     </td>

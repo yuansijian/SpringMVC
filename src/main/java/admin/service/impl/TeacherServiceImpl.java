@@ -163,4 +163,17 @@ public class TeacherServiceImpl implements TeacherService
     {
         return teacherMapper.checkTea();
     }
+
+    /**
+    * @Description: 登录
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @Override
+    public Teacher queryUsernameAndPassword(String username, String password)
+    {
+        return teacherMapper.queryUsernameAndPassword(username, password);
+    }
 }

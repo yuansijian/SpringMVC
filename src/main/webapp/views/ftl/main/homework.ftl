@@ -10,7 +10,40 @@
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
     <script type="text/javascript" src="/statics/js/jquery.min.js"></script>
+    <script>
+        function save3(id) {
+            let formData = new FormData($("#upload-file"+id)[0]);
+            $.ajax({
+                type: "POST",
+                url: "/main/saveHomework/"+id,
+                data: formData,
+                contentType : false,
+                processData : false,
 
+                success:function (data) {
+                    console.log(data);
+                    console.log(222);
+                    if(data === 1)
+                    {
+                        alert("上传成功");
+                        location.reload();
+                    }
+                    else if(data === 202)
+                    {
+                        alert("文件大于200M")
+                    }
+                    else if(data === 303)
+                    {
+                        alert("文件格式不对")
+                    }
+                    else
+                    {
+                        alert("上传失败,刷新或重命名试试")
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -53,7 +86,14 @@
                                             <td>${list.author}</td>
                                             <td>${list.starttime}</td>
                                             <td>${list.endtime}</td>
-                                            <td><a href="">上传文件</a> </td>
+                                            <td>
+                                                <form id="upload-file${list.id}" enctype="multipart/form-data">
+                                                    <input  type="file" id="file" name="file" value="">
+                                                    <input type="hidden" name="title" value="${list.title}">
+                                                    <a href="#" onclick="save3(${list.id})">提交</a>
+                                                </form>
+
+                                            </td>
                                         </tr>
                                     </#list>
                                 <#--<tr>-->

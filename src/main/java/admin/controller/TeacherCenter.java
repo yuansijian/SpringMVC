@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -433,5 +434,45 @@ public class TeacherCenter
     public int updateG(Classes1 classes1)
     {
         return classes1Service.updateByPrimaryKeySelective(classes1);
+    }
+
+    /**
+    * @Description: 查看学生作业提交情况
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-22
+    */
+    @RequestMapping("checkHomework/{id}/{grade}")
+    public String checkHomework(@PathVariable("id")int id, Model model, HttpSession session, @PathVariable("grade")String grade)
+    {
+        Administrator administrator = (Administrator)session.getAttribute("user");
+
+        List<HashMap> list = studentService.checkHomework(grade);
+
+        String title = givehomeworkService.selectByPrimaryKey(id).getTitle();
+
+        System.out.println(list);
+
+        model.addAttribute("list", list);
+        model.addAttribute("administrator", administrator);
+        model.addAttribute("title", title);
+
+        return "checkHomework.ftl";
+    }
+
+    /**
+    * @Description: 作业批改
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-22
+    */
+    @RequestMapping("correct/{id}")
+    public String correct(@PathVariable("id")int id, Model model)
+    {
+        model.addAttribute("id", id);
+
+        return "correct.ftl";
     }
 }

@@ -43,7 +43,10 @@ public class Community
     private VideoService videoService;
     @Autowired
     private Short1Service short1Service;
-
+    @Autowired
+    private CommentParentChildService commentParentChildService;
+    @Autowired
+    private CommentService commentService;
     /**
     * @Description: 查找数组是否有该元素
     * @Param:
@@ -1406,6 +1409,90 @@ public class Community
         return uploadfileService.updateByPrimaryKeySelective(uploadfile);
     }
 
-    
-    
+    /**
+    * @Description: 留言管理
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @RequestMapping("manageMessage")
+    public String manageMessage(HttpSession session, Model model,
+                                @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                                @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        Student student = (Student)session.getAttribute("student");
+        PageHelper.startPage(pageNum, pageSize);
+        List<CommentWithBLOBs> comment = commentService.queryAll();
+        PageInfo<CommentWithBLOBs> pageInfo = new PageInfo(comment);
+
+        model.addAttribute("pageInfo", pageInfo);
+        model.addAttribute("student", student);
+        model.addAttribute("administrator", administrator);
+
+        return "manageMessage.ftl";
+    }
+    /**
+     * @Description: 删除留言
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-3-23
+     */
+    @ResponseBody
+    @RequestMapping("deleteMessage/{id}")
+    public int deleteMessage(@PathVariable("id")int id)
+    {
+        CommentWithBLOBs comment = new CommentWithBLOBs();
+        comment.setId(id);
+        comment.setIsDelete(1);
+
+        return commentService.updateByPrimaryKeySelective(comment);
+    }
+
+    /**
+    * @Description: 留言回复
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @RequestMapping("manageReply")
+    public String manageReply(HttpSession session, Model model,
+                              @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                              @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
+    {
+        PageHelper.startPage(pageNum, pageSize);
+
+        List<CommentParentChild> reply = commentParentChildService.queryAll();
+        PageInfo<CommentParentChild> pageInfo = new PageInfo(reply);
+
+        model.addAttribute("pageInfo", pageInfo);
+
+
+        return "manageReply.ftl";
+    }
+
+    /**
+    * @Description: 删除
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @ResponseBody
+    @RequestMapping("deleteReply/{id}")
+    public int deleteReply(@PathVariable("id")int id)
+    {
+        CommentParentChild commentParentChild = new CommentParentChild();
+
+        commentParentChild.setIsDelete(1);
+        commentParentChild.setId(id);
+
+        return commentParentChildService.updateByPrimaryKeySelective(commentParentChild);
+    }
+
+
 }

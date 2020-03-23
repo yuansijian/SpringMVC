@@ -19,6 +19,7 @@ public interface TeacherService
     int queryCountLogin(String startTime, String endTime);
     int insert(Teacher record);
     List<Teacher> checkTea();
+    Teacher queryUsernameAndPassword(String username, String password);
 
 
 

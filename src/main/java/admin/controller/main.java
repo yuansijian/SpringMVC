@@ -5,6 +5,7 @@ import admin.service.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import net.coobird.thumbnailator.Thumbnails;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -180,7 +181,7 @@ public class main
     public String changePhoto(HttpSession session, @RequestParam("imageURL") MultipartFile multipartFile, @RequestParam("id")int id)
     {
         Student student = new Student();
-
+        Student temp = studentService.selectByPrimaryKey(id);
 
         if(!multipartFile.isEmpty())
         {
@@ -208,6 +209,17 @@ public class main
                 student.setImageurl(newFileName);
                 studentService.updateByPrimaryKeySelective(student);
 
+                if(temp.getGrade().equals("teacher"))
+                {
+                    Teacher teacher = (Teacher)session.getAttribute("teacher");
+                    Teacher temp1 = new Teacher();
+
+                    temp1.setId(teacher.getId());
+                    temp1.setImageurl(newFileName);
+
+                    System.out.println(teacherService.updateByPrimaryKeySelective(temp1));
+                }
+
                 System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
 
 
@@ -219,6 +231,33 @@ public class main
         student = studentService.selectByPrimaryKey(id);
 
         session.setAttribute("student", student);
+
+        return "redirect:/main/information";
+    }
+
+    /**
+    * @Description: 更新教师信息
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @RequestMapping("updateTeaProfile")
+    public String updateTeaProfile(Student student, HttpSession session)
+    {
+        Teacher teacher = (Teacher)session.getAttribute("teacher");
+        Teacher temp = new Teacher();
+        temp.setId(teacher.getId());
+        temp.setUsername(student.getUsername());
+        temp.setTeamail(student.getStumail());
+
+        System.out.println(teacherService.updateByPrimaryKeySelective(temp));
+
+        studentService.updateByPrimaryKeySelective(student);
+
+        student = studentService.selectByPrimaryKey(student.getId());
+
+        session.setAttribute("student",student);
 
         return "redirect:/main/information";
     }
@@ -274,14 +313,17 @@ public class main
     * @Date: 20-3-20
     */
     @ResponseBody
-    @RequestMapping("saveHomework")
+    @RequestMapping("saveHomework/{id}")
     public int saveHomework(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
-                            @RequestParam("description")String description,
-                            @RequestParam("id")int id)
+                            @PathVariable("id") int id, @RequestParam("title")String title)
     {
         {
             //        System.out.println(multipartFile + "123");
 //            Uploadfile uploadfile = new Uploadfile();
+
+            System.out.println("1111111111111");
+            System.out.println(id);
+
             HomeworkWithBLOBs homeworkWithBLOBs = new HomeworkWithBLOBs();
 
             Student student = (Student)session.getAttribute("student");
@@ -319,30 +361,30 @@ public class main
                         dir.mkdirs();
                     }
 
-                    File serverFile = new File(dir.getAbsolutePath() + File.separator + multipartFile.getOriginalFilename());
-
-                    //将上传文件的信息插入数据库
-                    if(description.equals(""))
-                    {
-                        description = "NULL";
-                    }
                     Date date = new Date();
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
                     String currentDate = simpleDateFormat.format(date);
+
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator + (currentDate+multipartFile.getOriginalFilename()));
+
+
+
                     homeworkWithBLOBs.setFileurl(currentDate+multipartFile.getOriginalFilename());
                     homeworkWithBLOBs.setGivehomeid(id);
                     homeworkWithBLOBs.setStudent(student.getStunumber());
                     homeworkWithBLOBs.setStuname(student.getStuname());
                     homeworkWithBLOBs.setUploadtime(currentDate);
+                    homeworkWithBLOBs.setTitle(title);
+
+                    //                System.out.println(uploadfile);
+                    multipartFile.transferTo(serverFile);
+
+                    System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+
                     if(homeworkService.insert(homeworkWithBLOBs) == 1)
                     {
                         return 1;
                     }
-                    //                System.out.println(uploadfile);
-                    multipartFile.transferTo(serverFile);
-
-                    //                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
-
 
                 }catch (Exception e){
                     e.printStackTrace();
@@ -490,7 +532,28 @@ public class main
 
         if(student.getUsername().equals(username) && student.getPassword().equals(password))
         {
+            Student temp = new Student();
+            temp.setLogintime(getDate());
+            temp.setLoginnumber(student.getLoginnumber()+1);
+            temp.setId(student.getId());
+            System.out.println(studentService.updateByPrimaryKeySelective(temp));
+            student.setLogintime(getDate());
             session.setAttribute("student", student);
+            if(student.getGrade().equals("teacher"))
+            {
+                Teacher temp1 = new Teacher();
+                Teacher teacher = teacherService.queryUsernameAndPassword(username, password);
+                System.out.println(2);
+                temp1.setId(teacher.getId());
+                temp1.setLogintime(getDate());
+                temp1.setLoginnumber(teacher.getLoginnumber()+1);
+                System.out.println(3);
+                System.out.println(teacherService.updateByPrimaryKeySelective(temp1));
+                System.out.println(4);
+
+                teacher.setLogintime(getDate());
+                session.setAttribute("teacher", teacher);
+            }
             return 1;
         }
         return 0;
@@ -545,6 +608,24 @@ public class main
     @RequestMapping("saveTeacher")
     public int saveTeacher(Teacher teacher)
     {
+        Student student = new Student();
+
+        long num = System.currentTimeMillis();
+
+        student.setLoginnumber(0);
+        student.setRegisteredtime(getDate());
+        student.setIsDelete(0);
+        student.setImageurl("4.jpg");
+        student.setGrade("teacher");
+        student.setPassword(teacher.getPassword());
+        student.setUsername(teacher.getUsername());
+        student.setStuname(teacher.getTeaname());
+        student.setStunumber(String.valueOf(num));
+        student.setStumail(teacher.getTeamail());
+        student.setSex(teacher.getSex());
+        student.setStuphone("11111111111");
+        System.out.println(studentService.insert(student));
+
         teacher.setIsDelete(2);//审核
         teacher.setRegisteredtime(getDate());
         teacher.setLoginnumber(1);
@@ -622,6 +703,21 @@ public class main
     @RequestMapping("logout")
     public int logout(HttpSession session)
     {
+        Student temp = new Student();
+        Student student = (Student)session.getAttribute("student");
+        temp.setEndtime(getDate());
+        temp.setId(student.getId());
+        studentService.updateByPrimaryKeySelective(temp);
+
+        if(student.getGrade().equals("teacher"))
+        {
+            Teacher teacher = (Teacher)session.getAttribute("teacher");
+            Teacher temp1 = new Teacher();
+            temp1.setId(teacher.getId());
+            temp1.setEndtime(getDate());
+
+            teacherService.updateByPrimaryKeySelective(temp1);
+        }
         session.invalidate();
 
         return 1;

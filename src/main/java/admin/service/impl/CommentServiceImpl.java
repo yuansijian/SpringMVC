@@ -45,4 +45,17 @@ public class CommentServiceImpl implements CommentService
     {
         return commentMapper.insert(record);
     }
+
+    /**
+    * @Description: 更新，家删除功能
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @Override
+    public int updateByPrimaryKeySelective(CommentWithBLOBs record)
+    {
+        return commentMapper.updateByPrimaryKeySelective(record);
+    }
 }

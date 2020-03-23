@@ -14,6 +14,14 @@
     <link href="/statics/css/style.min.css" rel="stylesheet">
     <script>
         function check2(id, isDelete) {
+            if(isDelete === 2)
+            {
+                isDelete = 0;
+            }
+            else
+            {
+                isDelete = 2;
+            }
             let state = document.getElementById("check1").innerText;
             $.ajax({
                 type: "POST",
@@ -152,9 +160,9 @@
                                                       <td>
                                                           <div class="btn-group">
                                                               <#if teacher.isDelete == 2>
-                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})" title="删除" data-toggle="tooltip">未审核</a>
+                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})"  data-toggle="tooltip">未审核</a>
                                                               <#else>
-                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})" title="删除" data-toggle="tooltip">已审核</a>
+                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})"  data-toggle="tooltip">已审核</a>
                                                               </#if>
                                                           </div>
                                                       </td>

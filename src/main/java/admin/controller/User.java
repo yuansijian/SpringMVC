@@ -24,6 +24,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static admin.controller.main.getDate;
+
 /**
  * @program: SpringMVC
  * @description: 用户
@@ -152,6 +154,24 @@ public class User
 
         teacher.setIsDelete(isDelete);
         teacher.setId(id);
+
+        Teacher temp = teacherService.selectByPrimaryKey(id);
+
+        if(isDelete == 0)
+        {
+            Administrator administrator = new Administrator();
+
+            administrator.setUsername(temp.getUsername());
+            administrator.setPassword(temp.getPassword());
+            administrator.setAuthority(2);
+            administrator.setLoginnumber(temp.getLoginnumber()+1);
+            administrator.setCreatetime(getDate());
+            administrator.setImageurl("/statics/headerPicture/1.jpg");
+            administrator.setEmail(temp.getTeamail());
+            administrator.setIsDelete(0);
+
+            administratorService.insert(administrator);
+        }
 
         return teacherService.updateByPrimaryKeySelective(teacher);
     }

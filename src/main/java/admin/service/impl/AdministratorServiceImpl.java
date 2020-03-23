@@ -55,4 +55,17 @@ public class AdministratorServiceImpl implements AdministratorService
     {
         return administratorMapper.selectByPrimaryKey(id);
     }
+
+    /**
+    * @Description: 插入老师管理员
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @Override
+    public int insert(Administrator record)
+    {
+        return administratorMapper.insert(record);
+    }
 }

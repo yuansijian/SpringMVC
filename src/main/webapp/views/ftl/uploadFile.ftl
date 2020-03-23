@@ -73,7 +73,11 @@
 <div class="lyear-layout-web">
     <div class="lyear-layout-container">
         <!--左侧导航-->
-      <#include "layout/sidebar.ftl">
+      <#if administrator.authority == 2>
+          <#include "layout/sidebar1.ftl">
+      <#else>
+          <#include "layout/sidebar.ftl">
+      </#if>
         <!--End 左侧导航-->
 
         <!--头部信息-->

@@ -10,4 +10,7 @@ public interface CommentService
 
     int insert(CommentWithBLOBs record);
 
+    int updateByPrimaryKeySelective(CommentWithBLOBs record);
+
+
 }

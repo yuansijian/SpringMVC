@@ -10,6 +10,7 @@ public interface CommentParentChildService
     List<CommentParentChild> queryAll();
     int insert(CommentParentChild record);
     List<CommentParentChild> queryByUsername(String username);
+    int updateByPrimaryKeySelective(CommentParentChild record);
 
 
 }

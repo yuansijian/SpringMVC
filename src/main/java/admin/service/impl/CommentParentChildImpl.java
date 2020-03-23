@@ -58,4 +58,17 @@ public class CommentParentChildImpl implements CommentParentChildService
     {
         return commentParentChildMapper.queryByUsername(username);
     }
+
+    /**
+    * @Description: 更新，假删除功能
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-23
+    */
+    @Override
+    public int updateByPrimaryKeySelective(CommentParentChild record)
+    {
+        return commentParentChildMapper.updateByPrimaryKeySelective(record);
+    }
 }

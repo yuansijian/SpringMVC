@@ -53,6 +53,11 @@
         teacher
         where id=#{id}
     </select>
+    <select id="queryUsernameAndPassword" resultMap="ResultMapWithBLOBs">
+        select *
+        from teacher
+        where is_delete = 0 and username=#{username} and password=#{password}
+    </select>
     <select id="checkTea" resultType="Teacher">
         select *
         from teacher

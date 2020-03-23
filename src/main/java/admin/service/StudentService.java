@@ -1,7 +1,9 @@
 package admin.service;
 
 import admin.generator.entity.Student;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface StudentService
@@ -23,7 +25,7 @@ public interface StudentService
     List<Integer> queryGrade();
     Student queryUsernameAndPassword(String username, String password);
     int insert(Student record);
-
+    List<HashMap> checkHomework(String grade);
 
 
 }

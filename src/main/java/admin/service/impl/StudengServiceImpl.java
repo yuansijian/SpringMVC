@@ -246,4 +246,17 @@ public class StudengServiceImpl implements StudentService
     {
         return studentMapper.insert(record);
     }
+
+    /**
+    * @Description: 查看学生交作业情况
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-22
+    */
+    @Override
+    public List<HashMap> checkHomework(String grade)
+    {
+        return studentMapper.checkHomework(grade);
+    }
 }

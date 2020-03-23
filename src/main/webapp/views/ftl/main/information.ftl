@@ -82,33 +82,49 @@
                                     </div>
                                     <hr>
                                 </form>
-                                <form method="post" action="/main/updateProfile" class="site-form">
-                                    <input name="id" type="hidden" value="${student.id}">
-                                    <div class="form-group">
-                                        <label for="nickname">用户名</label>
-                                        <input type="text" class="form-control" name="username" id="username" value="${student.username}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="stunumber">学号</label>
-                                        <input type="text" class="form-control" name="stunumber" id="stunumber" value="${student.stunumber}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="grade">年级班级</label>
-                                        <input type="text" class="form-control" name="grade" id="grade" value="${student.grade}" disabled>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="stumail">邮箱</label>
-                                        <input type="email" class="form-control" name="stumail" id="stumail" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${student.stumail}">
-                                        <small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="stuphone">电话号码</label>
-                                        <input type="text" class="form-control" name="stuphone" id="stuphone" aria-describedby="phoneHelp" placeholder="请输入正确的电话号码" value="${student.stuphone}">
-                                        <small id="phoneHelp" class="form-text text-muted">请保证您填写的电话号码是正确的。</small>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">保存</button>
-                                </form>
+                                <#if student.grade != "teacher">
+                                     <form method="post" action="/main/updateProfile" class="site-form">
+                                                                        <input name="id" type="hidden" value="${student.id}">
+                                                                        <div class="form-group">
+                                                                            <label for="nickname">用户名</label>
+                                                                            <input type="text" class="form-control" name="username" id="username" value="${student.username}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="stunumber">学号</label>
+                                                                            <input type="text" class="form-control" name="stunumber" id="stunumber" value="${student.stunumber}">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="grade">年级班级</label>
+                                                                            <input type="text" class="form-control" name="grade" id="grade" value="${student.grade}" disabled>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="stumail">邮箱</label>
+                                                                            <input type="email" class="form-control" name="stumail" id="stumail" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${student.stumail}">
+                                                                            <small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="stuphone">电话号码</label>
+                                                                            <input type="text" class="form-control" name="stuphone" id="stuphone" aria-describedby="phoneHelp" placeholder="请输入正确的电话号码" value="${student.stuphone}">
+                                                                            <small id="phoneHelp" class="form-text text-muted">请保证您填写的电话号码是正确的。</small>
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary">保存</button>
+                                                                    </form>
+                                <#else>
+                                      <form method="post" action="/main/updateTeaProfile" class="site-form">
+                                        <input name="id" type="hidden" value="${student.id}">
+                                        <div class="form-group">
+                                            <label for="nickname">用户名</label>
+                                            <input type="text" class="form-control" name="username" id="username" value="${student.username}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="stumail">邮箱</label>
+                                            <input type="email" class="form-control" name="stumail" id="stumail" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${student.stumail}">
+                                            <small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">保存</button>
+                                    </form>
 
+                                </#if>
 
 
                             </div>

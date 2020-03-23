@@ -46,4 +46,6 @@ public interface StudentMapper {
     List<Integer> queryGrade();
 
     Student queryUsernameAndPassword(@Param("username") String username, @Param("password") String password);
+
+    List<HashMap> checkHomework(@Param("grade")String grade);
 }

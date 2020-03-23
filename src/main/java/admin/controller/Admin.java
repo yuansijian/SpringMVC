@@ -3,6 +3,7 @@ package admin.controller;
 
 
 import admin.generator.entity.Administrator;
+import admin.generator.entity.Teacher;
 import admin.service.AdministratorService;
 import admin.service.StudentService;
 import admin.service.TeacherService;
@@ -228,6 +229,17 @@ public class Admin
     {
         Administrator administrator = administratorService.queryByUsernameAndPassword(username, password);
 
+        System.out.println(administrator);
+        System.out.println(administrator.getUsername());
+
+        Administrator temp = new Administrator();
+
+        temp.setId(administrator.getId());
+        temp.setLogintime(getDate());
+        temp.setLoginnumber(administrator.getLoginnumber()+1);
+
+        administratorService.updateByPrimaryKeySelective(temp);
+
         if(administrator.getUsername().equals(username) && administrator.getPassword().equals(password))
         {
             session.setAttribute("user", administrator);
@@ -288,6 +300,28 @@ public class Admin
     @RequestMapping("loginOut")
     public String loginout(HttpSession session)
     {
+        Administrator administrator = (Administrator)session.getAttribute("user");
+
+        Administrator temp = new Administrator();
+
+        temp.setId(administrator.getId());
+        temp.setEndtime(getDate());
+
+        administratorService.updateByPrimaryKeySelective(temp);
+
+        if(administrator.getAuthority() == 2)
+        {
+            Teacher teacher = teacherService.queryUsernameAndPassword(administrator.getUsername(), administrator.getPassword());
+
+            Teacher temp1 = new Teacher();
+
+            temp1.setId(teacher.getId());
+            temp1.setEndtime(getDate());
+
+            teacherService.updateByPrimaryKeySelective(temp1);
+
+        }
+
         session.invalidate();
 
         return "redirect:/adminLogin";

@@ -18,7 +18,11 @@
 <div class="lyear-layout-web">
   <div class="lyear-layout-container">
       <!--左侧导航-->
-      <#include "layout/sidebar.ftl">
+      <#if administrator.authority == 2>
+          <#include "layout/sidebar1.ftl">
+      <#else>
+          <#include "layout/sidebar.ftl">
+      </#if>
       <!--End 左侧导航-->
 
       <!--头部信息-->
@@ -87,30 +91,26 @@
                                   <table class="table table-bordered">
                                       <thead>
                                       <tr>
-                                          <th>
-                                              <label class="lyear-checkbox checkbox-primary">
-                                                  <input type="checkbox" id="check-all"><span></span>
-                                              </label>
-                                          </th>
                                           <th>编号</th>
                                           <th>作业标题</th>
                                           <th>学生姓名</th>
+                                          <th>学号</th>
                                           <th>作业链接</th>
                                           <th>状态</th>
-                                          <th>操作</th>
+                                          <#--<th>操作</th>-->
                                       </tr>
                                       </thead>
                                       <tbody>
 
-                                            <#assign count=0>
                                             <#list pageInfo.list as hw>
                                                 <tr>
-                                                    <#assign count = count + 1>
-                                                    <td>${count}</td>
+                                                    <td>${hw.id}</td>
                                                     <td>${hw.title}</td>
                                                     <td>${hw.stuname}</td>
-                                                    <td>${hw.fileurl}</td>
+                                                    <td>${hw.student}</td>
+                                                    <td><a href="/statics/homework/${hw.fileurl}" download="${hw.fileurl}">作业链接</a> </td>
                                                     <td><font class="text-success">正常</font></td>
+                                                    <#--<td><a href="#" onclick="check()">批改</a></td>-->
                                                 </tr>
                                             </#list>
                                       </tbody>
