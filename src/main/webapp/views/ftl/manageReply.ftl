@@ -19,7 +19,7 @@
             {
                 $.ajax({
                     type: "POST",
-                    url: "/teacher/deleteReply/"+id,
+                    url: "/community/deleteReply/"+id,
                     success: function (data) {
                         if(data === 1)
                         {
@@ -34,6 +34,17 @@
                 })
             }
         }
+        function reply2(id, name) {
+            let src = "/community/reply/"+id+"/"+name;
+            // $(this).addClass("actives").siblings().removeClass("actives");
+            let html = "<iframe  frameborder=\"0\" scrolling=\"yes\" style=\"width: 800px; height: 200px\" src=\""+src+"\" id=\"aa\"></iframe>\n";
+            $("#reply"+id).remove();
+            let html1 = "<a id=\"reply"+id+"\"   class=\"btn btn-xs btn-default\" onclick=\"closePage()\" href=\"#!\" title=\"取消回复\" data-toggle=\"tooltip\"><i class=\"mdi mdi-comment-processing-outline\"></i></a>\n";
+            $("#ifpage"+id).append(html1);
+            $("#ifpage"+id).append(html);
+
+        }
+        function closePage () { window.location.reload() }
     </script>
 </head>
 
@@ -152,10 +163,12 @@
                                                     <td>${hw.parentname}</td>
                                                     <td>${hw.creatTime}</td>
                                                     <td>
-                                                        <div class="btn-group">
-                                                            <a  class="btn btn-xs btn-default" href="/teacher/editHomework/${hw.id}" title="回复" data-toggle="tooltip"><i class="mdi mdi-comment-processing-outline"></i></a>
+                                                        <div class="btn-group" id="ifpage${hw.id}">
+                                                            <#--<a  class="btn btn-xs btn-default" href="/teacher/editHomework/${hw.id}" title="回复" data-toggle="tooltip"><i class="mdi mdi-comment-processing-outline"></i></a>-->
                                                         <#--<a class="btn btn-xs btn-default" href="/teacher/checkHomework/${hw.id}/${hw.updatetime}" title="查看作业情况" data-toggle="tooltip"><i class="mdi mdi-account"></i></a>-->
                                                             <a  id="delete" onclick="delethw(${hw.id})" class="btn btn-xs btn-default"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                            <a id="reply${hw.id}"  class="btn btn-xs btn-default" onclick="reply2(${hw.id}, '${hw.parentname}')" href="#!" title="回复" data-toggle="tooltip"><i class="mdi mdi-comment-processing-outline"></i></a>
+
                                                         </div>
                                                     </td>
                                                 </tr>

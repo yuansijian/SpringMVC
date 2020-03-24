@@ -7,71 +7,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbda3827-dfec-4d61-8655-86a708c31e55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/checkHomework.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/correct.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar1.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/videoTeacher.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/videoWatch.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/reply.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/TeacherCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/TeacherCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/AdministratorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/AdministratorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/CommentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/CommentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/StudentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/AdministratorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/AdministratorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/VideoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/VideoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/other.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/other.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/pictureTeacher.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/pictureTeacher.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/uploadFile.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/uploadFile.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/videoTeacher.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/videoTeacher.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Community.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Community.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/TeacherCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/TeacherCenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/StudentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/StudentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/TeacherMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/generator/dao/TeacherMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/StudentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/TeacherService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/TeacherService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/StudengServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/StudengServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/service/impl/TeacherServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/mapper/TeacherMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/index.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/index.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageHomework.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageHomework.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageStudent.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/manageStudent.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/pictureTeacher.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/pictureTeacher.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/videoTeacher.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/videoTeacher.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/Admin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/Community.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/Community.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/TeacherCenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/TeacherCenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/generator/dao/StudentMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/generator/dao/StudentMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/generator/dao/TeacherMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/generator/dao/TeacherMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/service/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/StudentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/service/TeacherService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/TeacherService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/service/impl/StudengServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/impl/StudengServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/service/impl/TeacherServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/service/impl/TeacherServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/TeacherMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,8 +54,8 @@
           <entry key="project.closed" value="41" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
-          <entry key="project.open.time.11" value="7" />
-          <entry key="project.open.time.12" value="4" />
+          <entry key="project.open.time.11" value="8" />
+          <entry key="project.open.time.12" value="5" />
           <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.17" value="1" />
@@ -115,7 +68,7 @@
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="42" />
+          <entry key="project.opened" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -125,171 +78,68 @@
           <entry key="SpringLocalModels/module=SpringMVC" value="1" />
           <entry key="class" value="28" />
           <entry key="css" value="3" />
-          <entry key="ftl" value="427" />
+          <entry key="ftl" value="454" />
           <entry key="header1" value="1" />
           <entry key="html" value="56" />
-          <entry key="java" value="472" />
+          <entry key="java" value="478" />
           <entry key="jpg" value="17" />
           <entry key="js" value="2" />
           <entry key="jsp" value="4" />
-          <entry key="log" value="4" />
+          <entry key="log" value="5" />
           <entry key="newTeacher" value="1" />
           <entry key="png" value="2" />
           <entry key="properties" value="10" />
           <entry key="teacherInformation" value="1" />
           <entry key="txt" value="1" />
-          <entry key="xml" value="217" />
+          <entry key="xml" value="218" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="28" />
           <entry key="CSS" value="3" />
-          <entry key="FTL" value="428" />
+          <entry key="FTL" value="455" />
           <entry key="HTML" value="56" />
           <entry key="Image" value="20" />
-          <entry key="JAVA" value="472" />
+          <entry key="JAVA" value="478" />
           <entry key="JSP" value="4" />
           <entry key="JavaScript" value="2" />
-          <entry key="Log" value="2" />
+          <entry key="Log" value="3" />
           <entry key="PLAIN_TEXT" value="28" />
           <entry key="Properties" value="10" />
           <entry key="UML" value="1" />
-          <entry key="XML" value="217" />
+          <entry key="XML" value="218" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="1" value="6" />
           <entry key="dummy" value="57" />
-          <entry key="ftl" value="21336" />
+          <entry key="ftl" value="21973" />
           <entry key="html" value="730" />
-          <entry key="java" value="34337" />
+          <entry key="java" value="34647" />
           <entry key="jsp" value="13" />
           <entry key="properties" value="48" />
-          <entry key="txt" value="168" />
-          <entry key="xml" value="7615" />
+          <entry key="txt" value="191" />
+          <entry key="xml" value="7623" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="FTL" value="21331" />
+          <entry key="FTL" value="21968" />
           <entry key="HTML" value="735" />
-          <entry key="JAVA" value="34337" />
+          <entry key="JAVA" value="34647" />
           <entry key="JSP" value="13" />
-          <entry key="PLAIN_TEXT" value="231" />
+          <entry key="PLAIN_TEXT" value="254" />
           <entry key="Properties" value="48" />
           <entry key="SQL" value="129" />
-          <entry key="XML" value="7486" />
+          <entry key="XML" value="7494" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Community.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="1493" column="89" selection-start-line="1493" selection-start-column="89" selection-end-line="1493" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#41700#44667#0" />
-                <element signature="e#46250#46743#0" />
-                <marker date="1584957548586" expanded="true" signature="2490:2871" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="16" column="13" selection-start-line="16" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/CommentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-              <folding>
-                <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-              <folding>
-                <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/newStudent.ftl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="68" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -303,7 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addP</find>
       <find>uploadFi</find>
       <find>queryFuzzyRegistered</find>
       <find>teacherIn</find>
@@ -333,6 +182,7 @@
       <find>check</find>
       <find>/teacher/listHomework</find>
       <find>/community/manageMessage</find>
+      <find>addRe</find>
     </findStrings>
     <replaceStrings>
       <replace>teaname</replace>
@@ -381,22 +231,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/Short1Mapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/Short1Mapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/shortAnswerDatabase.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/signuptea.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practiceText.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/CommentParentChildMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/news.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/HomeworkService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/HomeworkServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/StudentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java" />
@@ -407,14 +249,11 @@
         <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/TeacherMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/controller/main.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/AdministratorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/AdministratorServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar1.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/activity.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl" />
@@ -427,11 +266,22 @@
         <option value="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/CommentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/reply.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/controller/main.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/videoWatch.ftl" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/VideoMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/videoTeacher.ftl" />
       </list>
     </option>
   </component>
@@ -575,6 +425,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="generator" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -701,13 +561,22 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ftl" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Production'; set:Production; class com.intellij.psi.search.scope.ProjectProductionScope">
           <expand>
@@ -764,13 +633,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1584957548793" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1585060305651" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1027,6 +897,8 @@
       <workItem from="1584713548898" duration="5994000" />
       <workItem from="1584781468227" duration="16289000" />
       <workItem from="1584941853917" duration="13764000" />
+      <workItem from="1584974323484" duration="9180000" />
+      <workItem from="1585053253049" duration="4462000" />
     </task>
     <task id="LOCAL-00001" summary="教师中心修改">
       <created>1582554609918</created>
@@ -1119,7 +991,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584723874995</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="增加教师登录，教师后台权限管理和留言管理功能">
+      <created>1584974499364</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1584974499364</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1155,7 +1034,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="670557000" />
+    <option name="totallyTimeSpent" value="684199000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1169,7 +1048,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2518637" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2518637" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1180,7 +1059,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893504" weight="0.44151738" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893504" visible="true" weight="0.44151738" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.58587986" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1259,142 +1138,18 @@
     <MESSAGE value="班级管理统一为一个整体，即一季度创建一个班" />
     <MESSAGE value="完善教师审核和其他一些功能" />
     <MESSAGE value="完善留言提醒功能和作业管理功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善留言提醒功能和作业管理功能" />
+    <MESSAGE value="增加教师登录，教师后台权限管理和留言管理功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加教师登录，教师后台权限管理和留言管理功能" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="163" column="79" selection-start-line="163" selection-start-column="79" selection-end-line="163" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/HomeworkMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="11" column="10" selection-start-line="11" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/HomeworkService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/HomeworkServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="53" column="130" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/baseConfig.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/StudentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="49" column="47" lean-forward="true" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="27" column="44" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/StudengServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="259" column="48" selection-start-line="259" selection-start-column="48" selection-end-line="259" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/checkHomework.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="73" column="68" selection-start-line="73" selection-start-column="68" selection-end-line="73" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/practiceText.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="57" column="58" lean-forward="true" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/correct.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="166" selection-start-line="19" selection-start-column="166" selection-end-line="19" selection-end-column="166" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/picture.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="52" column="29" selection-start-line="52" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/news.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/TeacherService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/TeacherServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="785">
           <caret line="176" column="72" selection-start-line="176" selection-start-column="72" selection-end-line="176" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="85" column="10" selection-start-line="85" selection-start-column="10" selection-end-line="85" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#form#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#form#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1455,10 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
-          <folding>
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1520,13 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="20" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1538,19 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="49" column="14" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="14" />
-          <folding>
-            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/videoTeacher.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="81" column="14" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
-          <folding>
-            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1597,26 +1328,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="16" column="12" selection-start-line="16" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="16" column="13" selection-start-line="16" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/CommentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/newStudent.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1675">
+          <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="68" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logs/ssm.log">
+      <provider selected="true" editor-type-id="LogFileEditorProvider">
+        <state relative-caret-position="-375" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Admin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="309" column="63" selection-start-line="309" selection-start-column="63" selection-end-line="309" selection-end-column="63" />
+        <state relative-caret-position="280">
+          <caret line="306" selection-start-line="306" selection-end-line="306" />
           <folding>
             <element signature="method#getThisWeekMonday#0;class#Admin#0" />
             <element signature="method#getThisWeekSunday#0;class#Admin#0" />
             <element signature="method#getFirstDayOfMonth#0;class#Admin#0" />
             <element signature="method#getLastDayOfMonth#0;class#Admin#0" />
             <element signature="method#getDate#0;class#Admin#0" />
-            <element signature="e#5707#5708#0" expanded="true" />
             <element signature="e#5746#5747#0" expanded="true" />
+            <element signature="e#5785#5786#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/reply.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4075">
+          <caret line="163" column="79" selection-start-line="163" selection-start-column="79" selection-end-line="163" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="175" lean-forward="true" selection-start-line="175" selection-end-line="175" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Community.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2927#4402#0" />
+            <element signature="e#4408#7553#0" />
+            <element signature="e#10135#10552#0" />
+            <marker date="1585035619323" expanded="true" signature="2536:2917" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/videoPreview.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="59" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/VideoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="425" column="8" selection-start-line="425" selection-start-column="8" selection-end-line="433" selection-end-column="47" />
+        <state relative-caret-position="385">
+          <caret line="751" selection-start-line="751" selection-end-line="751" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#getDate#0;class#main#0" />
@@ -1636,92 +1487,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/listHome.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/newStudent.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="68" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/VideoMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
-          <caret line="16" column="13" selection-start-line="16" selection-end-line="17" />
+          <caret line="40" column="92" selection-start-line="40" selection-start-column="92" selection-end-line="40" selection-end-column="92" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/videoTeacher.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/CommentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageMessage.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        <state relative-caret-position="421">
+          <caret line="112" column="23" selection-start-line="112" selection-end-line="261" />
           <folding>
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="e#846#1818#0#HTML" />
+            <element signature="e#924#1807#0#HTML" />
             <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
+        <state relative-caret-position="25">
+          <caret line="109" column="59" selection-start-line="109" selection-start-column="59" selection-end-line="109" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/homework.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/information.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="176" column="59" selection-start-line="176" selection-start-column="59" selection-end-line="176" selection-end-column="59" />
           <folding>
-            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#581#587#0" expanded="true" />
+            <element signature="e#587#593#0" expanded="true" />
+            <element signature="e#593#599#0" expanded="true" />
+            <element signature="e#599#605#0" expanded="true" />
+            <element signature="e#578#584#0" expanded="true" />
+            <element signature="e#584#590#0" expanded="true" />
+            <element signature="e#590#596#0" expanded="true" />
+            <element signature="e#596#602#0" expanded="true" />
+            <element signature="e#578#584#0" expanded="true" />
+            <element signature="e#584#590#0" expanded="true" />
+            <element signature="e#590#596#0" expanded="true" />
+            <element signature="e#596#602#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-end-line="17" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/mypage.ftl">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/news.ftl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="71" column="74" selection-start-line="71" selection-start-column="74" selection-end-line="71" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Community.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="1493" column="89" selection-start-line="1493" selection-start-column="89" selection-end-line="1493" selection-end-column="89" />
+        <state relative-caret-position="-59">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#41700#44667#0" />
-            <element signature="e#46250#46743#0" />
-            <marker date="1584957548586" expanded="true" signature="2490:2871" ph="..." />
+            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="e#578#584#0" expanded="true" />
+            <element signature="e#584#590#0" expanded="true" />
+            <element signature="e#590#596#0" expanded="true" />
+            <element signature="e#596#602#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/picture.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="52" column="29" selection-start-line="52" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/practiceText.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1500" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-421">
+          <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/videoTeacher.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/videoWatch.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="53" column="81" lean-forward="true" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="109" column="59" selection-start-line="109" selection-start-column="59" selection-end-line="109" selection-end-column="59" />
         </state>
       </provider>
     </entry>

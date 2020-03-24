@@ -91,17 +91,19 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card bg-purple">
-                            <div class="card-body clearfix">
-                                <div class="pull-right">
-                                    <p class="h6 text-white m-t-0">新增留言</p>
-                                    <p class="h3 text-white m-b-0">0 条</p>
+                    <a href="/community/manageMessage">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card bg-purple">
+                                <div class="card-body clearfix">
+                                    <div class="pull-right">
+                                        <p class="h6 text-white m-t-0">新增留言</p>
+                                        <p class="h3 text-white m-b-0">0 条</p>
+                                    </div>
+                                    <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
                                 </div>
-                                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="row">

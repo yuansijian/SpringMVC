@@ -19,6 +19,8 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import static admin.controller.main.getDate;
+
 
 /**
  * @program: SpringMVC
@@ -334,6 +336,43 @@ public class Community
         model.addAttribute("administrator", administrator);
 
         return "addPictureTeacher.ftl";
+    }
+
+    /**
+    * @Description: 回复留言
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-3-24
+    */
+    @RequestMapping("reply/{parentid}/{parentname}")
+    public String reply(@PathVariable("parentid")int parentid, @PathVariable("parentname")String parentname, Model model)
+    {
+        model.addAttribute("parentid", parentid);
+        model.addAttribute("parentname", parentname);
+        return "reply.ftl";
+    }
+
+    /**
+     * @Description: 新增主楼下回复
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-3-16
+     */
+    @ResponseBody
+    @RequestMapping("addReply")
+    public int addReply(Model model, HttpSession session, CommentParentChild commentParentChild)
+    {
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
+        commentParentChild.setCreatTime(getDate());
+        commentParentChild.setFlag(0);
+        commentParentChild.setIsDelete(0);
+        commentParentChild.setUp(0);
+        commentParentChild.setUsername(administrator.getUsername());
+
+        return commentParentChildService.insert(commentParentChild);
     }
 
     /**
@@ -1448,6 +1487,7 @@ public class Community
         CommentWithBLOBs comment = new CommentWithBLOBs();
         comment.setId(id);
         comment.setIsDelete(1);
+        comment.setDeleteTime(getDate());
 
         return commentService.updateByPrimaryKeySelective(comment);
     }
@@ -1465,12 +1505,14 @@ public class Community
                               @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
     {
         PageHelper.startPage(pageNum, pageSize);
+        Administrator administrator = (Administrator) session.getAttribute("user");
+
 
         List<CommentParentChild> reply = commentParentChildService.queryAll();
         PageInfo<CommentParentChild> pageInfo = new PageInfo(reply);
 
         model.addAttribute("pageInfo", pageInfo);
-
+        model.addAttribute("administrator", administrator);
 
         return "manageReply.ftl";
     }
@@ -1489,6 +1531,7 @@ public class Community
         CommentParentChild commentParentChild = new CommentParentChild();
 
         commentParentChild.setIsDelete(1);
+        commentParentChild.setDeleteTime(getDate());
         commentParentChild.setId(id);
 
         return commentParentChildService.updateByPrimaryKeySelective(commentParentChild);

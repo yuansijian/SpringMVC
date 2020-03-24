@@ -58,7 +58,7 @@
                     <div class="card">
                         <ul class="nav nav-tabs page-tabs">
                             <li > <a href="/main/index">图文教学</a> </li>
-                            <li><a href="#!">视频教学</a> </li>
+                            <li><a href="/main/videoTeacher">视频教学</a> </li>
                             <li><a href="/main/practice">练习中心</a></li>
                             <li><a href="/main/resource">资源中心</a> </li>
                             <li> <a href="/main/message">留言</a></li>

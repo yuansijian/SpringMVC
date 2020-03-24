@@ -38,7 +38,7 @@
   <select id="fuzzyQuery" resultType="VideoWithBLOBs">
       select *
       from video
-      where is_delete = 0 and (uploadTime between #{startTime} and #{endTime}) or vname={#vname}
+      where is_delete = 0 and (uploadTime between #{startTime} and #{endTime}) or vname like #{vname}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from video

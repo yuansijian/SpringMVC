@@ -51,6 +51,8 @@ public class main
     private UploadconfigService uploadconfigService;
     @Autowired
     private HomeworkService homeworkService;
+    @Autowired
+    private VideoService videoService;
 
 
     /**
@@ -721,5 +723,57 @@ public class main
         session.invalidate();
 
         return 1;
+    }
+    
+    /**
+    * @Description: 视频教学
+    * @Param: 
+    * @return: 
+    * @Author: Defend
+    * @Date: 20-3-24
+    */
+    @RequestMapping("videoTeacher")
+    public String videoTeacher(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
+                               @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "vname", defaultValue = "")String vname,
+                               @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
+                               @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
+    {
+        PageHelper.startPage(pageNum, pageSize);
+
+        if(startTime.equals("1970-01-01") && endTime.equals("1970-01-01")&&vname.equals(""))
+        {
+            List<VideoWithBLOBs> videoList = videoService.queryAll();
+            PageInfo<Student> pageInfo = new PageInfo(videoList);
+            model.addAttribute("pageInfo", pageInfo);
+
+        }
+        else
+        {
+            List<VideoWithBLOBs> videoList = videoService.fuzzyQuery(startTime, endTime, vname);
+            PageInfo<Student> pageInfo = new PageInfo(videoList);
+            model.addAttribute("pageInfo", pageInfo);
+        }
+
+
+
+        return "main/videoTeacher.ftl";
+    }
+
+    /**
+     * @Description: 视频观看
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-3-8
+     */
+    @RequestMapping("videoWatch/{id}")
+    public String videoPreview(Model model, HttpSession session, @PathVariable("id")int id)
+    {
+
+        VideoWithBLOBs videoWithBLOBs = videoService.selectByPrimaryKey(id);
+
+        model.addAttribute("video", videoWithBLOBs);
+
+        return "main/videoWatch.ftl";
     }
 }
