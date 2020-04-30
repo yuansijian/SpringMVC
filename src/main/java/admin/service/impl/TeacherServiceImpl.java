@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 教师service层
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-21 14:05
  **/
 @Service
@@ -25,7 +25,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 教师表查询
     * @Param: id
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-21
     */
     @Override
@@ -38,7 +38,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 教师表总数统计
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-21
     */
     @Override
@@ -51,7 +51,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 查找所有老师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-25
     */
     @Override
@@ -64,7 +64,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 注册界面模糊查找老师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-27
     */
     @Override
@@ -77,7 +77,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 查找老师信息用于更新
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @Override
@@ -90,7 +90,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 更新老师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @Override
@@ -103,7 +103,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 删除数据（真删除
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @Override
@@ -116,7 +116,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 查找最近注册的教师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-29
     */
     @Override
@@ -129,7 +129,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 活跃度功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-4
     */
     @Override
@@ -142,7 +142,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 插入
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-17
     */
     @Override
@@ -155,7 +155,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 审核教师
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @Override
@@ -168,7 +168,7 @@ public class TeacherServiceImpl implements TeacherService
     * @Description: 登录
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @Override

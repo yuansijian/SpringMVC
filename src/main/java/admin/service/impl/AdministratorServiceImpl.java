@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * @program: SpringMVC
  * @description: 管理员
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-29 21:32
  **/
 @Service
@@ -21,7 +21,7 @@ public class AdministratorServiceImpl implements AdministratorService
     * @Description: 查找用户用于登录
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-29
     */
     @Override
@@ -34,7 +34,7 @@ public class AdministratorServiceImpl implements AdministratorService
     * @Description: 更新管理员信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-3
     */
     @Override
@@ -47,7 +47,7 @@ public class AdministratorServiceImpl implements AdministratorService
     * @Description: 根据主键查找信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-3
     */
     @Override
@@ -60,7 +60,7 @@ public class AdministratorServiceImpl implements AdministratorService
     * @Description: 插入老师管理员
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @Override

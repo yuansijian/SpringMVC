@@ -29,7 +29,7 @@ import static admin.controller.main.getDate;
 /**
  * @program: SpringMVC
  * @description: 用户
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-10 22:44
  **/
 @Controller
@@ -50,7 +50,7 @@ public class User
     * @Description: 新学生
     * @Param: null
     * @return: newStudent.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("newStudent")
@@ -101,7 +101,7 @@ public class User
     * @Description: 新教师
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @RequestMapping("newTeacher")
@@ -143,7 +143,7 @@ public class User
     * @Description: 教师审核
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @ResponseBody
@@ -179,7 +179,7 @@ public class User
     * @Description: 活跃度
     * @Param: null
     * @return: activity.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("activity")
@@ -192,7 +192,7 @@ public class User
     * @Description: 学生信息
     * @Param: null
     * @return: studentInformation.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("studentInformation")
@@ -232,7 +232,7 @@ public class User
     * @Description: 教师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-29
     */
     @RequestMapping("teacherInformation")
@@ -268,7 +268,7 @@ public class User
     * @Description: 学生学习进度
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("schedule")
@@ -281,7 +281,7 @@ public class User
     * @Description: 个人信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-26
     */
     @RequestMapping("profile")
@@ -296,7 +296,7 @@ public class User
     * @Description: 修改个人信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-3
     */
     @RequestMapping("updateProfile")
@@ -320,7 +320,7 @@ public class User
     * @Description: 修改密码
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-26
     */
     @RequestMapping("editPwd")
@@ -335,7 +335,7 @@ public class User
     * @Description: 更新密码
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-3
     */
     @RequestMapping("updatePwd")
@@ -364,7 +364,7 @@ public class User
     * @Description: 更改头像
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-3
     */
     @RequestMapping("changePhoto")
@@ -413,7 +413,7 @@ public class User
     * @Description: 编辑学生信息
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @RequestMapping("editStudentInfo/{id}")
@@ -437,7 +437,7 @@ public class User
     * @Description: 更新学生信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @ResponseBody
@@ -463,7 +463,7 @@ public class User
     * @Description: 删除学生
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @ResponseBody
@@ -493,7 +493,7 @@ public class User
     * @Description: 查找更新教师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @RequestMapping("editTeacherInfo/{id}")
@@ -513,7 +513,7 @@ public class User
     * @Description: 更新老师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @ResponseBody
@@ -539,7 +539,7 @@ public class User
     * @Description: 删除老师
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-28
     */
     @ResponseBody

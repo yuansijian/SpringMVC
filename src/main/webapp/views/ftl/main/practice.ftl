@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>练习中心</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
         function pre() {
             let id = $("ul .actives").val();
             id  = id -1;
-            let href = "/main/index?pageNum=${pageInfo.prePage}&id="+id;
+            let href = "/main/practice&pageNum=${pageInfo.prePage}&id="+id;
             console.log(href);
             console.log(id);
             console.log(${pageInfo.pageNum*25}-24);
@@ -122,7 +122,7 @@
                                     <#list pageInfo.list as li>
                                     <#--onclick="change1(${li.id})"-->
 
-                                        <li onclick="change1(${li.id})" value="${li.id}"  data-src="/main/practiceText/" id="value${li.id}">${li.pname}</li>
+                                        <li onclick="change1(${li.id})" value="${li.id}"  data-src="/main/practiceText/" id="value${li.id}">${li.title}</li>
                                     </#list>
                                 </ul>
 
@@ -137,7 +137,7 @@
                                             </li>
                                         <#elseif pageInfo.hasPreviousPage>
                                             <li>
-                                                <a id="goPage1" href="/main/index?pageNum=${pageInfo.prePage}&id=0">
+                                                <a id="goPage1" href="/main/practice&pageNum=${pageInfo.prePage}&id=0">
                                                     <span><i class="mdi mdi-chevron-left"></i></span>
                                                 </a>
                                             </li>
@@ -149,7 +149,7 @@
                                             </li>
                                         <#elseif pageInfo.hasNextPage>
                                             <li>
-                                                <a id="goPage" href="/main/index?pageNum=${pageInfo.nextPage}">
+                                                <a id="goPage" href="/main/practice?pageNum=${pageInfo.nextPage}">
                                                     <span><i class="mdi mdi-chevron-right"></i></span>
                                                 </a>
                                             </li>
@@ -159,7 +159,7 @@
                             </div>
                             <!-- 右侧内容 -->
                             <div class="main_right">
-                                <#assign x = pageInfo.pageNum*25-25+1>
+                                <#assign x = pageInfo.pageNum*25-25+4>
                                 <input hidden value="${pageInfo.pageNum}">
                                 <iframe frameborder="0" scrolling="yes" style="width: 1325px; height: 100%" src="/main/practiceText/${x}" id="aa"></iframe>
                             </div>

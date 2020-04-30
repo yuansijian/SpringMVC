@@ -36,6 +36,11 @@
       where is_delete=0
       order by id desc
   </select>
+    <select id="addMessage" resultType="int">
+        select count(id)
+        from comment
+        where is_delete=0 and (commentTime between #{startTime} and #{endTime})
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from comment
     where id = #{id,jdbcType=INTEGER}

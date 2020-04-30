@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 教师中心
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-10 22:42
  **/
 @Controller
@@ -44,7 +44,7 @@ public class TeacherCenter
     * @Description: 管理学生界面
     * @Param: null
     * @return: manageStudent.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping(value = "manageStudent")
@@ -119,7 +119,7 @@ public class TeacherCenter
     * @Description: 作业管理主界面
     * @Param: null
     * @return: manageHomework.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("manageHomework")
@@ -156,7 +156,7 @@ public class TeacherCenter
     * @Description: 作业列表
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @RequestMapping("listHomework")
@@ -195,7 +195,7 @@ public class TeacherCenter
     * @Description: 新增作业
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @RequestMapping("addHomework")
@@ -216,7 +216,7 @@ public class TeacherCenter
     * @Description: 新增作业保存
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @ResponseBody
@@ -242,7 +242,7 @@ public class TeacherCenter
     * @Description: 编辑作业
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @RequestMapping("editHomework/{id}")
@@ -267,7 +267,7 @@ public class TeacherCenter
     * @Description: 更新作业
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @ResponseBody
@@ -285,7 +285,7 @@ public class TeacherCenter
     * @Description: 删除作业
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @ResponseBody
@@ -303,7 +303,7 @@ public class TeacherCenter
     * @Description: 班级年级
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @RequestMapping("other")
@@ -338,7 +338,7 @@ public class TeacherCenter
     * @Description: 新增年级
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @RequestMapping("addGrade")
@@ -354,7 +354,7 @@ public class TeacherCenter
     * @Description: 保存
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @ResponseBody
@@ -374,7 +374,7 @@ public class TeacherCenter
     * @Description: 更新年级班级
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @ResponseBody
@@ -406,7 +406,7 @@ public class TeacherCenter
     * @Description: 编辑年级班级
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @RequestMapping("editGrade/{id}")
@@ -426,7 +426,7 @@ public class TeacherCenter
     * @Description: 更新年级班级信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @ResponseBody
@@ -440,7 +440,7 @@ public class TeacherCenter
     * @Description: 查看学生作业提交情况
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-22
     */
     @RequestMapping("checkHomework/{id}/{grade}")
@@ -465,7 +465,7 @@ public class TeacherCenter
     * @Description: 作业批改
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-22
     */
     @RequestMapping("correct/{id}")

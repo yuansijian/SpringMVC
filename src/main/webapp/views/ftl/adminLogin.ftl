@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>登录 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-    <meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -93,13 +91,15 @@
     <div class="lyear-login">
         <div class="login-center">
             <div class="login-header text-center">
-                <a href="/index"> <img alt="light year admin" src="/statics/images/logo-sidebar.png"> </a>
+                <a > <img alt="light year admin" src="/statics/images/下载.png"> </a>
             </div>
             <form id="form1">
+                <label for="id_username">用户名:</label>
                 <div class="form-group has-feedback feedback-left">
                     <input type="text" placeholder="请输入您的用户名" class="form-control" name="username" id="username" required="required"/>
                     <span class="mdi mdi-account form-control-feedback" aria-hidden="true"></span>
                 </div>
+                <label for="id_username">密码:</label>
                 <div class="form-group has-feedback feedback-left">
                     <input type="password" placeholder="请输入密码" class="form-control" id="password" name="password" required="required"/>
                     <span class="mdi mdi-lock form-control-feedback" aria-hidden="true"></span>
@@ -119,7 +119,7 @@
             </form>
             <hr>
             <footer class="col-sm-12 text-center">
-                <p class="m-b-0">Copyright © 2019 <a href="https://yuansijian.github.io/">Defend</a>. All right reserved</p>
+                <p class="m-b-0">Copyright © 2019 <a href="https://yuansijian.github.io/">Yuan Sijian</a>. All right reserved</p>
             </footer>
         </div>
     </div>

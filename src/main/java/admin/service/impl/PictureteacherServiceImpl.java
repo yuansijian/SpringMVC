@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 图文教学
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-06 13:48
  **/
 @Service
@@ -23,7 +23,7 @@ public class PictureteacherServiceImpl implements PictureteacherService
     * @Description: 查询所有图文教学
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-6
     */
     @Override
@@ -36,7 +36,7 @@ public class PictureteacherServiceImpl implements PictureteacherService
     * @Description: 搜索
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-6
     */
     @Override
@@ -49,7 +49,7 @@ public class PictureteacherServiceImpl implements PictureteacherService
     * @Description:新增
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-6
     */
     @Override
@@ -62,7 +62,7 @@ public class PictureteacherServiceImpl implements PictureteacherService
     * @Description: 更新（假删除)
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-7
     */
     @Override
@@ -75,7 +75,7 @@ public class PictureteacherServiceImpl implements PictureteacherService
     * @Description: 查询
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-7
     */
     @Override

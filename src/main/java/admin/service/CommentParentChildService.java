@@ -11,6 +11,7 @@ public interface CommentParentChildService
     int insert(CommentParentChild record);
     List<CommentParentChild> queryByUsername(String username);
     int updateByPrimaryKeySelective(CommentParentChild record);
+    int addMessage(String startTime, String endTime);
 
 
 }

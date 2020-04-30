@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 上传文件
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-01 20:58
  **/
 @Service
@@ -24,7 +24,7 @@ public class UploadfileServiceImpl implements UploadfileService
     * @Description: 插入上传文件信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-1
     */
     @Override
@@ -37,7 +37,7 @@ public class UploadfileServiceImpl implements UploadfileService
     * @Description: 查询已上传文件信息
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-5
     */
     @Override
@@ -50,7 +50,7 @@ public class UploadfileServiceImpl implements UploadfileService
     * @Description: 模糊查询功能
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-5
     */
     @Override
@@ -63,7 +63,7 @@ public class UploadfileServiceImpl implements UploadfileService
     * @Description: 删除文件
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-5
     */
     @Override
@@ -76,7 +76,7 @@ public class UploadfileServiceImpl implements UploadfileService
     * @Description: 更新上传文件信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-5
     */
     @Override

@@ -45,6 +45,7 @@
     delete from giveHomework
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="admin.generator.entity.Givehomework" >
     insert into giveHomework (id, author, create_time,
       delete_time, id_delete, updateTime,

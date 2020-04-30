@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 视频教学
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-08 15:26
  **/
 @Service
@@ -24,7 +24,7 @@ public class VideoServiceImpl implements VideoService
     * @Description: 查询全部文件
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @Override
@@ -37,7 +37,7 @@ public class VideoServiceImpl implements VideoService
     * @Description: 搜索功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @Override
@@ -50,7 +50,7 @@ public class VideoServiceImpl implements VideoService
     * @Description: 插入
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @Override
@@ -63,7 +63,7 @@ public class VideoServiceImpl implements VideoService
     * @Description: 单个查询
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @Override
@@ -76,7 +76,7 @@ public class VideoServiceImpl implements VideoService
     * @Description: 删除，（假删除)
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @Override

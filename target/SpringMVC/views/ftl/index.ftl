@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>首页 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -84,7 +84,7 @@
                             <div class="card-body clearfix">
                                 <div class="pull-right">
                                     <p class="h6 text-white m-t-0">下载总量</p>
-                                    <p class="h3 text-white m-b-0">0</p>
+                                    <p class="h3 text-white m-b-0">${downloadNumber}</p>
                                 </div>
                                 <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
                             </div>
@@ -97,7 +97,7 @@
                                 <div class="card-body clearfix">
                                     <div class="pull-right">
                                         <p class="h6 text-white m-t-0">新增留言</p>
-                                        <p class="h3 text-white m-b-0">0 条</p>
+                                        <p class="h3 text-white m-b-0">${add} 条</p>
                                     </div>
                                     <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
                                 </div>

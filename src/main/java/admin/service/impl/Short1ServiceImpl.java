@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 简答题库
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-19 15:48
  **/
 @Service
@@ -24,7 +24,7 @@ public class Short1ServiceImpl implements Short1Service
     * @Description: 查找所有
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @Override
@@ -37,7 +37,7 @@ public class Short1ServiceImpl implements Short1Service
     * @Description: 搜索功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @Override
@@ -50,7 +50,7 @@ public class Short1ServiceImpl implements Short1Service
     * @Description: 更新
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @Override
@@ -63,7 +63,7 @@ public class Short1ServiceImpl implements Short1Service
     * @Description: 新增图文教学
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @Override
@@ -76,7 +76,7 @@ public class Short1ServiceImpl implements Short1Service
     * @Description: 通过主键精准查找
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @Override

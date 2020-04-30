@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 留言功能
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-15 21:13
  **/
 @Service
@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService
     * @Description: 查找所有
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-15
     */
     @Override
@@ -37,7 +37,7 @@ public class CommentServiceImpl implements CommentService
     * @Description: 插入
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-15
     */
     @Override
@@ -50,12 +50,25 @@ public class CommentServiceImpl implements CommentService
     * @Description: 更新，家删除功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @Override
     public int updateByPrimaryKeySelective(CommentWithBLOBs record)
     {
         return commentMapper.updateByPrimaryKeySelective(record);
+    }
+
+    /**
+    * @Description: 统计新增留言
+    * @Param:
+    * @return:
+    * @Author: Yuan Sijian
+    * @Date: 20-3-30
+    */
+    @Override
+    public int addMessage(String startTime, String endTime)
+    {
+        return commentMapper.addMessage(startTime, endTime);
     }
 }

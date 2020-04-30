@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 作业提交
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-11 21:28
  **/
 @Service
@@ -23,7 +23,7 @@ public class HomeworkServiceImpl implements HomeworkService
     * @Description: 查找作业
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @Override
@@ -36,7 +36,7 @@ public class HomeworkServiceImpl implements HomeworkService
     * @Description: 搜索功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-11
     */
     @Override
@@ -49,7 +49,7 @@ public class HomeworkServiceImpl implements HomeworkService
     * @Description: 作业提交功能，插入作业
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-21
     */
     @Override

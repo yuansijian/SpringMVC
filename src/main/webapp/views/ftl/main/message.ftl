@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>留言</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -71,9 +71,9 @@
                     "                        <div class=\"form-group\">\n" +
                     "                            <label class=\"col-12\" for=\"textarea-input\">回复"+username+"</label>\n" +
                     "                            <div class=\"col-12\">\n" +
-                    "                                <textarea class=\"form-control\" id=\"textarea-input\" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
+                    "                                <textarea class=\"form-control\" id=\"textarea-input"+id+"\" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
                     "                                <input type='hidden' name='parentname' value='"+username+"'><input type='hidden' name='parentid' value='"+id+"'> " +
-                    "<input class='btn btn-primary' type='button' onclick='save2("+id+")' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR("+id+")' value='取消回复'>\n" +
+                    "<input class='btn btn-primary' type='button' onclick='save3("+id+", \" "+username+" \")' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR("+id+")' value='取消回复'>\n" +
                     "                            </div>\n" +
                     "                        </div>\n" +
                     "                    </form>";
@@ -95,7 +95,18 @@
         }
         //主楼回复保存
         function save3(id, pid, username) {
+            $.ajax({
+                type: "POST",
+                url: "/main/addReply",
+                data: $("#"+id).serialize(),
+                success: function (data) {
+                    if(data === 1)
+                    {
+                        window.location.reload();
+                    }
+                }
 
+            })
         }
         //异步回复
         function reply2(id, pid, username) {

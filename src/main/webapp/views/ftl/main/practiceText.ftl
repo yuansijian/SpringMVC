@@ -6,7 +6,7 @@
     <title>练习中心</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="description" content="态势语后台管理系统">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     <script>
         function answer() {
-            $("#contect").text("${pictureTeacher.world}")
+            $("#contect").text("${pictureTeacher.answer}")
         }
     </script>
 

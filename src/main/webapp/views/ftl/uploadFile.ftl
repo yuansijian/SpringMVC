@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>文件上传 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -174,7 +174,10 @@
                                           <td>
                                               <div class="btn-group">
                                                   <a class="btn btn-xs btn-default" onclick="deleteFile(${uploadfile.id}, '${uploadfile.filename}')"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                  <a class="btn btn-xs btn-default" href="/statics/uploadFile/${uploadfile.filename}" download="${uploadfile.filename}" title="下载" data-toggle="tooltip"><i class="mdi mdi-content-save"></i></a>
+
                                               </div>
+
                                           </td>
                                       </tr>
                                       </#list>

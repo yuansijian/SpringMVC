@@ -72,7 +72,7 @@
       id, stuname,username,registeredTime
       from
       Student
-      where registeredTime between #{startTime} and #{endTime}
+      where (registeredTime between #{startTime} and #{endTime}) and grade != 'teacher'
   </select>
   <select id="fuzzySearch" resultType="Student">
       select *

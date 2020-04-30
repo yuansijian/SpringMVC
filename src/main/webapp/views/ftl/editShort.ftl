@@ -21,7 +21,7 @@
     <script src="/statics/assets/layer/layer.js" type="text/javascript"></script>
     <title>编辑图文教学 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -112,7 +112,7 @@
                     <ul class='carouselbox'>
                         <div class="col-xs-12">
                             <input class="form-control" type="text" name="title" value="${shortWithBLOBs.title}">
-                            <input class="form-control" type="text" name="content" value="${shortWithBLOBs.content}">
+                            <#--<input class="form-control" type="text" name="content" value="${shortWithBLOBs.content}">-->
                             <input class="form-control" type="text" name="answer" value="${shortWithBLOBs.answer}">
                             <input type="hidden" name="id" value="${id}">
                         </div>

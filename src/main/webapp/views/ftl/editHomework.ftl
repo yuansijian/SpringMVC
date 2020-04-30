@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>学生信息 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
     <!--日期选择插件-->
     <link rel="stylesheet" href="/statics/js/bootstrap-datepicker/bootstrap-datepicker3.min.css">
     <link href="/statics/css/style.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/statics/js/jquery.min.js"></script>
+
     <script>
         function update(id) {
             $.ajax({
@@ -128,7 +130,6 @@
     </div>
 </div>
 
-<script type="text/javascript" src="/statics/js/jquery.min.js"></script>
 <script type="text/javascript" src="/statics/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/statics/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="/statics/js/main.min.js"></script>

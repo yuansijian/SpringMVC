@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * @program: SpringMVC
  * @description: 网站基本信息
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-10 15:49
  **/
 @Service

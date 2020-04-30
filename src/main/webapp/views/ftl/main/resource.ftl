@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>资源中心</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
     <script type="text/javascript" src="/statics/js/jquery.min.js"></script>
 
+    <script>
+        function dowloadFile(id, filename) {
+            $.ajax({
+                type: "POST",
+                url: "/main/updateDownload",
+                success:function (date) {
+                    if(data === 1)
+                    {
+                        let address = "/statics/uploadFile/"+filename;
+                        $("#download"+id).attr("href",address);
+                        $("#download"+id).click();
+                    }
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
@@ -51,7 +67,8 @@
                                             <td data-toggle="tooltip" data-placement="left" title="${list.description}">${list.filename}</td>
                                             <td>${list.author}</td>
                                             <td>${list.uploadtime}</td>
-                                            <td><a href="/statics/uploadFile/${list.filename}" download="${list.filename}">下载</a> </td>
+                                            <#--href="/statics/uploadFile/${list.filename}" download="${list.filename}"-->
+                                            <td><a onclick="dowloadFile(${list.id}, '${list.filename}')" id="download${list.id}" href="#!" download="${list.filename}">下载</a> </td>
                                         </tr>
                                     </#list>
                                 <#--<tr>-->

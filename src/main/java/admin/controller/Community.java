@@ -25,7 +25,7 @@ import static admin.controller.main.getDate;
 /**
  * @program: SpringMVC
  * @description: 社区管理
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-14 18:02
  **/
 @Controller
@@ -53,7 +53,7 @@ public class Community
     * @Description: 查找数组是否有该元素
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-10
     */
     public static boolean isexist(String arr[], String a)
@@ -73,7 +73,7 @@ public class Community
     * @Description: 去除数组为空的元素
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-10
     */
     public static String[] deleteNull(String[] strArray)
@@ -102,7 +102,7 @@ public class Community
     * @Description: 用户管理
     * @Param: null
     * @return: manageUser.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
 //    @RequestMapping("manageUser.ftl")
@@ -121,7 +121,7 @@ public class Community
     * @Description: 视频教学
     * @Param: null
     * @return: videoTeacher.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("videoTeacher")
@@ -157,7 +157,7 @@ public class Community
     * @Description: 上传视频保存
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @ResponseBody
@@ -227,6 +227,8 @@ public class Community
                 video.setDescription(description);
                 video.setVideourl("/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/video");
 
+                multipartFile.transferTo(serverFile);
+
                 if(videoService.insert(video) == 1)
                 {
                     return 1;
@@ -234,7 +236,6 @@ public class Community
                 }
 
                 //                System.out.println(uploadfile);
-                multipartFile.transferTo(serverFile);
 
 
 
@@ -253,7 +254,7 @@ public class Community
     * @Description: 视频预览
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @RequestMapping("videoPreview/{id}")
@@ -273,7 +274,7 @@ public class Community
     * @Description: 视频删除
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-8
     */
     @ResponseBody
@@ -291,7 +292,7 @@ public class Community
     * @Description: 图片教学
     * @Param: null
     * @return: pictureTeacher.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("pictureTeacher")
@@ -325,7 +326,7 @@ public class Community
     * @Description: 新增图文教学
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-6
     */
     @RequestMapping("addPictureTeacher")
@@ -342,7 +343,7 @@ public class Community
     * @Description: 回复留言
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-24
     */
     @RequestMapping("reply/{parentid}/{parentname}")
@@ -357,7 +358,7 @@ public class Community
      * @Description: 新增主楼下回复
      * @Param:
      * @return:
-     * @Author: Defend
+     * @Author: Yuan Sijian
      * @Date: 20-3-16
      */
     @ResponseBody
@@ -379,7 +380,7 @@ public class Community
     * @Description: 图文教学保存
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-6
     */
     @ResponseBody
@@ -389,6 +390,8 @@ public class Community
                                         @RequestParam(value = "pname", defaultValue = "")String pname)
     {
         Administrator administrator = (Administrator) session.getAttribute("user");
+
+        Short1WithBLOBs short1WithBLOBs = new Short1WithBLOBs();
 
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
@@ -465,7 +468,16 @@ public class Community
             pictureteacher.setCreatetime(currentDate);
             pictureteacher.setUpdater(administrator.getUsername());
             pictureteacher.setUpdatetime(currentDate);
-            if(pictureteacherService.insert(pictureteacher) == 1)
+
+            short1WithBLOBs.setAnswer(word);
+            short1WithBLOBs.setImageurl(fileName);
+            short1WithBLOBs.setTitle(pname);
+            short1WithBLOBs.setCreatetime(currentDate);
+            short1WithBLOBs.setUpdatetime(currentDate);
+            short1WithBLOBs.setQuestioner(administrator.getUsername());
+            short1WithBLOBs.setUpdater(administrator.getUsername());
+            short1WithBLOBs.setIsDelete(0);
+            if(pictureteacherService.insert(pictureteacher) == 1 && short1Service.insert(short1WithBLOBs)==1)
             {
                 return 1;
             }
@@ -482,7 +494,7 @@ public class Community
     * @Description: 图文教学删除
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-7
     */
     @ResponseBody
@@ -502,7 +514,7 @@ public class Community
     * @Description: 图文教学编辑
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-7
     */
     @RequestMapping("editPictureTeacher/{id}")
@@ -532,7 +544,7 @@ public class Community
     * @Description: 更新图文教学
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-7
     */
     @ResponseBody
@@ -725,7 +737,7 @@ public class Community
     * @Description: 查看图片是否已存入服务器
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-7
     */
 //    private boolean exists(String name, int id)
@@ -740,7 +752,7 @@ public class Community
     * @Description: 文字教学
     * @Param: null
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("wordTeacher")
@@ -753,7 +765,7 @@ public class Community
     * @Description: 简答题库
     * @Param: null
     * @return: shortAnswerDatabase.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("shortAnswerDatabase")
@@ -787,7 +799,7 @@ public class Community
     * @Description: 简答题库删除
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @ResponseBody
@@ -806,7 +818,7 @@ public class Community
     * @Description: 编辑简答题
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @RequestMapping("editShort/{id}")
@@ -837,7 +849,7 @@ public class Community
     * @Description: 更新简答题
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @ResponseBody
@@ -1038,7 +1050,7 @@ public class Community
     * @Description: 新增简答题
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @RequestMapping("addShort")
@@ -1053,7 +1065,7 @@ public class Community
     * @Description: 新增简答题保存
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @ResponseBody
@@ -1159,7 +1171,7 @@ public class Community
     * @Description: 选择题库
     * @Param: null
     * @return: chooseDatabase.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
     @RequestMapping("chooseDatabase.ftl")
@@ -1172,7 +1184,7 @@ public class Community
     * @Description: 注册维护
     * @Param: null
     * @return: registrationMaintenance.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
 //    @RequestMapping("registrationMaintenance")
@@ -1185,7 +1197,7 @@ public class Community
     * @Description: 权限管理
     * @Param: null
     * @return: authorityControl.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
 //    @RequestMapping("authorityControl")
@@ -1198,7 +1210,7 @@ public class Community
     * @Description: 网站基本配置
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-25
     */
     @RequestMapping("baseConfig")
@@ -1217,7 +1229,7 @@ public class Community
     * @Description: 更新基本配置
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-10
     */
     @ResponseBody
@@ -1254,7 +1266,7 @@ public class Community
     * @Description: 网站系统配置
     * @Param: 
     * @return: systemConfig.ftl
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-25
     */
     @RequestMapping("systemConfig")
@@ -1275,7 +1287,7 @@ public class Community
     * @Description: 网站上传配置
     * @Param: model
     * @return: uploadConfig
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-25
     */
     @RequestMapping("uploadConfig")
@@ -1295,7 +1307,7 @@ public class Community
     * @Description: 上传配置更新
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-29
     */
     @ResponseBody
@@ -1311,7 +1323,7 @@ public class Community
     * @Description: 文件上传功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-1
     */
     @RequestMapping("uploadFile")
@@ -1346,7 +1358,7 @@ public class Community
     * @Description: 上传文件保存
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-1
     */
     @ResponseBody
@@ -1434,7 +1446,7 @@ public class Community
     * @Description: 删除上传文件
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-5
     */
     @ResponseBody
@@ -1452,7 +1464,7 @@ public class Community
     * @Description: 留言管理
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @RequestMapping("manageMessage")
@@ -1477,7 +1489,7 @@ public class Community
      * @Description: 删除留言
      * @Param:
      * @return:
-     * @Author: Defend
+     * @Author: Yuan Sijian
      * @Date: 20-3-23
      */
     @ResponseBody
@@ -1496,7 +1508,7 @@ public class Community
     * @Description: 留言回复
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @RequestMapping("manageReply")
@@ -1521,7 +1533,7 @@ public class Community
     * @Description: 删除
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @ResponseBody

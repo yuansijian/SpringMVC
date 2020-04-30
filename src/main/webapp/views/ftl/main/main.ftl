@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>图文教学</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -159,7 +159,7 @@
                             </div>
                             <!-- 右侧内容 -->
                             <div class="main_right">
-                                <#assign x = pageInfo.pageNum*25-25+1>
+                                <#assign x = pageInfo.pageNum*25-25+2>
                                 <input hidden value="${pageInfo.pageNum}">
                                 <iframe frameborder="0" scrolling="yes" style="width: 1325px; height: 100%" src="/main/picture/${x}" id="aa"></iframe>
                             </div>

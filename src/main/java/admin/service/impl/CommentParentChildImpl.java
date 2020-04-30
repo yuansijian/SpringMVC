@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 留言回复
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-15 21:05
  **/
 @Service
@@ -24,7 +24,7 @@ public class CommentParentChildImpl implements CommentParentChildService
     * @Description: 查找所有
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-15
     */
     @Override
@@ -37,7 +37,7 @@ public class CommentParentChildImpl implements CommentParentChildService
     * @Description: 插入回复
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-16
     */
     @Override
@@ -50,7 +50,7 @@ public class CommentParentChildImpl implements CommentParentChildService
     * @Description: 按用户名查找，查看自身回复消息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-20
     */
     @Override
@@ -63,12 +63,25 @@ public class CommentParentChildImpl implements CommentParentChildService
     * @Description: 更新，假删除功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @Override
     public int updateByPrimaryKeySelective(CommentParentChild record)
     {
         return commentParentChildMapper.updateByPrimaryKeySelective(record);
+    }
+
+    /**
+    * @Description: 统计当天新增留言
+    * @Param:
+    * @return:
+    * @Author: Yuan Sijian
+    * @Date: 20-3-30
+    */
+    @Override
+    public int addMessage(String startTime, String endTime)
+    {
+        return commentParentChildMapper.addMessage(startTime, endTime);
     }
 }

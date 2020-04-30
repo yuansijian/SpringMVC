@@ -23,4 +23,7 @@ public interface CommentParentChildMapper {
     List<CommentParentChild> queryAll();
 
     List<CommentParentChild> queryByUsername(@Param("username")String username);
+
+    int addMessage(@Param("startTime")String startTime, @Param("endTime")String endTime);
+
 }

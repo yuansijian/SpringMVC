@@ -4,9 +4,7 @@ package admin.controller;
 
 import admin.generator.entity.Administrator;
 import admin.generator.entity.Teacher;
-import admin.service.AdministratorService;
-import admin.service.StudentService;
-import admin.service.TeacherService;
+import admin.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +23,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 后台主界面
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-14 16:37
  **/
 @Controller
@@ -39,12 +37,17 @@ public class Admin
     private StudentService studentService;
     @Autowired
     private AdministratorService administratorService;
-
+    @Autowired
+    private CommentService commentService;
+    @Autowired
+    private CommentParentChildService commentParentChildService;
+    @Autowired
+    private Download1Service download1Service;
     /**
     * @Description: 获取本周第一天
     * @Param: date
     * @return: 本周第一天日期 YYYY-MM-dd
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-26
     */
     public static Date getThisWeekMonday(Date date)
@@ -63,7 +66,7 @@ public class Admin
     * @Description: 获取本周最后一天
     * @Param: date
     * @return: 本周最后一天日期 YYYY-MM-dd
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-26
     */
     public static Date getThisWeekSunday(Date date)
@@ -85,7 +88,7 @@ public class Admin
     * @Description: 获取每月的第一天
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-4
     */
     public static String getFirstDayOfMonth(int year,int month){
@@ -109,7 +112,7 @@ public class Admin
     * @Description: 获取某月的最后一天
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-4
     */
     public static String getLastDayOfMonth(int year,int month)
@@ -127,7 +130,7 @@ public class Admin
      * @Description: 获得当天日期
      * @Param:
      * @return:
-     * @Author: Defend
+     * @Author: Yuan Sijian
      * @Date: 20-3-16
      */
     public static String getDate()
@@ -145,7 +148,7 @@ public class Admin
      * @Description: 主界面
      * @Param: null
      * @return: index.ftl
-     * @Author: Defend
+     * @Author: Yuan Sijian
      * @Date: 20-2-14
      */
     @RequestMapping("index")
@@ -162,6 +165,13 @@ public class Admin
         //        Date monday = getThisWeekMonday(date);
         //        Date sunday = getThisWeekSunday(date);
 
+        //新增留言
+        String currentDate = getDate();
+        int add = commentService.addMessage(currentDate, currentDate) + commentParentChildService.addMessage(currentDate, currentDate);
+
+
+        //统计下载
+        int downlodNumber = download1Service.selectByPrimaryKey(1).getCount2();
 
         //一周内注册统计
         long count = teacherService.selectByCountPrimaryKey() + studentService.selectByCountPrimaryKey();
@@ -196,6 +206,8 @@ public class Admin
         model.addAttribute("administrator", administrator);
         model.addAttribute("activity", activitys);
         model.addAttribute("activite", activity);
+        model.addAttribute("add", add);
+        model.addAttribute("downloadNumber", downlodNumber);
 
 
         return "index.ftl";
@@ -206,7 +218,7 @@ public class Admin
     * @Description: 登录界面
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-1
     */
     @RequestMapping("adminLogin")
@@ -219,7 +231,7 @@ public class Admin
     * @Description: 登录验证跳转
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-1
     */
     @ResponseBody
@@ -294,7 +306,7 @@ public class Admin
     * @Description: 登出
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-3
     */
     @RequestMapping("loginOut")
@@ -332,7 +344,7 @@ public class Admin
     * @Description: 错误界面
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-4
     */
     @RequestMapping("error")
@@ -345,7 +357,7 @@ public class Admin
     * @Description: 500错误界面
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-5
     */
     @RequestMapping("error500")

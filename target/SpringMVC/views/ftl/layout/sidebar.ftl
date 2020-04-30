@@ -2,7 +2,7 @@
 <aside class="lyear-layout-sidebar">
 <!-- logo -->
 <div id="logo" class="sidebar-header">
-    <a href="/index"><img src="/statics/images/logo-sidebar.png" title="LightYear" alt="LightYear" /></a>
+    <a href="/index"><img src="/statics/images/logo-sidebar1.png" title="LightYear" alt="LightYear" /></a>
 </div>
 <div class="lyear-layout-sidebar-scroll">
 
@@ -84,7 +84,7 @@
     </nav>
 
     <div class="sidebar-footer">
-        <p class="copyright">©2020 - 2020, content by Defend. All Rights Reserved.</p>
+        <p class="copyright">©2020 - 2020, content by Yuan Sijian. All Rights Reserved.</p>
     </div>
 </div>
 </aside>

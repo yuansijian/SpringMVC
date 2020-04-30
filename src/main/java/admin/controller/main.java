@@ -2,6 +2,7 @@ package admin.controller;
 
 import admin.generator.entity.*;
 import admin.service.*;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import net.coobird.thumbnailator.Thumbnails;
@@ -23,7 +24,7 @@ import static admin.controller.Community.isexist;
 /**
  * @program: SpringMVC
  * @description: 前台界面
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-12 15:20
  **/
 @CrossOrigin
@@ -53,13 +54,19 @@ public class main
     private HomeworkService homeworkService;
     @Autowired
     private VideoService videoService;
+    @Autowired
+    private Download1Service download1Service;
+    @Autowired
+    private AdministratorService administratorService;
+    @Autowired
+    private Short1Service short1Service;
 
 
     /**
     * @Description: 获得当天日期
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-16
     */
     public static String getDate()
@@ -75,7 +82,7 @@ public class main
     * @Description: 主界面
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-13
     */
     @RequestMapping("index")
@@ -103,7 +110,7 @@ public class main
     * @Description: 图文教学
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-13
     */
     @RequestMapping("picture/{id}")
@@ -133,7 +140,7 @@ public class main
     * @Description: 资源中心
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-13
     */
     @RequestMapping("resource")
@@ -157,7 +164,7 @@ public class main
     * @Description: 个人中心
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-13
     */
     @RequestMapping("information")
@@ -176,7 +183,7 @@ public class main
     * @Description: 更改头像
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-20
     */
     @RequestMapping("changePhoto")
@@ -241,7 +248,7 @@ public class main
     * @Description: 更新教师信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-23
     */
     @RequestMapping("updateTeaProfile")
@@ -268,7 +275,7 @@ public class main
     * @Description: 更改个人信息
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-20
     */
     @RequestMapping("updateProfile")
@@ -288,7 +295,7 @@ public class main
     * @Description: 作业中心
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-13
     */
     @RequestMapping("homework")
@@ -311,7 +318,7 @@ public class main
     * @Description: 上传作业保存
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-20
     */
     @ResponseBody
@@ -401,7 +408,7 @@ public class main
     * @Description: 留言功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-15
     */
     @RequestMapping("message")
@@ -442,7 +449,7 @@ public class main
     * @Description: 回复消息
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-20
     */
     @RequestMapping("news/{username}")
@@ -462,15 +469,13 @@ public class main
     * @Description: 新增留言
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-15
     */
     @ResponseBody
     @RequestMapping("addMessage")
     public int addMessage(@RequestParam("message")String message, HttpSession session)
     {
-//        System.out.println("111111111111111111");
-//        System.out.println(message);
 
         Student student = (Student)session.getAttribute("student");
 
@@ -496,7 +501,7 @@ public class main
     * @Description: 新增主楼下回复
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-16
     */
     @ResponseBody
@@ -518,7 +523,7 @@ public class main
     * @Description: 登录
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-17
     */
     @ResponseBody
@@ -565,7 +570,7 @@ public class main
     * @Description: 注册
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-17
     */
     @RequestMapping("signupstu")
@@ -587,7 +592,7 @@ public class main
     * @Description: 注册保存
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-17
     */
     @ResponseBody
@@ -642,7 +647,7 @@ public class main
     * @Description: 练习中心
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @RequestMapping("practice")
@@ -651,16 +656,34 @@ public class main
                            @RequestParam(value = "pageSize", defaultValue = "25")int pageSize,
                            @RequestParam(value = "id", defaultValue = "0")int id)
     {
+//        PageHelper.startPage(pageNum, pageSize);
+//
+//        System.out.println("id="+id);
+//
+//        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+//        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+//        model.addAttribute("pageInfo", pageInfo);
+//
+//        model.addAttribute("ids", id);
+//        System.out.println("id="+id);
+//
+//
+//        return "main/main.ftl"
+
         PageHelper.startPage(pageNum, pageSize);
 
-        System.out.println("id="+id);
+        List<Short1WithBLOBs> short1WithBLOBs = short1Service.queryAll();
+        PageInfo<Short1WithBLOBs> pageInfo = new PageInfo(short1WithBLOBs);
 
-        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
-        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+//        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+//        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+
         model.addAttribute("pageInfo", pageInfo);
-
+//
         model.addAttribute("ids", id);
         System.out.println("id="+id);
+        System.out.println("111111111111111");
+
 
 
         return "main/practice.ftl";
@@ -670,7 +693,7 @@ public class main
     * @Description: 联系答案
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @RequestMapping("practiceText/{id}")
@@ -678,17 +701,20 @@ public class main
     {
         PageHelper.startPage(1, 25);
 
-        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
-        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+        List<Short1WithBLOBs> short1WithBLOBs = short1Service.queryAll();
+        PageInfo<Short1WithBLOBs> pageInfo = new PageInfo(short1WithBLOBs);
+
+//        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+//        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
         model.addAttribute("pageInfo", pageInfo);
 
 
-        Pictureteacher pictureteacher = pictureteacherService.selectByPrimaryKey(id);
+        Short1WithBLOBs short1WithBLOBs1 = short1Service.selectByPrimaryKey(id);
 
-        String type = pictureteacher.getPictureurl();
+        String type = short1WithBLOBs1.getImageurl();
         String pictures[] = type.split(",");
 
-        model.addAttribute("pictureTeacher", pictureteacher);
+        model.addAttribute("pictureTeacher", short1WithBLOBs1);
         model.addAttribute("pictures", pictures);
 
         return "main/practiceText.ftl";
@@ -698,7 +724,7 @@ public class main
     * @Description: 退出
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-20
     */
     @ResponseBody
@@ -729,7 +755,7 @@ public class main
     * @Description: 视频教学
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-24
     */
     @RequestMapping("videoTeacher")
@@ -763,7 +789,7 @@ public class main
      * @Description: 视频观看
      * @Param:
      * @return:
-     * @Author: Defend
+     * @Author: Yuan Sijian
      * @Date: 20-3-8
      */
     @RequestMapping("videoWatch/{id}")
@@ -776,4 +802,47 @@ public class main
 
         return "main/videoWatch.ftl";
     }
+
+    /**
+    * @Description: 更新下载数
+    * @Param:
+    * @return:
+    * @Author: Yuan Sijian
+    * @Date: 20-3-30
+    */
+    @ResponseBody
+    @RequestMapping("updateDownload")
+    public int updateDownload()
+    {
+        System.out.println(1111);
+        Download1 download1 = new Download1();
+
+        Download1 download11 = download1Service.selectByPrimaryKey(1);
+
+//        System.out.println(download11.getCount2());
+
+        int temp = download11.getCount2() + 1;
+
+        download1.setId(1);
+        download1.setCount2(temp);
+
+        return download1Service.updateByPrimaryKeySelective(download1);
+    }
+
+//    /**
+//    * @Description: 忘记密码
+//    * @Param:
+//    * @return:
+//    * @Author: Yuan Sijian
+//    * @Date: 20-3-30
+//    */
+//    @RequestMapping("forgetPass")
+//    public String forgetPass(Model model)
+//    {
+//        Administrator administrator = administratorService.selectByPrimaryKey(1);
+//
+//        model.addAttribute("administrator", administrator);
+//
+//        return "forgetPass.ftl";
+//    }
 }

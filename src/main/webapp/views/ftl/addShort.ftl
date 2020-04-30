@@ -20,7 +20,7 @@
     <script src="/statics/assets/layer/layer.js" type="text/javascript"></script>
     <title>新增图文教学 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
-    <meta name="author" content="Defend">
+    <meta name="author" content="Yuan Sijian">
     <link href="/statics/css/bootstrap.min.css" rel="stylesheet">
     <link href="/statics/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="/statics/css/style.min.css" rel="stylesheet">
@@ -107,7 +107,7 @@
                     <ul class='carouselbox'>
                         <div class="col-xs-12">
                             <input class="form-control" type="text" name="title" placeholder="标题">
-                            <input class="form-control" type="text" name="content" placeholder="题目描述">
+                            <#--<input class="form-control" type="text" name="content" placeholder="题目描述">-->
                             <input class="form-control" type="text" name="answer" placeholder="参考答案">
                         </div>
                     </ul>

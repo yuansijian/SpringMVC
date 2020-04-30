@@ -18,7 +18,7 @@ import java.io.IOException;
 /**
  * @program: SpringMVC
  * @description: 加载页面模板，分用
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-12 15:30
  **/
 @Controller
@@ -29,7 +29,7 @@ public class PageController
     * @Description: 读取模板文件
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-12
     */
 

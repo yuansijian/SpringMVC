@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @program: SpringMVC
  * @description: 班级年级
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-03-18 15:53
  **/
 @Service
@@ -23,7 +23,7 @@ public class Classes1ServiceImpl implements Classes1Service
     * @Description: 查找所有
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @Override
@@ -36,7 +36,7 @@ public class Classes1ServiceImpl implements Classes1Service
     * @Description: 年级班级
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @Override
@@ -49,7 +49,7 @@ public class Classes1ServiceImpl implements Classes1Service
     * @Description: 搜索功能
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @Override
@@ -62,7 +62,7 @@ public class Classes1ServiceImpl implements Classes1Service
     * @Description: 插入
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @Override
@@ -75,7 +75,7 @@ public class Classes1ServiceImpl implements Classes1Service
     * @Description: 更新
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @Override
@@ -88,7 +88,7 @@ public class Classes1ServiceImpl implements Classes1Service
     * @Description: 通过id查找
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-18
     */
     @Override
@@ -101,7 +101,7 @@ public class Classes1ServiceImpl implements Classes1Service
     * @Description: 查找已启用的年级班级,用于注册选择
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-3-19
     */
     @Override

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @program: SpringMVC
  * @description:
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-25 14:16
  **/
 public class TeacherTest extends BaseTest

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
  * @program: SpringMVC
  * @description: 网站文件上传配置
- * @author: Defend
+ * @author: Yuan Sijian
  * @create: 2020-02-29 17:14
  **/
 @Service
@@ -21,7 +21,7 @@ public class UploadconfigServiceImpl implements UploadconfigService
     * @Description: 查找
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-29
     */
     @Override
@@ -34,7 +34,7 @@ public class UploadconfigServiceImpl implements UploadconfigService
     * @Description: 更新
     * @Param: 
     * @return: 
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-29
     */
     @Override
@@ -47,7 +47,7 @@ public class UploadconfigServiceImpl implements UploadconfigService
     * @Description: 更新
     * @Param:
     * @return:
-    * @Author: Defend
+    * @Author: Yuan Sijian
     * @Date: 20-2-29
     */
     @Override
