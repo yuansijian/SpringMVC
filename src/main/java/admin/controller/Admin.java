@@ -43,6 +43,8 @@ public class Admin
     private CommentParentChildService commentParentChildService;
     @Autowired
     private Download1Service download1Service;
+    @Autowired
+    private LoginnumberService loginnumberService;
     /**
     * @Description: 获取本周第一天
     * @Param: date
@@ -196,8 +198,7 @@ public class Admin
         }
 
         //今日活跃度
-        String today = getDate();
-        int activity = studentService.queryCountLogin(today, today);
+        int activity = loginnumberService.selectByPrimaryKey(1).getCount();
 
 
 

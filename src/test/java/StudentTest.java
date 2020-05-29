@@ -58,4 +58,6 @@ public class StudentTest extends BaseTest
     {
         System.out.println(studentMapper.queryByName("test"));
     }
+
+
 }

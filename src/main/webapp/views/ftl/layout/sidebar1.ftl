@@ -36,7 +36,6 @@
                                     <a href="#!">练习部分</a>
                                     <ul class="nav nav-subnav">
                                         <li> <a href="/community/shortAnswerDatabase">简答题库</a> </li>
-                                    <#--<li> <a href="/community/chooseDatabase.ftl">选择题库</a> </li>-->
                                     </ul>
                                 </li>
                                 <li class="nav-item nav-item-has-subnav">

@@ -175,18 +175,7 @@ public class User
 
         return teacherService.updateByPrimaryKeySelective(teacher);
     }
-    /**
-    * @Description: 活跃度
-    * @Param: null
-    * @return: activity.ftl
-    * @Author: Yuan Sijian
-    * @Date: 20-2-14
-    */
-    @RequestMapping("activity")
-    public String activity()
-    {
-        return "activity.ftl";
-    }
+
 
     /**
     * @Description: 学生信息
@@ -264,18 +253,7 @@ public class User
         return "teacherInformation.ftl";
     }
 
-    /**
-    * @Description: 学生学习进度
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-14
-    */
-    @RequestMapping("schedule")
-    public String schedule()
-    {
-        return "schedule.ftl";
-    }
+
 
     /**
     * @Description: 个人信息

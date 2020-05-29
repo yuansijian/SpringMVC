@@ -60,6 +60,8 @@ public class main
     private AdministratorService administratorService;
     @Autowired
     private Short1Service short1Service;
+    @Autowired
+    private LoginnumberService loginnumberService;
 
 
     /**
@@ -530,22 +532,33 @@ public class main
     @RequestMapping("login")
     public int login(@RequestParam("username")String username, @RequestParam("password")String password, HttpSession session)
     {
-        System.out.println(username+password);
+//        System.out.println(username+password);
 
         Student student = studentService.queryUsernameAndPassword(username, password);
 
 
-        System.out.println(student.getUsername()+student.getPassword());
+//        System.out.println(student.getUsername()+student.getPassword());
 
         if(student.getUsername().equals(username) && student.getPassword().equals(password))
         {
+            //当天活跃度
+            Loginnumber loginnumber = loginnumberService.selectByPrimaryKey(1);
+            int countLogin = loginnumber.getCount()+1;
+            Loginnumber loginnumber1 = new Loginnumber();
+            loginnumber1.setCount(countLogin);
+            loginnumber1.setId(1);
+            loginnumberService.updateByPrimaryKeySelective(loginnumber1);
+
             Student temp = new Student();
             temp.setLogintime(getDate());
+            //记录学生登录次数
             temp.setLoginnumber(student.getLoginnumber()+1);
             temp.setId(student.getId());
             System.out.println(studentService.updateByPrimaryKeySelective(temp));
+
             student.setLogintime(getDate());
             session.setAttribute("student", student);
+            //教师登录学生端
             if(student.getGrade().equals("teacher"))
             {
                 Teacher temp1 = new Teacher();
@@ -829,20 +842,4 @@ public class main
         return download1Service.updateByPrimaryKeySelective(download1);
     }
 
-//    /**
-//    * @Description: 忘记密码
-//    * @Param:
-//    * @return:
-//    * @Author: Yuan Sijian
-//    * @Date: 20-3-30
-//    */
-//    @RequestMapping("forgetPass")
-//    public String forgetPass(Model model)
-//    {
-//        Administrator administrator = administratorService.selectByPrimaryKey(1);
-//
-//        model.addAttribute("administrator", administrator);
-//
-//        return "forgetPass.ftl";
-//    }
 }

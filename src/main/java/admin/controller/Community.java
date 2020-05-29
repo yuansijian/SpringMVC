@@ -748,18 +748,7 @@ public class Community
 
 
 
-    /**
-    * @Description: 文字教学
-    * @Param: null
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-14
-    */
-    @RequestMapping("wordTeacher")
-    public String wordTeacher()
-    {
-        return "wordTeacher.ftl";
-    }
+
 
     /**
     * @Description: 简答题库
@@ -1167,18 +1156,7 @@ public class Community
 
     }
 
-    /**
-    * @Description: 选择题库
-    * @Param: null
-    * @return: chooseDatabase.ftl
-    * @Author: Yuan Sijian
-    * @Date: 20-2-14
-    */
-    @RequestMapping("chooseDatabase.ftl")
-    public String chooseDatabase()
-    {
-        return "chooseDatabase.ftl";
-    }
+
 
     /**
     * @Description: 注册维护
@@ -1196,14 +1174,13 @@ public class Community
     /**
     * @Description: 权限管理
     * @Param: null
-    * @return: authorityControl.ftl
+    * @return:
     * @Author: Yuan Sijian
     * @Date: 20-2-14
     */
 //    @RequestMapping("authorityControl")
 //    public String authorityControl()
 //    {
-//        return "authorityControl.ftl";
 //    }
 
     /**
@@ -1396,7 +1373,7 @@ public class Community
         {
             try
             {
-                String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/uploadFile";
+                String rootPath = "/statics/uploadFile";
 
                 File dir = new File(rootPath + File.separator);
 
