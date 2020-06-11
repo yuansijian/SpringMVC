@@ -446,7 +446,20 @@ public class main
 
         return "main/message.ftl";
     }
-    
+
+    /**
+    * @Description: 留言点赞功能
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-6-3
+    */
+    @ResponseBody
+    @RequestMapping("commentGood")
+    public int good()
+    {
+        return 0;
+    }
     /**
     * @Description: 回复消息
     * @Param: 

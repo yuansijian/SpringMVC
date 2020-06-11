@@ -7,50 +7,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbda3827-dfec-4d61-8655-86a708c31e55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/generator/dao/LoginnumberMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/LoginnumberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/LoginnumberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/LoginnumberMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/AllTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/generator/entity/Loginnumber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/interceptor/CheckLoginInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/redis/Enums.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/redis/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/redis/RedisDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/redis/RedisKeyUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/redis/RedisTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/redis/RedisUse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/redis/UserLike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/RedisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/admin/service/impl/RedisServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-redis.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpringMVC.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpringMVC.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/ssm.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ssm.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/Community.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/admin/controller/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/admin/controller/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/statics/homework/2020-03-21quar_9_sleek_dashboard.zip" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/statics/homework/2020-03-21quar_9_sleek_dashboard.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/statics/uploadFile/quar_9_sleek_dashboard.zip" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/statics/uploadFile/quar_9_sleek_dashboard.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/activity.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/authorityControl.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/chooseDatabase.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/defaultLayout.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/defaultLayout.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar1.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/sidebar1.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/forgetPass.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/schedule.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/temp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/test.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/updateStudentInfo.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/updateStudentInfo.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/wordTeacher.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StudentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Community.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/Community.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/admin/controller/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/activity.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/authorityControl.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/chooseDatabase.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/layout/defaultLayout.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/layout/defaultLayout.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/layout/sidebar.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/layout/sidebar.ftl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/schedule.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/views/ftl/temp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/SpringMVC/views/ftl/wordTeacher.ftl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/spring/spring-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/spring/spring-dao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/spring/spring-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/classes/spring/spring-web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/commons-pool-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/freemarker-2.3.20.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-aop-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-beans-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-context-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-context-support-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-core-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-expression-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-jdbc-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-test-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-tx-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-web-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/lib/spring-webmvc-4.2.6.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/SpringMVC/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/Admin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/Community.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/Community.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/admin/controller/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/admin/controller/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-dao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/spring-dao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/spring-web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BaseTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,18 +80,18 @@
     <session id="-2143344897">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="55" />
+          <entry key="project.closed" value="61" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="4" />
-          <entry key="project.open.time.11" value="14" />
-          <entry key="project.open.time.12" value="6" />
-          <entry key="project.open.time.13" value="6" />
-          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.11" value="15" />
+          <entry key="project.open.time.12" value="7" />
+          <entry key="project.open.time.13" value="8" />
+          <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.2" value="5" />
+          <entry key="project.open.time.2" value="6" />
           <entry key="project.open.time.20" value="3" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.3" value="4" />
@@ -97,7 +100,7 @@
           <entry key="project.open.time.6" value="2" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="58" />
+          <entry key="project.opened" value="64" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -105,64 +108,64 @@
           <entry key="1" value="23" />
           <entry key="JPEG" value="1" />
           <entry key="SpringLocalModels/module=SpringMVC" value="1" />
-          <entry key="class" value="37" />
+          <entry key="class" value="41" />
           <entry key="css" value="3" />
-          <entry key="ftl" value="566" />
+          <entry key="ftl" value="570" />
           <entry key="header1" value="1" />
-          <entry key="html" value="63" />
-          <entry key="java" value="540" />
+          <entry key="html" value="64" />
+          <entry key="java" value="574" />
           <entry key="jpg" value="17" />
           <entry key="js" value="2" />
           <entry key="jsp" value="4" />
           <entry key="log" value="5" />
           <entry key="newTeacher" value="1" />
           <entry key="png" value="7" />
-          <entry key="properties" value="12" />
+          <entry key="properties" value="14" />
           <entry key="teacherInformation" value="1" />
           <entry key="txt" value="1" />
-          <entry key="xml" value="236" />
+          <entry key="xml" value="254" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="37" />
+          <entry key="CLASS" value="41" />
           <entry key="CSS" value="3" />
-          <entry key="FTL" value="567" />
-          <entry key="HTML" value="63" />
+          <entry key="FTL" value="571" />
+          <entry key="HTML" value="64" />
           <entry key="Image" value="25" />
-          <entry key="JAVA" value="540" />
+          <entry key="JAVA" value="574" />
           <entry key="JSP" value="4" />
           <entry key="JavaScript" value="2" />
           <entry key="Log" value="3" />
           <entry key="PLAIN_TEXT" value="28" />
-          <entry key="Properties" value="12" />
+          <entry key="Properties" value="14" />
           <entry key="UML" value="1" />
-          <entry key="XML" value="236" />
+          <entry key="XML" value="254" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="1" value="6" />
-          <entry key="dummy" value="66" />
-          <entry key="ftl" value="22520" />
+          <entry key="dummy" value="74" />
+          <entry key="ftl" value="22825" />
           <entry key="html" value="798" />
-          <entry key="java" value="36153" />
+          <entry key="java" value="38566" />
           <entry key="jsp" value="13" />
-          <entry key="properties" value="48" />
-          <entry key="txt" value="209" />
-          <entry key="xml" value="7780" />
+          <entry key="properties" value="70" />
+          <entry key="txt" value="216" />
+          <entry key="xml" value="8225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="FTL" value="22515" />
+          <entry key="FTL" value="22820" />
           <entry key="HTML" value="803" />
-          <entry key="JAVA" value="36153" />
+          <entry key="JAVA" value="38566" />
           <entry key="JSP" value="13" />
-          <entry key="PLAIN_TEXT" value="281" />
-          <entry key="Properties" value="48" />
+          <entry key="PLAIN_TEXT" value="296" />
+          <entry key="Properties" value="70" />
           <entry key="SQL" value="132" />
-          <entry key="XML" value="7648" />
+          <entry key="XML" value="8093" />
         </counts>
       </usages-collector>
     </session>
@@ -170,32 +173,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/AdministratorServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/RedisUse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Admin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
-              <folding>
-                <element signature="e#6320#6321#0" expanded="true" />
-                <element signature="e#6359#6360#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/BaseTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="825">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -206,8 +187,49 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13525">
-              <caret line="560" column="21" selection-start-line="560" selection-start-column="21" selection-end-line="560" selection-end-column="21" />
+            <state relative-caret-position="-50">
+              <caret line="416" column="18" selection-start-line="416" selection-start-column="18" selection-end-line="416" selection-end-column="18" />
+              <folding>
+                <element signature="method#updateProfile#0;class#main#0" />
+                <element signature="method#homework#0;class#main#0" />
+                <element signature="method#saveHomework#0;class#main#0" />
+                <element signature="method#message#0;class#main#0" />
+                <element signature="method#news#0;class#main#0" />
+                <element signature="method#addMessage#0;class#main#0" />
+                <element signature="method#addReply#0;class#main#0" />
+                <element signature="method#login#0;class#main#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="173" column="18" lean-forward="true" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
+              <folding>
+                <element signature="e#655#3913#0#HTML" />
+                <element signature="e#3975#5954#0#HTML" />
+                <element signature="e#589#595#0" expanded="true" />
+                <element signature="e#595#601#0" expanded="true" />
+                <element signature="e#601#607#0" expanded="true" />
+                <element signature="e#607#613#0" expanded="true" />
+                <element signature="e#6016#7176#0#HTML" />
+                <element signature="e#578#584#0" expanded="true" />
+                <element signature="e#584#590#0" expanded="true" />
+                <element signature="e#590#596#0" expanded="true" />
+                <element signature="e#596#602#0" expanded="true" />
+                <element signature="e#7236#7588#0#HTML" />
+                <element signature="e#7647#8856#0#HTML" />
+                <element signature="e#578#584#0" expanded="true" />
+                <element signature="e#584#590#0" expanded="true" />
+                <element signature="e#590#596#0" expanded="true" />
+                <element signature="e#596#602#0" expanded="true" />
+                <element signature="e#8903#8986#0#HTML" />
+                <element signature="e#9036#9124#0#HTML" />
+                <element signature="e#9188#12061#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -226,18 +248,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>newT</find>
-      <find>picture</find>
-      <find>inf</find>
-      <find>mes</find>
-      <find>save1</find>
-      <find>card-body</find>
-      <find>mess</find>
-      <find>fileN</find>
-      <find>cha</find>
-      <find>ch</find>
-      <find>login</find>
-      <find>check</find>
       <find>/teacher/listHomework</find>
       <find>/community/manageMessage</find>
       <find>addRe</find>
@@ -256,10 +266,20 @@
       <find>x</find>
       <find>re</find>
       <find>activity</find>
+      <find>jdbc.driver</find>
+      <find>spring-tx</find>
+      <find>frame</find>
+      <find>spring</find>
+      <find>jdbc.</find>
+      <find>freema</find>
+      <find>4.2.6.RELEASE</find>
+      <find>aop</find>
+      <find>freem</find>
+      <find>red</find>
+      <find>jun</find>
+      <find>inter</find>
     </findStrings>
     <replaceStrings>
-      <replace>studentInformation</replace>
-      <replace>teacherInformation</replace>
       <replace>teacher</replace>
       <replace>type1</replace>
       <replace>&lt;#include &quot;layout/header.ftl&quot;&gt;         &lt;li class=&quot;dropdown dropdown-profile&quot;&gt;             &lt;a href=&quot;javascript:void(0)&quot; data-toggle=&quot;dropdown&quot;&gt;                 &lt;img class=&quot;img-avatar img-avatar-48 m-r-10&quot; src=&quot;/statics/images/users/avatar.jpg&quot; alt=&quot;笔下光年&quot; /&gt;                 &lt;span&gt;${administrator.username} &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/span&gt;             &lt;/a&gt;         &lt;#include &quot;layout/header2.ftl&quot;&gt;</replace>
@@ -288,6 +308,8 @@
       <replace>/community/manageMessage</replace>
       <replace>/community/manageReply</replace>
       <replace>Yuan Sijian</replace>
+      <replace>5.1.15.RELEASE</replace>
+      <replace>4.3.7.RELEASE</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -304,32 +326,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CommentMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/CommentParentChildMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/GivehomeworkMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/CommentParentChildMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/CommentParentChildService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/CommentService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentParentChildImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/CommentServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/DownloadService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/DownloadServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/Download1Service.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/resource.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/Download1ServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/forgetPass.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/addShort.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/editShort.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/shortAnswerDatabase.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practiceText.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/adminLogin.ftl" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/studentInformation.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/main.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/practice.ftl" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/uploadFile.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/layout/defaultLayout.ftl" />
@@ -348,13 +347,36 @@
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/LoginnumberMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/Loginnumber.java" />
-        <option value="$PROJECT_DIR$/src/test/java/BaseTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/StudentTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/AllTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/LoginnumberService.java" />
         <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/LoginnumberServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/redis.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-redis.xml" />
         <option value="$PROJECT_DIR$/src/main/java/admin/controller/main.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/RedisConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/RedisDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/generator/dao/DaoTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/BaseTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/config/WebConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/wolfcode/rbac/web/interceptor/CheckLoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/spring-web.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/interceptor/CheckLoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/admin/controller/Admin.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/RedisService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/service/impl/RedisServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/RedisKeyUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/LikedStatusEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/Enums.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/UserLike.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/RedisTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/RedisTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/admin/redis/RedisUse.java" />
       </list>
     </option>
   </component>
@@ -390,7 +412,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1920" />
+    <option name="x" value="960" />
+    <option name="width" value="960" />
     <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -445,6 +468,11 @@
             <path>
               <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
               <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -485,7 +513,66 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="Admin" type="1a9f42e2:ClassTreeNode" />
+              <item name="main" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="redis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+              <item name="RedisServiceImpl" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="PictureteacherService" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="RedisService" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
@@ -499,7 +586,71 @@
               <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="spring" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ftl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ftl" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SpringMVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SpringMVC" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="RedisTest" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
           <select />
@@ -511,8 +662,8 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1590737188514" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../newcoder" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1591885272249" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SpringMVC-Mybatis-Shiro-redis-0.2-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -559,11 +710,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StudentTest.testDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RedisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpringMVC" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StudentTest" />
-      <option name="METHOD_NAME" value="testDate" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.redisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpringMVC" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <option name="METHOD_NAME" value="redisTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -574,16 +733,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StudentTest" />
       <option name="METHOD_NAME" value="testQueryAll" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UploadTest.testUpload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpringMVC" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UploadTest" />
-      <option name="METHOD_NAME" value="testUpload" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -700,19 +849,19 @@
     <list>
       <item itemvalue="Maven.maven" />
       <item itemvalue="Tomcat Server.web" />
-      <item itemvalue="JUnit.StudentTest.testDate" />
-      <item itemvalue="JUnit.UploadTest.testUpload" />
       <item itemvalue="JUnit.testLogin.testQuery" />
       <item itemvalue="JUnit.AllTest.numtest" />
       <item itemvalue="JUnit.StudentTest.testQueryAll" />
+      <item itemvalue="JUnit.RedisTest.redisTest" />
+      <item itemvalue="JUnit.RedisTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RedisTest.redisTest" />
+        <item itemvalue="JUnit.RedisTest" />
         <item itemvalue="JUnit.AllTest.numtest" />
         <item itemvalue="JUnit.StudentTest.testQueryAll" />
         <item itemvalue="JUnit.testLogin.testQuery" />
-        <item itemvalue="JUnit.UploadTest.testUpload" />
-        <item itemvalue="JUnit.StudentTest.testDate" />
       </list>
     </recent_temporary>
   </component>
@@ -783,7 +932,13 @@
       <workItem from="1589175152685" duration="3394000" />
       <workItem from="1589376551677" duration="8780000" />
       <workItem from="1590284039668" duration="18173000" />
-      <workItem from="1590629522216" duration="3401000" />
+      <workItem from="1590629522216" duration="23375000" />
+      <workItem from="1591020971191" duration="2557000" />
+      <workItem from="1591078439189" duration="7780000" />
+      <workItem from="1591089561913" duration="14009000" />
+      <workItem from="1591333684261" duration="599000" />
+      <workItem from="1591594296634" duration="17897000" />
+      <workItem from="1591842494377" duration="12226000" />
     </task>
     <task id="LOCAL-00001" summary="教师中心修改">
       <created>1582554609918</created>
@@ -897,43 +1052,50 @@
       <option name="project" value="LOCAL" />
       <updated>1588259873360</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="完善活跃度功能">
+      <created>1590737294479</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1590737294480</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UploadTest_testUpload - 2020.02.29 at 18h 00m 14s.xml">
-      <configuration name="UploadTest.testUpload" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.04 at 17h 33m 57s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UploadTest_testUpload - 2020.02.29 at 18h 15m 29s.xml">
-      <configuration name="UploadTest.testUpload" configurationId="JUnit" />
+    <history-entry file="RedisTest - 2020.06.08 at 13h 32m 21s.xml">
+      <configuration name="RedisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UploadTest_testUpload - 2020.02.29 at 18h 16m 36s.xml">
-      <configuration name="UploadTest.testUpload" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.08 at 13h 33m 09s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UploadTest_testUpload - 2020.02.29 at 18h 19m 25s.xml">
-      <configuration name="UploadTest.testUpload" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.09 at 15h 25m 56s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="testLogin_testQuery - 2020.02.29 at 22h 08m 25s.xml">
-      <configuration name="testLogin.testQuery" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.11 at 13h 13m 47s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="testLogin_testQuery - 2020.02.29 at 22h 09m 10s.xml">
-      <configuration name="testLogin.testQuery" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.11 at 14h 13m 35s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="testLogin_testQuery - 2020.02.29 at 22h 20m 00s.xml">
-      <configuration name="testLogin.testQuery" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.11 at 16h 29m 19s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AllTest_numtest - 2020.05.25 at 17h 30m 31s.xml">
-      <configuration name="AllTest.numtest" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.11 at 16h 30m 13s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentTest_testQueryAll - 2020.05.25 at 17h 30m 59s.xml">
-      <configuration name="StudentTest.testQueryAll" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.11 at 16h 30m 35s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AllTest_numtest - 2020.05.25 at 17h 31m 12s.xml">
-      <configuration name="AllTest.numtest" configurationId="JUnit" />
+    <history-entry file="RedisTest_redisTest - 2020.06.11 at 20h 32m 16s.xml">
+      <configuration name="RedisTest.redisTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="780355000" />
+    <option name="totallyTimeSpent" value="855397000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -948,7 +1110,7 @@
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27582535" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2539936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -959,7 +1121,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893504" weight="0.44151738" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893504" visible="true" weight="0.44151738" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44573236" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1041,151 +1203,14 @@
     <MESSAGE value="增加教师登录，教师后台权限管理和留言管理功能" />
     <MESSAGE value="增加留言管理和视频观看功能" />
     <MESSAGE value="完成版" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成版" />
+    <MESSAGE value="完善活跃度功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善活跃度功能" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageHomework.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageReply.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageStudent.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/manageUser.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/newStudent.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/newTeacher.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/other.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/profile.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="255" selection-start-line="255" selection-end-line="255" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/pictureTeacher.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/schedule.ftl" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/reply.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/shortAnswerDatabase.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/studentInformation.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/systemConfig.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/teacherInformation.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/test.ftl" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/temp.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/updateStudentInfo.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1900">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/uploadConfig.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/videoPreview.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/wordTeacher.ftl" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/videoTeacher.ftl">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/baseConfig.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="119" column="57" selection-start-line="119" selection-start-column="57" selection-end-line="119" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/statics/pictureTeacher/图2-2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/freemarker.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Community.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35050">
-          <caret line="1421" column="7" selection-start-line="1421" selection-start-column="7" selection-end-line="1421" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/addPictureTeacher.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="195" column="14" lean-forward="true" selection-start-line="195" selection-start-column="14" selection-end-line="195" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/uploadFile.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="161" selection-start-line="161" selection-end-line="162" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="77" column="97" lean-forward="true" selection-start-line="77" selection-start-column="97" selection-end-line="77" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="44" column="37" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/Download1Mapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-450" />
@@ -1195,25 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="83" column="46" lean-forward="true" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
-          <folding>
-            <element signature="n#resultMap#0;n#mapper#0;n#!!top" />
-            <element signature="n#resultMap#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#select#3;n#mapper#0;n#!!top" />
-            <element signature="n#select#4;n#mapper#0;n#!!top" />
-            <element signature="n#select#5;n#mapper#0;n#!!top" />
-            <element signature="n#select#6;n#mapper#0;n#!!top" />
-            <element signature="n#select#8;n#mapper#0;n#!!top" />
-            <element signature="n#select#9;n#mapper#0;n#!!top" />
-            <element signature="n#select#10;n#mapper#0;n#!!top" />
-            <element signature="n#select#11;n#mapper#0;n#!!top" />
-            <element signature="n#select#12;n#mapper#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1235,10 +1241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding>
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#484#485#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1260,15 +1262,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="52" column="84" selection-start-line="52" selection-start-column="84" selection-end-line="52" selection-end-column="84" />
-          <folding>
-            <element signature="n#sql#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1276,9 +1269,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1310,40 +1300,296 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/main.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.7.RELEASE/spring-tx-4.3.7.RELEASE.jar!/org/springframework/transaction/interceptor/AbstractFallbackTransactionAttributeSource.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13525">
-          <caret line="560" column="21" selection-start-line="560" selection-start-column="21" selection-end-line="560" selection-end-column="21" />
+        <state relative-caret-position="1125">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-dao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/AllTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
+        <state relative-caret-position="225">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Admin.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/AdministratorMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
-          <folding>
-            <element signature="e#6320#6321#0" expanded="true" />
-            <element signature="e#6359#6360#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="100">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/entity/Short1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/generator/dao/DaoTest.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/internal/builders/AnnotatedBuilder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/BaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="225">
+          <caret line="11" column="140" selection-start-line="11" selection-start-column="140" selection-end-line="11" selection-end-column="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-redis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/index.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/config/WebConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/wolfcode/rbac/web/interceptor/CheckLoginInterceptor.java" />
+    <entry file="jar:///usr/java/jdk8/jdk1.8.0_231/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="747" selection-start-line="747" selection-end-line="747" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5750">
+          <caret line="230" selection-start-line="230" selection-end-line="230" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="47" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8625">
+          <caret line="364" column="33" selection-start-line="364" selection-start-column="33" selection-end-line="364" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/adminLogin.ftl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/login.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/interceptor/CheckLoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="835">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/Community.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="829">
+          <caret line="1193" column="18" selection-start-line="1193" selection-start-column="18" selection-end-line="1193" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/RedisDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#635#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/Enums.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/RedisKeyUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/UserLike.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/PictureteacherService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/RedisService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-359">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/RedisTemplate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/RedisConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/RedisTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/service/impl/RedisServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="21" column="12" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/redis/RedisUse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/admin/controller/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-50">
+          <caret line="416" column="18" selection-start-line="416" selection-start-column="18" selection-end-line="416" selection-end-column="18" />
+          <folding>
+            <element signature="method#updateProfile#0;class#main#0" />
+            <element signature="method#homework#0;class#main#0" />
+            <element signature="method#saveHomework#0;class#main#0" />
+            <element signature="method#message#0;class#main#0" />
+            <element signature="method#news#0;class#main#0" />
+            <element signature="method#addMessage#0;class#main#0" />
+            <element signature="method#addReply#0;class#main#0" />
+            <element signature="method#login#0;class#main#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/ftl/main/message.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="173" column="18" lean-forward="true" selection-start-line="173" selection-start-column="18" selection-end-line="173" selection-end-column="18" />
+          <folding>
+            <element signature="e#655#3913#0#HTML" />
+            <element signature="e#3975#5954#0#HTML" />
+            <element signature="e#589#595#0" expanded="true" />
+            <element signature="e#595#601#0" expanded="true" />
+            <element signature="e#601#607#0" expanded="true" />
+            <element signature="e#607#613#0" expanded="true" />
+            <element signature="e#6016#7176#0#HTML" />
+            <element signature="e#578#584#0" expanded="true" />
+            <element signature="e#584#590#0" expanded="true" />
+            <element signature="e#590#596#0" expanded="true" />
+            <element signature="e#596#602#0" expanded="true" />
+            <element signature="e#7236#7588#0#HTML" />
+            <element signature="e#7647#8856#0#HTML" />
+            <element signature="e#578#584#0" expanded="true" />
+            <element signature="e#584#590#0" expanded="true" />
+            <element signature="e#590#596#0" expanded="true" />
+            <element signature="e#596#602#0" expanded="true" />
+            <element signature="e#8903#8986#0#HTML" />
+            <element signature="e#9036#9124#0#HTML" />
+            <element signature="e#9188#12061#0#HTML" />
           </folding>
         </state>
       </provider>

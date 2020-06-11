@@ -257,3 +257,29 @@
 [INFO] [2020-05-25 17:31:10][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
 [INFO] [2020-05-25 17:31:11][com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource]Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 2, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 10000, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge15yaakuva0ysq7nla|510f3d34, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge15yaakuva0ysq7nla|510f3d34, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://localhost:3306/Posture?useUnicode=true&characterEncoding=utf8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 30, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 10, numHelperThreads -> 3, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ]
 [INFO] [2020-05-25 17:31:12][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@598067a5: startup date [Mon May 25 17:31:10 CST 2020]; root of context hierarchy
+[INFO] [2020-06-04 17:20:53][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-04 17:20:53][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-04 17:24:32][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-04 17:24:32][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-04 17:26:22][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-04 17:26:23][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-04 17:33:55][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-04 17:33:55][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-08 13:32:19][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-08 13:32:20][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-08 13:33:08][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-08 13:33:08][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-09 15:25:54][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-09 15:25:54][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-11 13:13:46][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-11 13:13:46][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-11 14:13:34][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-11 14:13:34][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-11 16:29:18][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-11 16:29:18][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-11 16:30:11][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-11 16:30:11][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-11 16:30:33][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-11 16:30:33][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]
+[INFO] [2020-06-11 20:32:15][com.mchange.v2.log.MLog]MLog clients using log4j logging.
+[INFO] [2020-06-11 20:32:15][com.mchange.v2.c3p0.C3P0Registry]Initializing c3p0-0.9.2.1 [built 20-March-2013 10:47:27 +0000; debug? true; trace: 10]

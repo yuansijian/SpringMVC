@@ -8,7 +8,7 @@
     <!--welcome pages-->
     <welcome-file-list>
         <!--<welcome-file>index.jsp</welcome-file>-->
-        <welcome-file>/views/ftl/main/login.html</welcome-file>
+        <welcome-file>/views/ftl/main/login.ftl</welcome-file>
     </welcome-file-list>
 
     <!--配置springmvc DispatcherServlet-->
@@ -61,4 +61,7 @@
         <error-code>500</error-code>
         <location>/error500</location>
     </error-page>
+    <session-config>
+        <session-timeout>1</session-timeout>
+    </session-config>
 </web-app>

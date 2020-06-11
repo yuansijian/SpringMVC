@@ -50,6 +50,14 @@
             })
         }
     </script>
+    <script>
+        $(document).ready(function () {
+            if(${b} == 1)
+            {
+                alert("登录过期，请重新登录");
+            }
+        })
+    </script>
 </head>
 <body>
 <div class="container" style="width: 100%">

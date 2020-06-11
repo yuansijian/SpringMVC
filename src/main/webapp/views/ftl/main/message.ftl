@@ -170,6 +170,14 @@
 
             })
         }
+        //留言点赞功能
+        function commentGood(id, username) {
+            alert("hello1");
+        }
+        //回复点赞功能
+        function replyGood(id, username) {
+            alert("hello2");
+        }
     </script>
 </head>
 
@@ -238,8 +246,9 @@
                                                             <ul class="card-actions">
                                                                 <li>
                                                                     <button type="button">
-                                                                        <i  class="mdi mdi-arrow-up-bold-circle">顶(${list.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                            <a id="replay" style="background: white" onclick="reply(${list.id}, '${list.username}')" >回复</a></i></button>
+                                                                        <i  class="mdi mdi-arrow-up-bold-circle" onclick="commentGood(1, 'sss')">顶(${list.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                                                                        <a id="replay" style="background: white" onclick="reply(${list.id}, '${list.username}')" >回复</a>
+                                                                    </button>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -256,7 +265,10 @@
                                                                         <div class="card">
                                                                             <ul class="card-actions">
                                                                                 <li>
-                                                                                    <button type="button"><i class="mdi mdi-arrow-up-bold-circle">顶(${re.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="replay" style="background: white" onclick="reply1(${re.id}, ${list.id}, '${re.username}')" >回复</a></i></button>
+                                                                                    <button type="button">
+                                                                                        <i class="mdi mdi-arrow-up-bold-circle" onclick="replyGood(1, 'rrr')">顶(${re.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                                                                                        <a id="replay" style="background: white" onclick="reply1(${re.id}, ${list.id}, '${re.username}')" >回复</a>
+                                                                                    </button>
                                                                                 </li>
                                                                             </ul>
                                                                             <div class="card-body" style="background: #c0c0c0;">

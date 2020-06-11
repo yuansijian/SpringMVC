@@ -11,12 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -242,8 +240,8 @@ public class Admin
     {
         Administrator administrator = administratorService.queryByUsernameAndPassword(username, password);
 
-        System.out.println(administrator);
-        System.out.println(administrator.getUsername());
+//        System.out.println(administrator);
+//        System.out.println(administrator.getUsername());
 
         Administrator temp = new Administrator();
 
@@ -362,9 +360,11 @@ public class Admin
     * @Date: 20-3-5
     */
     @RequestMapping("error500")
-    public String error500()
+    public String error500(Model model)
     {
-        return "error500.html";
+        model.addAttribute("b", 1);
+
+        return "main/login.ftl";
     }
 
 
