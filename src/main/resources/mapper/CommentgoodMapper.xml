@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="admin.generator.dao.CommentgoodMapper" >
+  <resultMap id="BaseResultMap" type="admin.generator.entity.Commentgood" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="up" property="up" jdbcType="INTEGER" />
+    <result column="updateTime" property="updatetime" jdbcType="DATE" />
+    <result column="commentid" property="commentid" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+    <result column="goodTime" property="goodtime" jdbcType="DATE" />
+    <result column="cid" property="cid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, uid, up, updateTime, commentid, is_delete, goodTime, cid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from commentGood
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="presence" resultMap="BaseResultMap">
+    select id
+    from commentGood
+    where uid=#{uid} and cid=#{cid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from commentGood
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="admin.generator.entity.Commentgood" >
+    insert into commentGood (id, uid, up, 
+      updateTime, commentid, is_delete, 
+      goodTime, cid)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{up,jdbcType=INTEGER}, 
+      #{updatetime,jdbcType=DATE}, #{commentid,jdbcType=INTEGER}, #{isDelete,jdbcType=INTEGER}, 
+      #{goodtime,jdbcType=DATE}, #{cid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="admin.generator.entity.Commentgood" >
+    insert into commentGood
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="up != null" >
+        up,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="commentid != null" >
+        commentid,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="goodtime != null" >
+        goodTime,
+      </if>
+      <if test="cid != null" >
+        cid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="up != null" >
+        #{up,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="commentid != null" >
+        #{commentid,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="goodtime != null" >
+        #{goodtime,jdbcType=DATE},
+      </if>
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Commentgood" >
+    update commentGood
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="up != null" >
+        up = #{up,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=DATE},
+      </if>
+      <if test="commentid != null" >
+        commentid = #{commentid,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="goodtime != null" >
+        goodTime = #{goodtime,jdbcType=DATE},
+      </if>
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Commentgood" >
+    update commentGood
+    set uid = #{uid,jdbcType=INTEGER},
+      up = #{up,jdbcType=INTEGER},
+      updateTime = #{updatetime,jdbcType=DATE},
+      commentid = #{commentid,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=INTEGER},
+      goodTime = #{goodtime,jdbcType=DATE},
+      cid = #{cid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

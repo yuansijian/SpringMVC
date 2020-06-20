@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @program: SpringMVC
@@ -22,7 +24,21 @@ public class RedisTest extends BaseTest
     @Test
     public void redisTest()
     {
-        redisTemplate.opsForHash().put("myhash", "2", "3");
+//        Object[] list = redisTemplate.opsForHash().keys("good").toArray();
+        String s = redisTemplate.opsForHash().keys("good").toString();
+        s = s.replace("[", "");
+        s = s.replace("]", "");
+        s = s.replace(" ", "");
+
+        String []list = s.split(",");
+
+        for(int i=0; i<list.length; i++)
+        {
+            System.out.println(list[i]);
+        }
+
+//        System.out.println(redisTemplate.opsForHash().values("good"));
+//        System.out.println();
 //        redisTemplate.opsForHash().put("myhash", "3", "2");
 
     }

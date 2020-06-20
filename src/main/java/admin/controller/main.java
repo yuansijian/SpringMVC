@@ -1,6 +1,8 @@
 package admin.controller;
 
 import admin.generator.entity.*;
+import admin.redis.RedisKeyUtils;
+import admin.redis.RedisUse;
 import admin.service.*;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -8,6 +10,7 @@ import com.github.pagehelper.PageInfo;
 import net.coobird.thumbnailator.Thumbnails;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -62,6 +65,8 @@ public class main
     private Short1Service short1Service;
     @Autowired
     private LoginnumberService loginnumberService;
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
 
 
     /**
@@ -456,10 +461,57 @@ public class main
     */
     @ResponseBody
     @RequestMapping("commentGood")
-    public int good()
+    public int good(@RequestParam(value = "id", defaultValue = "")String id, @RequestParam(value = "uid", defaultValue = "")String uid)
     {
-        return 0;
+
+        System.out.println(id + " " + uid);
+
+        String key = RedisKeyUtils.getLikedKey(uid, id);
+
+        if(redisTemplate.opsForHash().hasKey("good", key) && redisTemplate.opsForHash().get("good", key).equals("1"))
+        {
+            redisTemplate.opsForHash().put("good", key, "0");
+
+            return 0;
+        }
+        else
+        {
+            redisTemplate.opsForHash().put("good", key, "1");
+
+            return 1;
+        }
     }
+
+    /**
+    * @Description: 留言回复点赞
+    * @Param:
+    * @return:
+    * @Author: Defend
+    * @Date: 20-6-12
+    */
+    @ResponseBody
+    @RequestMapping("replyGood")
+    public int replyGood(@RequestParam(value = "id", defaultValue = "")String id, @RequestParam(value = "uid")String uid)
+    {
+        System.out.println(id + " " + uid);
+
+        String key = RedisKeyUtils.getLikedKey(uid, id);
+
+        if(redisTemplate.opsForHash().hasKey("replyGood", key) && redisTemplate.opsForHash().get("replyGood", key).equals("1"))
+        {
+            redisTemplate.opsForHash().put("replyGood", key, "0");
+
+            return 0;
+        }
+        else
+        {
+            redisTemplate.opsForHash().put("replyGood", key, "1");
+
+            return 1;
+        }
+    }
+
+
     /**
     * @Description: 回复消息
     * @Param: 
