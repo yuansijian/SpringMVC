@@ -1,6 +1,7 @@
 package admin.generator.entity;
 
-public class Baseconfig {
+public class Baseconfig
+{
     private Integer id;
 
     private String logopic;
@@ -13,51 +14,63 @@ public class Baseconfig {
 
     private String updater;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getLogopic() {
+    public String getLogopic()
+    {
         return logopic;
     }
 
-    public void setLogopic(String logopic) {
+    public void setLogopic(String logopic)
+    {
         this.logopic = logopic == null ? null : logopic.trim();
     }
 
-    public String getKeyword() {
+    public String getKeyword()
+    {
         return keyword;
     }
 
-    public void setKeyword(String keyword) {
+    public void setKeyword(String keyword)
+    {
         this.keyword = keyword == null ? null : keyword.trim();
     }
 
-    public Integer getSwitch1() {
+    public Integer getSwitch1()
+    {
         return switch1;
     }
 
-    public void setSwitch1(Integer switch1) {
+    public void setSwitch1(Integer switch1)
+    {
         this.switch1 = switch1;
     }
 
-    public String getUpdatetime() {
+    public String getUpdatetime()
+    {
         return updatetime;
     }
 
-    public void setUpdatetime(String updatetime) {
+    public void setUpdatetime(String updatetime)
+    {
         this.updatetime = updatetime == null ? null : updatetime.trim();
     }
 
-    public String getUpdater() {
+    public String getUpdater()
+    {
         return updater;
     }
 
-    public void setUpdater(String updater) {
+    public void setUpdater(String updater)
+    {
         this.updater = updater == null ? null : updater.trim();
     }
 

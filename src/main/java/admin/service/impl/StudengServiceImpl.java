@@ -26,12 +26,12 @@ public class StudengServiceImpl implements StudentService
     StudentMapper studentMapper;
 
     /**
-    * @Description: 学生用户总数
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-21
-    */
+     * @Description: 学生用户总数
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-21
+     */
     @Override
     public long selectByCountPrimaryKey()
     {
@@ -39,12 +39,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 查询全部学生基本信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-22
-    */
+     * @Description: 查询全部学生基本信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-22
+     */
     @Override
     public List<Student> queryAll()
     {
@@ -52,12 +52,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 模糊查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-26
-    */
+     * @Description: 模糊查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-26
+     */
     @Override
     public List<Student> fuzzySearch(String conditions)
     {
@@ -65,12 +65,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 时间范围注册数
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-26
-    */
+     * @Description: 时间范围注册数
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-26
+     */
     @Override
     public List<Integer> registeredQuery(String startTime, String endTime)
     {
@@ -79,12 +79,12 @@ public class StudengServiceImpl implements StudentService
 
 
     /**
-    * @Description: 按班级查找学生
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-27
-    */
+     * @Description: 按班级查找学生
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-27
+     */
     @Override
     public List<Student> queryByGrade(String stugrade)
     {
@@ -92,12 +92,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 按姓名模糊查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-27
-    */
+     * @Description: 按姓名模糊查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-27
+     */
     @Override
     public List<Student> queryByName(String stuname)
     {
@@ -105,12 +105,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 按姓名班级查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-27
-    */
+     * @Description: 按姓名班级查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-27
+     */
     @Override
     public List<Student> queryByNameAndGrade(String stuname, String stugrade)
     {
@@ -118,25 +118,25 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 注册用户管理查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-27
-    */
+     * @Description: 注册用户管理查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-27
+     */
     @Override
-    public List<Student> queryFuzzyRegistered(String stuname, String stuclass, String stugrade,  String startTime, String endTime)
+    public List<Student> queryFuzzyRegistered(String stuname, String stuclass, String stugrade, String startTime, String endTime)
     {
         return studentMapper.queryFuzzyRegistered(stuname, stuclass, stugrade, startTime, endTime);
     }
 
     /**
-    * @Description: 按主键查找学生
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-28
-    */
+     * @Description: 按主键查找学生
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-28
+     */
     @Override
     public Student selectByPrimaryKey(Integer id)
     {
@@ -144,12 +144,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 查找更新
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-28
-    */
+     * @Description: 查找更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-28
+     */
     @Override
     public Student adminUpdateSelect(Integer id)
     {
@@ -157,12 +157,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 更新数据
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-28
-    */
+     * @Description: 更新数据
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-28
+     */
     @Override
     public int updateByPrimaryKeySelective(Student record)
     {
@@ -170,12 +170,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 删除学生
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-28
-    */
+     * @Description: 删除学生
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-28
+     */
     @Override
     public int deleteByPrimaryKey(Integer id)
     {
@@ -183,12 +183,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: newuser学生信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-29
-    */
+     * @Description: newuser学生信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-29
+     */
     @Override
     public List<Student> queryRes(String startTime, String endTime)
     {
@@ -196,12 +196,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 活跃度功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-4
-    */
+     * @Description: 活跃度功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-4
+     */
     @Override
     public int queryCountLogin(String startTime, String endTime)
     {
@@ -209,12 +209,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 统计班级
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-9
-    */
+     * @Description: 统计班级
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-9
+     */
     @Override
     public List<Integer> queryGrade()
     {
@@ -222,12 +222,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 登录查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-17
-    */
+     * @Description: 登录查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-17
+     */
     @Override
     public Student queryUsernameAndPassword(String username, String password)
     {
@@ -235,12 +235,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 插入
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-17
-    */
+     * @Description: 插入
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-17
+     */
     @Override
     public int insert(Student record)
     {
@@ -248,12 +248,12 @@ public class StudengServiceImpl implements StudentService
     }
 
     /**
-    * @Description: 查看学生交作业情况
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-22
-    */
+     * @Description: 查看学生交作业情况
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-22
+     */
     @Override
     public List<HashMap> checkHomework(String grade)
     {

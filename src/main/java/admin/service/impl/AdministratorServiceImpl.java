@@ -17,13 +17,14 @@ public class AdministratorServiceImpl implements AdministratorService
 {
     @Autowired
     AdministratorMapper administratorMapper;
+
     /**
-    * @Description: 查找用户用于登录
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-29
-    */
+     * @Description: 查找用户用于登录
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-29
+     */
     @Override
     public Administrator queryByUsernameAndPassword(String username, String password)
     {
@@ -31,12 +32,12 @@ public class AdministratorServiceImpl implements AdministratorService
     }
 
     /**
-    * @Description: 更新管理员信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-3
-    */
+     * @Description: 更新管理员信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-3
+     */
     @Override
     public int updateByPrimaryKeySelective(Administrator record)
     {
@@ -44,12 +45,12 @@ public class AdministratorServiceImpl implements AdministratorService
     }
 
     /**
-    * @Description: 根据主键查找信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-3
-    */
+     * @Description: 根据主键查找信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-3
+     */
     @Override
     public Administrator selectByPrimaryKey(Integer id)
     {
@@ -57,12 +58,12 @@ public class AdministratorServiceImpl implements AdministratorService
     }
 
     /**
-    * @Description: 插入老师管理员
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-23
-    */
+     * @Description: 插入老师管理员
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-23
+     */
     @Override
     public int insert(Administrator record)
     {

@@ -17,13 +17,14 @@ public class Download1ServiceImpl implements Download1Service
 {
     @Autowired
     Download1Mapper download1Mapper;
+
     /**
-    * @Description: 查找
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-30
-    */
+     * @Description: 查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-30
+     */
     @Override
     public Download1 selectByPrimaryKey(Integer id)
     {
@@ -31,12 +32,12 @@ public class Download1ServiceImpl implements Download1Service
     }
 
     /**
-    * @Description: 更新
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-30
-    */
+     * @Description: 更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-30
+     */
     @Override
     public int updateByPrimaryKeySelective(Download1 record)
     {

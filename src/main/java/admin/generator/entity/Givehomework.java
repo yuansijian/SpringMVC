@@ -1,6 +1,7 @@
 package admin.generator.entity;
 
-public class Givehomework {
+public class Givehomework
+{
     private Integer id;
 
     private String author;
@@ -23,91 +24,113 @@ public class Givehomework {
 
     private String description;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getAuthor() {
+    public String getAuthor()
+    {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(String author)
+    {
         this.author = author == null ? null : author.trim();
     }
 
-    public String getCreateTime() {
+    public String getCreateTime()
+    {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(String createTime)
+    {
         this.createTime = createTime == null ? null : createTime.trim();
     }
 
-    public String getDeleteTime() {
+    public String getDeleteTime()
+    {
         return deleteTime;
     }
 
-    public void setDeleteTime(String deleteTime) {
+    public void setDeleteTime(String deleteTime)
+    {
         this.deleteTime = deleteTime == null ? null : deleteTime.trim();
     }
 
-    public Integer getIdDelete() {
+    public Integer getIdDelete()
+    {
         return idDelete;
     }
 
-    public void setIdDelete(Integer idDelete) {
+    public void setIdDelete(Integer idDelete)
+    {
         this.idDelete = idDelete;
     }
 
-    public String getUpdatetime() {
+    public String getUpdatetime()
+    {
         return updatetime;
     }
 
-    public void setUpdatetime(String updatetime) {
+    public void setUpdatetime(String updatetime)
+    {
         this.updatetime = updatetime == null ? null : updatetime.trim();
     }
 
-    public String getUpdater() {
+    public String getUpdater()
+    {
         return updater;
     }
 
-    public void setUpdater(String updater) {
+    public void setUpdater(String updater)
+    {
         this.updater = updater == null ? null : updater.trim();
     }
 
-    public String getEndtime() {
+    public String getEndtime()
+    {
         return endtime;
     }
 
-    public void setEndtime(String endtime) {
+    public void setEndtime(String endtime)
+    {
         this.endtime = endtime == null ? null : endtime.trim();
     }
 
-    public String getStarttime() {
+    public String getStarttime()
+    {
         return starttime;
     }
 
-    public void setStarttime(String starttime) {
+    public void setStarttime(String starttime)
+    {
         this.starttime = starttime == null ? null : starttime.trim();
     }
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title)
+    {
         this.title = title == null ? null : title.trim();
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description)
+    {
         this.description = description == null ? null : description.trim();
     }
 

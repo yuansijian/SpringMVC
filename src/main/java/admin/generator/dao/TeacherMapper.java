@@ -6,12 +6,13 @@ import org.apache.ibatis.annotations.Param;
 import java.util.HashMap;
 import java.util.List;
 
-public interface TeacherMapper {
+public interface TeacherMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     List<Teacher> queryAll();
 
-    List<Teacher> queryFuzzyRegistered(@Param("teaname") String teaname, @Param("startTime")String startTime, @Param("endTime") String endTime);
+    List<Teacher> queryFuzzyRegistered(@Param("teaname") String teaname, @Param("startTime") String startTime, @Param("endTime") String endTime);
 
     int insert(Teacher record);
 
@@ -29,11 +30,11 @@ public interface TeacherMapper {
 
     Teacher adminUpdateEdit(Integer id);
 
-    List<Teacher> queryRes(@Param("startTime")String startTime, @Param("endTime")String endTime);
+    List<Teacher> queryRes(@Param("startTime") String startTime, @Param("endTime") String endTime);
 
-    int queryCountLogin(@Param("startTime")String startTime, @Param("endTime")String endTime);
+    int queryCountLogin(@Param("startTime") String startTime, @Param("endTime") String endTime);
 
     List<Teacher> checkTea();
 
-    Teacher queryUsernameAndPassword(@Param("username")String username, @Param("password")String password);
+    Teacher queryUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 }

@@ -1,6 +1,7 @@
 package admin.generator.entity;
 
-public class Systempicture {
+public class Systempicture
+{
     private Integer id;
 
     private String pictureurl;
@@ -9,35 +10,43 @@ public class Systempicture {
 
     private String picturename;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getPictureurl() {
+    public String getPictureurl()
+    {
         return pictureurl;
     }
 
-    public void setPictureurl(String pictureurl) {
+    public void setPictureurl(String pictureurl)
+    {
         this.pictureurl = pictureurl == null ? null : pictureurl.trim();
     }
 
-    public Integer getIsDelete() {
+    public Integer getIsDelete()
+    {
         return isDelete;
     }
 
-    public void setIsDelete(Integer isDelete) {
+    public void setIsDelete(Integer isDelete)
+    {
         this.isDelete = isDelete;
     }
 
-    public String getPicturename() {
+    public String getPicturename()
+    {
         return picturename;
     }
 
-    public void setPicturename(String picturename) {
+    public void setPicturename(String picturename)
+    {
         this.picturename = picturename == null ? null : picturename.trim();
     }
 

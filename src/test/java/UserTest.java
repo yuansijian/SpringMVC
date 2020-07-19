@@ -15,7 +15,8 @@ public class UserTest extends BaseTest
     private UserMapper userMapper;
 
     @Test
-    public void testQueryById() throws Exception {
+    public void testQueryById() throws Exception
+    {
         int uid = 1;
         User user = userMapper.selectByPrimaryKey(uid);
         System.out.println(user);

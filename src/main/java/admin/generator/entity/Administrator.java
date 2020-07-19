@@ -1,6 +1,7 @@
 package admin.generator.entity;
 
-public class Administrator {
+public class Administrator
+{
     private Integer id;
 
     private String username;
@@ -31,123 +32,153 @@ public class Administrator {
 
     private String imageurl;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username)
+    {
         this.username = username == null ? null : username.trim();
     }
 
-    public String getPassword() {
+    public String getPassword()
+    {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password)
+    {
         this.password = password == null ? null : password.trim();
     }
 
-    public Integer getIsDelete() {
+    public Integer getIsDelete()
+    {
         return isDelete;
     }
 
-    public void setIsDelete(Integer isDelete) {
+    public void setIsDelete(Integer isDelete)
+    {
         this.isDelete = isDelete;
     }
 
-    public Integer getAuthority() {
+    public Integer getAuthority()
+    {
         return authority;
     }
 
-    public void setAuthority(Integer authority) {
+    public void setAuthority(Integer authority)
+    {
         this.authority = authority;
     }
 
-    public String getCreatetime() {
+    public String getCreatetime()
+    {
         return createtime;
     }
 
-    public void setCreatetime(String createtime) {
+    public void setCreatetime(String createtime)
+    {
         this.createtime = createtime == null ? null : createtime.trim();
     }
 
-    public String getLogintime() {
+    public String getLogintime()
+    {
         return logintime;
     }
 
-    public void setLogintime(String logintime) {
+    public void setLogintime(String logintime)
+    {
         this.logintime = logintime == null ? null : logintime.trim();
     }
 
-    public Integer getLoginnumber() {
+    public Integer getLoginnumber()
+    {
         return loginnumber;
     }
 
-    public void setLoginnumber(Integer loginnumber) {
+    public void setLoginnumber(Integer loginnumber)
+    {
         this.loginnumber = loginnumber;
     }
 
-    public String getEndtime() {
+    public String getEndtime()
+    {
         return endtime;
     }
 
-    public void setEndtime(String endtime) {
+    public void setEndtime(String endtime)
+    {
         this.endtime = endtime == null ? null : endtime.trim();
     }
 
-    public String getUpdatepasswordtime() {
+    public String getUpdatepasswordtime()
+    {
         return updatepasswordtime;
     }
 
-    public void setUpdatepasswordtime(String updatepasswordtime) {
+    public void setUpdatepasswordtime(String updatepasswordtime)
+    {
         this.updatepasswordtime = updatepasswordtime == null ? null : updatepasswordtime.trim();
     }
 
-    public String getUpdatetime() {
+    public String getUpdatetime()
+    {
         return updatetime;
     }
 
-    public void setUpdatetime(String updatetime) {
+    public void setUpdatetime(String updatetime)
+    {
         this.updatetime = updatetime == null ? null : updatetime.trim();
     }
 
-    public String getDeleteTime() {
+    public String getDeleteTime()
+    {
         return deleteTime;
     }
 
-    public void setDeleteTime(String deleteTime) {
+    public void setDeleteTime(String deleteTime)
+    {
         this.deleteTime = deleteTime == null ? null : deleteTime.trim();
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email == null ? null : email.trim();
     }
 
-    public String getPhone() {
+    public String getPhone()
+    {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(String phone)
+    {
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public String getImageurl() {
+    public String getImageurl()
+    {
         return imageurl;
     }
 
-    public void setImageurl(String imageurl) {
+    public void setImageurl(String imageurl)
+    {
         this.imageurl = imageurl == null ? null : imageurl.trim();
     }
 

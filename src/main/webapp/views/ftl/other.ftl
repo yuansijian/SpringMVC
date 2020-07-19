@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>教师中心-其他</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -16,22 +16,18 @@
             $.ajax({
                 type: "POST",
                 url: "/teacher/updateGrade",
-                data: "id="+id+"&val="+val,
+                data: "id=" + id + "&val=" + val,
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("状态已改变");
-                        if(content === "已启用")
-                        {
+                        if (content === "已启用") {
                             $("#state").text("未启用");
                         }
-                        if(content === "未启用")
-                        {
+                        if (content === "未启用") {
                             $("#state").text("已启用");
                         }
                     }
-                    else
-                    {
+                    else {
                         alert("服务器出错")
                     }
                 }
@@ -61,7 +57,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -93,9 +90,10 @@
                                         <div class="form-group">
                                             <label class="col-xs-2" id="name-input">关键词</label>
                                             <div class="col-xs-2">
-                                                <input class="form-control input-sm " type="text" id="input-small" name="keyword" placeholder="请输入关键词">
+                                                <input class="form-control input-sm " type="text" id="input-small"
+                                                       name="keyword" placeholder="请输入关键词">
                                             </div>
-                                            <input type="submit" class="btn btn-primary" value="搜索" />
+                                            <input type="submit" class="btn btn-primary" value="搜索"/>
                                             <a class="btn btn-danger" href="/teacher/other">返回</a>
                                             <a class="btn btn-brown" href="/teacher/addGrade">新增年级</a>
                                         </div>
@@ -111,7 +109,8 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-hover table-bordered table-striped table-vcenter" style="word-wrap: break-word">
+                                    <table class="table table-hover table-bordered table-striped table-vcenter"
+                                           style="word-wrap: break-word">
                                         <thead>
                                         <tr>
                                             <th class="w-5">编号</th>
@@ -124,15 +123,16 @@
                                         </thead>
                                         <tbody>
 
-                                            <#--<#assign count=0>-->
+                                        <#--<#assign count=0>-->
                                             <#list pageInfo.list as list>
                                                 <tr>
-                                                    <#--<#assign count = count + 1>-->
+                                                <#--<#assign count = count + 1>-->
                                                     <td>${list.id}</td>
                                                     <td>${list.grade}</td>
                                                     <td>${list.description}</td>
                                                     <td>${list.teacher}</td>
-                                                    <td><a id="state" href="#" onclick="change2(${list.id}, ${list.isDelete})" >
+                                                    <td><a id="state" href="#"
+                                                           onclick="change2(${list.id}, ${list.isDelete})">
                                                         <#if list.isDelete == 0>
                                                             已启用
                                                         <#else>
@@ -141,7 +141,9 @@
                                                     </a>
                                                     </td>
                                                     <td>
-                                                        <a  class="btn btn-xs btn-default" href="/teacher/editGrade/${list.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                        <a class="btn btn-xs btn-default"
+                                                           href="/teacher/editGrade/${list.id}" title="编辑"
+                                                           data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
                                                     </td>
                                                 </tr>
                                             </#list>
@@ -166,9 +168,9 @@
                             </#if>
 
                             <#if (pageInfo.pages == 0)>
-                                <li class="active disabled" ><a href="#!">1</a></li>
+                                <li class="active disabled"><a href="#!">1</a></li>
                             <#elseif (pageInfo.pages==1)>
-                                <li class="active disabled" ><a href="#!">1</a></li>
+                                <li class="active disabled"><a href="#!">1</a></li>
                             <#elseif (pageInfo.pages==2)>
                                 <li class="active"><a href="/teacher/other?pageNum=1&pageSize=10">1</a></li>
                                 <li><a href="/teacher/other?pageNum=2&pageSize=10">2</a></li>
@@ -184,13 +186,18 @@
                                     <li><a href="/teacher/other?pageNum=3&pageSize=10">3</a></li>
                                 <#else>
                                     <#if pageInfo.hasPreviousPage>
-                                        <li><a href="/teacher/other?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>
+                                        <li>
+                                            <a href="/teacher/other?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a>
+                                        </li>
                                     <#else>
                                         <li><a href="#!">${pageInfo.pageNum}</a></li>
                                     </#if>
-                                    <li class="active"><a href="/teacher/other?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
+                                    <li class="active"><a
+                                            href="/teacher/other?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
                                     <#if pageInfo.hasNextPage>
-                                        <li><a href="/teacher/other?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a></li>
+                                        <li>
+                                            <a href="/teacher/other?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a>
+                                        </li>
                                     <#else>
                                     <#--<li><a href="/teacher/other?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage - 1}</a></li>-->
                                     <#--<li><a href="/teacher/other?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>-->

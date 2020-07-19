@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>图文教学 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -14,19 +14,16 @@
     <link href="/statics/css/style.min.css" rel="stylesheet">
     <script>
         function deletePic(id, pname) {
-            if(confirm("确定删除"+pname+"吗"))
-            {
+            if (confirm("确定删除" + pname + "吗")) {
                 $.ajax({
                     type: "POST",
-                    url:"/community/deletePictureTeacher/"+id,
+                    url: "/community/deletePictureTeacher/" + id,
                     success: function (data) {
-                        if(data === 1)
-                        {
+                        if (data === 1) {
                             alert("删除成功");
                             location.reload();
                         }
-                        else
-                        {
+                        else {
                             alert("删除失败");
                         }
                     }
@@ -35,95 +32,98 @@
         }
     </script>
 </head>
-  
+
 <body>
 <div class="lyear-layout-web">
-  <div class="lyear-layout-container">
-      <!--左侧导航-->
+    <div class="lyear-layout-container">
+        <!--左侧导航-->
         <#if administrator.authority == 2>
             <#include "layout/sidebar1.ftl">
         <#else>
             <#include "layout/sidebar.ftl">
         </#if>
-      <!--End 左侧导航-->
+        <!--End 左侧导航-->
 
-      <!--头部信息-->
-      <header class="lyear-layout-header">
+        <!--头部信息-->
+        <header class="lyear-layout-header">
 
-          <nav class="navbar navbar-default">
-              <div class="topbar">
+            <nav class="navbar navbar-default">
+                <div class="topbar">
 
                     <#include "layout/header1.ftl">
 
-                  <ul class="topbar-right">
-                      <li class="dropdown dropdown-profile">
-                          <a href="javascript:void(0)" data-toggle="dropdown">
-                              <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
-                              <span>${administrator.username} <span class="caret"></span></span>
-                              <!--切换主题配色-->
-                          </a>
+                    <ul class="topbar-right">
+                        <li class="dropdown dropdown-profile">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
+                                <span>${administrator.username} <span class="caret"></span></span>
+                                <!--切换主题配色-->
+                            </a>
                             <#include "layout/header2.ftl">
-                      </li>
+                        </li>
                         <#include "layout/header3.ftl">
-                      <!--切换主题配色-->
-                  </ul>
+                        <!--切换主题配色-->
+                    </ul>
 
-              </div>
-          </nav>
+                </div>
+            </nav>
 
-      </header>
-      <!--End 头部信息-->
-
-
-    <!--页面主要内容-->
-      <main class="lyear-layout-content">
-
-          <div class="container-fluid">
-
-              <div class="row">
-                  <div class="col-lg-12">
-                      <div class="card">
-                          <div class="card-header"><h4>图文教学</h4></div>
-                          <div class="card-body">
-                              <div class="card-toolbar clearfix">
-                                  <form class="well form-search" method="POST" action="/community/pictureTeacher">
-                                      章节名：
-                                      <input type="text" name="pname" style="width: 100px;"  placeholder="">
-                                      &nbsp;&nbsp;
+        </header>
+        <!--End 头部信息-->
 
 
-                                      开始时间：
-                                      <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text" style="width: 150px;" id="startTime" name="startTime" placeholder="从">
-                                      &nbsp;&nbsp;===>
-                                      <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"  style="width: 150px;" id="endTime" name="endTime" placeholder="至">
-                                      <input type="submit" class="btn btn-primary" value="搜索" />
-                                      <a class="btn btn-danger" href="/community/pictureTeacher">返回</a>
-                                      <a class="btn btn-success" href="/community/addPictureTeacher">新增</a>
-                                  </form>
-                              </div>
-                              <div class="card-body">
+        <!--页面主要内容-->
+        <main class="lyear-layout-content">
 
-                                  <div class="table-responsive">
-                                      <table class="table table-bordered">
-                                          <thead>
-                                          <tr>
-                                              <th>
-                                                  <label class="lyear-checkbox checkbox-primary">
-                                                      <input type="checkbox" id="check-all"><span></span>
-                                                  </label>
-                                              </th>
-                                              <th>编号</th>
-                                              <th>章节名</th>
-                                              <th>图片</th>
-                                              <th>描述</th>
-                                              <th>作者</th>
-                                              <th>创建时间</th>
-                                              <th>更新时间</th>
-                                              <th>更新人</th>
-                                              <th>操作</th>
-                                          </tr>
-                                          </thead>
-                                          <tbody>
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header"><h4>图文教学</h4></div>
+                            <div class="card-body">
+                                <div class="card-toolbar clearfix">
+                                    <form class="well form-search" method="POST" action="/community/pictureTeacher">
+                                        章节名：
+                                        <input type="text" name="pname" style="width: 100px;" placeholder="">
+                                        &nbsp;&nbsp;
+
+
+                                        开始时间：
+                                        <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                               style="width: 150px;" id="startTime" name="startTime" placeholder="从">
+                                        &nbsp;&nbsp;===>
+                                        <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                               style="width: 150px;" id="endTime" name="endTime" placeholder="至">
+                                        <input type="submit" class="btn btn-primary" value="搜索"/>
+                                        <a class="btn btn-danger" href="/community/pictureTeacher">返回</a>
+                                        <a class="btn btn-success" href="/community/addPictureTeacher">新增</a>
+                                    </form>
+                                </div>
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="lyear-checkbox checkbox-primary">
+                                                        <input type="checkbox" id="check-all"><span></span>
+                                                    </label>
+                                                </th>
+                                                <th>编号</th>
+                                                <th>章节名</th>
+                                                <th>图片</th>
+                                                <th>描述</th>
+                                                <th>作者</th>
+                                                <th>创建时间</th>
+                                                <th>更新时间</th>
+                                                <th>更新人</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
                                       <#list pageInfo.list as list>
                                       <tr>
                                           <td>
@@ -131,7 +131,7 @@
                                                   <input type="checkbox" name="ids[]" value="1"><span></span>
                                               </label>
                                           </td>
-                                          <td >${list.id}</td>
+                                          <td>${list.id}</td>
                                           <td>${list.pname}</td>
                                           <td>${list.pictureurl}</td>
                                           <td>${list.world}</td>
@@ -141,18 +141,22 @@
                                           <td>${list.updater}</td>
                                           <td>
                                               <div class="btn-group">
-                                                  <a class="btn btn-xs btn-default" href="/community/editPictureTeacher/${list.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                  <a onclick="deletePic(${list.id}, '${list.pname}')" class="btn btn-xs btn-default"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                  <a class="btn btn-xs btn-default"
+                                                     href="/community/editPictureTeacher/${list.id}" title="编辑"
+                                                     data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                  <a onclick="deletePic(${list.id}, '${list.pname}')"
+                                                     class="btn btn-xs btn-default" title="删除" data-toggle="tooltip"><i
+                                                          class="mdi mdi-window-close"></i></a>
                                               </div>
                                           </td>
                                       </tr>
                                       </#list>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                                  <nav>
-                                      <ul class="pagination pagination-circle">
-                                      <#--返回第一页-->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <nav>
+                                        <ul class="pagination pagination-circle">
+                                        <#--返回第一页-->
                                           <#if pageInfo.isFirstPage>
                                             <li class="disabled">
                                                 <a href="#!">
@@ -168,31 +172,41 @@
                                           </#if>
 
                                         <#if (pageInfo.pages == 0)>
-                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                            <li class="active disabled"><a href="#!">1</a></li>
                                         <#elseif (pageInfo.pages==1)>
-                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                            <li class="active disabled"><a href="#!">1</a></li>
                                         <#elseif (pageInfo.pages==2)>
-                                            <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
+                                            <li class="active"><a
+                                                    href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="/community/pictureTeacher?pageNum=2&pageSize=10">2</a></li>
                                         <#elseif (pageInfo.pages == 3)>
-                                            <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
+                                            <li class="active"><a
+                                                    href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="#!"></a></li>
                                             <li><a href="/community/pictureTeacher?pageNum=2&pageSize=10">2</a></li>
                                             <li><a href="/community/pictureTeacher?pageNum=3&pageSize=10">3</a></li>
                                         <#else>
                                             <#if pageInfo.isFirstPage>
-                                                <li class="active"><a href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a></li>
+                                                <li class="active"><a
+                                                        href="/community/pictureTeacher?pageNum=1&pageSize=10">1</a>
+                                                </li>
                                                 <li><a href="/community/pictureTeacher?pageNum=2&pageSize=10">2</a></li>
                                                 <li><a href="/community/pictureTeacher?pageNum=3&pageSize=10">3</a></li>
                                             <#else>
                                                 <#if pageInfo.hasPreviousPage>
-                                                    <li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>
+                                                    <li>
+                                                        <a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a>
+                                                    </li>
                                                 <#else>
                                                     <li><a href="#!">${pageInfo.pageNum}</a></li>
                                                 </#if>
-                                                <li class="active"><a href="/community/pictureTeacher?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
+                                                <li class="active"><a
+                                                        href="/community/pictureTeacher?pageNum=2&pageSize=10">${pageInfo.pageNum}</a>
+                                                </li>
                                                 <#if pageInfo.hasNextPage>
-                                                    <li><a href="/community/pictureTeacher?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a></li>
+                                                    <li>
+                                                        <a href="/community/pictureTeacher?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a>
+                                                    </li>
                                                 <#else>
                                                 <#--<li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage - 1}</a></li>-->
                                                 <#--<li><a href="/community/pictureTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>-->
@@ -201,7 +215,7 @@
                                             </#if>
                                         </#if>
 
-                                      <#--去到最后一页-->
+                                        <#--去到最后一页-->
                                           <#if pageInfo.isLastPage>
                                                 <li class="disabled">
                                                     <a href="#!">
@@ -215,21 +229,21 @@
                                                     </a>
                                                 </li>
                                           </#if>
-                                      </ul>
-                                  </nav>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-              </div>
+                </div>
 
-          </div>
+            </div>
 
-      </main>
+        </main>
 
-      <!--End 页面主要内容-->
-  </div>
+        <!--End 页面主要内容-->
+    </div>
 </div>
 
 <script type="text/javascript" src="/statics/js/jquery.min.js"></script>

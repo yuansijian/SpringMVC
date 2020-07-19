@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>新增作业 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -21,12 +21,10 @@
                 url: "/teacher/homeworkAchieve",
                 data: $("#form1").serialize(),
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("添加成功");
                     }
-                    else
-                    {
+                    else {
                         alert("添加失败")
                     }
                 }
@@ -54,7 +52,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -86,11 +85,11 @@
                                 <form id="form1" method="post" action="" class="site-form">
                                     <div class="form-group">
                                         <label for="title">作业标题</label>
-                                        <input type="text" class="form-control" name="title" id="title" />
+                                        <input type="text" class="form-control" name="title" id="title"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">作业内容</label>
-                                        <input type="text" class="form-control" name="description" id="description" >
+                                        <input type="text" class="form-control" name="description" id="description">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-12" id="class-input">年级</label>
@@ -108,11 +107,13 @@
 
                                     <div class="form-group">
                                         <label for="starttime">开始时间</label>
-                                        <input class="form-control js-datepicker" data-date-format="yyyy-mm-dd" type="text" id="starttime" name="starttime" placeholder="从">
+                                        <input class="form-control js-datepicker" data-date-format="yyyy-mm-dd"
+                                               type="text" id="starttime" name="starttime" placeholder="从">
                                     </div>
                                     <div class="form-group">
                                         <label for="endtime">结束时间</label>
-                                        <input class="form-control js-datepicker" data-date-format="yyyy-mm-dd" type="text" id="endtime" name="endtime" placeholder="至">
+                                        <input class="form-control js-datepicker" data-date-format="yyyy-mm-dd"
+                                               type="text" id="endtime" name="endtime" placeholder="至">
                                     </div>
                                     <button onclick="save1()" type="button" class="btn btn-primary">保存</button>
                                 </form>

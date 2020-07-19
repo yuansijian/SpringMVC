@@ -1,10 +1,12 @@
 import org.junit.Assert;
 import org.junit.Test;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,28 +20,12 @@ import java.util.Set;
  **/
 public class RedisTest extends BaseTest
 {
-    @Resource(name="redisTemplate")
+    @Resource(name = "redisTemplate")
     private RedisTemplate<String, String> redisTemplate;
 
     @Test
     public void redisTest()
     {
-//        Object[] list = redisTemplate.opsForHash().keys("good").toArray();
-        String s = redisTemplate.opsForHash().keys("good").toString();
-        s = s.replace("[", "");
-        s = s.replace("]", "");
-        s = s.replace(" ", "");
-
-        String []list = s.split(",");
-
-        for(int i=0; i<list.length; i++)
-        {
-            System.out.println(list[i]);
-        }
-
-//        System.out.println(redisTemplate.opsForHash().values("good"));
-//        System.out.println();
-//        redisTemplate.opsForHash().put("myhash", "3", "2");
-
+        System.out.println(redisTemplate.opsForHash().keys("replyGood"));
     }
 }

@@ -5,7 +5,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface GivehomeworkMapper {
+public interface GivehomeworkMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Givehomework record);
@@ -22,5 +23,5 @@ public interface GivehomeworkMapper {
 
     List<Givehomework> queryAll();
 
-    List<Givehomework> fuzzyQuery(@Param("homeworkname")String homeworkname, @Param("StartTime")String startTime, @Param("endTime")String endTime);
+    List<Givehomework> fuzzyQuery(@Param("homeworkname") String homeworkname, @Param("StartTime") String startTime, @Param("endTime") String endTime);
 }

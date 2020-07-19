@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -26,18 +27,18 @@ public class PageController
 {
 
     /**
-    * @Description: 读取模板文件
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-12
-    */
+     * @Description: 读取模板文件
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-12
+     */
 
     @RequestMapping("testInit")
     public void init()
     {
         Configuration cfg = new Configuration();
-        Map<String, String>root = new HashMap<String, String>();
+        Map<String, String> root = new HashMap<String, String>();
         root.put("name", "java开发日记");
         try
         {
@@ -46,7 +47,8 @@ public class PageController
             Writer writer = new FileWriter(new File("/Spring/src/webapp/views/helloword.html"));
             template.process(root, writer);
 
-        }catch (Exception e){
+        } catch (Exception e)
+        {
             e.printStackTrace();
         }
     }

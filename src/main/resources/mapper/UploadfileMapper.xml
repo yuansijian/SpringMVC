@@ -1,169 +1,169 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="admin.generator.dao.UploadfileMapper" >
-  <resultMap id="BaseResultMap" type="admin.generator.entity.Uploadfile" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="fileName" property="filename" jdbcType="VARCHAR" />
-    <result column="fileSize" property="filesize" jdbcType="INTEGER" />
-    <result column="fileURL" property="fileurl" jdbcType="VARCHAR" />
-    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
-    <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR" />
-    <result column="deleteTime" property="deletetime" jdbcType="VARCHAR" />
-    <result column="author" property="author" jdbcType="VARCHAR" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Uploadfile" extends="BaseResultMap" >
-    <result column="description" property="description" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, fileName, fileSize, fileURL, is_delete, uploadTime, deleteTime, author
-  </sql>
-  <sql id="Blob_Column_List" >
-    description
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from uploadFile
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="queryAll" resultType="Uploadfile">
-      select id, fileName, uploadTime, description, author,fileSize
-      from uploadFile
-      where is_delete = 0
-  </select>
-  <select id="fuzzyQuery" resultType="Uploadfile">
-      select id, fileName, uploadTime, description, author, fileSize
-      from uploadFile
-      where fileName like #{fileName} or (uploadTime between #{startTime} and #{endTime}) and is_delete = 0
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from uploadFile
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="admin.generator.entity.Uploadfile" >
-    insert into uploadFile (id, fileName, fileSize, 
-      fileURL, is_delete, uploadTime, 
-      deleteTime, author, description
-      )
-    values (#{id,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, #{filesize,jdbcType=INTEGER}, 
-      #{fileurl,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{uploadtime,jdbcType=VARCHAR}, 
-      #{deletetime,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="admin.generator.entity.Uploadfile" >
-    insert into uploadFile
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="filename != null" >
-        fileName,
-      </if>
-      <if test="filesize != null" >
-        fileSize,
-      </if>
-      <if test="fileurl != null" >
-        fileURL,
-      </if>
-      <if test="isDelete != null" >
-        is_delete,
-      </if>
-      <if test="uploadtime != null" >
-        uploadTime,
-      </if>
-      <if test="deletetime != null" >
-        deleteTime,
-      </if>
-      <if test="author != null" >
-        author,
-      </if>
-      <if test="description != null" >
-        description,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="filename != null" >
-        #{filename,jdbcType=VARCHAR},
-      </if>
-      <if test="filesize != null" >
-        #{filesize,jdbcType=INTEGER},
-      </if>
-      <if test="fileurl != null" >
-        #{fileurl,jdbcType=VARCHAR},
-      </if>
-      <if test="isDelete != null" >
-        #{isDelete,jdbcType=INTEGER},
-      </if>
-      <if test="uploadtime != null" >
-        #{uploadtime,jdbcType=VARCHAR},
-      </if>
-      <if test="deletetime != null" >
-        #{deletetime,jdbcType=VARCHAR},
-      </if>
-      <if test="author != null" >
-        #{author,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null" >
-        #{description,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Uploadfile" >
-    update uploadFile
-    <set >
-      <if test="filename != null" >
-        fileName = #{filename,jdbcType=VARCHAR},
-      </if>
-      <if test="filesize != null" >
+<mapper namespace="admin.generator.dao.UploadfileMapper">
+    <resultMap id="BaseResultMap" type="admin.generator.entity.Uploadfile">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="fileName" property="filename" jdbcType="VARCHAR"/>
+        <result column="fileSize" property="filesize" jdbcType="INTEGER"/>
+        <result column="fileURL" property="fileurl" jdbcType="VARCHAR"/>
+        <result column="is_delete" property="isDelete" jdbcType="INTEGER"/>
+        <result column="uploadTime" property="uploadtime" jdbcType="VARCHAR"/>
+        <result column="deleteTime" property="deletetime" jdbcType="VARCHAR"/>
+        <result column="author" property="author" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Uploadfile" extends="BaseResultMap">
+        <result column="description" property="description" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, fileName, fileSize, fileURL, is_delete, uploadTime, deleteTime, author
+    </sql>
+    <sql id="Blob_Column_List">
+        description
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from uploadFile
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="queryAll" resultType="Uploadfile">
+        select id, fileName, uploadTime, description, author,fileSize
+        from uploadFile
+        where is_delete = 0
+    </select>
+    <select id="fuzzyQuery" resultType="Uploadfile">
+        select id, fileName, uploadTime, description, author, fileSize
+        from uploadFile
+        where fileName like #{fileName} or (uploadTime between #{startTime} and #{endTime}) and is_delete = 0
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from uploadFile
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="admin.generator.entity.Uploadfile">
+        insert into uploadFile (id, fileName, fileSize,
+        fileURL, is_delete, uploadTime,
+        deleteTime, author, description
+        )
+        values (#{id,jdbcType=INTEGER}, #{filename,jdbcType=VARCHAR}, #{filesize,jdbcType=INTEGER},
+        #{fileurl,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{uploadtime,jdbcType=VARCHAR},
+        #{deletetime,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="admin.generator.entity.Uploadfile">
+        insert into uploadFile
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="filename != null">
+                fileName,
+            </if>
+            <if test="filesize != null">
+                fileSize,
+            </if>
+            <if test="fileurl != null">
+                fileURL,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+            <if test="uploadtime != null">
+                uploadTime,
+            </if>
+            <if test="deletetime != null">
+                deleteTime,
+            </if>
+            <if test="author != null">
+                author,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="filename != null">
+                #{filename,jdbcType=VARCHAR},
+            </if>
+            <if test="filesize != null">
+                #{filesize,jdbcType=INTEGER},
+            </if>
+            <if test="fileurl != null">
+                #{fileurl,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="uploadtime != null">
+                #{uploadtime,jdbcType=VARCHAR},
+            </if>
+            <if test="deletetime != null">
+                #{deletetime,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Uploadfile">
+        update uploadFile
+        <set>
+            <if test="filename != null">
+                fileName = #{filename,jdbcType=VARCHAR},
+            </if>
+            <if test="filesize != null">
+                fileSize = #{filesize,jdbcType=INTEGER},
+            </if>
+            <if test="fileurl != null">
+                fileURL = #{fileurl,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="uploadtime != null">
+                uploadTime = #{uploadtime,jdbcType=VARCHAR},
+            </if>
+            <if test="deletetime != null">
+                deleteTime = #{deletetime,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                author = #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Uploadfile">
+        update uploadFile
+        set fileName = #{filename,jdbcType=VARCHAR},
         fileSize = #{filesize,jdbcType=INTEGER},
-      </if>
-      <if test="fileurl != null" >
         fileURL = #{fileurl,jdbcType=VARCHAR},
-      </if>
-      <if test="isDelete != null" >
         is_delete = #{isDelete,jdbcType=INTEGER},
-      </if>
-      <if test="uploadtime != null" >
         uploadTime = #{uploadtime,jdbcType=VARCHAR},
-      </if>
-      <if test="deletetime != null" >
         deleteTime = #{deletetime,jdbcType=VARCHAR},
-      </if>
-      <if test="author != null" >
         author = #{author,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null" >
-        description = #{description,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Uploadfile" >
-    update uploadFile
-    set fileName = #{filename,jdbcType=VARCHAR},
-      fileSize = #{filesize,jdbcType=INTEGER},
-      fileURL = #{fileurl,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      uploadTime = #{uploadtime,jdbcType=VARCHAR},
-      deleteTime = #{deletetime,jdbcType=VARCHAR},
-      author = #{author,jdbcType=VARCHAR},
-      description = #{description,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Uploadfile" >
-    update uploadFile
-    set fileName = #{filename,jdbcType=VARCHAR},
-      fileSize = #{filesize,jdbcType=INTEGER},
-      fileURL = #{fileurl,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      uploadTime = #{uploadtime,jdbcType=VARCHAR},
-      deleteTime = #{deletetime,jdbcType=VARCHAR},
-      author = #{author,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        description = #{description,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Uploadfile">
+        update uploadFile
+        set fileName = #{filename,jdbcType=VARCHAR},
+        fileSize = #{filesize,jdbcType=INTEGER},
+        fileURL = #{fileurl,jdbcType=VARCHAR},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        uploadTime = #{uploadtime,jdbcType=VARCHAR},
+        deleteTime = #{deletetime,jdbcType=VARCHAR},
+        author = #{author,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

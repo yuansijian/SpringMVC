@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author: Defend
  * @create: 2020-05-25 17:16
  **/
-public class AllTest extends  BaseTest
+public class AllTest extends BaseTest
 {
     @Autowired
     LoginnumberMapper loginnumberMapper;

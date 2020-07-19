@@ -31,21 +31,20 @@
     <mvc:resources mapping="/css/**" location="/statics/css/"/>
     <mvc:resources mapping="/js/**" location="/statics/js/"/>
     <mvc:resources mapping="/image/**" location="/statics/images/"/>
-    <mvc:default-servlet-handler />  <!--这句要加上，要不然可能会访问不到静态资源，具体作用自行百度-->
+    <mvc:default-servlet-handler/>  <!--这句要加上，要不然可能会访问不到静态资源，具体作用自行百度-->
 
     <!--session失效页面跳转-->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/views/**/login.html"/>
-            <bean class="admin.interceptor.CheckLoginInterceptor" />
+            <bean class="admin.interceptor.CheckLoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
 
     <!-- 自动扫描装配 -->
     <context:component-scan base-package="admin.controller"/>
-
 
 
     <!--引入配置文件:设置freemaker的配置文件路径-->
@@ -56,7 +55,7 @@
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
         <!-- 视图解析器在/WEB-INF/ftl/路径下扫描视图文件 -->
         <property name="freemarkerSettings" ref="freemarkerConfiguration"/>
-        <property name="templateLoaderPath" value="/views/ftl/" />
+        <property name="templateLoaderPath" value="/views/ftl/"/>
     </bean>
     <!--配置freemaker视图解析器-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">

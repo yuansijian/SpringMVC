@@ -1,6 +1,7 @@
 package admin.generator.entity;
 
-public class Video {
+public class Video
+{
     private Integer id;
 
     private Integer isDelete;
@@ -19,75 +20,93 @@ public class Video {
 
     private String vname;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public Integer getIsDelete() {
+    public Integer getIsDelete()
+    {
         return isDelete;
     }
 
-    public void setIsDelete(Integer isDelete) {
+    public void setIsDelete(Integer isDelete)
+    {
         this.isDelete = isDelete;
     }
 
-    public String getUploadtime() {
+    public String getUploadtime()
+    {
         return uploadtime;
     }
 
-    public void setUploadtime(String uploadtime) {
+    public void setUploadtime(String uploadtime)
+    {
         this.uploadtime = uploadtime == null ? null : uploadtime.trim();
     }
 
-    public String getAuthor() {
+    public String getAuthor()
+    {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(String author)
+    {
         this.author = author == null ? null : author.trim();
     }
 
-    public String getDeleteTime() {
+    public String getDeleteTime()
+    {
         return deleteTime;
     }
 
-    public void setDeleteTime(String deleteTime) {
+    public void setDeleteTime(String deleteTime)
+    {
         this.deleteTime = deleteTime == null ? null : deleteTime.trim();
     }
 
-    public String getUpdatetime() {
+    public String getUpdatetime()
+    {
         return updatetime;
     }
 
-    public void setUpdatetime(String updatetime) {
+    public void setUpdatetime(String updatetime)
+    {
         this.updatetime = updatetime == null ? null : updatetime.trim();
     }
 
-    public String getUpdater() {
+    public String getUpdater()
+    {
         return updater;
     }
 
-    public void setUpdater(String updater) {
+    public void setUpdater(String updater)
+    {
         this.updater = updater == null ? null : updater.trim();
     }
 
-    public String getVsizes() {
+    public String getVsizes()
+    {
         return vsizes;
     }
 
-    public void setVsizes(String vsizes) {
+    public void setVsizes(String vsizes)
+    {
         this.vsizes = vsizes == null ? null : vsizes.trim();
     }
 
-    public String getVname() {
+    public String getVname()
+    {
         return vname;
     }
 
-    public void setVname(String vname) {
+    public void setVname(String vname)
+    {
         this.vname = vname == null ? null : vname.trim();
     }
 }

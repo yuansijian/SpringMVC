@@ -3460,25 +3460,29 @@ body {
 }
 
 .paginate_button {
-    padding:5px 10px;
+    padding: 5px 10px;
     border: 1px solid #d9d9d9;
     background-color: #f9f9f9;
     cursor: pointer;
 }
-.paginate_button.current{
+
+.paginate_button.current {
     background-color: #6faed9;
     border-color: #6faed9;
     color: #fff;
 }
+
 /*//每页显示条数*/
 .dataTables_length {
     float: left;
 }
+
 /*搜索框*/
-.dataTables_filter{
+.dataTables_filter {
     float: right;
     margin-bottom: 10px;
 }
+
 /**********Pending_audit页面*********/
 .New_audit_circlelist .New_audit_circle {
     width: 130px;
@@ -3506,16 +3510,19 @@ body {
 .New_audit_panel_body {
     padding: 20px;
 }
+
 .Pending_head2 {
     color: #424e62;
     padding: 10px 0;
     font-size: 14px;
 }
+
 .Pending_head {
     color: #424e62;
     padding: 10px 0;
     font-size: 14px;
 }
+
 /*******************New_business_preview页面*****************/
 .preview_container {
     padding: 30px 80px 30px 100px;
@@ -3772,77 +3779,98 @@ body {
 .order-remind-topspace {
     margin-top: 100px;
 }
+
 /**
 *微信支付页面WeChatPayment
 */
 .WeChatPay_box {
     /*padding: 40px 80px ;*/
 }
-.WeChatPay_box li input{
+
+.WeChatPay_box li input {
     margin: 5px 0;
     border-radius: 5px;
 }
+
 .WeChatPay_box li {
     margin: 10px 0;
 }
+
 .WeChatPay_input {
     width: 58.3333%;
 }
+
 /*
 *新商家入驻Newshop_settled
 */
-.table.table-bordered tbody tr td  .shopbtn {
+.table.table-bordered tbody tr td .shopbtn {
     color: #d6d6d6;
     font-size: 18px;
 }
-.table.table-bordered tbody tr td .btnstyle1{
+
+.table.table-bordered tbody tr td .btnstyle1 {
     color: #43a6f9;
 }
- .btnstyle2{
+
+.btnstyle2 {
     color: #febb2b !important;
 }
-.table.table-bordered tbody tr td .btnstyle3{
+
+.table.table-bordered tbody tr td .btnstyle3 {
     color: #79d381;
 }
-.table.table-bordered tbody tr td .btnstyle4{
+
+.table.table-bordered tbody tr td .btnstyle4 {
     color: #50b02e;
 }
-.btnstyle5{
+
+.btnstyle5 {
     color: #75c2ea !important;
 }
-.btnstyle6{
+
+.btnstyle6 {
     color: #f89e82 !important;
 }
-.btnstyle7{
+
+.btnstyle7 {
     color: #fc9a26 !important;
 }
-.btnstyle8{
+
+.btnstyle8 {
     color: #39dab6 !important;
 }
-.btnstyle9{
+
+.btnstyle9 {
     color: #eac637 !important;
 }
-.btnstyle10{
+
+.btnstyle10 {
     color: #64c542 !important;
 }
-.btnstyle11{
+
+.btnstyle11 {
     color: #63abe8 !important;
 }
-.btnstyle12{
+
+.btnstyle12 {
     color: #85bded !important;
 }
-.btnstyle13{
+
+.btnstyle13 {
     color: #febb2b !important;
 }
-.btnstyle14{
+
+.btnstyle14 {
     color: #ea3f3f !important;
 }
+
 /*
 *店铺详情编辑nss_shopInfoEdit
 */
 .shopEditDate {
     margin: 5px 0;
 }
+
 .operaMode {
     margin-left: 12px;
     font-size: 16px;
@@ -3850,6 +3878,7 @@ body {
     color: #393939;
     font-weight: 100;
 }
+
 .operaModewidth {
     width: 100%;
 }
@@ -3861,9 +3890,11 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .requiredstar {
     color: #ea3f3f
 }
+
 /*
 *轮播图nss_carousel.html
 */
@@ -3874,11 +3905,13 @@ body {
     flex-wrap: wrap;
     height: 400px;
 }
-.carouselbox li{
-    margin:0 20px;
+
+.carouselbox li {
+    margin: 0 20px;
     width: 260px;
     margin-bottom: 20px;
 }
+
 .carselconborder {
     margin: 20px 0;
     height: 160px;
@@ -3887,6 +3920,7 @@ body {
     text-align: center;
 
 }
+
 .carselcon {
     width: 260px;
     height: 160px;
@@ -3901,6 +3935,7 @@ body {
     margin-top: -150px;
     /*transform:translateY(50%);*/
 }
+
 .carselcheck {
     color: #6DC4A4;
     border: 1px solid #6DC4A4;
@@ -3914,10 +3949,12 @@ body {
     /*margin-top: -50%;*/
     /*transform:translateY(50%);*/
 }
-.carselcheck:hover{
+
+.carselcheck:hover {
     background-color: #6DC4A4;
     color: #F2F2F2;
 }
+
 .previewimg {
     width: 260px;
     height: 160px;
@@ -3926,6 +3963,7 @@ body {
     margin-top: -184px;
     margin-left: -1px;
 }
+
 .previewimgbtn {
     display: flex;
     justify-content: space-around;

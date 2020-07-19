@@ -5,7 +5,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface PictureteacherMapper {
+public interface PictureteacherMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Pictureteacher record);
@@ -19,5 +20,6 @@ public interface PictureteacherMapper {
     int updateByPrimaryKey(Pictureteacher record);
 
     List<Pictureteacher> queryAll();
-    List<Pictureteacher> fuzzySearch(@Param("startTime")String startTime, @Param("endTime")String endTime, @Param("pname")String pname);
+
+    List<Pictureteacher> fuzzySearch(@Param("startTime") String startTime, @Param("endTime") String endTime, @Param("pname") String pname);
 }

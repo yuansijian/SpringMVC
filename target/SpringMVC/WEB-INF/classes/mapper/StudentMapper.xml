@@ -1,385 +1,386 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="admin.generator.dao.StudentMapper" >
-  <resultMap id="BaseResultMap" type="admin.generator.entity.Student" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="stuName" property="stuname" jdbcType="VARCHAR" />
-    <result column="stuNumber" property="stunumber" jdbcType="INTEGER" />
-    <result column="stuPhone" property="stuphone" jdbcType="CHAR" />
-    <result column="stuMail" property="stumail" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="userName" property="username" jdbcType="VARCHAR" />
-    <result column="lastName" property="lastname" jdbcType="VARCHAR" />
-    <result column="registeredTime" property="registeredtime" jdbcType="VARCHAR" />
-    <result column="loginNumber" property="loginnumber" jdbcType="INTEGER" />
-    <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
-    <result column="loginTime" property="logintime" jdbcType="VARCHAR" />
-    <result column="endTime" property="endtime" jdbcType="VARCHAR" />
-    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
-    <result column="grade" property="grade" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="INTEGER" />
-    <result column="updateTime" property="updatetime" jdbcType="VARCHAR" />
-    <result column="class1" property="class1" jdbcType="VARCHAR" />
-    <result column="updatePasswordTime" property="updatepasswordtime" jdbcType="VARCHAR" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Student" extends="BaseResultMap" >
-    <result column="imageURL" property="imageurl" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, stuName, stuNumber, stuPhone, stuMail, password, userName, lastName, registeredTime, 
-    loginNumber, delete_time, loginTime, endTime, is_delete, grade, sex, updateTime, 
-    class1, updatePasswordTime
-  </sql>
-  <sql id="Update_Admin">
-      id,stuName, username, stuMail, stuNumber, class1, grade, sex
-  </sql>
-  <sql id="Blob_Column_List" >
-    imageURL
-  </sql>
-  <select id="selectByPrimaryKey" resultType="Student" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from Student
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="adminUpdateSelect" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-      select
-      <include refid="Update_Admin"/>
-      from
-      Student
-      where id=#{id, jdbcType=INTEGER};
-  </select>
-  <select id="selectByCountPrimaryKey" resultType="long">
-      select count(id)
-      from
-      Student
-  </select>
-  <select id="queryUsernameAndPassword" resultType="Student">
-    select *
-    from Student
-    where username = #{username} and password = #{password}
-  </select>
-  <select id="queryAll" resultType="Student">
-      select *
-      from
-      Student
-      where is_delete != 1
-  </select>
-  <select id="queryRes" resultType="Student">
-      select
-      id, stuname,username,registeredTime
-      from
-      Student
-      where (registeredTime between #{startTime} and #{endTime}) and grade != 'teacher'
-  </select>
-  <select id="fuzzySearch" resultType="Student">
-      select *
-      from
-      Student
-      where stuname like #{conditions} or stunumber like  #{conditions}
-      or stuPhone like #{conditions} or stumail like #{conditions} and is_delete=0
-  </select>
-  <select id="queryGrade" resultType="Integer">
-      select distinct(grade)
-      from Student
-      where grade != 'teacher'
-      order by grade
-  </select>
-  <select id="queryFuzzyRegistered" resultType="Student">
-      select *
-      from
-      Student
-      where stuname like #{stuname} or class1=#{stuclass} or grade=#{stugrade}
-      (registeredTime between #{startTime} and #{endTime})
-  </select>
-  <select id="registeredQuery" resultType="java.lang.Integer">
-      select count(id)
-      from
-      Student
-      where registeredTime between #{startTime} and #{endTime}
-  </select>
-  <select id="queryByGrade" resultType="Student">
-    select *
-    from
-    Student
-    where grade=#{stugrade}
-  </select>
-  <select id="queryByName" resultType="Student">
-      select *
-      from
-      Student
-      where stuname like #{stuname}
-  </select>
-  <select id="queryByNameAndGrade" resultType="Student">
-      select *
-      from Student
-      where stuname like #{stuname} and grade=#{stugrade}
-  </select>
-  <select id="queryCountLogin" resultType="Integer">
-      select IFNULL(sum(loginNumber), 0)as activity
-      from Student
-      where loginTime between #{startTime} and #{endTime}
-  </select>
-  <select id="checkHomework" resultType="hashmap">
-    select Student.stuName, homework.fileURL, giveHomework.title, giveHomework.endTime, homework.uploadTime
-    from Student left join homework on Student.stuNumber=homework.student left join giveHomework on homework.givehomeid=giveHomework.id
-    where Student.grade=#{grade}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from Student
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="admin.generator.entity.Student" >
-    insert into Student (id, stuName, stuNumber, 
-      stuPhone, stuMail, password, 
-      userName, lastName, registeredTime, 
-      loginNumber, delete_time, loginTime, 
-      endTime, is_delete, grade, 
-      sex, updateTime, class1, 
-      updatePasswordTime, imageURL)
-    values (#{id,jdbcType=INTEGER}, #{stuname,jdbcType=VARCHAR}, #{stunumber,jdbcType=INTEGER}, 
-      #{stuphone,jdbcType=CHAR}, #{stumail,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{username,jdbcType=VARCHAR}, #{lastname,jdbcType=VARCHAR}, #{registeredtime,jdbcType=VARCHAR}, 
-      #{loginnumber,jdbcType=INTEGER}, #{deleteTime,jdbcType=VARCHAR}, #{logintime,jdbcType=VARCHAR}, 
-      #{endtime,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{grade,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR}, #{class1,jdbcType=VARCHAR}, 
-      #{updatepasswordtime,jdbcType=VARCHAR}, #{imageurl,jdbcType=LONGVARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="admin.generator.entity.Student" >
-    insert into Student
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="stuname != null" >
-        stuName,
-      </if>
-      <if test="stunumber != null" >
-        stuNumber,
-      </if>
-      <if test="stuphone != null" >
-        stuPhone,
-      </if>
-      <if test="stumail != null" >
-        stuMail,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="username != null" >
-        userName,
-      </if>
-      <if test="lastname != null" >
-        lastName,
-      </if>
-      <if test="registeredtime != null" >
-        registeredTime,
-      </if>
-      <if test="loginnumber != null" >
-        loginNumber,
-      </if>
-      <if test="deleteTime != null" >
-        delete_time,
-      </if>
-      <if test="logintime != null" >
-        loginTime,
-      </if>
-      <if test="endtime != null" >
-        endTime,
-      </if>
-      <if test="isDelete != null" >
-        is_delete,
-      </if>
-      <if test="grade != null" >
-        grade,
-      </if>
-      <if test="sex != null" >
-        sex,
-      </if>
-      <if test="updatetime != null" >
-        updateTime,
-      </if>
-      <if test="class1 != null" >
-        class1,
-      </if>
-      <if test="updatepasswordtime != null" >
-        updatePasswordTime,
-      </if>
-      <if test="imageurl != null" >
-        imageURL,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="stuname != null" >
-        #{stuname,jdbcType=VARCHAR},
-      </if>
-      <if test="stunumber != null" >
-        #{stunumber,jdbcType=INTEGER},
-      </if>
-      <if test="stuphone != null" >
-        #{stuphone,jdbcType=CHAR},
-      </if>
-      <if test="stumail != null" >
-        #{stumail,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="lastname != null" >
-        #{lastname,jdbcType=VARCHAR},
-      </if>
-      <if test="registeredtime != null" >
-        #{registeredtime,jdbcType=VARCHAR},
-      </if>
-      <if test="loginnumber != null" >
-        #{loginnumber,jdbcType=INTEGER},
-      </if>
-      <if test="deleteTime != null" >
-        #{deleteTime,jdbcType=VARCHAR},
-      </if>
-      <if test="logintime != null" >
-        #{logintime,jdbcType=VARCHAR},
-      </if>
-      <if test="endtime != null" >
-        #{endtime,jdbcType=VARCHAR},
-      </if>
-      <if test="isDelete != null" >
-        #{isDelete,jdbcType=INTEGER},
-      </if>
-      <if test="grade != null" >
-        #{grade,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
-        #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="updatetime != null" >
-        #{updatetime,jdbcType=VARCHAR},
-      </if>
-      <if test="class1 != null" >
-        #{class1,jdbcType=VARCHAR},
-      </if>
-      <if test="updatepasswordtime != null" >
-        #{updatepasswordtime,jdbcType=VARCHAR},
-      </if>
-      <if test="imageurl != null" >
-        #{imageurl,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Student" >
-    update Student
-    <set >
-      <if test="stuname != null" >
-        stuName = #{stuname,jdbcType=VARCHAR},
-      </if>
-      <if test="stunumber != null" >
+<mapper namespace="admin.generator.dao.StudentMapper">
+    <resultMap id="BaseResultMap" type="admin.generator.entity.Student">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="stuName" property="stuname" jdbcType="VARCHAR"/>
+        <result column="stuNumber" property="stunumber" jdbcType="INTEGER"/>
+        <result column="stuPhone" property="stuphone" jdbcType="CHAR"/>
+        <result column="stuMail" property="stumail" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="userName" property="username" jdbcType="VARCHAR"/>
+        <result column="lastName" property="lastname" jdbcType="VARCHAR"/>
+        <result column="registeredTime" property="registeredtime" jdbcType="VARCHAR"/>
+        <result column="loginNumber" property="loginnumber" jdbcType="INTEGER"/>
+        <result column="delete_time" property="deleteTime" jdbcType="VARCHAR"/>
+        <result column="loginTime" property="logintime" jdbcType="VARCHAR"/>
+        <result column="endTime" property="endtime" jdbcType="VARCHAR"/>
+        <result column="is_delete" property="isDelete" jdbcType="INTEGER"/>
+        <result column="grade" property="grade" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="updateTime" property="updatetime" jdbcType="VARCHAR"/>
+        <result column="class1" property="class1" jdbcType="VARCHAR"/>
+        <result column="updatePasswordTime" property="updatepasswordtime" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Student" extends="BaseResultMap">
+        <result column="imageURL" property="imageurl" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, stuName, stuNumber, stuPhone, stuMail, password, userName, lastName, registeredTime,
+        loginNumber, delete_time, loginTime, endTime, is_delete, grade, sex, updateTime,
+        class1, updatePasswordTime
+    </sql>
+    <sql id="Update_Admin">
+        id,stuName, username, stuMail, stuNumber, class1, grade, sex
+    </sql>
+    <sql id="Blob_Column_List">
+        imageURL
+    </sql>
+    <select id="selectByPrimaryKey" resultType="Student" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from Student
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="adminUpdateSelect" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Update_Admin"/>
+        from
+        Student
+        where id=#{id, jdbcType=INTEGER};
+    </select>
+    <select id="selectByCountPrimaryKey" resultType="long">
+        select count(id)
+        from
+        Student
+    </select>
+    <select id="queryUsernameAndPassword" resultType="Student">
+        select *
+        from Student
+        where username = #{username} and password = #{password}
+    </select>
+    <select id="queryAll" resultType="Student">
+        select *
+        from
+        Student
+        where is_delete != 1
+    </select>
+    <select id="queryRes" resultType="Student">
+        select
+        id, stuname,username,registeredTime
+        from
+        Student
+        where (registeredTime between #{startTime} and #{endTime}) and grade != 'teacher'
+    </select>
+    <select id="fuzzySearch" resultType="Student">
+        select *
+        from
+        Student
+        where stuname like #{conditions} or stunumber like #{conditions}
+        or stuPhone like #{conditions} or stumail like #{conditions} and is_delete=0
+    </select>
+    <select id="queryGrade" resultType="Integer">
+        select distinct(grade)
+        from Student
+        where grade != 'teacher'
+        order by grade
+    </select>
+    <select id="queryFuzzyRegistered" resultType="Student">
+        select *
+        from
+        Student
+        where stuname like #{stuname} or class1=#{stuclass} or grade=#{stugrade}
+        (registeredTime between #{startTime} and #{endTime})
+    </select>
+    <select id="registeredQuery" resultType="java.lang.Integer">
+        select count(id)
+        from
+        Student
+        where registeredTime between #{startTime} and #{endTime}
+    </select>
+    <select id="queryByGrade" resultType="Student">
+        select *
+        from
+        Student
+        where grade=#{stugrade}
+    </select>
+    <select id="queryByName" resultType="Student">
+        select *
+        from
+        Student
+        where stuname like #{stuname}
+    </select>
+    <select id="queryByNameAndGrade" resultType="Student">
+        select *
+        from Student
+        where stuname like #{stuname} and grade=#{stugrade}
+    </select>
+    <select id="queryCountLogin" resultType="Integer">
+        select IFNULL(sum(loginNumber), 0)as activity
+        from Student
+        where loginTime between #{startTime} and #{endTime}
+    </select>
+    <select id="checkHomework" resultType="hashmap">
+        select Student.stuName, homework.fileURL, giveHomework.title, giveHomework.endTime, homework.uploadTime
+        from Student left join homework on Student.stuNumber=homework.student left join giveHomework on
+        homework.givehomeid=giveHomework.id
+        where Student.grade=#{grade}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from Student
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="admin.generator.entity.Student">
+        insert into Student (id, stuName, stuNumber,
+        stuPhone, stuMail, password,
+        userName, lastName, registeredTime,
+        loginNumber, delete_time, loginTime,
+        endTime, is_delete, grade,
+        sex, updateTime, class1,
+        updatePasswordTime, imageURL)
+        values (#{id,jdbcType=INTEGER}, #{stuname,jdbcType=VARCHAR}, #{stunumber,jdbcType=INTEGER},
+        #{stuphone,jdbcType=CHAR}, #{stumail,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+        #{username,jdbcType=VARCHAR}, #{lastname,jdbcType=VARCHAR}, #{registeredtime,jdbcType=VARCHAR},
+        #{loginnumber,jdbcType=INTEGER}, #{deleteTime,jdbcType=VARCHAR}, #{logintime,jdbcType=VARCHAR},
+        #{endtime,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{grade,jdbcType=VARCHAR},
+        #{sex,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR}, #{class1,jdbcType=VARCHAR},
+        #{updatepasswordtime,jdbcType=VARCHAR}, #{imageurl,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="admin.generator.entity.Student">
+        insert into Student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="stuname != null">
+                stuName,
+            </if>
+            <if test="stunumber != null">
+                stuNumber,
+            </if>
+            <if test="stuphone != null">
+                stuPhone,
+            </if>
+            <if test="stumail != null">
+                stuMail,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="username != null">
+                userName,
+            </if>
+            <if test="lastname != null">
+                lastName,
+            </if>
+            <if test="registeredtime != null">
+                registeredTime,
+            </if>
+            <if test="loginnumber != null">
+                loginNumber,
+            </if>
+            <if test="deleteTime != null">
+                delete_time,
+            </if>
+            <if test="logintime != null">
+                loginTime,
+            </if>
+            <if test="endtime != null">
+                endTime,
+            </if>
+            <if test="isDelete != null">
+                is_delete,
+            </if>
+            <if test="grade != null">
+                grade,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="updatetime != null">
+                updateTime,
+            </if>
+            <if test="class1 != null">
+                class1,
+            </if>
+            <if test="updatepasswordtime != null">
+                updatePasswordTime,
+            </if>
+            <if test="imageurl != null">
+                imageURL,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="stuname != null">
+                #{stuname,jdbcType=VARCHAR},
+            </if>
+            <if test="stunumber != null">
+                #{stunumber,jdbcType=INTEGER},
+            </if>
+            <if test="stuphone != null">
+                #{stuphone,jdbcType=CHAR},
+            </if>
+            <if test="stumail != null">
+                #{stumail,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="lastname != null">
+                #{lastname,jdbcType=VARCHAR},
+            </if>
+            <if test="registeredtime != null">
+                #{registeredtime,jdbcType=VARCHAR},
+            </if>
+            <if test="loginnumber != null">
+                #{loginnumber,jdbcType=INTEGER},
+            </if>
+            <if test="deleteTime != null">
+                #{deleteTime,jdbcType=VARCHAR},
+            </if>
+            <if test="logintime != null">
+                #{logintime,jdbcType=VARCHAR},
+            </if>
+            <if test="endtime != null">
+                #{endtime,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="class1 != null">
+                #{class1,jdbcType=VARCHAR},
+            </if>
+            <if test="updatepasswordtime != null">
+                #{updatepasswordtime,jdbcType=VARCHAR},
+            </if>
+            <if test="imageurl != null">
+                #{imageurl,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Student">
+        update Student
+        <set>
+            <if test="stuname != null">
+                stuName = #{stuname,jdbcType=VARCHAR},
+            </if>
+            <if test="stunumber != null">
+                stuNumber = #{stunumber,jdbcType=INTEGER},
+            </if>
+            <if test="stuphone != null">
+                stuPhone = #{stuphone,jdbcType=CHAR},
+            </if>
+            <if test="stumail != null">
+                stuMail = #{stumail,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                userName = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="lastname != null">
+                lastName = #{lastname,jdbcType=VARCHAR},
+            </if>
+            <if test="registeredtime != null">
+                registeredTime = #{registeredtime,jdbcType=VARCHAR},
+            </if>
+            <if test="loginnumber != null">
+                loginNumber = #{loginnumber,jdbcType=INTEGER},
+            </if>
+            <if test="deleteTime != null">
+                delete_time = #{deleteTime,jdbcType=VARCHAR},
+            </if>
+            <if test="logintime != null">
+                loginTime = #{logintime,jdbcType=VARCHAR},
+            </if>
+            <if test="endtime != null">
+                endTime = #{endtime,jdbcType=VARCHAR},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete,jdbcType=INTEGER},
+            </if>
+            <if test="grade != null">
+                grade = #{grade,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                updateTime = #{updatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="class1 != null">
+                class1 = #{class1,jdbcType=VARCHAR},
+            </if>
+            <if test="updatepasswordtime != null">
+                updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
+            </if>
+            <if test="imageurl != null">
+                imageURL = #{imageurl,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Student">
+        update Student
+        set stuName = #{stuname,jdbcType=VARCHAR},
         stuNumber = #{stunumber,jdbcType=INTEGER},
-      </if>
-      <if test="stuphone != null" >
         stuPhone = #{stuphone,jdbcType=CHAR},
-      </if>
-      <if test="stumail != null" >
         stuMail = #{stumail,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="username != null" >
         userName = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="lastname != null" >
         lastName = #{lastname,jdbcType=VARCHAR},
-      </if>
-      <if test="registeredtime != null" >
         registeredTime = #{registeredtime,jdbcType=VARCHAR},
-      </if>
-      <if test="loginnumber != null" >
         loginNumber = #{loginnumber,jdbcType=INTEGER},
-      </if>
-      <if test="deleteTime != null" >
         delete_time = #{deleteTime,jdbcType=VARCHAR},
-      </if>
-      <if test="logintime != null" >
         loginTime = #{logintime,jdbcType=VARCHAR},
-      </if>
-      <if test="endtime != null" >
         endTime = #{endtime,jdbcType=VARCHAR},
-      </if>
-      <if test="isDelete != null" >
         is_delete = #{isDelete,jdbcType=INTEGER},
-      </if>
-      <if test="grade != null" >
         grade = #{grade,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null" >
         sex = #{sex,jdbcType=INTEGER},
-      </if>
-      <if test="updatetime != null" >
         updateTime = #{updatetime,jdbcType=VARCHAR},
-      </if>
-      <if test="class1 != null" >
         class1 = #{class1,jdbcType=VARCHAR},
-      </if>
-      <if test="updatepasswordtime != null" >
         updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
-      </if>
-      <if test="imageurl != null" >
-        imageURL = #{imageurl,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Student" >
-    update Student
-    set stuName = #{stuname,jdbcType=VARCHAR},
-      stuNumber = #{stunumber,jdbcType=INTEGER},
-      stuPhone = #{stuphone,jdbcType=CHAR},
-      stuMail = #{stumail,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      userName = #{username,jdbcType=VARCHAR},
-      lastName = #{lastname,jdbcType=VARCHAR},
-      registeredTime = #{registeredtime,jdbcType=VARCHAR},
-      loginNumber = #{loginnumber,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      loginTime = #{logintime,jdbcType=VARCHAR},
-      endTime = #{endtime,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      grade = #{grade,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      updateTime = #{updatetime,jdbcType=VARCHAR},
-      class1 = #{class1,jdbcType=VARCHAR},
-      updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
-      imageURL = #{imageurl,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Student" >
-    update Student
-    set stuName = #{stuname,jdbcType=VARCHAR},
-      stuNumber = #{stunumber,jdbcType=INTEGER},
-      stuPhone = #{stuphone,jdbcType=CHAR},
-      stuMail = #{stumail,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      userName = #{username,jdbcType=VARCHAR},
-      lastName = #{lastname,jdbcType=VARCHAR},
-      registeredTime = #{registeredtime,jdbcType=VARCHAR},
-      loginNumber = #{loginnumber,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      loginTime = #{logintime,jdbcType=VARCHAR},
-      endTime = #{endtime,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      grade = #{grade,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      updateTime = #{updatetime,jdbcType=VARCHAR},
-      class1 = #{class1,jdbcType=VARCHAR},
-      updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        imageURL = #{imageurl,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Student">
+        update Student
+        set stuName = #{stuname,jdbcType=VARCHAR},
+        stuNumber = #{stunumber,jdbcType=INTEGER},
+        stuPhone = #{stuphone,jdbcType=CHAR},
+        stuMail = #{stumail,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
+        userName = #{username,jdbcType=VARCHAR},
+        lastName = #{lastname,jdbcType=VARCHAR},
+        registeredTime = #{registeredtime,jdbcType=VARCHAR},
+        loginNumber = #{loginnumber,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+        loginTime = #{logintime,jdbcType=VARCHAR},
+        endTime = #{endtime,jdbcType=VARCHAR},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        grade = #{grade,jdbcType=VARCHAR},
+        sex = #{sex,jdbcType=INTEGER},
+        updateTime = #{updatetime,jdbcType=VARCHAR},
+        class1 = #{class1,jdbcType=VARCHAR},
+        updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

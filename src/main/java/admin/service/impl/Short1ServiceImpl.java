@@ -21,12 +21,12 @@ public class Short1ServiceImpl implements Short1Service
     Short1Mapper short1Mapper;
 
     /**
-    * @Description: 查找所有
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 查找所有
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @Override
     public List<Short1WithBLOBs> queryAll()
     {
@@ -34,12 +34,12 @@ public class Short1ServiceImpl implements Short1Service
     }
 
     /**
-    * @Description: 搜索功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 搜索功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @Override
     public List<Short1WithBLOBs> fuzzyQuery(String startTime, String endTime, String keyword)
     {
@@ -47,12 +47,12 @@ public class Short1ServiceImpl implements Short1Service
     }
 
     /**
-    * @Description: 更新
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @Override
     public int updateByPrimaryKeySelective(Short1WithBLOBs record)
     {
@@ -60,12 +60,12 @@ public class Short1ServiceImpl implements Short1Service
     }
 
     /**
-    * @Description: 新增图文教学
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 新增图文教学
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @Override
     public int insert(Short1WithBLOBs record)
     {
@@ -73,12 +73,12 @@ public class Short1ServiceImpl implements Short1Service
     }
 
     /**
-    * @Description: 通过主键精准查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 通过主键精准查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @Override
     public Short1WithBLOBs selectByPrimaryKey(Integer id)
     {

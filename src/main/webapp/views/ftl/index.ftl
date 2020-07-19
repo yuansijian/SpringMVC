@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>首页 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -32,7 +32,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -62,7 +63,8 @@
                                     <p class="h6 text-white m-t-0">今日活跃度</p>
                                     <p class="h3 text-white m-b-0">${activite}</p>
                                 </div>
-                                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-react fa-1-5x"></i></span> </div>
+                                <div class="pull-left"><span class="img-avatar img-avatar-48 bg-translucent"><i
+                                        class="mdi mdi-react fa-1-5x"></i></span></div>
                             </div>
                         </div>
                     </div>
@@ -74,7 +76,8 @@
                                     <p class="h6 text-white m-t-0">用户总数</p>
                                     <p class="h3 text-white m-b-0">${count}</p>
                                 </div>
-                                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fa-1-5x"></i></span> </div>
+                                <div class="pull-left"><span class="img-avatar img-avatar-48 bg-translucent"><i
+                                        class="mdi mdi-account fa-1-5x"></i></span></div>
                             </div>
                         </div>
                     </div>
@@ -86,7 +89,8 @@
                                     <p class="h6 text-white m-t-0">下载总量</p>
                                     <p class="h3 text-white m-b-0">${downloadNumber}</p>
                                 </div>
-                                <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-arrow-down-bold fa-1-5x"></i></span> </div>
+                                <div class="pull-left"><span class="img-avatar img-avatar-48 bg-translucent"><i
+                                        class="mdi mdi-arrow-down-bold fa-1-5x"></i></span></div>
                             </div>
                         </div>
                     </div>
@@ -99,7 +103,8 @@
                                         <p class="h6 text-white m-t-0">新增留言</p>
                                         <p class="h3 text-white m-b-0">${add} 条</p>
                                     </div>
-                                    <div class="pull-left"> <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-comment-outline fa-1-5x"></i></span> </div>
+                                    <div class="pull-left"><span class="img-avatar img-avatar-48 bg-translucent"><i
+                                            class="mdi mdi-comment-outline fa-1-5x"></i></span></div>
                                 </div>
                             </div>
                         </div>
@@ -147,10 +152,9 @@
 <!--图表插件-->
 <script type="text/javascript" src="/statics/js/Chart.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(e) {
-        var $dashChartBarsCnt  = jQuery( '.js-chartjs-bars' )[0].getContext( '2d' ),
-                $dashChartLinesCnt = jQuery( '.js-chartjs-lines' )[0].getContext( '2d' );
-
+    $(document).ready(function (e) {
+        var $dashChartBarsCnt = jQuery('.js-chartjs-bars')[0].getContext('2d'),
+                $dashChartLinesCnt = jQuery('.js-chartjs-lines')[0].getContext('2d');
 
 
         var $dashChartBarsData = {

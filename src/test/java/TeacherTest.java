@@ -17,7 +17,7 @@ public class TeacherTest extends BaseTest
     @Test
     public void testQueryAll() throws Exception
     {
-//        System.out.println(teacherMapper.queryAll());
+        //        System.out.println(teacherMapper.queryAll());
         System.out.println(teacherMapper.queryFuzzyRegistered("t", "1970-01-01", "1970-01-01"));
     }
 

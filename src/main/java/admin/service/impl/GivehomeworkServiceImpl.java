@@ -21,12 +21,12 @@ public class GivehomeworkServiceImpl implements GivehomeworkService
     GivehomeworkMapper givehomeworkMapper;
 
     /**
-    * @Description: 查找所有
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 查找所有
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @Override
     public List<Givehomework> queryAll()
     {
@@ -34,12 +34,12 @@ public class GivehomeworkServiceImpl implements GivehomeworkService
     }
 
     /**
-    * @Description: 搜索功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 搜索功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @Override
     public List<Givehomework> fuzzyQuery(String homeworkname, String startTime, String endTime)
     {
@@ -47,12 +47,12 @@ public class GivehomeworkServiceImpl implements GivehomeworkService
     }
 
     /**
-    * @Description: 新增作业
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 新增作业
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @Override
     public int insert(Givehomework record)
     {
@@ -60,12 +60,12 @@ public class GivehomeworkServiceImpl implements GivehomeworkService
     }
 
     /**
-    * @Description: 作业更新
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 作业更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @Override
     public int updateByPrimaryKeySelective(Givehomework record)
     {
@@ -73,12 +73,12 @@ public class GivehomeworkServiceImpl implements GivehomeworkService
     }
 
     /**
-    * @Description: 作业精准查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 作业精准查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @Override
     public Givehomework selectByPrimaryKey(Integer id)
     {

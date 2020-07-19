@@ -5,7 +5,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface CommentParentChildMapper {
+public interface CommentParentChildMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(CommentParentChild record);
@@ -22,8 +23,8 @@ public interface CommentParentChildMapper {
 
     List<CommentParentChild> queryAll();
 
-    List<CommentParentChild> queryByUsername(@Param("username")String username);
+    List<CommentParentChild> queryByUsername(@Param("username") String username);
 
-    int addMessage(@Param("startTime")String startTime, @Param("endTime")String endTime);
+    int addMessage(@Param("startTime") String startTime, @Param("endTime") String endTime);
 
 }

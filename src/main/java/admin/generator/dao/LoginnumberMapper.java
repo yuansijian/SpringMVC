@@ -2,7 +2,8 @@ package admin.generator.dao;
 
 import admin.generator.entity.Loginnumber;
 
-public interface LoginnumberMapper {
+public interface LoginnumberMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Loginnumber record);

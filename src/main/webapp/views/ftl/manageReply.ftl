@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>留言 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -15,36 +15,37 @@
 
     <script>
         function delethw(id) {
-            if(confirm("确定删除这个留言吗"))
-            {
+            if (confirm("确定删除这个留言吗")) {
                 $.ajax({
                     type: "POST",
-                    url: "/community/deleteReply/"+id,
+                    url: "/community/deleteReply/" + id,
                     success: function (data) {
-                        if(data === 1)
-                        {
+                        if (data === 1) {
                             alert("留言删除成功");
                             location.reload();
                         }
-                        else
-                        {
+                        else {
                             alert("留言删除失败");
                         }
                     }
                 })
             }
         }
+
         function reply2(id, name) {
-            let src = "/community/reply/"+id+"/"+name;
+            let src = "/community/reply/" + id + "/" + name;
             // $(this).addClass("actives").siblings().removeClass("actives");
-            let html = "<iframe  frameborder=\"0\" scrolling=\"yes\" style=\"width: 800px; height: 200px\" src=\""+src+"\" id=\"aa\"></iframe>\n";
-            $("#reply"+id).remove();
-            let html1 = "<a id=\"reply"+id+"\"   class=\"btn btn-xs btn-default\" onclick=\"closePage()\" href=\"#!\" title=\"取消回复\" data-toggle=\"tooltip\"><i class=\"mdi mdi-comment-processing-outline\"></i></a>\n";
-            $("#ifpage"+id).append(html1);
-            $("#ifpage"+id).append(html);
+            let html = "<iframe  frameborder=\"0\" scrolling=\"yes\" style=\"width: 800px; height: 200px\" src=\"" + src + "\" id=\"aa\"></iframe>\n";
+            $("#reply" + id).remove();
+            let html1 = "<a id=\"reply" + id + "\"   class=\"btn btn-xs btn-default\" onclick=\"closePage()\" href=\"#!\" title=\"取消回复\" data-toggle=\"tooltip\"><i class=\"mdi mdi-comment-processing-outline\"></i></a>\n";
+            $("#ifpage" + id).append(html1);
+            $("#ifpage" + id).append(html);
 
         }
-        function closePage () { window.location.reload() }
+
+        function closePage() {
+            window.location.reload()
+        }
     </script>
 </head>
 
@@ -67,7 +68,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -93,7 +95,9 @@
                         <div class="card">
                             <ul id="myTabs" class="nav nav-tabs" role="tablist">
                                 <li class="dropdown">
-                                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">选择<span class="caret"></span></a>
+                                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown"
+                                       aria-controls="myTabDrop1-contents" aria-expanded="false">选择<span
+                                            class="caret"></span></a>
                                     <ul class="dropdown-menu" id="myTabDrop1-contents">
                                         <li><a href="/community/manageMessage">留言</a></li>
                                         <li><a href="#comment" id="student-tab" data-toggle="tab">回复的留言</a></li>
@@ -164,10 +168,16 @@
                                                     <td>${hw.creatTime}</td>
                                                     <td>
                                                         <div class="btn-group" id="ifpage${hw.id}">
-                                                            <#--<a  class="btn btn-xs btn-default" href="/teacher/editHomework/${hw.id}" title="回复" data-toggle="tooltip"><i class="mdi mdi-comment-processing-outline"></i></a>-->
+                                                        <#--<a  class="btn btn-xs btn-default" href="/teacher/editHomework/${hw.id}" title="回复" data-toggle="tooltip"><i class="mdi mdi-comment-processing-outline"></i></a>-->
                                                         <#--<a class="btn btn-xs btn-default" href="/teacher/checkHomework/${hw.id}/${hw.updatetime}" title="查看作业情况" data-toggle="tooltip"><i class="mdi mdi-account"></i></a>-->
-                                                            <a  id="delete" onclick="delethw(${hw.id})" class="btn btn-xs btn-default"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
-                                                            <a id="reply${hw.id}"  class="btn btn-xs btn-default" onclick="reply2(${hw.id}, '${hw.parentname}')" href="#!" title="回复" data-toggle="tooltip"><i class="mdi mdi-comment-processing-outline"></i></a>
+                                                            <a id="delete" onclick="delethw(${hw.id})"
+                                                               class="btn btn-xs btn-default" title="删除"
+                                                               data-toggle="tooltip"><i
+                                                                    class="mdi mdi-window-close"></i></a>
+                                                            <a id="reply${hw.id}" class="btn btn-xs btn-default"
+                                                               onclick="reply2(${hw.id}, '${hw.parentname}')" href="#!"
+                                                               title="回复" data-toggle="tooltip"><i
+                                                                    class="mdi mdi-comment-processing-outline"></i></a>
 
                                                         </div>
                                                     </td>
@@ -195,9 +205,9 @@
                             </#if>
 
                             <#if (pageInfo.pages == 0)>
-                                <li class="active disabled" ><a href="#!">1</a></li>
+                                <li class="active disabled"><a href="#!">1</a></li>
                             <#elseif (pageInfo.pages==1)>
-                                <li class="active disabled" ><a href="#!">1</a></li>
+                                <li class="active disabled"><a href="#!">1</a></li>
                             <#elseif (pageInfo.pages==2)>
                                 <li class="active"><a href="/community/manageReply?pageNum=1&pageSize=10">1</a></li>
                                 <li><a href="/community/manageReply?pageNum=2&pageSize=10">2</a></li>
@@ -213,13 +223,19 @@
                                     <li><a href="/community/manageReply?pageNum=3&pageSize=10">3</a></li>
                                 <#else>
                                     <#if pageInfo.hasPreviousPage>
-                                        <li><a href="/community/manageReply?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>
+                                        <li>
+                                            <a href="/community/manageReply?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a>
+                                        </li>
                                     <#else>
                                         <li><a href="#!">${pageInfo.pageNum}</a></li>
                                     </#if>
-                                    <li class="active"><a href="/community/manageReply?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
+                                    <li class="active"><a
+                                            href="/community/manageReply?pageNum=2&pageSize=10">${pageInfo.pageNum}</a>
+                                    </li>
                                     <#if pageInfo.hasNextPage>
-                                        <li><a href="/community/manageReply?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a></li>
+                                        <li>
+                                            <a href="/community/manageReply?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a>
+                                        </li>
                                     <#else>
                                     <#--<li><a href="/community/manageReply?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage - 1}</a></li>-->
                                     <#--<li><a href="/community/manageReply?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>-->

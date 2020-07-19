@@ -19,13 +19,14 @@ public class HomeworkServiceImpl implements HomeworkService
 {
     @Autowired
     HomeworkMapper homeworkMapper;
+
     /**
-    * @Description: 查找作业
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 查找作业
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @Override
     public List<HomeworkWithBLOBs> queryAll()
     {
@@ -33,12 +34,12 @@ public class HomeworkServiceImpl implements HomeworkService
     }
 
     /**
-    * @Description: 搜索功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 搜索功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @Override
     public List<HomeworkWithBLOBs> fuzzyQuery(String stuname, String homeworkname, String startTime, String endTime)
     {
@@ -46,12 +47,12 @@ public class HomeworkServiceImpl implements HomeworkService
     }
 
     /**
-    * @Description: 作业提交功能，插入作业
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-21
-    */
+     * @Description: 作业提交功能，插入作业
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-21
+     */
     @Override
     public int insert(HomeworkWithBLOBs record)
     {

@@ -6,7 +6,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface VideoMapper {
+public interface VideoMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(VideoWithBLOBs record);
@@ -22,5 +23,6 @@ public interface VideoMapper {
     int updateByPrimaryKey(Video record);
 
     List<VideoWithBLOBs> queryAll();
-    List<VideoWithBLOBs> fuzzyQuery(@Param("startTime")String startTime, @Param("endTime")String endTime, @Param("vname")String vname);
+
+    List<VideoWithBLOBs> fuzzyQuery(@Param("startTime") String startTime, @Param("endTime") String endTime, @Param("vname") String vname);
 }

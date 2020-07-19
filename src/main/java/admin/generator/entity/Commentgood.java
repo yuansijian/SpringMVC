@@ -2,7 +2,8 @@ package admin.generator.entity;
 
 import java.util.Date;
 
-public class Commentgood {
+public class Commentgood
+{
     private Integer id;
 
     private Integer uid;
@@ -19,67 +20,83 @@ public class Commentgood {
 
     private Integer cid;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public Integer getUid() {
+    public Integer getUid()
+    {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(Integer uid)
+    {
         this.uid = uid;
     }
 
-    public Integer getUp() {
+    public Integer getUp()
+    {
         return up;
     }
 
-    public void setUp(Integer up) {
+    public void setUp(Integer up)
+    {
         this.up = up;
     }
 
-    public Date getUpdatetime() {
+    public Date getUpdatetime()
+    {
         return updatetime;
     }
 
-    public void setUpdatetime(Date updatetime) {
+    public void setUpdatetime(Date updatetime)
+    {
         this.updatetime = updatetime;
     }
 
-    public Integer getCommentid() {
+    public Integer getCommentid()
+    {
         return commentid;
     }
 
-    public void setCommentid(Integer commentid) {
+    public void setCommentid(Integer commentid)
+    {
         this.commentid = commentid;
     }
 
-    public Integer getIsDelete() {
+    public Integer getIsDelete()
+    {
         return isDelete;
     }
 
-    public void setIsDelete(Integer isDelete) {
+    public void setIsDelete(Integer isDelete)
+    {
         this.isDelete = isDelete;
     }
 
-    public Date getGoodtime() {
+    public Date getGoodtime()
+    {
         return goodtime;
     }
 
-    public void setGoodtime(Date goodtime) {
+    public void setGoodtime(Date goodtime)
+    {
         this.goodtime = goodtime;
     }
 
-    public Integer getCid() {
+    public Integer getCid()
+    {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(Integer cid)
+    {
         this.cid = cid;
     }
 }

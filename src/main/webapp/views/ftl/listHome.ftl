@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>作业列表 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -15,20 +15,17 @@
 
     <script>
         function delethw(id, hname) {
-            if(confirm("确定删除"+hname+"这个作业吗"))
-            {
+            if (confirm("确定删除" + hname + "这个作业吗")) {
                 $.ajax({
                     type: "POST",
-                    url: "/teacher/deleteHomework/"+id,
+                    url: "/teacher/deleteHomework/" + id,
                     success: function (data) {
-                        if(data === 1)
-                        {
-                            alert(hname+"作业删除成功");
+                        if (data === 1) {
+                            alert(hname + "作业删除成功");
                             location.reload();
                         }
-                        else
-                        {
-                            alert(hname+"作业删除失败");
+                        else {
+                            alert(hname + "作业删除失败");
                         }
                     }
                 })
@@ -59,7 +56,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -85,11 +83,11 @@
                         <div class="card">
                             <div class="card-toolbar clearfix">
                                 <form class="well form-search" method="POST" action="/teacher/listHomework">
-                                    <#--姓名：-->
-                                    <#--<input type="text" name="stuname" style="width: 100px;"  placeholder="输入数字">-->
-                                    <#--&nbsp;&nbsp;-->
+                                <#--姓名：-->
+                                <#--<input type="text" name="stuname" style="width: 100px;"  placeholder="输入数字">-->
+                                <#--&nbsp;&nbsp;-->
                                     作业标题：
-                                    <input type="text" name="homeworkname" style="width: 100px;"  placeholder="">
+                                    <input type="text" name="homeworkname" style="width: 100px;" placeholder="">
                                     &nbsp;&nbsp;
                                 <#--日期选择:-->
                                 <#--<div class="input-daterange input-group">-->
@@ -99,10 +97,12 @@
                                 <#--</div>-->
 
                                     作业时间：
-                                    <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text" style="width: 150px;" id="startTime" name="startTime" placeholder="从">
+                                    <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                           style="width: 150px;" id="startTime" name="startTime" placeholder="从">
                                     &nbsp;&nbsp;===>
-                                    <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"  style="width: 150px;" id="endTime" name="endTime" placeholder="至">
-                                    <input type="submit" class="btn btn-primary" value="搜索" />
+                                    <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                           style="width: 150px;" id="endTime" name="endTime" placeholder="至">
+                                    <input type="submit" class="btn btn-primary" value="搜索"/>
                                     <a class="btn btn-danger" href="/teacher/listHomework">返回</a>
                                     <a class="btn btn-success" href="/teacher/addHomework">新增作业</a>
                                 </form>
@@ -151,9 +151,17 @@
                                                     <td><font class="text-success">正常</font></td>
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a  class="btn btn-xs btn-default" href="/teacher/editHomework/${hw.id}" title="编辑" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                            <a class="btn btn-xs btn-default" href="/teacher/checkHomework/${hw.id}/${hw.updatetime}" title="查看作业情况" data-toggle="tooltip"><i class="mdi mdi-account"></i></a>
-                                                            <a  id="delete" onclick="delethw(${hw.id}, '${hw.title}')" class="btn btn-xs btn-default"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
+                                                            <a class="btn btn-xs btn-default"
+                                                               href="/teacher/editHomework/${hw.id}" title="编辑"
+                                                               data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
+                                                            <a class="btn btn-xs btn-default"
+                                                               href="/teacher/checkHomework/${hw.id}/${hw.updatetime}"
+                                                               title="查看作业情况" data-toggle="tooltip"><i
+                                                                    class="mdi mdi-account"></i></a>
+                                                            <a id="delete" onclick="delethw(${hw.id}, '${hw.title}')"
+                                                               class="btn btn-xs btn-default" title="删除"
+                                                               data-toggle="tooltip"><i
+                                                                    class="mdi mdi-window-close"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -179,9 +187,9 @@
                             </#if>
 
                             <#if (pageInfo.pages == 0)>
-                                <li class="active disabled" ><a href="#!">1</a></li>
+                                <li class="active disabled"><a href="#!">1</a></li>
                             <#elseif (pageInfo.pages==1)>
-                                <li class="active disabled" ><a href="#!">1</a></li>
+                                <li class="active disabled"><a href="#!">1</a></li>
                             <#elseif (pageInfo.pages==2)>
                                 <li class="active"><a href="/teacher/listHomework?pageNum=1&pageSize=10">1</a></li>
                                 <li><a href="/teacher/listHomework?pageNum=2&pageSize=10">2</a></li>
@@ -197,13 +205,19 @@
                                     <li><a href="/teacher/listHomework?pageNum=3&pageSize=10">3</a></li>
                                 <#else>
                                     <#if pageInfo.hasPreviousPage>
-                                        <li><a href="/teacher/listHomework?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>
+                                        <li>
+                                            <a href="/teacher/listHomework?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a>
+                                        </li>
                                     <#else>
                                         <li><a href="#!">${pageInfo.pageNum}</a></li>
                                     </#if>
-                                    <li class="active"><a href="/teacher/listHomework?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
+                                    <li class="active"><a
+                                            href="/teacher/listHomework?pageNum=2&pageSize=10">${pageInfo.pageNum}</a>
+                                    </li>
                                     <#if pageInfo.hasNextPage>
-                                        <li><a href="/teacher/listHomework?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a></li>
+                                        <li>
+                                            <a href="/teacher/listHomework?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a>
+                                        </li>
                                     <#else>
                                     <#--<li><a href="/teacher/listHomework?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage - 1}</a></li>-->
                                     <#--<li><a href="/teacher/listHomework?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>-->

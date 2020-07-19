@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>图文教学</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -12,37 +12,36 @@
     <script type="text/javascript" src="/statics/js/jquery.min.js"></script>
 
     <script>
-        function change1(id)
-        {
-            let value = "value"+id;
+        function change1(id) {
+            let value = "value" + id;
             console.log(value);
-            let address =$("#"+value).attr("data-src");
+            let address = $("#" + value).attr("data-src");
             address = address + id;
             // $(this).addClass("actives").siblings().removeClass("actives");
-            $("#"+value).addClass("actives").siblings().removeClass("actives");
-            $("iframe").attr("src",address);
+            $("#" + value).addClass("actives").siblings().removeClass("actives");
+            $("iframe").attr("src", address);
         }
+
         function nex() {
             let id = $("ul .actives").val();
             console.log(id);
             console.log(${pageInfo.pageNum*25-25+1});
-            if(id === ${pageInfo.pageNum*25})
-            {
+            if (id === ${pageInfo.pageNum*25}) {
                 $("#goPage span").click();
                 return;
             }
             id = id + 1;
             change1(id);
         }
+
         function pre() {
             let id = $("ul .actives").val();
-            id  = id -1;
-            let href = "/main/index?pageNum=${pageInfo.prePage}&id="+id;
+            id = id - 1;
+            let href = "/main/index?pageNum=${pageInfo.prePage}&id=" + id;
             console.log(href);
             console.log(id);
             console.log(${pageInfo.pageNum*25}-24);
-            if(id === ${pageInfo.pageNum*25}-25)
-            {
+            if (id === ${pageInfo.pageNum*25}-25) {
                 $("#goPage1").attr("href", href);
                 $("#goPage1 span").click();
                 return;
@@ -55,17 +54,19 @@
     <script>
         $(document).ready(function () {
             console.log(${ids});
-            if(${ids} !== 0)
+            if (${ids} !==
+            0
+        )
             {
                 let id = ${ids}
-                $("#value"+id).addClass("actives");
+                        $("#value" + id).addClass("actives");
                 <#assign ids=0>
 
             }
-            else
+        else
             {
                 let id = ${pageInfo.pageNum*25-25+1}
-                $("#value"+id).addClass("actives");
+                        $("#value" + id).addClass("actives");
                 <#assign ids=0>
 
             }
@@ -73,23 +74,25 @@
         })
     </script>
     <style>
-        .main_left{
+        .main_left {
             width: 150px;
             height: 100%;
-            float:left;
-            background:#c0c0c0;
-            cursor:pointer;
+            float: left;
+            background: #c0c0c0;
+            cursor: pointer;
         }
-        .actives{
+
+        .actives {
             color: #ffffff;
             background: #c81623;
         }
 
-        .main_right{
+        .main_right {
             width: 100%;
             height: 630px;
         }
-        .page{
+
+        .page {
             height: 100px;
         }
     </style>
@@ -106,13 +109,13 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <ul class="nav nav-tabs page-tabs">
-                            <li class="active"> <a href="#!">图文教学</a> </li>
-                            <li><a href="/main/videoTeacher">视频教学</a> </li>
+                            <li class="active"><a href="#!">图文教学</a></li>
+                            <li><a href="/main/videoTeacher">视频教学</a></li>
                             <li><a href="/main/practice">练习中心</a></li>
-                            <li><a href="/main/resource">资源中心</a> </li>
-                            <li> <a href="/main/message">留言</a></li>
-                            <li><a href="/main/homework">作业中心</a> </li>
-                            <li><a href="/main/information">个人中心</a> </li>
+                            <li><a href="/main/resource">资源中心</a></li>
+                            <li><a href="/main/message">留言</a></li>
+                            <li><a href="/main/homework">作业中心</a></li>
+                            <li><a href="/main/information">个人中心</a></li>
                         </ul>
                         <div class="tab-pane active">
                             <!-- 左侧导航 -->
@@ -120,15 +123,16 @@
                                 <ul id="menu" class="nav nav-pills nav-stacked">
                                     <#assign id=0>
                                     <#list pageInfo.list as li>
-                                        <#--onclick="change1(${li.id})"-->
+                                    <#--onclick="change1(${li.id})"-->
 
-                                        <li onclick="change1(${li.id})" value="${li.id}"  data-src="/main/picture/" id="value${li.id}">${li.pname}</li>
+                                        <li onclick="change1(${li.id})" value="${li.id}" data-src="/main/picture/"
+                                            id="value${li.id}">${li.pname}</li>
                                     </#list>
                                 </ul>
 
                                 <nav>
                                     <ul class="pagination pagination-circle">
-                                        <#--返回上一页-->
+                                    <#--返回上一页-->
                                         <#if pageInfo.isFirstPage>
                                             <li class="disabled">
                                                 <a href="#!">
@@ -142,7 +146,7 @@
                                                 </a>
                                             </li>
                                         </#if>
-                                        <#--下一页-->
+                                    <#--下一页-->
                                         <#if pageInfo.isLastPage>
                                             <li class="disabled">
                                                 <span><i class="mdi mdi-chevron-right"></i></span>
@@ -161,44 +165,45 @@
                             <div class="main_right">
                                 <#assign x = pageInfo.pageNum*25-25+2>
                                 <input hidden value="${pageInfo.pageNum}">
-                                <iframe frameborder="0" scrolling="yes" style="width: 1325px; height: 100%" src="/main/picture/${x}" id="aa"></iframe>
+                                <iframe frameborder="0" scrolling="yes" style="width: 1325px; height: 100%"
+                                        src="/main/picture/${x}" id="aa"></iframe>
                             </div>
                             <nav class="page">
                                 <ul class="pager">
-                                    <#--返回上一页-->
-                                        <li >
-                                            <a id="pre" onclick="pre()" href="#!">
-                                                上一条
-                                            </a>
-                                        </li>
-                                    <#--<#if (pageInfo.isFirstPage) && {pageInfo}>-->
-                                        <#--<li class="disabled">-->
-                                            <#--<a  href="#">上一条</a>-->
-                                        <#--</li>-->
-                                    <#--<#else>-->
-                                        <#--<li >-->
-                                            <#--<a id="pre" onclick="pre()" href="/main/index?pageNum=${pageInfo.prePage}">-->
-                                            <#--上一条-->
-                                            <#--</a>-->
-                                        <#--</li>-->
-                                    <#--</#if>-->
-                                    <#--下一页-->
-                                        <li>
-                                            <a id="nex" onclick="nex()" href="#!">
-                                                下一条
-                                            </a>
-                                        </li>
-                                    <#--<#if pageInfo.isLastPage>-->
-                                        <#--<li class="disabled">-->
-                                            <#--<a  href="#">下一条</a>-->
-                                        <#--</li>-->
-                                    <#--<#else>-->
-                                    <#--<li>-->
-                                        <#--<a id="nex" onclick="nex()" href="#!">-->
-                                        <#--下一条-->
-                                        <#--</a>-->
-                                    <#--</li>-->
-                                    <#--</#if>-->
+                                <#--返回上一页-->
+                                    <li>
+                                        <a id="pre" onclick="pre()" href="#!">
+                                            上一条
+                                        </a>
+                                    </li>
+                                <#--<#if (pageInfo.isFirstPage) && {pageInfo}>-->
+                                <#--<li class="disabled">-->
+                                <#--<a  href="#">上一条</a>-->
+                                <#--</li>-->
+                                <#--<#else>-->
+                                <#--<li >-->
+                                <#--<a id="pre" onclick="pre()" href="/main/index?pageNum=${pageInfo.prePage}">-->
+                                <#--上一条-->
+                                <#--</a>-->
+                                <#--</li>-->
+                                <#--</#if>-->
+                                <#--下一页-->
+                                    <li>
+                                        <a id="nex" onclick="nex()" href="#!">
+                                            下一条
+                                        </a>
+                                    </li>
+                                <#--<#if pageInfo.isLastPage>-->
+                                <#--<li class="disabled">-->
+                                <#--<a  href="#">下一条</a>-->
+                                <#--</li>-->
+                                <#--<#else>-->
+                                <#--<li>-->
+                                <#--<a id="nex" onclick="nex()" href="#!">-->
+                                <#--下一条-->
+                                <#--</a>-->
+                                <#--</li>-->
+                                <#--</#if>-->
                                 <#--<li><a  href="#">上一条</a></li>-->
                                 <#--<li><a  href="">下一条</a></li>-->
                                 </ul>

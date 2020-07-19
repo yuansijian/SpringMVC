@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>基本设置 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -29,7 +29,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -69,22 +70,22 @@
                                         <tbody>
 
                                             <#list list as hw>
-                                                <tr>
-                                                    <td>${title}</td>
-                                                    <td>${hw.stuName}</td>
-                                                    <td>${hw.endTime!""}</td>
-                                                    <td>
-                                                        ${hw.uploadTime!""}
-                                                    </td>
-                                                    <#--<td>${hw.author}</td>-->
-                                                    <td>
+                                            <tr>
+                                                <td>${title}</td>
+                                                <td>${hw.stuName}</td>
+                                                <td>${hw.endTime!""}</td>
+                                                <td>
+                                                    ${hw.uploadTime!""}
+                                                </td>
+                                            <#--<td>${hw.author}</td>-->
+                                                <td>
                                                         <#if hw.uploadTime??>
                                                             已提交
                                                         <#else>
                                                             未提交
                                                         </#if>
-                                                    </td>
-                                                </tr>
+                                                </td>
+                                            </tr>
                                             </#list>
                                         </tbody>
                                     </table>

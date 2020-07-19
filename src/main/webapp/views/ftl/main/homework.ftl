@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>资源中心</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -12,32 +12,28 @@
     <script type="text/javascript" src="/statics/js/jquery.min.js"></script>
     <script>
         function save3(id) {
-            let formData = new FormData($("#upload-file"+id)[0]);
+            let formData = new FormData($("#upload-file" + id)[0]);
             $.ajax({
                 type: "POST",
-                url: "/main/saveHomework/"+id,
+                url: "/main/saveHomework/" + id,
                 data: formData,
-                contentType : false,
-                processData : false,
+                contentType: false,
+                processData: false,
 
-                success:function (data) {
+                success: function (data) {
                     console.log(data);
                     console.log(222);
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("上传成功");
                         location.reload();
                     }
-                    else if(data === 202)
-                    {
+                    else if (data === 202) {
                         alert("文件大于200M")
                     }
-                    else if(data === 303)
-                    {
+                    else if (data === 303) {
                         alert("文件格式不对")
                     }
-                    else
-                    {
+                    else {
                         alert("上传失败,刷新或重命名试试")
                     }
                 }
@@ -57,13 +53,13 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <ul class="nav nav-tabs page-tabs">
-                            <li > <a href="/main/index">图文教学</a> </li>
-                            <li><a href="/main/videoTeacher">视频教学</a> </li>
+                            <li><a href="/main/index">图文教学</a></li>
+                            <li><a href="/main/videoTeacher">视频教学</a></li>
                             <li><a href="/main/practice">练习中心</a></li>
-                            <li><a href="/main/resource">资源中心</a> </li>
-                            <li> <a href="/main/message">留言</a></li>
-                            <li  class="active"><a href="">作业中心</a> </li>
-                            <li><a href="/main/information">个人中心</a> </li>
+                            <li><a href="/main/resource">资源中心</a></li>
+                            <li><a href="/main/message">留言</a></li>
+                            <li class="active"><a href="">作业中心</a></li>
+                            <li><a href="/main/information">个人中心</a></li>
                         </ul>
                         <div class="tab-pane active">
                             <h5>作业布置</h5>
@@ -82,13 +78,14 @@
                                     <#list pageInfo.list as list>
                                         <tr>
                                             <th scope="row">${list.id}</th>
-                                            <td data-toggle="tooltip" data-placement="left" title="${list.description}">${list.title}</td>
+                                            <td data-toggle="tooltip" data-placement="left"
+                                                title="${list.description}">${list.title}</td>
                                             <td>${list.author}</td>
                                             <td>${list.starttime}</td>
                                             <td>${list.endtime}</td>
                                             <td>
                                                 <form id="upload-file${list.id}" enctype="multipart/form-data">
-                                                    <input  type="file" id="file" name="file" value="">
+                                                    <input type="file" id="file" name="file" value="">
                                                     <input type="hidden" name="title" value="${list.title}">
                                                     <a href="#" onclick="save3(${list.id})">提交</a>
                                                 </form>

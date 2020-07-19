@@ -6,7 +6,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface Short1Mapper {
+public interface Short1Mapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Short1WithBLOBs record);
@@ -23,5 +24,5 @@ public interface Short1Mapper {
 
     List<Short1WithBLOBs> queryAll();
 
-    List<Short1WithBLOBs> fuzzyQuery(@Param("startTime")String startTime, @Param("endTime")String endTime, @Param("keyword")String keyword);
+    List<Short1WithBLOBs> fuzzyQuery(@Param("startTime") String startTime, @Param("endTime") String endTime, @Param("keyword") String keyword);
 }

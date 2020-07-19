@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>教师中心-编辑年级</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -17,13 +17,11 @@
                 url: "/teacher/updateG",
                 data: $("#form1").serialize(),
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("更新成功");
                         location.reload();
                     }
-                    else
-                    {
+                    else {
                         alert("更新失败")
                     }
                 }
@@ -49,7 +47,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -81,15 +80,18 @@
 
                                     <div class="form-group">
                                         <label for="grade">年级</label>
-                                        <input type="text" class="form-control" name="grade" id="grade" required="required" value="${grade.grade}">
+                                        <input type="text" class="form-control" name="grade" id="grade"
+                                               required="required" value="${grade.grade}">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">描述</label>
-                                        <input type="text" class="form-control" name="description" id="description" required="required" value="${grade.description}">
+                                        <input type="text" class="form-control" name="description" id="description"
+                                               required="required" value="${grade.description}">
                                     </div>
                                     <div class="form-group">
                                         <label for="teacher">负责老师</label>
-                                        <input type="text" class="form-control" name="teacher" id="teacher" required="required" value="${grade.teacher}">
+                                        <input type="text" class="form-control" name="teacher" id="teacher"
+                                               required="required" value="${grade.teacher}">
                                     </div>
                                     <input type="hidden" name="id" value="${grade.id}">
                                     <button onclick="update1()" type="button" class="btn btn-primary">更新</button>

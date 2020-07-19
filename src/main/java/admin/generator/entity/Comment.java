@@ -1,6 +1,7 @@
 package admin.generator.entity;
 
-public class Comment {
+public class Comment
+{
     private Integer id;
 
     private Integer topicid;
@@ -19,75 +20,93 @@ public class Comment {
 
     private String username;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public Integer getTopicid() {
+    public Integer getTopicid()
+    {
         return topicid;
     }
 
-    public void setTopicid(Integer topicid) {
+    public void setTopicid(Integer topicid)
+    {
         this.topicid = topicid;
     }
 
-    public Integer getUp() {
+    public Integer getUp()
+    {
         return up;
     }
 
-    public void setUp(Integer up) {
+    public void setUp(Integer up)
+    {
         this.up = up;
     }
 
-    public Integer getUid() {
+    public Integer getUid()
+    {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(Integer uid)
+    {
         this.uid = uid;
     }
 
-    public String getCommenttime() {
+    public String getCommenttime()
+    {
         return commenttime;
     }
 
-    public void setCommenttime(String commenttime) {
+    public void setCommenttime(String commenttime)
+    {
         this.commenttime = commenttime == null ? null : commenttime.trim();
     }
 
-    public Integer getFlag() {
+    public Integer getFlag()
+    {
         return flag;
     }
 
-    public void setFlag(Integer flag) {
+    public void setFlag(Integer flag)
+    {
         this.flag = flag;
     }
 
-    public Integer getIsDelete() {
+    public Integer getIsDelete()
+    {
         return isDelete;
     }
 
-    public void setIsDelete(Integer isDelete) {
+    public void setIsDelete(Integer isDelete)
+    {
         this.isDelete = isDelete;
     }
 
-    public String getDeleteTime() {
+    public String getDeleteTime()
+    {
         return deleteTime;
     }
 
-    public void setDeleteTime(String deleteTime) {
+    public void setDeleteTime(String deleteTime)
+    {
         this.deleteTime = deleteTime == null ? null : deleteTime.trim();
     }
 
-    public String getUsername() {
+    public String getUsername()
+    {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username)
+    {
         this.username = username == null ? null : username.trim();
     }
 }

@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>文件上传 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -20,47 +20,41 @@
                 type: "POST",
                 url: "/community/uploadFileAchieve",
                 data: formData,
-                contentType : false,
-                processData : false,
+                contentType: false,
+                processData: false,
 
-                success:function (data) {
+                success: function (data) {
                     console.log(data);
                     console.log(222);
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("上传成功");
                         location.reload();
                     }
-                    else if(data === 202)
-                    {
+                    else if (data === 202) {
                         alert("文件大于200M")
                     }
-                    else if(data === 303)
-                    {
+                    else if (data === 303) {
                         alert("文件格式不对")
                     }
-                    else
-                    {
+                    else {
                         alert("上传失败,刷新或重命名试试")
                     }
                 }
             })
         }
+
         function deleteFile(id, fname) {
-            if(confirm("确定删除"+fname+"这个文件吗"))
-            {
+            if (confirm("确定删除" + fname + "这个文件吗")) {
                 $.ajax({
                     type: "POST",
-                    url: "/community/deleteFile/"+id,
+                    url: "/community/deleteFile/" + id,
                     success: function (data) {
-                        if(data === 1)
-                        {
-                            alert(fname+"删除成功");
+                        if (data === 1) {
+                            alert(fname + "删除成功");
                             location.reload();
                         }
-                        else
-                        {
-                            alert(fname+"删除失败");
+                        else {
+                            alert(fname + "删除失败");
                         }
                     }
                 })
@@ -91,7 +85,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -115,14 +110,16 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <#--<div class="card-header"><iframe src="/community/videoTeacher"></iframe></div>-->
+                        <#--<div class="card-header"><iframe src="/community/videoTeacher"></iframe></div>-->
                             <div class="card-body">
-                                <form id="upload-file" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                                <form id="upload-file" class="form-horizontal" action="" method="post"
+                                      enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label class="col-xs-12" for="example-file-multiple-input">文件上传</label>
                                         <div class="col-xs-12">
                                             <input class="form-control" type="file" id="file" name="file" multiple>
-                                            <input class="form-control" type="text" name="description" placeholder="文件描述">
+                                            <input class="form-control" type="text" name="description"
+                                                   placeholder="文件描述">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -134,14 +131,16 @@
                                 <div class="card-toolbar clearfix">
                                     <form class="well form-search" method="POST" action="">
                                         文件名：
-                                        <input type="text" name="fileName" style="width: 100px;"  placeholder="">
+                                        <input type="text" name="fileName" style="width: 100px;" placeholder="">
                                         &nbsp;&nbsp;
 
                                         上传时间：
-                                        <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text" style="width: 150px;" id="startTime" name="startTime" placeholder="从">
+                                        <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                               style="width: 150px;" id="startTime" name="startTime" placeholder="从">
                                         &nbsp;&nbsp;===>
-                                        <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"  style="width: 150px;" id="endTime" name="endTime" placeholder="至">
-                                        <input type="submit" class="btn btn-primary" value="搜索" />
+                                        <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                               style="width: 150px;" id="endTime" name="endTime" placeholder="至">
+                                        <input type="submit" class="btn btn-primary" value="搜索"/>
                                         <a class="btn btn-danger" href="/community/uploadFile">返回</a>
                                     </form>
                                 </div>
@@ -164,7 +163,7 @@
                                             <tbody>
                                       <#list uploadfileList.list as uploadfile>
                                       <tr>
-                                          <td >${uploadfile.id}</td>
+                                          <td>${uploadfile.id}</td>
                                           <td>${uploadfile.filename}</td>
                                           <td>${uploadfile.uploadtime}</td>
                                           <td>${uploadfile.description}</td>
@@ -173,8 +172,14 @@
                                           <td><font class="text-success">正常</font></td>
                                           <td>
                                               <div class="btn-group">
-                                                  <a class="btn btn-xs btn-default" onclick="deleteFile(${uploadfile.id}, '${uploadfile.filename}')"  title="删除" data-toggle="tooltip"><i class="mdi mdi-window-close"></i></a>
-                                                  <a class="btn btn-xs btn-default" href="/statics/uploadFile/${uploadfile.filename}" download="${uploadfile.filename}" title="下载" data-toggle="tooltip"><i class="mdi mdi-content-save"></i></a>
+                                                  <a class="btn btn-xs btn-default"
+                                                     onclick="deleteFile(${uploadfile.id}, '${uploadfile.filename}')"
+                                                     title="删除" data-toggle="tooltip"><i
+                                                          class="mdi mdi-window-close"></i></a>
+                                                  <a class="btn btn-xs btn-default"
+                                                     href="/statics/uploadFile/${uploadfile.filename}"
+                                                     download="${uploadfile.filename}" title="下载" data-toggle="tooltip"><i
+                                                          class="mdi mdi-content-save"></i></a>
 
                                               </div>
 
@@ -202,31 +207,40 @@
                                           </#if>
 
                                         <#if (uploadfileList.pages == 0)>
-                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                            <li class="active disabled"><a href="#!">1</a></li>
                                         <#elseif (uploadfileList.pages==1)>
-                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                            <li class="active disabled"><a href="#!">1</a></li>
                                         <#elseif (uploadfileList.pages==2)>
-                                            <li class="active"><a href="/community/uploadFile?pageNum=1&pageSize=10">1</a></li>
+                                            <li class="active"><a
+                                                    href="/community/uploadFile?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="/community/uploadFile?pageNum=2&pageSize=10">2</a></li>
                                         <#elseif (uploadfileList.pages == 3)>
-                                            <li class="active"><a href="/community/uploadFile?pageNum=1&pageSize=10">1</a></li>
+                                            <li class="active"><a
+                                                    href="/community/uploadFile?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="#!"></a></li>
                                             <li><a href="/community/uploadFile?pageNum=2&pageSize=10">2</a></li>
                                             <li><a href="/community/uploadFile?pageNum=3&pageSize=10">3</a></li>
                                         <#else>
                                             <#if uploadfileList.isFirstPage>
-                                                <li class="active"><a href="/community/uploadFile?pageNum=1&pageSize=10">1</a></li>
+                                                <li class="active"><a
+                                                        href="/community/uploadFile?pageNum=1&pageSize=10">1</a></li>
                                                 <li><a href="/community/uploadFile?pageNum=2&pageSize=10">2</a></li>
                                                 <li><a href="/community/uploadFile?pageNum=3&pageSize=10">3</a></li>
                                             <#else>
                                                 <#if uploadfileList.hasPreviousPage>
-                                                    <li><a href="/community/uploadFile?pageNum=${uploadfileList.prePage}&pageSize=10">${uploadfileList.prePage}</a></li>
+                                                    <li>
+                                                        <a href="/community/uploadFile?pageNum=${uploadfileList.prePage}&pageSize=10">${uploadfileList.prePage}</a>
+                                                    </li>
                                                 <#else>
                                                     <li><a href="#!">${uploadfileList.pageNum}</a></li>
                                                 </#if>
-                                                <li class="active"><a href="/community/uploadFile?pageNum=2&pageSize=10">${uploadfileList.pageNum}</a></li>
+                                                <li class="active"><a
+                                                        href="/community/uploadFile?pageNum=2&pageSize=10">${uploadfileList.pageNum}</a>
+                                                </li>
                                                 <#if uploadfileList.hasNextPage>
-                                                    <li><a href="/community/uploadFile?pageNum=${uploadfileList.nextPage}&pageSize=10">${uploadfileList.nextPage}</a></li>
+                                                    <li>
+                                                        <a href="/community/uploadFile?pageNum=${uploadfileList.nextPage}&pageSize=10">${uploadfileList.nextPage}</a>
+                                                    </li>
                                                 <#else>
                                                 <#--<li><a href="/community/uploadFile?pageNum=${uploadfileList.prePage}&pageSize=10">${uploadfileList.prePage - 1}</a></li>-->
                                                 <#--<li><a href="/community/uploadFile?pageNum=${uploadfileList.prePage}&pageSize=10">${uploadfileList.prePage}</a></li>-->

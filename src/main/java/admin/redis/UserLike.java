@@ -14,12 +14,13 @@ public class UserLike
     private String likedUserId;
 
     //被点赞留言Id
-    private  String likedPostId;
+    private String likedPostId;
 
     private Integer status = Enums.LikedStatusEnum.UNLIKE.getCode();
 
     public UserLike()
-    {}
+    {
+    }
 
     public UserLike(String likedUserId, String likedPostId, Integer status)
     {

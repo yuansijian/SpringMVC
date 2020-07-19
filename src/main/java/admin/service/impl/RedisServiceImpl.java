@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  **/
 public class RedisServiceImpl implements RedisService
 {
-    @Resource(name="redisTemplate")
+    @Resource(name = "redisTemplate")
     private RedisTemplate<String, String> redisTemplate;
 
     @Override

@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>留言</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -20,12 +20,10 @@
                 url: "/main/addMessage",
                 data: $("#form1").serialize(),
                 success: function (data) {
-                    if(data === 0)
-                    {
+                    if (data === 0) {
                         alert("新增失败")
                     }
-                    else
-                    {
+                    else {
 
                         let html = "\t\t\t\t\t\t<div class=\"col-12\">\n" +
                                 "                                                    <div class=\"card\" id=\"card\">\n" +
@@ -43,7 +41,7 @@
                                 "                                                            </ul>\n" +
                                 "                                                        </div>\n" +
                                 "                                                        <div class=\"card-body\">\n" +
-                                "                                                            <p id=\"content9\">"+content+"</p><br>\n" +
+                                "                                                            <p id=\"content9\">" + content + "</p><br>\n" +
                                 "\n" +
                                 "                                                            <div id=\"download9\">\n" +
                                 "                                                            </div>\n" +
@@ -56,9 +54,9 @@
                 }
             })
         }
+
         //回复主楼框
-        function reply(id, username)
-        {
+        function reply(id, username) {
             // $("#content"+id).append("<div class=\"form-group\">\n" +
             //         "                    <label class=\"col-xs-12\" for=\"example-textarea-input\">回复</label>\n" +
             //         "                    <div class=\"col-xs-12\">\n" +
@@ -67,109 +65,114 @@
             //         "                    </div>\n" +
             //         "                  </div>");
 
-            let a = "<form id="+id+" action=\"\" method=\"post\">\n" +
+            let a = "<form id=" + id + " action=\"\" method=\"post\">\n" +
                     "                        <div class=\"form-group\">\n" +
-                    "                            <label class=\"col-12\" for=\"textarea-input\">回复"+username+"</label>\n" +
+                    "                            <label class=\"col-12\" for=\"textarea-input\">回复" + username + "</label>\n" +
                     "                            <div class=\"col-12\">\n" +
-                    "                                <textarea class=\"form-control\" id=\"textarea-input"+id+"\" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
-                    "                                <input type='hidden' name='parentname' value='"+username+"'><input type='hidden' name='parentid' value='"+id+"'> " +
-                    "<input class='btn btn-primary' type='button' onclick='save3("+id+", \" "+username+" \")' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR("+id+")' value='取消回复'>\n" +
+                    "                                <textarea class=\"form-control\" id=\"textarea-input" + id + "\" name=\"content\" rows=\"6\" placeholder=\"回复" + username + "..\"></textarea>\n" +
+                    "                                <input type='hidden' name='parentname' value='" + username + "'><input type='hidden' name='parentid' value='" + id + "'> " +
+                    "<input class='btn btn-primary' type='button' onclick='save3(" + id + ", \" " + username + " \")' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR(" + id + ")' value='取消回复'>\n" +
                     "                            </div>\n" +
                     "                        </div>\n" +
                     "                    </form>";
-            $("#content"+id).append(a)
+            $("#content" + id).append(a)
         }
+
         //主楼下的回复框
         function reply1(id, pid, username) {
-            let a = "<form id=re"+id+" action=\"\" method=\"post\">\n" +
+            let a = "<form id=re" + id + " action=\"\" method=\"post\">\n" +
                     "                        <div class=\"form-group\">\n" +
-                    "                            <label class=\"col-12\" for=\"textarea-input\">回复"+username+"</label>\n" +
+                    "                            <label class=\"col-12\" for=\"textarea-input\">回复" + username + "</label>\n" +
                     "                            <div class=\"col-12\">\n" +
-                    "                                <textarea class=\"form-control\" id=res"+id+" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
-                    "                                <input type='hidden' name='parentname' value='"+username+"'><input type='hidden' name='parentid' value='"+pid+"'> " +
-                    "<input class='btn btn-primary' type='button' onclick='save2("+id+","+pid+", \" "+username+" \")\' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR1("+id+")' value='取消回复'>\n" +
+                    "                                <textarea class=\"form-control\" id=res" + id + " name=\"content\" rows=\"6\" placeholder=\"回复" + username + "..\"></textarea>\n" +
+                    "                                <input type='hidden' name='parentname' value='" + username + "'><input type='hidden' name='parentid' value='" + pid + "'> " +
+                    "<input class='btn btn-primary' type='button' onclick='save2(" + id + "," + pid + ", \" " + username + " \")\' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR1(" + id + ")' value='取消回复'>\n" +
                     "                            </div>\n" +
                     "                        </div>\n" +
                     "                    </form>";
-            $("#reply"+id).append(a)
+            $("#reply" + id).append(a)
         }
+
         //主楼回复保存
         function save3(id, pid, username) {
             $.ajax({
                 type: "POST",
                 url: "/main/addReply",
-                data: $("#"+id).serialize(),
+                data: $("#" + id).serialize(),
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         window.location.reload();
                     }
                 }
 
             })
         }
+
         //异步回复
         function reply2(id, pid, username) {
             id = id + 1;
-            let a = "<form id=re"+id+" action=\"\" method=\"post\">\n" +
+            let a = "<form id=re" + id + " action=\"\" method=\"post\">\n" +
                     "                        <div class=\"form-group\">\n" +
-                    "                            <label class=\"col-12\" for=\"textarea-input\">回复"+username+"</label>\n" +
+                    "                            <label class=\"col-12\" for=\"textarea-input\">回复" + username + "</label>\n" +
                     "                            <div class=\"col-12\">\n" +
-                    "                                <textarea class=\"form-control\" id=res"+id+" name=\"content\" rows=\"6\" placeholder=\"回复"+username+"..\"></textarea>\n" +
-                    "                                <input type='hidden' name='parentname' value='"+username+"'><input type='hidden' name='parentid' value='"+pid+"'> " +
-                    "<input class='btn btn-primary' type='button' onclick='save2("+id+","+pid+", \" "+username+" \")\' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR1("+id+")' value='取消回复'>\n" +
+                    "                                <textarea class=\"form-control\" id=res" + id + " name=\"content\" rows=\"6\" placeholder=\"回复" + username + "..\"></textarea>\n" +
+                    "                                <input type='hidden' name='parentname' value='" + username + "'><input type='hidden' name='parentid' value='" + pid + "'> " +
+                    "<input class='btn btn-primary' type='button' onclick='save2(" + id + "," + pid + ", \" " + username + " \")\' value='发布'>&nbsp;&nbsp;&nbsp;&nbsp;<input class='btn btn-danger' type='button' onclick='cancelR1(" + id + ")' value='取消回复'>\n" +
                     "                            </div>\n" +
                     "                        </div>\n" +
                     "                    </form>";
             id = id - 1;
-            $("#temp"+id).append(a)
+            $("#temp" + id).append(a)
         }
+
         //主楼回复取消
         function cancelR(id) {
-            let a =document.getElementById(id);
+            let a = document.getElementById(id);
             a.remove();
         }
+
         //主楼下的回复取消
         function cancelR1(id) {
-            let a =document.getElementById("re"+id);
+            let a = document.getElementById("re" + id);
             a.remove();
         }
+
         //主楼下的回复保存
         function save2(id, pid, parentname) {
             $.ajax({
                 type: "POST",
                 url: "/main/addReply",
-                data: $("#re"+id).serialize(),
+                data: $("#re" + id).serialize(),
                 success: function (data) {
-                    if(data === 1)
-                    {
-                        let text = $("#res"+id).val();
+                    if (data === 1) {
+                        let text = $("#res" + id).val();
 
                         let html = "<div class=\"col-12\">\n" +
                                 "                                                                        <div class=\"card\">\n" +
                                 "                                                                            <ul class=\"card-actions\">\n" +
                                 "                                                                                <li>\n" +
                                 "                                                                                    <button type=\"button\"><i class=\"mdi mdi-arrow-up-bold-circle\">顶(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
-                                "    <a id=\"replay\" style=\"background: white\" onclick=\"reply2("+id+", "+pid+",\' "+ parentname +" \')\">回复</a></i></button>\n" +
+                                "    <a id=\"replay\" style=\"background: white\" onclick=\"reply2(" + id + ", " + pid + ",\' " + parentname + " \')\">回复</a></i></button>\n" +
                                 "                                                                                </li>\n" +
                                 "                                                                            </ul>\n" +
                                 "                                                                            <div class=\"card-body\" style=\"background: #c0c0c0;\">\n" +
-                                "                                                                                <p id=\"temp"+id+"\">\n" +
-                                "                                                                                    <label style=\"background: white\">${student.username}</label>回复<label style=\"background: white\">"+parentname+"</label><br>\n" +
-                                "                                                                                    "+text+"<br>\n" +
+                                "                                                                                <p id=\"temp" + id + "\">\n" +
+                                "                                                                                    <label style=\"background: white\">${student.username}</label>回复<label style=\"background: white\">" + parentname + "</label><br>\n" +
+                                "                                                                                    " + text + "<br>\n" +
                                 "                                                                                    ${student.logintime}\n" +
                                 "                                                                                </p>\n" +
                                 "                                                                            </div>\n" +
                                 "                                                                        </div>\n" +
                                 "                                                                    </div>";
 
-                                $("#download"+pid).append(html);
-                                cancelR1(id);
+                        $("#download" + pid).append(html);
+                        cancelR1(id);
                     }
                 }
 
             })
         }
+
         //留言点赞功能
         function commentGood(id, uid, up) {
             // alert("hello");
@@ -178,54 +181,47 @@
             $.ajax({
                 type: "POST",
                 url: "/main/commentGood",
-                data: "id="+id+"&uid="+uid,
+                data: "id=" + id + "&uid=" + uid,
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         up = up + 1;
-                        $("#commentGood"+id).text("顶("+up+")");
-                        $("#commentGood"+id).css("color","red");
+                        $("#commentGood" + id).text("顶(" + up + ")");
+                        $("#commentGood" + id).css("color", "red");
                     }
-                    else if(data === 0)
-                    {
-                        if(up > 0)
-                        {
+                    else if (data === 0) {
+                        if (up > 0) {
                             up = up - 1;
                         }
-                        $("#commentGood"+id).text("顶("+up+")");
-                        $("#commentGood"+id).removeAttr("style");
+                        $("#commentGood" + id).text("顶(" + up + ")");
+                        $("#commentGood" + id).removeAttr("style");
                     }
-                    else
-                    {
+                    else {
                         alert("点赞失败");
                     }
                 }
             })
         }
+
         //回复点赞功能
         function replyGood(id, uid, up) {
             $.ajax({
                 type: "POST",
                 url: "/main/replyGood",
-                data: "id="+id+"&uid="+uid,
+                data: "id=" + id + "&uid=" + uid,
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         up = up + 1;
-                        $("#replyGood"+id).text("顶("+up+")");
-                        $("#replyGood"+id).css("color","red");
+                        $("#replyGood" + id).text("顶(" + up + ")");
+                        $("#replyGood" + id).css("color", "red");
                     }
-                    else if(data === 0)
-                    {
-                        if(up > 0)
-                        {
+                    else if (data === 0) {
+                        if (up > 0) {
                             up = up - 1;
                         }
-                        $("#replyGood"+id).text("顶("+up+")");
-                        $("#replyGood"+id).removeAttr("style");
+                        $("#replyGood" + id).text("顶(" + up + ")");
+                        $("#replyGood" + id).removeAttr("style");
                     }
-                    else
-                    {
+                    else {
                         alert("点赞失败");
                     }
                 }
@@ -245,13 +241,13 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <ul class="nav nav-tabs page-tabs">
-                            <li > <a href="/main/index">图文教学</a> </li>
-                            <li><a href="/main/videoTeacher">视频教学</a> </li>
+                            <li><a href="/main/index">图文教学</a></li>
+                            <li><a href="/main/videoTeacher">视频教学</a></li>
                             <li><a href="/main/practice">练习中心</a></li>
-                            <li><a href="/main/resource">资源中心</a> </li>
-                            <li class="active"> <a href="">留言</a></li>
-                            <li><a href="/main/homework">作业中心</a> </li>
-                            <li><a href="/main/information">个人中心</a> </li>
+                            <li><a href="/main/resource">资源中心</a></li>
+                            <li class="active"><a href="">留言</a></li>
+                            <li><a href="/main/homework">作业中心</a></li>
+                            <li><a href="/main/information">个人中心</a></li>
                         </ul>
 
                         <div class="tab-pane active">
@@ -259,33 +255,36 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h4>新增留言</h4>
-                                        <#--<ul class="card-actions">-->
-                                            <#--<li>-->
-                                                <#--<button type="button" data-toggle="tooltip" title="撤消"><i class="mdi mdi-undo"></i></button>-->
-                                            <#--</li>-->
-                                            <#--<li>-->
-                                                <#--<button type="button" data-toggle="tooltip" title="重做"><i class="mdi mdi-redo"></i></button>-->
-                                            <#--</li>-->
-                                            <#--<li>-->
-                                                <#--<button type="button" data-toggle="tooltip" title="修改"><i class="mdi mdi-pencil"></i></button>-->
-                                            <#--</li>-->
-                                            <#--<li class="dropdown">-->
-                                                <#--<button type="button" data-toggle="dropdown">更多 <span class="caret"></span></button>-->
-                                                <#--<ul class="dropdown-menu dropdown-menu-right">-->
-                                                    <#--<li> <a tabindex="-1" href="javascript:void(0)"><span class="badge pull-right">3</span> 通知</a> </li>-->
-                                                    <#--<li> <a tabindex="-1" href="javascript:void(0)"><span class="badge pull-right">1</span> 消息</a> </li>-->
-                                                    <#--<li class="divider"></li>-->
-                                                    <#--<li> <a tabindex="-1" href="javascript:void(0)">更新个人信息</a> </li>-->
-                                                <#--</ul>-->
-                                            <#--</li>-->
-                                        <#--</ul>-->
+                                    <#--<ul class="card-actions">-->
+                                    <#--<li>-->
+                                    <#--<button type="button" data-toggle="tooltip" title="撤消"><i class="mdi mdi-undo"></i></button>-->
+                                    <#--</li>-->
+                                    <#--<li>-->
+                                    <#--<button type="button" data-toggle="tooltip" title="重做"><i class="mdi mdi-redo"></i></button>-->
+                                    <#--</li>-->
+                                    <#--<li>-->
+                                    <#--<button type="button" data-toggle="tooltip" title="修改"><i class="mdi mdi-pencil"></i></button>-->
+                                    <#--</li>-->
+                                    <#--<li class="dropdown">-->
+                                    <#--<button type="button" data-toggle="dropdown">更多 <span class="caret"></span></button>-->
+                                    <#--<ul class="dropdown-menu dropdown-menu-right">-->
+                                    <#--<li> <a tabindex="-1" href="javascript:void(0)"><span class="badge pull-right">3</span> 通知</a> </li>-->
+                                    <#--<li> <a tabindex="-1" href="javascript:void(0)"><span class="badge pull-right">1</span> 消息</a> </li>-->
+                                    <#--<li class="divider"></li>-->
+                                    <#--<li> <a tabindex="-1" href="javascript:void(0)">更新个人信息</a> </li>-->
+                                    <#--</ul>-->
+                                    <#--</li>-->
+                                    <#--</ul>-->
                                         <!-- .card-actions -->
                                     </div>
                                     <div class="card-body">
-                                        <form id="form1" >
-                                            <textarea id="message" name="message" class="col-sm-push-12" style=" width: 100%">
+                                        <form id="form1">
+                                            <textarea id="message" name="message" class="col-sm-push-12"
+                                                      style=" width: 100%">
                                             </textarea>
-                                            <button onclick="save1('${student.username}', ${student.id})" class="btn btn-primary">新增留言</button>
+                                            <button onclick="save1('${student.username}', ${student.id})"
+                                                    class="btn btn-primary">新增留言
+                                            </button>
                                         </form>
                                         <div id="messagebody">
                                             <#list pageInfo.list as list>
@@ -293,19 +292,26 @@
                                                     <div class="card" id="card">
                                                         <div class="card-header bg-brown">
                                                             <h4>
-                                                                <img src="/statics/studentHeader/${list.commenturl}" alt="${list.username}" style="width: 30px; height: 30px">
-                                                                ${list.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small style="color: white">${list.commenttime}</small>
+                                                                <img src="/statics/studentHeader/${list.commenturl}"
+                                                                     alt="${list.username}"
+                                                                     style="width: 30px; height: 30px">
+                                                                ${list.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small
+                                                                    style="color: white">${list.commenttime}</small>
                                                             </h4>
                                                             <ul class="card-actions">
                                                                 <li>
                                                                     <button type="button">
-                                                                        <i id="commentGood${list.id}"   class="mdi mdi-arrow-up-bold-circle" onclick="commentGood(${list.id}, ${student.id}, ${list.up})">顶(${list.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
-                                                                        <a id="replay" style="background: white" onclick="reply(${list.id}, '${list.username}')" >回复</a>
+                                                                        <i id="commentGood${list.id}"
+                                                                           class="mdi mdi-arrow-up-bold-circle"
+                                                                           onclick="commentGood(${list.id}, ${student.id}, ${list.up})">顶(${list.up}
+                                                                            )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                                                                        <a id="replay" style="background: white"
+                                                                           onclick="reply(${list.id}, '${list.username}')">回复</a>
                                                                     </button>
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        <div class="card-body" >
+                                                        <div class="card-body">
                                                             <p id="content${list.id}">${list.comment}</p><br>
                                                         <#--<p>-->
                                                         <#--${list.commenttime}-->
@@ -319,14 +325,21 @@
                                                                             <ul class="card-actions">
                                                                                 <li>
                                                                                     <button type="button">
-                                                                                        <i id="replyGood${re.id}" class="mdi mdi-arrow-up-bold-circle" onclick="replyGood(${re.id}, ${student.id}, ${re.up})">顶(${re.up})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
-                                                                                        <a id="replay" style="background: white" onclick="reply1(${re.id}, ${list.id}, '${re.username}')" >回复</a>
+                                                                                        <i id="replyGood${re.id}"
+                                                                                           class="mdi mdi-arrow-up-bold-circle"
+                                                                                           onclick="replyGood(${re.id}, ${student.id}, ${re.up})">顶(${re.up}
+                                                                                            )&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                                                                                        <a id="replay"
+                                                                                           style="background: white"
+                                                                                           onclick="reply1(${re.id}, ${list.id}, '${re.username}')">回复</a>
                                                                                     </button>
                                                                                 </li>
                                                                             </ul>
-                                                                            <div class="card-body" style="background: #c0c0c0;">
+                                                                            <div class="card-body"
+                                                                                 style="background: #c0c0c0;">
                                                                                 <p id="reply${re.id}">
-                                                                                    <label style="background: white">${re.username}</label>回复<label style="background: white">${re.parentname}</label><br>
+                                                                                    <label style="background: white">${re.username}</label>回复<label
+                                                                                        style="background: white">${re.parentname}</label><br>
                                                                                     ${re.content}<br>
                                                                                     ${re.creatTime}
                                                                                 </p>
@@ -377,24 +390,28 @@
                                         <#--返回上一页-->
                                         <#if pageInfo.isFirstPage>
                                             <li class="disabled">
-                                                <span style="background: brown"><i class="mdi mdi-chevron-left"></i></span>
+                                                <span style="background: brown"><i
+                                                        class="mdi mdi-chevron-left"></i></span>
                                             </li>
                                         <#elseif pageInfo.hasPreviousPage>
                                             <li>
-                                                <a style="background: brown" id="goPage1" href="/main/message?pageNum=${pageInfo.prePage}&id=0">
-                                                    <span ><i class="mdi mdi-chevron-left"></i></span>
+                                                <a style="background: brown" id="goPage1"
+                                                   href="/main/message?pageNum=${pageInfo.prePage}&id=0">
+                                                    <span><i class="mdi mdi-chevron-left"></i></span>
                                                 </a>
                                             </li>
                                         </#if>
                                         <#--下一页-->
                                         <#if pageInfo.isLastPage>
                                             <li class="disabled">
-                                                <span style="background: brown"><i class="mdi mdi-chevron-right"></i></span>
+                                                <span style="background: brown"><i
+                                                        class="mdi mdi-chevron-right"></i></span>
                                             </li>
                                         <#elseif pageInfo.hasNextPage>
                                             <li>
-                                                <a style="background: brown" id="goPage" href="/main/message?pageNum=${pageInfo.nextPage}">
-                                                    <span ><i class="mdi mdi-chevron-right"></i></span>
+                                                <a style="background: brown" id="goPage"
+                                                   href="/main/message?pageNum=${pageInfo.nextPage}">
+                                                    <span><i class="mdi mdi-chevron-right"></i></span>
                                                 </a>
                                             </li>
                                         </#if>

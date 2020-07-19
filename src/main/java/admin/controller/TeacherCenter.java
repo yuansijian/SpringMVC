@@ -40,18 +40,16 @@ public class TeacherCenter
     private GivehomeworkService givehomeworkService;
     @Autowired
     private Classes1Service classes1Service;
+
     /**
-    * @Description: 管理学生界面
-    * @Param: null
-    * @return: manageStudent.ftl
-    * @Author: Yuan Sijian
-    * @Date: 20-2-14
-    */
+     * @Description: 管理学生界面
+     * @Param: null
+     * @return: manageStudent.ftl
+     * @Author: Yuan Sijian
+     * @Date: 20-2-14
+     */
     @RequestMapping(value = "manageStudent")
-    public String manageStudent(@RequestParam(value = "stuname", defaultValue = "")String stuname, Model model,
-                                @RequestParam(value = "stugrade", defaultValue = "")String stugrade,
-                                @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session)
+    public String manageStudent(@RequestParam(value = "stuname", defaultValue = "") String stuname, Model model, @RequestParam(value = "stugrade", defaultValue = "") String stugrade, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize, HttpSession session)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -61,7 +59,7 @@ public class TeacherCenter
         stugrade = stugrade.replace(",", "");
 
         //获取session的值
-        Administrator administrator = (Administrator)session.getAttribute("user");
+        Administrator administrator = (Administrator) session.getAttribute("user");
         model.addAttribute("administrator", administrator);
 
         System.out.println(stuname);
@@ -70,42 +68,40 @@ public class TeacherCenter
         {
             if ((stuname.equals("") && stugrade.equals("")) || ((stuname.equals("") && stugrade.equals("0"))))
             {
-//                System.out.println(1);
+                //                System.out.println(1);
 
                 List<Student> studentList = studentService.queryAll();
                 PageInfo<Student> pageInfo = new PageInfo(studentList);
                 model.addAttribute("pageInfo", pageInfo);
-            }
-            else if(stuname.equals("") && !stugrade.equals("0"))
+            } else if (stuname.equals("") && !stugrade.equals("0"))
             {
-//                System.out.println(2);
+                //                System.out.println(2);
 
                 List<Student> studentList = studentService.queryByGrade(stugrade);
                 PageInfo<Student> pageInfo = new PageInfo(studentList);
                 model.addAttribute("pageInfo", pageInfo);
-            }
-            else if(!stuname.equals("") && stugrade.equals("0"))
+            } else if (!stuname.equals("") && stugrade.equals("0"))
             {
-//                System.out.println(3);
+                //                System.out.println(3);
 
                 List<Student> studentList = studentService.queryByName(stuname);
                 PageInfo<Student> pageInfo = new PageInfo(studentList);
                 model.addAttribute("pageInfo", pageInfo);
-            }
-            else
+            } else
             {
-//                System.out.println(4);
+                //                System.out.println(4);
 
                 List<Student> studentList = studentService.queryByNameAndGrade(stuname, stugrade);
                 PageInfo<Student> pageInfo = new PageInfo(studentList);
                 model.addAttribute("pageInfo", pageInfo);
 
-//                List<Student> studentList = studentService.fuzzySearch(conditions);
-////                model.addAttribute("studentList", studentList);
-//                PageInfo<Student> pageInfo = new PageInfo(studentList);
-//                model.addAttribute("pageInfo", pageInfo);
+                //                List<Student> studentList = studentService.fuzzySearch(conditions);
+                ////                model.addAttribute("studentList", studentList);
+                //                PageInfo<Student> pageInfo = new PageInfo(studentList);
+                //                model.addAttribute("pageInfo", pageInfo);
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e)
+        {
             e.printStackTrace();
         }
 
@@ -114,32 +110,26 @@ public class TeacherCenter
         return "manageStudent.ftl";
     }
 
-    
+
     /**
-    * @Description: 作业管理主界面
-    * @Param: null
-    * @return: manageHomework.ftl
-    * @Author: Yuan Sijian
-    * @Date: 20-2-14
-    */
+     * @Description: 作业管理主界面
+     * @Param: null
+     * @return: manageHomework.ftl
+     * @Author: Yuan Sijian
+     * @Date: 20-2-14
+     */
     @RequestMapping("manageHomework")
-    public String manageHomework(@RequestParam(value = "stuname", defaultValue = "")String stuname, Model model,
-                                 @RequestParam(value = "homeworkname", defaultValue = "")String homeworkname,
-                                 @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                                 @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session,
-                                 @RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime,
-                                 @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime)
+    public String manageHomework(@RequestParam(value = "stuname", defaultValue = "") String stuname, Model model, @RequestParam(value = "homeworkname", defaultValue = "") String homeworkname, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize, HttpSession session, @RequestParam(value = "startTime", defaultValue = "1970-01-01") String startTime, @RequestParam(value = "endTime", defaultValue = "1970-01-01") String endTime)
     {
         PageHelper.startPage(pageNum, pageSize);
         Administrator administrator = (Administrator) session.getAttribute("user");
 
-        if(stuname.equals("")&&homeworkname.equals("")&&startTime.equals("1970-01-01")&&endTime.equals("1970-01-01"))
+        if (stuname.equals("") && homeworkname.equals("") && startTime.equals("1970-01-01") && endTime.equals("1970-01-01"))
         {
             List<HomeworkWithBLOBs> list = homeworkService.queryAll();
             PageInfo<HomeworkWithBLOBs> pageInfo = new PageInfo(list);
             model.addAttribute("pageInfo", pageInfo);
-        }
-        else
+        } else
         {
             List<HomeworkWithBLOBs> list = homeworkService.fuzzyQuery(stuname, homeworkname, startTime, endTime);
             PageInfo<HomeworkWithBLOBs> pageInfo = new PageInfo(list);
@@ -153,32 +143,26 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 作业列表
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 作业列表
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @RequestMapping("listHomework")
-    public String listHomework(Model model,
-                               @RequestParam(value = "homeworkname", defaultValue = "")String homeworkname,
-                               @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                               @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session,
-                               @RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime,
-                               @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime)
+    public String listHomework(Model model, @RequestParam(value = "homeworkname", defaultValue = "") String homeworkname, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize, HttpSession session, @RequestParam(value = "startTime", defaultValue = "1970-01-01") String startTime, @RequestParam(value = "endTime", defaultValue = "1970-01-01") String endTime)
     {
         System.out.println("111111111111");
 
         PageHelper.startPage(pageNum, pageSize);
         Administrator administrator = (Administrator) session.getAttribute("user");
 
-        if(homeworkname.equals("")&&startTime.equals("1970-01-01")&&endTime.equals("1970-01-01"))
+        if (homeworkname.equals("") && startTime.equals("1970-01-01") && endTime.equals("1970-01-01"))
         {
             List<Givehomework> list = givehomeworkService.queryAll();
             PageInfo<Givehomework> pageInfo = new PageInfo(list);
             model.addAttribute("pageInfo", pageInfo);
-        }
-        else
+        } else
         {
             List<Givehomework> list = givehomeworkService.fuzzyQuery(homeworkname, startTime, endTime);
             PageInfo<Givehomework> pageInfo = new PageInfo(list);
@@ -192,12 +176,12 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 新增作业
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 新增作业
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @RequestMapping("addHomework")
     public String addHomework(HttpSession session, Model model)
     {
@@ -213,12 +197,12 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 新增作业保存
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 新增作业保存
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @ResponseBody
     @RequestMapping("homeworkAchieve")
     public int homeworkAchieve(Givehomework givehomework, HttpSession session)
@@ -239,14 +223,14 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 编辑作业
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 编辑作业
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @RequestMapping("editHomework/{id}")
-    public String editHomework(HttpSession session, Model model, @PathVariable("id")int id)
+    public String editHomework(HttpSession session, Model model, @PathVariable("id") int id)
     {
 
         Givehomework givehomework = givehomeworkService.selectByPrimaryKey(id);
@@ -264,15 +248,15 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 更新作业
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 更新作业
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @ResponseBody
     @RequestMapping("updateHomework/{id}")
-    public int updateHomework(@PathVariable("id")int id, Givehomework givehomework)
+    public int updateHomework(@PathVariable("id") int id, Givehomework givehomework)
     {
         System.out.println(givehomework);
 
@@ -282,15 +266,15 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 删除作业
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-11
-    */
+     * @Description: 删除作业
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-11
+     */
     @ResponseBody
     @RequestMapping("deleteHomework/{id}")
-    public int deleteHomework(@PathVariable("id")int id)
+    public int deleteHomework(@PathVariable("id") int id)
     {
         Givehomework givehomework = new Givehomework();
         givehomework.setId(id);
@@ -300,28 +284,25 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 班级年级
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 班级年级
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @RequestMapping("other")
-    public String other(Model model, @RequestParam(value = "keyword", defaultValue = "")String keyword,
-                        @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                        @RequestParam(value = "pageSize", defaultValue = "10")int pageSize, HttpSession session)
+    public String other(Model model, @RequestParam(value = "keyword", defaultValue = "") String keyword, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize, HttpSession session)
     {
-        Administrator administrator = (Administrator)session.getAttribute("user");
+        Administrator administrator = (Administrator) session.getAttribute("user");
 
         PageHelper.startPage(pageNum, pageSize);
 
-        if(keyword.equals(""))
+        if (keyword.equals(""))
         {
             List<Classes1> classes1List = classes1Service.queryAll();
             PageInfo<Classes1> pageInfo = new PageInfo(classes1List);
             model.addAttribute("pageInfo", pageInfo);
-        }
-        else
+        } else
         {
             List<Classes1> classes1List = classes1Service.fuzzyQuery(keyword);
             PageInfo<Classes1> pageInfo = new PageInfo(classes1List);
@@ -335,33 +316,34 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 新增年级
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 新增年级
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @RequestMapping("addGrade")
     public String addGrade(Model model, HttpSession session)
     {
-        Administrator administrator = (Administrator)session.getAttribute("user");
+        Administrator administrator = (Administrator) session.getAttribute("user");
 
         model.addAttribute("administrator", administrator);
 
         return "addGrade.ftl";
     }
+
     /**
-    * @Description: 保存
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 保存
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @ResponseBody
     @RequestMapping("saveGrade")
     public int saveGrade(Classes1 classes1, HttpSession session)
     {
-        Administrator administrator = (Administrator)session.getAttribute("user");
+        Administrator administrator = (Administrator) session.getAttribute("user");
 
         classes1.setCreater(administrator.getUsername());
         classes1.setCreateTime(main.getDate());
@@ -371,27 +353,26 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 更新年级班级
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 更新年级班级
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @ResponseBody
     @RequestMapping("updateGrade")
-    public int updateGrade(@RequestParam("id")int id, @RequestParam("val")int isDelete)
+    public int updateGrade(@RequestParam("id") int id, @RequestParam("val") int isDelete)
     {
-//        System.out.println("11111111111111");
-//        System.out.println(isDelete);
-//        System.out.println(id);
+        //        System.out.println("11111111111111");
+        //        System.out.println(isDelete);
+        //        System.out.println(id);
 
         Classes1 classes1 = new Classes1();
 
-        if(isDelete == 0)
+        if (isDelete == 0)
         {
             isDelete = 1;
-        }
-        else
+        } else
         {
             isDelete = 0;
         }
@@ -403,16 +384,16 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 编辑年级班级
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 编辑年级班级
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @RequestMapping("editGrade/{id}")
-    public String editGrade(Model model, HttpSession session, @PathVariable("id")int id)
+    public String editGrade(Model model, HttpSession session, @PathVariable("id") int id)
     {
-        Administrator administrator = (Administrator)session.getAttribute("user");
+        Administrator administrator = (Administrator) session.getAttribute("user");
 
         Classes1 classes1 = classes1Service.selectByPrimaryKey(id);
 
@@ -423,12 +404,12 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 更新年级班级信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 更新年级班级信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @ResponseBody
     @RequestMapping("updateG")
     public int updateG(Classes1 classes1)
@@ -437,16 +418,16 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 查看学生作业提交情况
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-22
-    */
+     * @Description: 查看学生作业提交情况
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-22
+     */
     @RequestMapping("checkHomework/{id}/{grade}")
-    public String checkHomework(@PathVariable("id")int id, Model model, HttpSession session, @PathVariable("grade")String grade)
+    public String checkHomework(@PathVariable("id") int id, Model model, HttpSession session, @PathVariable("grade") String grade)
     {
-        Administrator administrator = (Administrator)session.getAttribute("user");
+        Administrator administrator = (Administrator) session.getAttribute("user");
 
         List<HashMap> list = studentService.checkHomework(grade);
 
@@ -462,14 +443,14 @@ public class TeacherCenter
     }
 
     /**
-    * @Description: 作业批改
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-22
-    */
+     * @Description: 作业批改
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-22
+     */
     @RequestMapping("correct/{id}")
-    public String correct(@PathVariable("id")int id, Model model)
+    public String correct(@PathVariable("id") int id, Model model)
     {
         model.addAttribute("id", id);
 

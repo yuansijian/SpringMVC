@@ -2,7 +2,8 @@ package admin.generator.entity;
 
 import java.util.Date;
 
-public class Replygood {
+public class Replygood
+{
     private Integer id;
 
     private Integer uid;
@@ -17,59 +18,73 @@ public class Replygood {
 
     private Date updatetime;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public Integer getUid() {
+    public Integer getUid()
+    {
         return uid;
     }
 
-    public void setUid(Integer uid) {
+    public void setUid(Integer uid)
+    {
         this.uid = uid;
     }
 
-    public Integer getUp() {
+    public Integer getUp()
+    {
         return up;
     }
 
-    public void setUp(Integer up) {
+    public void setUp(Integer up)
+    {
         this.up = up;
     }
 
-    public Integer getCid() {
+    public Integer getCid()
+    {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(Integer cid)
+    {
         this.cid = cid;
     }
 
-    public Integer getIsDelete() {
+    public Integer getIsDelete()
+    {
         return isDelete;
     }
 
-    public void setIsDelete(Integer isDelete) {
+    public void setIsDelete(Integer isDelete)
+    {
         this.isDelete = isDelete;
     }
 
-    public Date getGoodtime() {
+    public Date getGoodtime()
+    {
         return goodtime;
     }
 
-    public void setGoodtime(Date goodtime) {
+    public void setGoodtime(Date goodtime)
+    {
         this.goodtime = goodtime;
     }
 
-    public Date getUpdatetime() {
+    public Date getUpdatetime()
+    {
         return updatetime;
     }
 
-    public void setUpdatetime(Date updatetime) {
+    public void setUpdatetime(Date updatetime)
+    {
         this.updatetime = updatetime;
     }
 }

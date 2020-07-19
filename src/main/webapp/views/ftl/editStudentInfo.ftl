@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>学生信息 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -12,16 +12,14 @@
     <script>
         function update(id) {
             $.ajax({
-                type:"POST",
-                url:"/user/updateStudentInfo/"+id,
+                type: "POST",
+                url: "/user/updateStudentInfo/" + id,
                 data: $("#form1").serialize(),
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("更新成功")
                     }
-                    else
-                    {
+                    else {
                         alert("更新失败")
                     }
                 }
@@ -49,7 +47,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -81,26 +80,31 @@
                                 <form id="form1" method="post" action="" class="site-form">
                                     <div class="form-group">
                                         <label for="stuname">学生姓名</label>
-                                        <input type="text" class="form-control" name="stuname" id="stuname" value="${student.stuname}" />
+                                        <input type="text" class="form-control" name="stuname" id="stuname"
+                                               value="${student.stuname}"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="username">用户名</label>
-                                        <input type="text" class="form-control" name="username" id="username" value="${student.username}">
+                                        <input type="text" class="form-control" name="username" id="username"
+                                               value="${student.username}">
                                     </div>
                                     <div class="form-group">
                                         <label for="stumail">邮箱</label>
-                                        <input type="email" class="form-control" name="stumail" id="stumail" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${student.stumail}">
+                                        <input type="email" class="form-control" name="stumail" id="stumail"
+                                               aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址"
+                                               value="${student.stumail}">
                                         <small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="stunumber">学号</label>
-                                        <input type="text" class="form-control" name="stunumber" id="stunumber" value="${student.stunumber}">
+                                        <input type="text" class="form-control" name="stunumber" id="stunumber"
+                                               value="${student.stunumber}">
                                     </div>
                                     <div class="form-group">
                                         <label class="col-12" id="class-input">年级</label>
                                         <div class="col-12">
                                             <select class="form-control" id="select" name="updatetime" size="1">
-                                            <option value="${student.grade}">${student.grade}</option>
+                                                <option value="${student.grade}">${student.grade}</option>
                                             <#list gradeList as cl>
                                                 <script>
                                                     $("#select").append("<option value=\"${cl.grade}\">${cl.grade}</option>\n")
@@ -110,29 +114,30 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="sex" >性别</label>
+                                        <label class="sex">性别</label>
                                         <select class="form-control" id="select" name="sex" size="1  ">
                                             <#if student.sex == 1>
-                                                <option  value="1">男</option>
+                                                <option value="1">男</option>
                                                 <option value="0">女</option>
                                             <#else>
                                                 <option value="0">女</option>
-                                                <option  value="1">男</option>
+                                                <option value="1">男</option>
                                             </#if>
 
                                         </select>
                                     </div>
-                                    <#--<input type="hidden" class="form-control" name="password" id="password" value="${student.password}">-->
-                                    <#--<input type="hidden" class="form-control" name="lastname" id="lastname" value="${student.lastname}">-->
-                                    <#--<input type="hidden" class="form-control" name="registeredtime" id="registeredtime" value="${student.registeredtime}">-->
-                                    <#--<input type="hidden" class="form-control" name="loginnumber" id="loginnumber" value="${student.loginnumber}">-->
-                                    <#--<input type="hidden" class="form-control" name="deleteTime" id="deleteTime" value="${student.deleteTime}">-->
-                                    <#--<input type="hidden" class="form-control" name="endtime" id="endtime" value="${student.endtime}">-->
-                                    <#--<input type="hidden" class="form-control" name="isDelete" id="isDelete" value="${student.isDelete}">-->
-                                    <#--<input type="hidden" class="form-control" name="updatetime" id="updatetime" value="${student.updatetime}">-->
-                                    <#--<input type="hidden" class="form-control" name="updatepasswordtime" id="updatepasswordtime" value="${student.updatepasswordtime}">-->
-                                    <#--<input type="hidden" class="form-control" name="sex" id="sex" value="${student.sex}">-->
-                                    <button onclick="update(${student.id})" type="button" class="btn btn-primary">保存</button>
+                                <#--<input type="hidden" class="form-control" name="password" id="password" value="${student.password}">-->
+                                <#--<input type="hidden" class="form-control" name="lastname" id="lastname" value="${student.lastname}">-->
+                                <#--<input type="hidden" class="form-control" name="registeredtime" id="registeredtime" value="${student.registeredtime}">-->
+                                <#--<input type="hidden" class="form-control" name="loginnumber" id="loginnumber" value="${student.loginnumber}">-->
+                                <#--<input type="hidden" class="form-control" name="deleteTime" id="deleteTime" value="${student.deleteTime}">-->
+                                <#--<input type="hidden" class="form-control" name="endtime" id="endtime" value="${student.endtime}">-->
+                                <#--<input type="hidden" class="form-control" name="isDelete" id="isDelete" value="${student.isDelete}">-->
+                                <#--<input type="hidden" class="form-control" name="updatetime" id="updatetime" value="${student.updatetime}">-->
+                                <#--<input type="hidden" class="form-control" name="updatepasswordtime" id="updatepasswordtime" value="${student.updatepasswordtime}">-->
+                                <#--<input type="hidden" class="form-control" name="sex" id="sex" value="${student.sex}">-->
+                                    <button onclick="update(${student.id})" type="button" class="btn btn-primary">保存
+                                    </button>
                                 </form>
 
                             </div>

@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="admin.generator.dao.CommentParentChildMapper" >
-    <resultMap id="BaseResultMap" type="admin.generator.entity.CommentParentChild" >
-        <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="parentid" property="parentid" jdbcType="INTEGER" />
-        <result column="parentname" property="parentname" jdbcType="VARCHAR" />
-        <result column="creat_time" property="creatTime" jdbcType="VARCHAR" />
-        <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
-        <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
-        <result column="updateTime" property="updatetime" jdbcType="VARCHAR" />
-        <result column="flag" property="flag" jdbcType="INTEGER" />
-        <result column="username" property="username" jdbcType="VARCHAR" />
-        <result column="pictureURL" property="pictureurl" jdbcType="VARCHAR" />
-        <result column="up" property="up" jdbcType="INTEGER" />
-        <result column="uid" property="uid" jdbcType="INTEGER" />
+<mapper namespace="admin.generator.dao.CommentParentChildMapper">
+    <resultMap id="BaseResultMap" type="admin.generator.entity.CommentParentChild">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="parentid" property="parentid" jdbcType="INTEGER"/>
+        <result column="parentname" property="parentname" jdbcType="VARCHAR"/>
+        <result column="creat_time" property="creatTime" jdbcType="VARCHAR"/>
+        <result column="is_delete" property="isDelete" jdbcType="INTEGER"/>
+        <result column="delete_time" property="deleteTime" jdbcType="VARCHAR"/>
+        <result column="updateTime" property="updatetime" jdbcType="VARCHAR"/>
+        <result column="flag" property="flag" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="pictureURL" property="pictureurl" jdbcType="VARCHAR"/>
+        <result column="up" property="up" jdbcType="INTEGER"/>
+        <result column="uid" property="uid" jdbcType="INTEGER"/>
     </resultMap>
-    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.CommentParentChild" extends="BaseResultMap" >
-        <result column="content" property="content" jdbcType="LONGVARCHAR" />
+    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.CommentParentChild" extends="BaseResultMap">
+        <result column="content" property="content" jdbcType="LONGVARCHAR"/>
     </resultMap>
-    <sql id="Base_Column_List" >
-    id, parentid, parentname, creat_time, is_delete, delete_time, updateTime, flag, username,
-    pictureURL, up, uid
-  </sql>
-    <sql id="Blob_Column_List" >
-    content
-  </sql>
-    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <sql id="Base_Column_List">
+        id, parentid, parentname, creat_time, is_delete, delete_time, updateTime, flag, username,
+        pictureURL, up, uid
+    </sql>
+    <sql id="Blob_Column_List">
+        content
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
         select
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         ,
-        <include refid="Blob_Column_List" />
+        <include refid="Blob_Column_List"/>
         from comment_parent_child
         where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="queryAll" resultMap="ResultMapWithBLOBs">
-    select *
-    from comment_parent_child
-    where is_delete=0
-    order by id desc
-  </select>
+        select *
+        from comment_parent_child
+        where is_delete=0
+        order by id desc
+    </select>
     <select id="queryByUsername" resultMap="ResultMapWithBLOBs">
         select *
         from comment_parent_child
@@ -48,179 +48,179 @@
         select count(id)
         from comment_parent_child
         where is_delete=0 and (creat_time between #{startTime} and #{endTime})
-  </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from comment_parent_child
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-    <insert id="insert" parameterType="admin.generator.entity.CommentParentChild" >
-    insert into comment_parent_child (id, parentid, parentname,
-      creat_time, is_delete, delete_time,
-      updateTime, flag, username,
-      pictureURL, up, uid,
-      content)
-    values (#{id,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{parentname,jdbcType=VARCHAR},
-      #{creatTime,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{deleteTime,jdbcType=VARCHAR},
-      #{updatetime,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
-      #{pictureurl,jdbcType=VARCHAR}, #{up,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER},
-      #{content,jdbcType=LONGVARCHAR})
-  </insert>
-    <insert id="insertSelective" parameterType="admin.generator.entity.CommentParentChild" >
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from comment_parent_child
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="admin.generator.entity.CommentParentChild">
+        insert into comment_parent_child (id, parentid, parentname,
+        creat_time, is_delete, delete_time,
+        updateTime, flag, username,
+        pictureURL, up, uid,
+        content)
+        values (#{id,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{parentname,jdbcType=VARCHAR},
+        #{creatTime,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{deleteTime,jdbcType=VARCHAR},
+        #{updatetime,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
+        #{pictureurl,jdbcType=VARCHAR}, #{up,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER},
+        #{content,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="admin.generator.entity.CommentParentChild">
         insert into comment_parent_child
-        <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 id,
             </if>
-            <if test="parentid != null" >
+            <if test="parentid != null">
                 parentid,
             </if>
-            <if test="parentname != null" >
+            <if test="parentname != null">
                 parentname,
             </if>
-            <if test="creatTime != null" >
+            <if test="creatTime != null">
                 creat_time,
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 is_delete,
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 delete_time,
             </if>
-            <if test="updatetime != null" >
+            <if test="updatetime != null">
                 updateTime,
             </if>
-            <if test="flag != null" >
+            <if test="flag != null">
                 flag,
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 username,
             </if>
-            <if test="pictureurl != null" >
+            <if test="pictureurl != null">
                 pictureURL,
             </if>
-            <if test="up != null" >
+            <if test="up != null">
                 up,
             </if>
-            <if test="uid != null" >
+            <if test="uid != null">
                 uid,
             </if>
-            <if test="content != null" >
+            <if test="content != null">
                 content,
             </if>
         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 #{id,jdbcType=INTEGER},
             </if>
-            <if test="parentid != null" >
+            <if test="parentid != null">
                 #{parentid,jdbcType=INTEGER},
             </if>
-            <if test="parentname != null" >
+            <if test="parentname != null">
                 #{parentname,jdbcType=VARCHAR},
             </if>
-            <if test="creatTime != null" >
+            <if test="creatTime != null">
                 #{creatTime,jdbcType=VARCHAR},
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 #{isDelete,jdbcType=INTEGER},
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 #{deleteTime,jdbcType=VARCHAR},
             </if>
-            <if test="updatetime != null" >
+            <if test="updatetime != null">
                 #{updatetime,jdbcType=VARCHAR},
             </if>
-            <if test="flag != null" >
+            <if test="flag != null">
                 #{flag,jdbcType=INTEGER},
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 #{username,jdbcType=VARCHAR},
             </if>
-            <if test="pictureurl != null" >
+            <if test="pictureurl != null">
                 #{pictureurl,jdbcType=VARCHAR},
             </if>
-            <if test="up != null" >
+            <if test="up != null">
                 #{up,jdbcType=INTEGER},
             </if>
-            <if test="uid != null" >
+            <if test="uid != null">
                 #{uid,jdbcType=INTEGER},
             </if>
-            <if test="content != null" >
+            <if test="content != null">
                 #{content,jdbcType=LONGVARCHAR},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.CommentParentChild" >
+    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.CommentParentChild">
         update comment_parent_child
-        <set >
-            <if test="parentid != null" >
+        <set>
+            <if test="parentid != null">
                 parentid = #{parentid,jdbcType=INTEGER},
             </if>
-            <if test="parentname != null" >
+            <if test="parentname != null">
                 parentname = #{parentname,jdbcType=VARCHAR},
             </if>
-            <if test="creatTime != null" >
+            <if test="creatTime != null">
                 creat_time = #{creatTime,jdbcType=VARCHAR},
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 is_delete = #{isDelete,jdbcType=INTEGER},
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 delete_time = #{deleteTime,jdbcType=VARCHAR},
             </if>
-            <if test="updatetime != null" >
+            <if test="updatetime != null">
                 updateTime = #{updatetime,jdbcType=VARCHAR},
             </if>
-            <if test="flag != null" >
+            <if test="flag != null">
                 flag = #{flag,jdbcType=INTEGER},
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 username = #{username,jdbcType=VARCHAR},
             </if>
-            <if test="pictureurl != null" >
+            <if test="pictureurl != null">
                 pictureURL = #{pictureurl,jdbcType=VARCHAR},
             </if>
-            <if test="up != null" >
+            <if test="up != null">
                 up = #{up,jdbcType=INTEGER},
             </if>
-            <if test="uid != null" >
+            <if test="uid != null">
                 uid = #{uid,jdbcType=INTEGER},
             </if>
-            <if test="content != null" >
+            <if test="content != null">
                 content = #{content,jdbcType=LONGVARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.CommentParentChild" >
-    update comment_parent_child
-    set parentid = #{parentid,jdbcType=INTEGER},
-      parentname = #{parentname,jdbcType=VARCHAR},
-      creat_time = #{creatTime,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      updateTime = #{updatetime,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=INTEGER},
-      username = #{username,jdbcType=VARCHAR},
-      pictureURL = #{pictureurl,jdbcType=VARCHAR},
-      up = #{up,jdbcType=INTEGER},
-      uid = #{uid,jdbcType=INTEGER},
-      content = #{content,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.CommentParentChild" >
-    update comment_parent_child
-    set parentid = #{parentid,jdbcType=INTEGER},
-      parentname = #{parentname,jdbcType=VARCHAR},
-      creat_time = #{creatTime,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      updateTime = #{updatetime,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=INTEGER},
-      username = #{username,jdbcType=VARCHAR},
-      pictureURL = #{pictureurl,jdbcType=VARCHAR},
-      up = #{up,jdbcType=INTEGER},
-      uid = #{uid,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.CommentParentChild">
+        update comment_parent_child
+        set parentid = #{parentid,jdbcType=INTEGER},
+        parentname = #{parentname,jdbcType=VARCHAR},
+        creat_time = #{creatTime,jdbcType=VARCHAR},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+        updateTime = #{updatetime,jdbcType=VARCHAR},
+        flag = #{flag,jdbcType=INTEGER},
+        username = #{username,jdbcType=VARCHAR},
+        pictureURL = #{pictureurl,jdbcType=VARCHAR},
+        up = #{up,jdbcType=INTEGER},
+        uid = #{uid,jdbcType=INTEGER},
+        content = #{content,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.CommentParentChild">
+        update comment_parent_child
+        set parentid = #{parentid,jdbcType=INTEGER},
+        parentname = #{parentname,jdbcType=VARCHAR},
+        creat_time = #{creatTime,jdbcType=VARCHAR},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+        updateTime = #{updatetime,jdbcType=VARCHAR},
+        flag = #{flag,jdbcType=INTEGER},
+        username = #{username,jdbcType=VARCHAR},
+        pictureURL = #{pictureurl,jdbcType=VARCHAR},
+        up = #{up,jdbcType=INTEGER},
+        uid = #{uid,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>留言回复</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="description" content="态势语后台管理系统">
@@ -17,12 +17,10 @@
                 url: "/community/addReply",
                 data: $("#reply").serialize(),
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("回复成功");
                     }
-                    else
-                    {
+                    else {
                         alert("回复失败");
                     }
                 }

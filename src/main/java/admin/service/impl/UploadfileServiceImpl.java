@@ -20,13 +20,14 @@ public class UploadfileServiceImpl implements UploadfileService
 {
     @Autowired
     UploadfileMapper uploadfileMapper;
+
     /**
-    * @Description: 插入上传文件信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-1
-    */
+     * @Description: 插入上传文件信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-1
+     */
     @Override
     public int insert(Uploadfile record)
     {
@@ -34,12 +35,12 @@ public class UploadfileServiceImpl implements UploadfileService
     }
 
     /**
-    * @Description: 查询已上传文件信息
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-5
-    */
+     * @Description: 查询已上传文件信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-5
+     */
     @Override
     public List<Uploadfile> queryAll()
     {
@@ -47,12 +48,12 @@ public class UploadfileServiceImpl implements UploadfileService
     }
 
     /**
-    * @Description: 模糊查询功能
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-5
-    */
+     * @Description: 模糊查询功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-5
+     */
     @Override
     public List<Uploadfile> fuzzyQuery(String fileName, String startTime, String endTime)
     {
@@ -60,12 +61,12 @@ public class UploadfileServiceImpl implements UploadfileService
     }
 
     /**
-    * @Description: 删除文件
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-5
-    */
+     * @Description: 删除文件
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-5
+     */
     @Override
     public int deleteByPrimaryKey(Integer id)
     {
@@ -73,12 +74,12 @@ public class UploadfileServiceImpl implements UploadfileService
     }
 
     /**
-    * @Description: 更新上传文件信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-5
-    */
+     * @Description: 更新上传文件信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-5
+     */
     @Override
     public int updateByPrimaryKeySelective(Uploadfile record)
     {

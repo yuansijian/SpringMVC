@@ -2,7 +2,8 @@ package admin.generator.dao;
 
 import admin.generator.entity.Systempicture;
 
-public interface SystempictureMapper {
+public interface SystempictureMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Systempicture record);

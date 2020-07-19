@@ -19,13 +19,14 @@ public class PictureteacherServiceImpl implements PictureteacherService
 {
     @Autowired
     PictureteacherMapper pictureteacherMapper;
+
     /**
-    * @Description: 查询所有图文教学
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-6
-    */
+     * @Description: 查询所有图文教学
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-6
+     */
     @Override
     public List<Pictureteacher> queryAll()
     {
@@ -33,12 +34,12 @@ public class PictureteacherServiceImpl implements PictureteacherService
     }
 
     /**
-    * @Description: 搜索
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-6
-    */
+     * @Description: 搜索
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-6
+     */
     @Override
     public List<Pictureteacher> fuzzySearch(String startTime, String endTime, String pname)
     {
@@ -46,12 +47,12 @@ public class PictureteacherServiceImpl implements PictureteacherService
     }
 
     /**
-    * @Description:新增
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-6
-    */
+     * @Description:新增
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-6
+     */
     @Override
     public int insert(Pictureteacher record)
     {
@@ -59,12 +60,12 @@ public class PictureteacherServiceImpl implements PictureteacherService
     }
 
     /**
-    * @Description: 更新（假删除)
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-7
-    */
+     * @Description: 更新（假删除)
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-7
+     */
     @Override
     public int updateByPrimaryKeySelective(Pictureteacher record)
     {
@@ -72,12 +73,12 @@ public class PictureteacherServiceImpl implements PictureteacherService
     }
 
     /**
-    * @Description: 查询
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-7
-    */
+     * @Description: 查询
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-7
+     */
     @Override
     public Pictureteacher selectByPrimaryKey(Integer id)
     {

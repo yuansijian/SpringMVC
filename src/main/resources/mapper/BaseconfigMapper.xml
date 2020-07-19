@@ -1,157 +1,157 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="admin.generator.dao.BaseconfigMapper" >
-  <resultMap id="BaseResultMap" type="admin.generator.entity.Baseconfig" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="logoPic" property="logopic" jdbcType="VARCHAR" />
-    <result column="keyword" property="keyword" jdbcType="VARCHAR" />
-    <result column="switch1" property="switch1" jdbcType="INTEGER" />
-    <result column="updateTime" property="updatetime" jdbcType="VARCHAR" />
-    <result column="updater" property="updater" jdbcType="VARCHAR" />
-  </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.BaseconfigWithBLOBs" extends="BaseResultMap" >
-    <result column="description" property="description" jdbcType="LONGVARCHAR" />
-    <result column="copyright" property="copyright" jdbcType="LONGVARCHAR" />
-    <result column="record" property="record" jdbcType="LONGVARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, logoPic, keyword, switch1, updateTime, updater
-  </sql>
-  <sql id="Blob_Column_List" >
-    description, copyright, record
-  </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from baseconfig
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from baseconfig
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="admin.generator.entity.BaseconfigWithBLOBs" >
-    insert into baseconfig (id, logoPic, keyword, 
-      switch1, updateTime, updater, 
-      description, copyright, record
-      )
-    values (#{id,jdbcType=INTEGER}, #{logopic,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, 
-      #{switch1,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR}, #{updater,jdbcType=VARCHAR}, 
-      #{description,jdbcType=LONGVARCHAR}, #{copyright,jdbcType=LONGVARCHAR}, #{record,jdbcType=LONGVARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="admin.generator.entity.BaseconfigWithBLOBs" >
-    insert into baseconfig
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="logopic != null" >
-        logoPic,
-      </if>
-      <if test="keyword != null" >
-        keyword,
-      </if>
-      <if test="switch1 != null" >
-        switch1,
-      </if>
-      <if test="updatetime != null" >
-        updateTime,
-      </if>
-      <if test="updater != null" >
-        updater,
-      </if>
-      <if test="description != null" >
-        description,
-      </if>
-      <if test="copyright != null" >
-        copyright,
-      </if>
-      <if test="record != null" >
-        record,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="logopic != null" >
-        #{logopic,jdbcType=VARCHAR},
-      </if>
-      <if test="keyword != null" >
-        #{keyword,jdbcType=VARCHAR},
-      </if>
-      <if test="switch1 != null" >
-        #{switch1,jdbcType=INTEGER},
-      </if>
-      <if test="updatetime != null" >
-        #{updatetime,jdbcType=VARCHAR},
-      </if>
-      <if test="updater != null" >
-        #{updater,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null" >
-        #{description,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="copyright != null" >
-        #{copyright,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="record != null" >
-        #{record,jdbcType=LONGVARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.BaseconfigWithBLOBs" >
-    update baseconfig
-    <set >
-      <if test="logopic != null" >
-        logoPic = #{logopic,jdbcType=VARCHAR},
-      </if>
-      <if test="keyword != null" >
+<mapper namespace="admin.generator.dao.BaseconfigMapper">
+    <resultMap id="BaseResultMap" type="admin.generator.entity.Baseconfig">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="logoPic" property="logopic" jdbcType="VARCHAR"/>
+        <result column="keyword" property="keyword" jdbcType="VARCHAR"/>
+        <result column="switch1" property="switch1" jdbcType="INTEGER"/>
+        <result column="updateTime" property="updatetime" jdbcType="VARCHAR"/>
+        <result column="updater" property="updater" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.BaseconfigWithBLOBs" extends="BaseResultMap">
+        <result column="description" property="description" jdbcType="LONGVARCHAR"/>
+        <result column="copyright" property="copyright" jdbcType="LONGVARCHAR"/>
+        <result column="record" property="record" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, logoPic, keyword, switch1, updateTime, updater
+    </sql>
+    <sql id="Blob_Column_List">
+        description, copyright, record
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from baseconfig
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from baseconfig
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="admin.generator.entity.BaseconfigWithBLOBs">
+        insert into baseconfig (id, logoPic, keyword,
+        switch1, updateTime, updater,
+        description, copyright, record
+        )
+        values (#{id,jdbcType=INTEGER}, #{logopic,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR},
+        #{switch1,jdbcType=INTEGER}, #{updatetime,jdbcType=VARCHAR}, #{updater,jdbcType=VARCHAR},
+        #{description,jdbcType=LONGVARCHAR}, #{copyright,jdbcType=LONGVARCHAR}, #{record,jdbcType=LONGVARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="admin.generator.entity.BaseconfigWithBLOBs">
+        insert into baseconfig
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="logopic != null">
+                logoPic,
+            </if>
+            <if test="keyword != null">
+                keyword,
+            </if>
+            <if test="switch1 != null">
+                switch1,
+            </if>
+            <if test="updatetime != null">
+                updateTime,
+            </if>
+            <if test="updater != null">
+                updater,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+            <if test="copyright != null">
+                copyright,
+            </if>
+            <if test="record != null">
+                record,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="logopic != null">
+                #{logopic,jdbcType=VARCHAR},
+            </if>
+            <if test="keyword != null">
+                #{keyword,jdbcType=VARCHAR},
+            </if>
+            <if test="switch1 != null">
+                #{switch1,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="updater != null">
+                #{updater,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="copyright != null">
+                #{copyright,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="record != null">
+                #{record,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.BaseconfigWithBLOBs">
+        update baseconfig
+        <set>
+            <if test="logopic != null">
+                logoPic = #{logopic,jdbcType=VARCHAR},
+            </if>
+            <if test="keyword != null">
+                keyword = #{keyword,jdbcType=VARCHAR},
+            </if>
+            <if test="switch1 != null">
+                switch1 = #{switch1,jdbcType=INTEGER},
+            </if>
+            <if test="updatetime != null">
+                updateTime = #{updatetime,jdbcType=VARCHAR},
+            </if>
+            <if test="updater != null">
+                updater = #{updater,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="copyright != null">
+                copyright = #{copyright,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="record != null">
+                record = #{record,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.BaseconfigWithBLOBs">
+        update baseconfig
+        set logoPic = #{logopic,jdbcType=VARCHAR},
         keyword = #{keyword,jdbcType=VARCHAR},
-      </if>
-      <if test="switch1 != null" >
         switch1 = #{switch1,jdbcType=INTEGER},
-      </if>
-      <if test="updatetime != null" >
         updateTime = #{updatetime,jdbcType=VARCHAR},
-      </if>
-      <if test="updater != null" >
         updater = #{updater,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null" >
         description = #{description,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="copyright != null" >
         copyright = #{copyright,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="record != null" >
-        record = #{record,jdbcType=LONGVARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.BaseconfigWithBLOBs" >
-    update baseconfig
-    set logoPic = #{logopic,jdbcType=VARCHAR},
-      keyword = #{keyword,jdbcType=VARCHAR},
-      switch1 = #{switch1,jdbcType=INTEGER},
-      updateTime = #{updatetime,jdbcType=VARCHAR},
-      updater = #{updater,jdbcType=VARCHAR},
-      description = #{description,jdbcType=LONGVARCHAR},
-      copyright = #{copyright,jdbcType=LONGVARCHAR},
-      record = #{record,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Baseconfig" >
-    update baseconfig
-    set logoPic = #{logopic,jdbcType=VARCHAR},
-      keyword = #{keyword,jdbcType=VARCHAR},
-      switch1 = #{switch1,jdbcType=INTEGER},
-      updateTime = #{updatetime,jdbcType=VARCHAR},
-      updater = #{updater,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+        record = #{record,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Baseconfig">
+        update baseconfig
+        set logoPic = #{logopic,jdbcType=VARCHAR},
+        keyword = #{keyword,jdbcType=VARCHAR},
+        switch1 = #{switch1,jdbcType=INTEGER},
+        updateTime = #{updatetime,jdbcType=VARCHAR},
+        updater = #{updater,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

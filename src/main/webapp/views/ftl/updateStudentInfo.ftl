@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>学生信息 - 后台管理系统模板</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -29,7 +29,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -58,28 +59,35 @@
                                 <form method="post" action="/user/updateStudentInfo/" class="site-form">
                                     <div class="form-group">
                                         <label for="stuname">学生姓名</label>
-                                        <input type="text" class="form-control" name="stuname" id="stuname" value="${student.stuname}" />
+                                        <input type="text" class="form-control" name="stuname" id="stuname"
+                                               value="${student.stuname}"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="username">用户名</label>
-                                        <input type="text" class="form-control" name="username" id="username" value="${student.username}">
+                                        <input type="text" class="form-control" name="username" id="username"
+                                               value="${student.username}">
                                     </div>
                                     <div class="form-group">
                                         <label for="stumail">邮箱</label>
-                                        <input type="email" class="form-control" name="stumail" id="stumail" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${student.stumail}">
+                                        <input type="email" class="form-control" name="stumail" id="stumail"
+                                               aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址"
+                                               value="${student.stumail}">
                                         <small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>
                                     </div>
                                     <div class="form-group">
                                         <label for="stunumber">学号</label>
-                                        <input type="text" class="form-control" name="stunumber" id="stunumber" value="${student.stunumber}">
+                                        <input type="text" class="form-control" name="stunumber" id="stunumber"
+                                               value="${student.stunumber}">
                                     </div>
                                     <div class="form-group">
                                         <label for="class1">班级</label>
-                                        <input type="text" class="form-control" name="class1" id="class1" value="${student.class1}">
+                                        <input type="text" class="form-control" name="class1" id="class1"
+                                               value="${student.class1}">
                                     </div>
                                     <div class="form-group">
                                         <label for="sex">性别</label>
-                                        <input type="text" class="form-control" name="sex" id="sex" value="${student.sex}">
+                                        <input type="text" class="form-control" name="sex" id="sex"
+                                               value="${student.sex}">
                                     </div>
                                 <#--<input type="hidden" class="form-control" name="password" id="password" value="${student.password}">-->
                                 <#--<input type="hidden" class="form-control" name="lastname" id="lastname" value="${student.lastname}">-->

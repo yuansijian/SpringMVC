@@ -5,7 +5,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface Classes1Mapper {
+public interface Classes1Mapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Classes1 record);
@@ -24,7 +25,7 @@ public interface Classes1Mapper {
 
     List<String> queryClass();
 
-    List<Classes1> fuzzyQuery(@Param("keyword")String keyword);
+    List<Classes1> fuzzyQuery(@Param("keyword") String keyword);
 
     List<Classes1> queryUsed();
 }

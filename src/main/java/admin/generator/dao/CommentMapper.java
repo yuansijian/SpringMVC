@@ -6,7 +6,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface CommentMapper {
+public interface CommentMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(CommentWithBLOBs record);
@@ -23,6 +24,6 @@ public interface CommentMapper {
 
     List<CommentWithBLOBs> queryAll();
 
-    int addMessage(@Param("startTime")String startTime, @Param("endTime")String endTime);
+    int addMessage(@Param("startTime") String startTime, @Param("endTime") String endTime);
 
 }

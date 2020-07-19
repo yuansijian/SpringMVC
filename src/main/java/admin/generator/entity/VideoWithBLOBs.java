@@ -1,23 +1,28 @@
 package admin.generator.entity;
 
-public class VideoWithBLOBs extends Video {
+public class VideoWithBLOBs extends Video
+{
     private String videourl;
 
     private String description;
 
-    public String getVideourl() {
+    public String getVideourl()
+    {
         return videourl;
     }
 
-    public void setVideourl(String videourl) {
+    public void setVideourl(String videourl)
+    {
         this.videourl = videourl == null ? null : videourl.trim();
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description)
+    {
         this.description = description == null ? null : description.trim();
     }
 }

@@ -19,13 +19,14 @@ public class Classes1ServiceImpl implements Classes1Service
 {
     @Autowired
     Classes1Mapper classes1Mapper;
+
     /**
-    * @Description: 查找所有
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 查找所有
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @Override
     public List<Classes1> queryAll()
     {
@@ -33,12 +34,12 @@ public class Classes1ServiceImpl implements Classes1Service
     }
 
     /**
-    * @Description: 年级班级
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 年级班级
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @Override
     public List<String> queryClass()
     {
@@ -46,12 +47,12 @@ public class Classes1ServiceImpl implements Classes1Service
     }
 
     /**
-    * @Description: 搜索功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 搜索功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @Override
     public List<Classes1> fuzzyQuery(String keyword)
     {
@@ -59,12 +60,12 @@ public class Classes1ServiceImpl implements Classes1Service
     }
 
     /**
-    * @Description: 插入
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 插入
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @Override
     public int insert(Classes1 record)
     {
@@ -72,12 +73,12 @@ public class Classes1ServiceImpl implements Classes1Service
     }
 
     /**
-    * @Description: 更新
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @Override
     public int updateByPrimaryKeySelective(Classes1 record)
     {
@@ -85,12 +86,12 @@ public class Classes1ServiceImpl implements Classes1Service
     }
 
     /**
-    * @Description: 通过id查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-18
-    */
+     * @Description: 通过id查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-18
+     */
     @Override
     public Classes1 selectByPrimaryKey(Integer id)
     {
@@ -98,12 +99,12 @@ public class Classes1ServiceImpl implements Classes1Service
     }
 
     /**
-    * @Description: 查找已启用的年级班级,用于注册选择
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 查找已启用的年级班级, 用于注册选择
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @Override
     public List<Classes1> queryUsed()
     {

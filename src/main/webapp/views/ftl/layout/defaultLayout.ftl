@@ -3,7 +3,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>首页 - 后台管理系统</title>
     <link rel="icon" href="/static/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">

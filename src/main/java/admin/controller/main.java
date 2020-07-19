@@ -67,15 +67,19 @@ public class main
     private LoginnumberService loginnumberService;
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
+    @Autowired
+    private ReplygoodService replygoodService;
+    @Autowired
+    private CommentgoodService commentgoodService;
 
 
     /**
-    * @Description: 获得当天日期
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-16
-    */
+     * @Description: 获得当天日期
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-16
+     */
     public static String getDate()
     {
         Date date = new Date();
@@ -86,44 +90,41 @@ public class main
     }
 
     /**
-    * @Description: 主界面
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-13
-    */
+     * @Description: 主界面
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-13
+     */
     @RequestMapping("index")
-    public String main(Model model, HttpSession session,
-                       @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                       @RequestParam(value = "pageSize", defaultValue = "25")int pageSize,
-                       @RequestParam(value = "id", defaultValue = "0")int id)
+    public String main(Model model, HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "25") int pageSize, @RequestParam(value = "id", defaultValue = "0") int id)
     {
         PageHelper.startPage(pageNum, pageSize);
 
-        System.out.println("id="+id);
+        System.out.println("id=" + id);
 
         List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
         PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
         model.addAttribute("pageInfo", pageInfo);
 
         model.addAttribute("ids", id);
-        System.out.println("id="+id);
+        System.out.println("id=" + id);
 
 
         return "main/main.ftl";
     }
 
     /**
-    * @Description: 图文教学
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-13
-    */
+     * @Description: 图文教学
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-13
+     */
     @RequestMapping("picture/{id}")
-    public String picture(@PathVariable("id")int id, Model model, HttpSession session)
+    public String picture(@PathVariable("id") int id, Model model, HttpSession session)
     {
-//        System.out.println(id);
+        //        System.out.println(id);
 
         PageHelper.startPage(1, 25);
 
@@ -142,18 +143,16 @@ public class main
 
         return "main/picture.ftl";
     }
-    
+
     /**
-    * @Description: 资源中心
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-13
-    */
+     * @Description: 资源中心
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-13
+     */
     @RequestMapping("resource")
-    public String resource(Model model, HttpSession session,
-                           @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                           @RequestParam(value = "pageSize", defaultValue = "25")int pageSize)
+    public String resource(Model model, HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "25") int pageSize)
     {
 
         PageHelper.startPage(pageNum, pageSize);
@@ -168,12 +167,12 @@ public class main
     }
 
     /**
-    * @Description: 个人中心
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-13
-    */
+     * @Description: 个人中心
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-13
+     */
     @RequestMapping("information")
     public String information(Model model, HttpSession session)
     {
@@ -187,32 +186,33 @@ public class main
     }
 
     /**
-    * @Description: 更改头像
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-20
-    */
+     * @Description: 更改头像
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-20
+     */
     @RequestMapping("changePhoto")
-    public String changePhoto(HttpSession session, @RequestParam("imageURL") MultipartFile multipartFile, @RequestParam("id")int id)
+    public String changePhoto(HttpSession session, @RequestParam("imageURL") MultipartFile multipartFile, @RequestParam("id") int id)
     {
         Student student = new Student();
         Student temp = studentService.selectByPrimaryKey(id);
 
-        if(!multipartFile.isEmpty())
+        if (!multipartFile.isEmpty())
         {
-            try{
+            try
+            {
                 String rootPath = "/home/protecting/Documents/javaProject/SpringMVC/src/main/webapp/statics/studentHeader/";
 
                 //获取原文件名
                 String name = multipartFile.getOriginalFilename();
                 //获取扩展名
-                String type = name.substring(name.lastIndexOf(".")+1).toLowerCase();
-                String newFileName = id + "." +type;
+                String type = name.substring(name.lastIndexOf(".") + 1).toLowerCase();
+                String newFileName = id + "." + type;
 
                 File dir = new File(rootPath + newFileName);
 
-                if(!dir.exists())
+                if (!dir.exists())
                 {
                     dir.mkdirs();
                 }
@@ -225,9 +225,9 @@ public class main
                 student.setImageurl(newFileName);
                 studentService.updateByPrimaryKeySelective(student);
 
-                if(temp.getGrade().equals("teacher"))
+                if (temp.getGrade().equals("teacher"))
                 {
-                    Teacher teacher = (Teacher)session.getAttribute("teacher");
+                    Teacher teacher = (Teacher) session.getAttribute("teacher");
                     Teacher temp1 = new Teacher();
 
                     temp1.setId(teacher.getId());
@@ -236,10 +236,11 @@ public class main
                     System.out.println(teacherService.updateByPrimaryKeySelective(temp1));
                 }
 
-                System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+                System.out.println("You successfully uploaded file=" + multipartFile.getOriginalFilename());
 
 
-            }catch (Exception e){
+            } catch (Exception e)
+            {
                 e.printStackTrace();
             }
         }
@@ -252,16 +253,16 @@ public class main
     }
 
     /**
-    * @Description: 更新教师信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-23
-    */
+     * @Description: 更新教师信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-23
+     */
     @RequestMapping("updateTeaProfile")
     public String updateTeaProfile(Student student, HttpSession session)
     {
-        Teacher teacher = (Teacher)session.getAttribute("teacher");
+        Teacher teacher = (Teacher) session.getAttribute("teacher");
         Teacher temp = new Teacher();
         temp.setId(teacher.getId());
         temp.setUsername(student.getUsername());
@@ -273,18 +274,18 @@ public class main
 
         student = studentService.selectByPrimaryKey(student.getId());
 
-        session.setAttribute("student",student);
+        session.setAttribute("student", student);
 
         return "redirect:/main/information";
     }
 
     /**
-    * @Description: 更改个人信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-20
-    */
+     * @Description: 更改个人信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-20
+     */
     @RequestMapping("updateProfile")
     public String updateProfile(HttpSession session, Student student)
     {
@@ -293,22 +294,20 @@ public class main
 
         student = studentService.selectByPrimaryKey(student.getId());
 
-        session.setAttribute("student",student);
+        session.setAttribute("student", student);
 
         return "redirect:/main/information";
     }
 
     /**
-    * @Description: 作业中心
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-13
-    */
+     * @Description: 作业中心
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-13
+     */
     @RequestMapping("homework")
-    public String homework(Model model, HttpSession session,
-                           @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                           @RequestParam(value = "pageSize", defaultValue = "25")int pageSize)
+    public String homework(Model model, HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "25") int pageSize)
     {
         PageHelper.startPage(pageNum, pageSize);
 
@@ -322,49 +321,48 @@ public class main
     }
 
     /**
-    * @Description: 上传作业保存
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-20
-    */
+     * @Description: 上传作业保存
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-20
+     */
     @ResponseBody
     @RequestMapping("saveHomework/{id}")
-    public int saveHomework(@RequestParam("file")MultipartFile multipartFile, Model model, HttpSession session,
-                            @PathVariable("id") int id, @RequestParam("title")String title)
+    public int saveHomework(@RequestParam("file") MultipartFile multipartFile, Model model, HttpSession session, @PathVariable("id") int id, @RequestParam("title") String title)
     {
         {
             //        System.out.println(multipartFile + "123");
-//            Uploadfile uploadfile = new Uploadfile();
+            //            Uploadfile uploadfile = new Uploadfile();
 
             System.out.println("1111111111111");
             System.out.println(id);
 
             HomeworkWithBLOBs homeworkWithBLOBs = new HomeworkWithBLOBs();
 
-            Student student = (Student)session.getAttribute("student");
+            Student student = (Student) session.getAttribute("student");
             //获取文件允许上传的类型
             Uploadconfig uploadconfig = uploadconfigService.selectByPrimaryKey(1);
             String types = uploadconfig.getType1();
-            String []arr = types.split(",");
+            String[] arr = types.split(",");
 
             //文件扩展名
             String type = multipartFile.getOriginalFilename().substring(multipartFile.getOriginalFilename().lastIndexOf(".") + 1);
 
-            if(!isexist(arr, type))
+            if (!isexist(arr, type))
             {
                 return 303;
                 //            return "redirect:/error500";
             }
 
-            if(multipartFile.getSize() > 204800000)
+            if (multipartFile.getSize() > 204800000)
             {
                 return 202;
                 //            return "redirect:/error500";
             }
 
 
-            if(!multipartFile.isEmpty())
+            if (!multipartFile.isEmpty())
             {
                 try
                 {
@@ -372,7 +370,7 @@ public class main
 
                     File dir = new File(rootPath + File.separator);
 
-                    if(!dir.exists())
+                    if (!dir.exists())
                     {
                         dir.mkdirs();
                     }
@@ -381,11 +379,10 @@ public class main
                     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
                     String currentDate = simpleDateFormat.format(date);
 
-                    File serverFile = new File(dir.getAbsolutePath() + File.separator + (currentDate+multipartFile.getOriginalFilename()));
+                    File serverFile = new File(dir.getAbsolutePath() + File.separator + (currentDate + multipartFile.getOriginalFilename()));
 
 
-
-                    homeworkWithBLOBs.setFileurl(currentDate+multipartFile.getOriginalFilename());
+                    homeworkWithBLOBs.setFileurl(currentDate + multipartFile.getOriginalFilename());
                     homeworkWithBLOBs.setGivehomeid(id);
                     homeworkWithBLOBs.setStudent(student.getStunumber());
                     homeworkWithBLOBs.setStuname(student.getStuname());
@@ -395,14 +392,15 @@ public class main
                     //                System.out.println(uploadfile);
                     multipartFile.transferTo(serverFile);
 
-                    System.out.println("You successfully uploaded file=" +  multipartFile.getOriginalFilename());
+                    System.out.println("You successfully uploaded file=" + multipartFile.getOriginalFilename());
 
-                    if(homeworkService.insert(homeworkWithBLOBs) == 1)
+                    if (homeworkService.insert(homeworkWithBLOBs) == 1)
                     {
                         return 1;
                     }
 
-                }catch (Exception e){
+                } catch (Exception e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -412,38 +410,37 @@ public class main
     }
 
     /**
-    * @Description: 留言功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-15
-    */
+     * @Description: 留言功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-15
+     */
     @RequestMapping("message")
-    public String message(Model model, HttpSession session,
-                          @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                          @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
+    public String message(Model model, HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize)
     {
-//        if(!message.equals(""))
-//        {
-//            CommentWithBLOBs comment = new CommentWithBLOBs();
-//
-//            Date date = new Date();
-//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
-//            String currentDate = simpleDateFormat.format(date);
-//
-//            comment.setCommenttime(currentDate);
-//            comment.setIsDelete(0);
-//            comment.setComment(message);
-//            comment.setUid(1);
-//            comment.setUsername("admin");
-//
-//            System.out.println(commentService.insert(comment));
-//        }
-        Student student = (Student)session.getAttribute("student");
+        //        if(!message.equals(""))
+        //        {
+        //            CommentWithBLOBs comment = new CommentWithBLOBs();
+        //
+        //            Date date = new Date();
+        //            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        //            String currentDate = simpleDateFormat.format(date);
+        //
+        //            comment.setCommenttime(currentDate);
+        //            comment.setIsDelete(0);
+        //            comment.setComment(message);
+        //            comment.setUid(1);
+        //            comment.setUsername("admin");
+        //
+        //            System.out.println(commentService.insert(comment));
+        //        }
+        Student student = (Student) session.getAttribute("student");
         PageHelper.startPage(pageNum, pageSize);
         List<CommentWithBLOBs> comment = commentService.queryAll();
         List<CommentParentChild> reply = commentParentChildService.queryAll();
         PageInfo<CommentWithBLOBs> pageInfo = new PageInfo(comment);
+
 
         model.addAttribute("pageInfo", pageInfo);
         model.addAttribute("reply", reply);
@@ -453,28 +450,27 @@ public class main
     }
 
     /**
-    * @Description: 留言点赞功能
-    * @Param:
-    * @return:
-    * @Author: Defend
-    * @Date: 20-6-3
-    */
+     * @Description: 留言点赞功能
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-6-3
+     */
     @ResponseBody
     @RequestMapping("commentGood")
-    public int good(@RequestParam(value = "id", defaultValue = "")String id, @RequestParam(value = "uid", defaultValue = "")String uid)
+    public int good(@RequestParam(value = "id", defaultValue = "") String id, @RequestParam(value = "uid", defaultValue = "") String uid)
     {
 
-        System.out.println(id + " " + uid);
+        //        System.out.println(id + " " + uid);
 
         String key = RedisKeyUtils.getLikedKey(uid, id);
 
-        if(redisTemplate.opsForHash().hasKey("good", key) && redisTemplate.opsForHash().get("good", key).equals("1"))
+        if (redisTemplate.opsForHash().hasKey("good", key) && redisTemplate.opsForHash().get("good", key).equals("1"))
         {
             redisTemplate.opsForHash().put("good", key, "0");
 
             return 0;
-        }
-        else
+        } else
         {
             redisTemplate.opsForHash().put("good", key, "1");
 
@@ -483,27 +479,26 @@ public class main
     }
 
     /**
-    * @Description: 留言回复点赞
-    * @Param:
-    * @return:
-    * @Author: Defend
-    * @Date: 20-6-12
-    */
+     * @Description: 留言回复点赞
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-6-12
+     */
     @ResponseBody
     @RequestMapping("replyGood")
-    public int replyGood(@RequestParam(value = "id", defaultValue = "")String id, @RequestParam(value = "uid")String uid)
+    public int replyGood(@RequestParam(value = "id", defaultValue = "") String id, @RequestParam(value = "uid") String uid)
     {
         System.out.println(id + " " + uid);
 
         String key = RedisKeyUtils.getLikedKey(uid, id);
 
-        if(redisTemplate.opsForHash().hasKey("replyGood", key) && redisTemplate.opsForHash().get("replyGood", key).equals("1"))
+        if (redisTemplate.opsForHash().hasKey("replyGood", key) && redisTemplate.opsForHash().get("replyGood", key).equals("1"))
         {
             redisTemplate.opsForHash().put("replyGood", key, "0");
 
             return 0;
-        }
-        else
+        } else
         {
             redisTemplate.opsForHash().put("replyGood", key, "1");
 
@@ -513,18 +508,18 @@ public class main
 
 
     /**
-    * @Description: 回复消息
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-20
-    */
+     * @Description: 回复消息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-20
+     */
     @RequestMapping("news/{username}")
-    public String news(Model model, HttpSession session, @PathVariable("username")String username)
+    public String news(Model model, HttpSession session, @PathVariable("username") String username)
     {
         List<CommentParentChild> list = commentParentChildService.queryByUsername(username);
 
-        Student student = (Student)session.getAttribute("student");
+        Student student = (Student) session.getAttribute("student");
 
         model.addAttribute("news", list);
         model.addAttribute("student", student);
@@ -533,18 +528,18 @@ public class main
     }
 
     /**
-    * @Description: 新增留言
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-15
-    */
+     * @Description: 新增留言
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-15
+     */
     @ResponseBody
     @RequestMapping("addMessage")
-    public int addMessage(@RequestParam("message")String message, HttpSession session)
+    public int addMessage(@RequestParam("message") String message, HttpSession session)
     {
 
-        Student student = (Student)session.getAttribute("student");
+        Student student = (Student) session.getAttribute("student");
 
         CommentWithBLOBs comment = new CommentWithBLOBs();
 
@@ -563,19 +558,19 @@ public class main
 
         return commentService.insert(comment);
     }
-    
+
     /**
-    * @Description: 新增主楼下回复
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-16
-    */
+     * @Description: 新增主楼下回复
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-16
+     */
     @ResponseBody
     @RequestMapping("addReply")
     public int addReply(Model model, HttpSession session, CommentParentChild commentParentChild)
     {
-        Student student = (Student)session.getAttribute("student");
+        Student student = (Student) session.getAttribute("student");
 
         commentParentChild.setCreatTime(getDate());
         commentParentChild.setFlag(0);
@@ -587,28 +582,28 @@ public class main
     }
 
     /**
-    * @Description: 登录
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-17
-    */
+     * @Description: 登录
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-17
+     */
     @ResponseBody
     @RequestMapping("login")
-    public int login(@RequestParam("username")String username, @RequestParam("password")String password, HttpSession session)
+    public int login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session)
     {
-//        System.out.println(username+password);
+        //        System.out.println(username+password);
 
         Student student = studentService.queryUsernameAndPassword(username, password);
 
 
-//        System.out.println(student.getUsername()+student.getPassword());
+        //        System.out.println(student.getUsername()+student.getPassword());
 
-        if(student.getUsername().equals(username) && student.getPassword().equals(password))
+        if (student.getUsername().equals(username) && student.getPassword().equals(password))
         {
             //当天活跃度
             Loginnumber loginnumber = loginnumberService.selectByPrimaryKey(1);
-            int countLogin = loginnumber.getCount()+1;
+            int countLogin = loginnumber.getCount() + 1;
             Loginnumber loginnumber1 = new Loginnumber();
             loginnumber1.setCount(countLogin);
             loginnumber1.setId(1);
@@ -617,21 +612,21 @@ public class main
             Student temp = new Student();
             temp.setLogintime(getDate());
             //记录学生登录次数
-            temp.setLoginnumber(student.getLoginnumber()+1);
+            temp.setLoginnumber(student.getLoginnumber() + 1);
             temp.setId(student.getId());
             System.out.println(studentService.updateByPrimaryKeySelective(temp));
 
             student.setLogintime(getDate());
             session.setAttribute("student", student);
             //教师登录学生端
-            if(student.getGrade().equals("teacher"))
+            if (student.getGrade().equals("teacher"))
             {
                 Teacher temp1 = new Teacher();
                 Teacher teacher = teacherService.queryUsernameAndPassword(username, password);
                 System.out.println(2);
                 temp1.setId(teacher.getId());
                 temp1.setLogintime(getDate());
-                temp1.setLoginnumber(teacher.getLoginnumber()+1);
+                temp1.setLoginnumber(teacher.getLoginnumber() + 1);
                 System.out.println(3);
                 System.out.println(teacherService.updateByPrimaryKeySelective(temp1));
                 System.out.println(4);
@@ -645,12 +640,12 @@ public class main
     }
 
     /**
-    * @Description: 注册
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-17
-    */
+     * @Description: 注册
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-17
+     */
     @RequestMapping("signupstu")
     public String signup(Model model)
     {
@@ -660,6 +655,7 @@ public class main
 
         return "main/signupstu.ftl";
     }
+
     @RequestMapping("signuptea")
     public String signuptea()
     {
@@ -667,12 +663,12 @@ public class main
     }
 
     /**
-    * @Description: 注册保存
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-17
-    */
+     * @Description: 注册保存
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-17
+     */
     @ResponseBody
     @RequestMapping("saveStudent")
     public int saveStudent(Student student)
@@ -685,10 +681,11 @@ public class main
         student.setLoginnumber(1);
         student.setEndtime("");
         System.out.println(student);
-//        System.out.println();
+        //        System.out.println();
 
         return studentService.insert(student);
     }
+
     @ResponseBody
     @RequestMapping("saveTeacher")
     public int saveTeacher(Teacher teacher)
@@ -722,68 +719,64 @@ public class main
     }
 
     /**
-    * @Description: 练习中心
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 练习中心
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @RequestMapping("practice")
-    public String practice(Model model, HttpSession session,
-                           @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                           @RequestParam(value = "pageSize", defaultValue = "25")int pageSize,
-                           @RequestParam(value = "id", defaultValue = "0")int id)
+    public String practice(Model model, HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "25") int pageSize, @RequestParam(value = "id", defaultValue = "0") int id)
     {
-//        PageHelper.startPage(pageNum, pageSize);
-//
-//        System.out.println("id="+id);
-//
-//        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
-//        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
-//        model.addAttribute("pageInfo", pageInfo);
-//
-//        model.addAttribute("ids", id);
-//        System.out.println("id="+id);
-//
-//
-//        return "main/main.ftl"
+        //        PageHelper.startPage(pageNum, pageSize);
+        //
+        //        System.out.println("id="+id);
+        //
+        //        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+        //        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+        //        model.addAttribute("pageInfo", pageInfo);
+        //
+        //        model.addAttribute("ids", id);
+        //        System.out.println("id="+id);
+        //
+        //
+        //        return "main/main.ftl"
 
         PageHelper.startPage(pageNum, pageSize);
 
         List<Short1WithBLOBs> short1WithBLOBs = short1Service.queryAll();
         PageInfo<Short1WithBLOBs> pageInfo = new PageInfo(short1WithBLOBs);
 
-//        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
-//        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+        //        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+        //        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
 
         model.addAttribute("pageInfo", pageInfo);
-//
+        //
         model.addAttribute("ids", id);
-        System.out.println("id="+id);
+        System.out.println("id=" + id);
         System.out.println("111111111111111");
-
 
 
         return "main/practice.ftl";
     }
 
     /**
-    * @Description: 联系答案
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 联系答案
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @RequestMapping("practiceText/{id}")
-    public String practiceText(@PathVariable("id")int id, Model model)
+    public String practiceText(@PathVariable("id") int id, Model model)
     {
         PageHelper.startPage(1, 25);
 
         List<Short1WithBLOBs> short1WithBLOBs = short1Service.queryAll();
         PageInfo<Short1WithBLOBs> pageInfo = new PageInfo(short1WithBLOBs);
 
-//        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
-//        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
+        //        List<Pictureteacher> pictureteacherList = pictureteacherService.queryAll();
+        //        PageInfo<Pictureteacher> pageInfo = new PageInfo(pictureteacherList);
         model.addAttribute("pageInfo", pageInfo);
 
 
@@ -799,25 +792,25 @@ public class main
     }
 
     /**
-    * @Description: 退出
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-20
-    */
+     * @Description: 退出
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-20
+     */
     @ResponseBody
     @RequestMapping("logout")
     public int logout(HttpSession session)
     {
         Student temp = new Student();
-        Student student = (Student)session.getAttribute("student");
+        Student student = (Student) session.getAttribute("student");
         temp.setEndtime(getDate());
         temp.setId(student.getId());
         studentService.updateByPrimaryKeySelective(temp);
 
-        if(student.getGrade().equals("teacher"))
+        if (student.getGrade().equals("teacher"))
         {
-            Teacher teacher = (Teacher)session.getAttribute("teacher");
+            Teacher teacher = (Teacher) session.getAttribute("teacher");
             Teacher temp1 = new Teacher();
             temp1.setId(teacher.getId());
             temp1.setEndtime(getDate());
@@ -828,36 +821,31 @@ public class main
 
         return 1;
     }
-    
+
     /**
-    * @Description: 视频教学
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-3-24
-    */
+     * @Description: 视频教学
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-24
+     */
     @RequestMapping("videoTeacher")
-    public String videoTeacher(@RequestParam(value = "startTime", defaultValue = "1970-01-01")String startTime, Model model, HttpSession session,
-                               @RequestParam(value = "endTime", defaultValue = "1970-01-01")String endTime, @RequestParam(value = "vname", defaultValue = "")String vname,
-                               @RequestParam(value = "pageNum", defaultValue = "1")int pageNum,
-                               @RequestParam(value = "pageSize", defaultValue = "10")int pageSize)
+    public String videoTeacher(@RequestParam(value = "startTime", defaultValue = "1970-01-01") String startTime, Model model, HttpSession session, @RequestParam(value = "endTime", defaultValue = "1970-01-01") String endTime, @RequestParam(value = "vname", defaultValue = "") String vname, @RequestParam(value = "pageNum", defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", defaultValue = "10") int pageSize)
     {
         PageHelper.startPage(pageNum, pageSize);
 
-        if(startTime.equals("1970-01-01") && endTime.equals("1970-01-01")&&vname.equals(""))
+        if (startTime.equals("1970-01-01") && endTime.equals("1970-01-01") && vname.equals(""))
         {
             List<VideoWithBLOBs> videoList = videoService.queryAll();
             PageInfo<Student> pageInfo = new PageInfo(videoList);
             model.addAttribute("pageInfo", pageInfo);
 
-        }
-        else
+        } else
         {
             List<VideoWithBLOBs> videoList = videoService.fuzzyQuery(startTime, endTime, vname);
             PageInfo<Student> pageInfo = new PageInfo(videoList);
             model.addAttribute("pageInfo", pageInfo);
         }
-
 
 
         return "main/videoTeacher.ftl";
@@ -871,7 +859,7 @@ public class main
      * @Date: 20-3-8
      */
     @RequestMapping("videoWatch/{id}")
-    public String videoPreview(Model model, HttpSession session, @PathVariable("id")int id)
+    public String videoPreview(Model model, HttpSession session, @PathVariable("id") int id)
     {
 
         VideoWithBLOBs videoWithBLOBs = videoService.selectByPrimaryKey(id);
@@ -882,12 +870,12 @@ public class main
     }
 
     /**
-    * @Description: 更新下载数
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-30
-    */
+     * @Description: 更新下载数
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-30
+     */
     @ResponseBody
     @RequestMapping("updateDownload")
     public int updateDownload()
@@ -897,7 +885,7 @@ public class main
 
         Download1 download11 = download1Service.selectByPrimaryKey(1);
 
-//        System.out.println(download11.getCount2());
+        //        System.out.println(download11.getCount2());
 
         int temp = download11.getCount2() + 1;
 

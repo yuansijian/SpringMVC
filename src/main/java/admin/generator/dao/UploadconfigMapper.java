@@ -2,7 +2,8 @@ package admin.generator.dao;
 
 import admin.generator.entity.Uploadconfig;
 
-public interface UploadconfigMapper {
+public interface UploadconfigMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Uploadconfig record);

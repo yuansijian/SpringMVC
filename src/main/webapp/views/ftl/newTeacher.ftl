@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>新教师 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -15,30 +15,25 @@
     <script>
         function check2(id, isDelete) {
             console.log(id);
-            if(isDelete === 2)
-            {
+            if (isDelete === 2) {
                 isDelete = 0;
             }
-            else
-            {
+            else {
                 isDelete = 2;
             }
             let state = document.getElementById("check1").innerText;
             $.ajax({
                 type: "POST",
                 url: "/user/checkTea",
-                data: "id="+id+"&isDelete="+isDelete,
+                data: "id=" + id + "&isDelete=" + isDelete,
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
 
-                        if(state === "审核通过")
-                        {
+                        if (state === "审核通过") {
                             alert("已撤销");
                             $("#check1").text("未审核");
                         }
-                        if(state === "未审核")
-                        {
+                        if (state === "未审核") {
                             alert("审核通过")
                             $("#check1").text("已审核");
 
@@ -68,7 +63,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -94,7 +90,9 @@
                         <div class="card">
                             <ul id="myTabs" class="nav nav-tabs" role="tablist">
                                 <li class="dropdown">
-                                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">选择<span class="caret"></span></a>
+                                    <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown"
+                                       aria-controls="myTabDrop1-contents" aria-expanded="false">选择<span
+                                            class="caret"></span></a>
                                     <ul class="dropdown-menu" id="myTabDrop1-contents">
                                         <li><a href="#teacher" id="teacher-tab" data-toggle="tab">教师</a></li>
                                         <li><a href="/user/newStudent">学生</a></li>
@@ -106,18 +104,23 @@
                                     <div class="card-toolbar clearfix">
                                         <form class="well form-search" method="POST" action="/user/newTeacher">
                                             姓名：
-                                            <input type="text" name="teaname" style="width: 100px;"  placeholder="">
+                                            <input type="text" name="teaname" style="width: 100px;" placeholder="">
                                             &nbsp;&nbsp;
                                         <#--班级：-->
                                         <#--<input type="text" name="store_id" style="width: 100px;"  placeholder="">-->
                                         <#--&nbsp;&nbsp;-->
 
                                             注册时间：
-                                            <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text" style="width: 150px;" id="registeredStartTime" name="registeredStartTime" placeholder="从">
+                                            <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                                   style="width: 150px;" id="registeredStartTime"
+                                                   name="registeredStartTime" placeholder="从">
                                             &nbsp;&nbsp;===>
-                                            <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"  style="width: 150px;" id="registeredEndTime" name="registeredEndTime" placeholder="至">
-                                            <input type="submit" class="btn btn-primary" value="搜索" />
-                                            <a class="btn btn-danger" href="/user/newTeacher?pageNUm=1&pageSize=10">清空</a>
+                                            <input class="js-datepicker" data-date-format="yyyy-mm-dd" type="text"
+                                                   style="width: 150px;" id="registeredEndTime" name="registeredEndTime"
+                                                   placeholder="至">
+                                            <input type="submit" class="btn btn-primary" value="搜索"/>
+                                            <a class="btn btn-danger"
+                                               href="/user/newTeacher?pageNUm=1&pageSize=10">清空</a>
                                         </form>
                                     <#--<div class="toolbar-btn-action">-->
                                     <#--<a class="btn btn-primary m-r-5" href="#!"><i class="mdi mdi-plus"></i> 新增</a>-->
@@ -150,7 +153,8 @@
                                                   <tr>
                                                       <td>
                                                           <label class="lyear-checkbox checkbox-primary">
-                                                              <input type="checkbox" name="ids[]" value="1"><span></span>
+                                                              <input type="checkbox" name="ids[]"
+                                                                     value="1"><span></span>
                                                           </label>
                                                       </td>
                                                       <td>${teacher.id}</td>
@@ -161,9 +165,13 @@
                                                       <td>
                                                           <div class="btn-group">
                                                               <#if teacher.isDelete == 2>
-                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})"  data-toggle="tooltip">未审核</a>
+                                                                  <a id="check1" class="btn btn-xs btn-default" href="#"
+                                                                     onclick="check2(${teacher.id}, ${teacher.isDelete})"
+                                                                     data-toggle="tooltip">未审核</a>
                                                               <#else>
-                                                                  <a id="check1"  class="btn btn-xs btn-default" href="#" onclick="check2(${teacher.id}, ${teacher.isDelete})"  data-toggle="tooltip">已审核</a>
+                                                                  <a id="check1" class="btn btn-xs btn-default" href="#"
+                                                                     onclick="check2(${teacher.id}, ${teacher.isDelete})"
+                                                                     data-toggle="tooltip">已审核</a>
                                                               </#if>
                                                           </div>
                                                       </td>
@@ -190,31 +198,40 @@
                                                 </#if>
 
                                             <#if (teacherList.pages == 0)>
-                                                <li class="active disabled" ><a href="#!">1</a></li>
+                                                <li class="active disabled"><a href="#!">1</a></li>
                                             <#elseif (teacherList.pages==1)>
-                                                    <li class="active disabled" ><a href="#!">1</a></li>
+                                                    <li class="active disabled"><a href="#!">1</a></li>
                                             <#elseif (teacherList.pages==2)>
-                                                    <li class="active"><a href="/user/newTeacher?pageNum=1&pageSize=10">1</a></li>
+                                                    <li class="active"><a href="/user/newTeacher?pageNum=1&pageSize=10">1</a>
+                                                    </li>
                                                     <li><a href="/user/newTeacher?pageNum=2&pageSize=10">2</a></li>
                                             <#elseif (teacherList.pages == 3)>
-                                                    <li class="active"><a href="/user/newTeacher?pageNum=1&pageSize=10">1</a></li>
+                                                    <li class="active"><a href="/user/newTeacher?pageNum=1&pageSize=10">1</a>
+                                                    </li>
                                                     <li><a href="#!"></a></li>
                                                     <li><a href="/user/newTeacher?pageNum=2&pageSize=10">2</a></li>
                                                     <li><a href="/user/newTeacher?pageNum=3&pageSize=10">3</a></li>
                                             <#else>
                                                 <#if teacherList.isFirstPage>
-                                                        <li class="active"><a href="/user/newTeacher?pageNum=1&pageSize=10">1</a></li>
+                                                        <li class="active"><a
+                                                                href="/user/newTeacher?pageNum=1&pageSize=10">1</a></li>
                                                         <li><a href="/user/newTeacher?pageNum=2&pageSize=10">2</a></li>
                                                         <li><a href="/user/newTeacher?pageNum=3&pageSize=10">3</a></li>
                                                 <#else>
                                                     <#if teacherList.hasPreviousPage>
-                                                            <li><a href="/user/newTeacher?pageNum=${teacherList.prePage}&pageSize=10">${teacherList.prePage}</a></li>
+                                                            <li>
+                                                                <a href="/user/newTeacher?pageNum=${teacherList.prePage}&pageSize=10">${teacherList.prePage}</a>
+                                                            </li>
                                                     <#else>
                                                             <li><a href="#!">${teacherList.pageNum}</a></li>
                                                     </#if>
-                                                        <li class="active"><a href="/user/newTeacher?pageNum=2&pageSize=10">${teacherList.pageNum}</a></li>
+                                                        <li class="active"><a
+                                                                href="/user/newTeacher?pageNum=2&pageSize=10">${teacherList.pageNum}</a>
+                                                        </li>
                                                     <#if teacherList.hasNextPage>
-                                                            <li><a href="/user/newTeacher?pageNum=${teacherList.nextPage}&pageSize=10">${teacherList.nextPage}</a></li>
+                                                            <li>
+                                                                <a href="/user/newTeacher?pageNum=${teacherList.nextPage}&pageSize=10">${teacherList.nextPage}</a>
+                                                            </li>
                                                     <#else>
                                                     <#--<li><a href="/user/newTeacher?pageNum=${teacher.prePage}&pageSize=10">${teacher.prePage - 1}</a></li>-->
                                                     <#--<li><a href="/user/newTeacher?pageNum=${teacher.prePage}&pageSize=10">${teacher.prePage}</a></li>-->

@@ -1,193 +1,193 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="admin.generator.dao.CommentMapper" >
-    <resultMap id="BaseResultMap" type="admin.generator.entity.Comment" >
-        <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="topicid" property="topicid" jdbcType="INTEGER" />
-        <result column="up" property="up" jdbcType="INTEGER" />
-        <result column="uid" property="uid" jdbcType="INTEGER" />
-        <result column="commentTime" property="commenttime" jdbcType="VARCHAR" />
-        <result column="flag" property="flag" jdbcType="INTEGER" />
-        <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
-        <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
-        <result column="username" property="username" jdbcType="VARCHAR" />
+<mapper namespace="admin.generator.dao.CommentMapper">
+    <resultMap id="BaseResultMap" type="admin.generator.entity.Comment">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="topicid" property="topicid" jdbcType="INTEGER"/>
+        <result column="up" property="up" jdbcType="INTEGER"/>
+        <result column="uid" property="uid" jdbcType="INTEGER"/>
+        <result column="commentTime" property="commenttime" jdbcType="VARCHAR"/>
+        <result column="flag" property="flag" jdbcType="INTEGER"/>
+        <result column="is_delete" property="isDelete" jdbcType="INTEGER"/>
+        <result column="delete_time" property="deleteTime" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
     </resultMap>
-    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.CommentWithBLOBs" extends="BaseResultMap" >
-        <result column="comment" property="comment" jdbcType="LONGVARCHAR" />
-        <result column="commentURL" property="commenturl" jdbcType="LONGVARCHAR" />
+    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.CommentWithBLOBs" extends="BaseResultMap">
+        <result column="comment" property="comment" jdbcType="LONGVARCHAR"/>
+        <result column="commentURL" property="commenturl" jdbcType="LONGVARCHAR"/>
     </resultMap>
-    <sql id="Base_Column_List" >
-    id, topicid, up, uid, commentTime, flag, is_delete, delete_time, username
-  </sql>
-    <sql id="Blob_Column_List" >
-    comment, commentURL
-  </sql>
-    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    <sql id="Base_Column_List">
+        id, topicid, up, uid, commentTime, flag, is_delete, delete_time, username
+    </sql>
+    <sql id="Blob_Column_List">
+        comment, commentURL
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
         select
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         ,
-        <include refid="Blob_Column_List" />
+        <include refid="Blob_Column_List"/>
         from comment
         where id = #{id,jdbcType=INTEGER}
     </select>
     <select id="queryAll" resultMap="ResultMapWithBLOBs">
-      select *
-      from comment
-      where is_delete=0
-      order by id desc
-  </select>
+        select *
+        from comment
+        where is_delete=0
+        order by id desc
+    </select>
     <select id="addMessage" resultType="int">
         select count(id)
         from comment
         where is_delete=0 and (commentTime between #{startTime} and #{endTime})
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from comment
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-    <insert id="insert" parameterType="admin.generator.entity.CommentWithBLOBs" >
-    insert into comment (id, topicid, up,
-      uid, commentTime, flag,
-      is_delete, delete_time, username,
-      comment, commentURL)
-    values (#{id,jdbcType=INTEGER}, #{topicid,jdbcType=INTEGER}, #{up,jdbcType=INTEGER},
-      #{uid,jdbcType=INTEGER}, #{commenttime,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER},
-      #{isDelete,jdbcType=INTEGER}, #{deleteTime,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
-      #{comment,jdbcType=LONGVARCHAR}, #{commenturl,jdbcType=LONGVARCHAR})
-  </insert>
-    <insert id="insertSelective" parameterType="admin.generator.entity.CommentWithBLOBs" >
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from comment
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="admin.generator.entity.CommentWithBLOBs">
+        insert into comment (id, topicid, up,
+        uid, commentTime, flag,
+        is_delete, delete_time, username,
+        comment, commentURL)
+        values (#{id,jdbcType=INTEGER}, #{topicid,jdbcType=INTEGER}, #{up,jdbcType=INTEGER},
+        #{uid,jdbcType=INTEGER}, #{commenttime,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER},
+        #{isDelete,jdbcType=INTEGER}, #{deleteTime,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+        #{comment,jdbcType=LONGVARCHAR}, #{commenturl,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="admin.generator.entity.CommentWithBLOBs">
         insert into comment
-        <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 id,
             </if>
-            <if test="topicid != null" >
+            <if test="topicid != null">
                 topicid,
             </if>
-            <if test="up != null" >
+            <if test="up != null">
                 up,
             </if>
-            <if test="uid != null" >
+            <if test="uid != null">
                 uid,
             </if>
-            <if test="commenttime != null" >
+            <if test="commenttime != null">
                 commentTime,
             </if>
-            <if test="flag != null" >
+            <if test="flag != null">
                 flag,
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 is_delete,
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 delete_time,
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 username,
             </if>
-            <if test="comment != null" >
+            <if test="comment != null">
                 comment,
             </if>
-            <if test="commenturl != null" >
+            <if test="commenturl != null">
                 commentURL,
             </if>
         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 #{id,jdbcType=INTEGER},
             </if>
-            <if test="topicid != null" >
+            <if test="topicid != null">
                 #{topicid,jdbcType=INTEGER},
             </if>
-            <if test="up != null" >
+            <if test="up != null">
                 #{up,jdbcType=INTEGER},
             </if>
-            <if test="uid != null" >
+            <if test="uid != null">
                 #{uid,jdbcType=INTEGER},
             </if>
-            <if test="commenttime != null" >
+            <if test="commenttime != null">
                 #{commenttime,jdbcType=VARCHAR},
             </if>
-            <if test="flag != null" >
+            <if test="flag != null">
                 #{flag,jdbcType=INTEGER},
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 #{isDelete,jdbcType=INTEGER},
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 #{deleteTime,jdbcType=VARCHAR},
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 #{username,jdbcType=VARCHAR},
             </if>
-            <if test="comment != null" >
+            <if test="comment != null">
                 #{comment,jdbcType=LONGVARCHAR},
             </if>
-            <if test="commenturl != null" >
+            <if test="commenturl != null">
                 #{commenturl,jdbcType=LONGVARCHAR},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.CommentWithBLOBs" >
+    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.CommentWithBLOBs">
         update comment
-        <set >
-            <if test="topicid != null" >
+        <set>
+            <if test="topicid != null">
                 topicid = #{topicid,jdbcType=INTEGER},
             </if>
-            <if test="up != null" >
+            <if test="up != null">
                 up = #{up,jdbcType=INTEGER},
             </if>
-            <if test="uid != null" >
+            <if test="uid != null">
                 uid = #{uid,jdbcType=INTEGER},
             </if>
-            <if test="commenttime != null" >
+            <if test="commenttime != null">
                 commentTime = #{commenttime,jdbcType=VARCHAR},
             </if>
-            <if test="flag != null" >
+            <if test="flag != null">
                 flag = #{flag,jdbcType=INTEGER},
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 is_delete = #{isDelete,jdbcType=INTEGER},
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 delete_time = #{deleteTime,jdbcType=VARCHAR},
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 username = #{username,jdbcType=VARCHAR},
             </if>
-            <if test="comment != null" >
+            <if test="comment != null">
                 comment = #{comment,jdbcType=LONGVARCHAR},
             </if>
-            <if test="commenturl != null" >
+            <if test="commenturl != null">
                 commentURL = #{commenturl,jdbcType=LONGVARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.CommentWithBLOBs" >
-    update comment
-    set topicid = #{topicid,jdbcType=INTEGER},
-      up = #{up,jdbcType=INTEGER},
-      uid = #{uid,jdbcType=INTEGER},
-      commentTime = #{commenttime,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=INTEGER},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      comment = #{comment,jdbcType=LONGVARCHAR},
-      commentURL = #{commenturl,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Comment" >
-    update comment
-    set topicid = #{topicid,jdbcType=INTEGER},
-      up = #{up,jdbcType=INTEGER},
-      uid = #{uid,jdbcType=INTEGER},
-      commentTime = #{commenttime,jdbcType=VARCHAR},
-      flag = #{flag,jdbcType=INTEGER},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.CommentWithBLOBs">
+        update comment
+        set topicid = #{topicid,jdbcType=INTEGER},
+        up = #{up,jdbcType=INTEGER},
+        uid = #{uid,jdbcType=INTEGER},
+        commentTime = #{commenttime,jdbcType=VARCHAR},
+        flag = #{flag,jdbcType=INTEGER},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+        username = #{username,jdbcType=VARCHAR},
+        comment = #{comment,jdbcType=LONGVARCHAR},
+        commentURL = #{commenturl,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Comment">
+        update comment
+        set topicid = #{topicid,jdbcType=INTEGER},
+        up = #{up,jdbcType=INTEGER},
+        uid = #{uid,jdbcType=INTEGER},
+        commentTime = #{commenttime,jdbcType=VARCHAR},
+        flag = #{flag,jdbcType=INTEGER},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+        username = #{username,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

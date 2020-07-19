@@ -20,13 +20,14 @@ public class VideoServiceImpl implements VideoService
 {
     @Autowired
     VideoMapper videoMapper;
+
     /**
-    * @Description: 查询全部文件
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-8
-    */
+     * @Description: 查询全部文件
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-8
+     */
     @Override
     public List<VideoWithBLOBs> queryAll()
     {
@@ -34,12 +35,12 @@ public class VideoServiceImpl implements VideoService
     }
 
     /**
-    * @Description: 搜索功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-8
-    */
+     * @Description: 搜索功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-8
+     */
     @Override
     public List<VideoWithBLOBs> fuzzyQuery(String startTime, String endTime, String vname)
     {
@@ -47,12 +48,12 @@ public class VideoServiceImpl implements VideoService
     }
 
     /**
-    * @Description: 插入
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-8
-    */
+     * @Description: 插入
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-8
+     */
     @Override
     public int insert(VideoWithBLOBs record)
     {
@@ -60,12 +61,12 @@ public class VideoServiceImpl implements VideoService
     }
 
     /**
-    * @Description: 单个查询
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-8
-    */
+     * @Description: 单个查询
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-8
+     */
     @Override
     public VideoWithBLOBs selectByPrimaryKey(Integer id)
     {
@@ -73,12 +74,12 @@ public class VideoServiceImpl implements VideoService
     }
 
     /**
-    * @Description: 删除，（假删除)
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-8
-    */
+     * @Description: 删除，（假删除)
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-8
+     */
     @Override
     public int updateByPrimaryKeySelective(VideoWithBLOBs record)
     {

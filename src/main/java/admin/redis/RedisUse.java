@@ -12,9 +12,8 @@ import javax.annotation.Resource;
  **/
 public class RedisUse
 {
-    @Resource(name="redisTemplate")
+    @Resource(name = "redisTemplate")
     private RedisTemplate<String, String> redisTemplate;
-
 
 
     public void saveLiked2Redis(String likedUserId, String likePostId)
@@ -41,6 +40,6 @@ public class RedisUse
         System.out.println(key);
         System.out.println(redisTemplate.opsForHash().hasKey("good", key));
         return redisTemplate.opsForHash().hasKey("good", key);
-//        return false;
+        //        return false;
     }
 }

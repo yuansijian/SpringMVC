@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="admin.generator.dao.TeacherMapper" >
-    <resultMap id="BaseResultMap" type="admin.generator.entity.Teacher" >
-        <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="teaName" property="teaname" jdbcType="VARCHAR" />
-        <result column="username" property="username" jdbcType="VARCHAR" />
-        <result column="password" property="password" jdbcType="VARCHAR" />
-        <result column="registeredTime" property="registeredtime" jdbcType="VARCHAR" />
-        <result column="loginNumber" property="loginnumber" jdbcType="INTEGER" />
-        <result column="loginTime" property="logintime" jdbcType="VARCHAR" />
-        <result column="endTime" property="endtime" jdbcType="VARCHAR" />
-        <result column="sex" property="sex" jdbcType="INTEGER" />
-        <result column="delete_time" property="deleteTime" jdbcType="VARCHAR" />
-        <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
-        <result column="grade" property="grade" jdbcType="VARCHAR" />
-        <result column="updatePasswordTime" property="updatepasswordtime" jdbcType="VARCHAR" />
-        <result column="classes" property="classes" jdbcType="VARCHAR" />
-        <result column="teamail" property="teamail" jdbcType="VARCHAR" />
+<mapper namespace="admin.generator.dao.TeacherMapper">
+    <resultMap id="BaseResultMap" type="admin.generator.entity.Teacher">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="teaName" property="teaname" jdbcType="VARCHAR"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="registeredTime" property="registeredtime" jdbcType="VARCHAR"/>
+        <result column="loginNumber" property="loginnumber" jdbcType="INTEGER"/>
+        <result column="loginTime" property="logintime" jdbcType="VARCHAR"/>
+        <result column="endTime" property="endtime" jdbcType="VARCHAR"/>
+        <result column="sex" property="sex" jdbcType="INTEGER"/>
+        <result column="delete_time" property="deleteTime" jdbcType="VARCHAR"/>
+        <result column="is_delete" property="isDelete" jdbcType="INTEGER"/>
+        <result column="grade" property="grade" jdbcType="VARCHAR"/>
+        <result column="updatePasswordTime" property="updatepasswordtime" jdbcType="VARCHAR"/>
+        <result column="classes" property="classes" jdbcType="VARCHAR"/>
+        <result column="teamail" property="teamail" jdbcType="VARCHAR"/>
     </resultMap>
-    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Teacher" extends="BaseResultMap" >
-        <result column="imageURL" property="imageurl" jdbcType="LONGVARCHAR" />
+    <resultMap id="ResultMapWithBLOBs" type="admin.generator.entity.Teacher" extends="BaseResultMap">
+        <result column="imageURL" property="imageurl" jdbcType="LONGVARCHAR"/>
     </resultMap>
-    <sql id="Base_Column_List" >
-    id, teaName, username, password, registeredTime, loginNumber, loginTime, endTime,
-    sex, delete_time, is_delete, grade, updatePasswordTime, classes, teamail
-  </sql>
-    <sql id="Blob_Column_List" >
-    imageURL
-  </sql>
+    <sql id="Base_Column_List">
+        id, teaName, username, password, registeredTime, loginNumber, loginTime, endTime,
+        sex, delete_time, is_delete, grade, updatePasswordTime, classes, teamail
+    </sql>
+    <sql id="Blob_Column_List">
+        imageURL
+    </sql>
     <sql id="Admin_Column_Update">
-      teaname, username,sex,id
-  </sql>
+        teaname, username,sex,id
+    </sql>
     <select id="queryRes" resultMap="BaseResultMap">
-      select
-      id, teaname,username,registeredTime
-      from
-      teacher
-      where registeredTime between #{startTime} and #{endTime}
-  </select>
-    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
         select
-        <include refid="Base_Column_List" />
+        id, teaname,username,registeredTime
+        from
+        teacher
+        where registeredTime between #{startTime} and #{endTime}
+    </select>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
         ,
-        <include refid="Blob_Column_List" />
+        <include refid="Blob_Column_List"/>
         from teacher
         where id = #{id,jdbcType=INTEGER}
     </select>
@@ -64,233 +64,233 @@
         where is_delete = 2
     </select>
     <select id="selectByCountPrimaryKey" resultType="long">
-      select count(id)
-      from teacher
-  </select>
+        select count(id)
+        from teacher
+    </select>
     <select id="queryAll" resultType="Teacher">
-    select *
-    from
-    teacher
-    where is_delete != 1
-  </select>
+        select *
+        from
+        teacher
+        where is_delete != 1
+    </select>
     <select id="queryFuzzyRegistered" resultType="Teacher">
-    select *
-    from
-    teacher
-    where teaname like #{teaname} or (registeredTime between #{startTime} and #{endTime})
-  </select>
+        select *
+        from
+        teacher
+        where teaname like #{teaname} or (registeredTime between #{startTime} and #{endTime})
+    </select>
     <select id="queryCountLogin" resultType="Integer">
-      select sum(loginNumber)
-      from teacher
-      where loginTime between #{startTime} and #{endTime};
-  </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from teacher
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-    <insert id="insert" parameterType="admin.generator.entity.Teacher" >
-    insert into teacher (id, teaName, username,
-      password, registeredTime, loginNumber,
-      loginTime, endTime, sex,
-      delete_time, is_delete, grade,
-      updatePasswordTime, classes, teamail,
-      imageURL)
-    values (#{id,jdbcType=INTEGER}, #{teaname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
-      #{password,jdbcType=VARCHAR}, #{registeredtime,jdbcType=VARCHAR}, #{loginnumber,jdbcType=INTEGER},
-      #{logintime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER},
-      #{deleteTime,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{grade,jdbcType=VARCHAR},
-      #{updatepasswordtime,jdbcType=VARCHAR}, #{classes,jdbcType=VARCHAR}, #{teamail,jdbcType=VARCHAR},
-      #{imageurl,jdbcType=LONGVARCHAR})
-  </insert>
-    <insert id="insertSelective" parameterType="admin.generator.entity.Teacher" >
+        select sum(loginNumber)
+        from teacher
+        where loginTime between #{startTime} and #{endTime};
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from teacher
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="admin.generator.entity.Teacher">
+        insert into teacher (id, teaName, username,
+        password, registeredTime, loginNumber,
+        loginTime, endTime, sex,
+        delete_time, is_delete, grade,
+        updatePasswordTime, classes, teamail,
+        imageURL)
+        values (#{id,jdbcType=INTEGER}, #{teaname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR}, #{registeredtime,jdbcType=VARCHAR}, #{loginnumber,jdbcType=INTEGER},
+        #{logintime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER},
+        #{deleteTime,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{grade,jdbcType=VARCHAR},
+        #{updatepasswordtime,jdbcType=VARCHAR}, #{classes,jdbcType=VARCHAR}, #{teamail,jdbcType=VARCHAR},
+        #{imageurl,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="admin.generator.entity.Teacher">
         insert into teacher
-        <trim prefix="(" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 id,
             </if>
-            <if test="teaname != null" >
+            <if test="teaname != null">
                 teaName,
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 username,
             </if>
-            <if test="password != null" >
+            <if test="password != null">
                 password,
             </if>
-            <if test="registeredtime != null" >
+            <if test="registeredtime != null">
                 registeredTime,
             </if>
-            <if test="loginnumber != null" >
+            <if test="loginnumber != null">
                 loginNumber,
             </if>
-            <if test="logintime != null" >
+            <if test="logintime != null">
                 loginTime,
             </if>
-            <if test="endtime != null" >
+            <if test="endtime != null">
                 endTime,
             </if>
-            <if test="sex != null" >
+            <if test="sex != null">
                 sex,
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 delete_time,
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 is_delete,
             </if>
-            <if test="grade != null" >
+            <if test="grade != null">
                 grade,
             </if>
-            <if test="updatepasswordtime != null" >
+            <if test="updatepasswordtime != null">
                 updatePasswordTime,
             </if>
-            <if test="classes != null" >
+            <if test="classes != null">
                 classes,
             </if>
-            <if test="teamail != null" >
+            <if test="teamail != null">
                 teamail,
             </if>
-            <if test="imageurl != null" >
+            <if test="imageurl != null">
                 imageURL,
             </if>
         </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides="," >
-            <if test="id != null" >
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
                 #{id,jdbcType=INTEGER},
             </if>
-            <if test="teaname != null" >
+            <if test="teaname != null">
                 #{teaname,jdbcType=VARCHAR},
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 #{username,jdbcType=VARCHAR},
             </if>
-            <if test="password != null" >
+            <if test="password != null">
                 #{password,jdbcType=VARCHAR},
             </if>
-            <if test="registeredtime != null" >
+            <if test="registeredtime != null">
                 #{registeredtime,jdbcType=VARCHAR},
             </if>
-            <if test="loginnumber != null" >
+            <if test="loginnumber != null">
                 #{loginnumber,jdbcType=INTEGER},
             </if>
-            <if test="logintime != null" >
+            <if test="logintime != null">
                 #{logintime,jdbcType=VARCHAR},
             </if>
-            <if test="endtime != null" >
+            <if test="endtime != null">
                 #{endtime,jdbcType=VARCHAR},
             </if>
-            <if test="sex != null" >
+            <if test="sex != null">
                 #{sex,jdbcType=INTEGER},
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 #{deleteTime,jdbcType=VARCHAR},
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 #{isDelete,jdbcType=INTEGER},
             </if>
-            <if test="grade != null" >
+            <if test="grade != null">
                 #{grade,jdbcType=VARCHAR},
             </if>
-            <if test="updatepasswordtime != null" >
+            <if test="updatepasswordtime != null">
                 #{updatepasswordtime,jdbcType=VARCHAR},
             </if>
-            <if test="classes != null" >
+            <if test="classes != null">
                 #{classes,jdbcType=VARCHAR},
             </if>
-            <if test="teamail != null" >
+            <if test="teamail != null">
                 #{teamail,jdbcType=VARCHAR},
             </if>
-            <if test="imageurl != null" >
+            <if test="imageurl != null">
                 #{imageurl,jdbcType=LONGVARCHAR},
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Teacher" >
+    <update id="updateByPrimaryKeySelective" parameterType="admin.generator.entity.Teacher">
         update teacher
-        <set >
-            <if test="teaname != null" >
+        <set>
+            <if test="teaname != null">
                 teaName = #{teaname,jdbcType=VARCHAR},
             </if>
-            <if test="username != null" >
+            <if test="username != null">
                 username = #{username,jdbcType=VARCHAR},
             </if>
-            <if test="password != null" >
+            <if test="password != null">
                 password = #{password,jdbcType=VARCHAR},
             </if>
-            <if test="registeredtime != null" >
+            <if test="registeredtime != null">
                 registeredTime = #{registeredtime,jdbcType=VARCHAR},
             </if>
-            <if test="loginnumber != null" >
+            <if test="loginnumber != null">
                 loginNumber = #{loginnumber,jdbcType=INTEGER},
             </if>
-            <if test="logintime != null" >
+            <if test="logintime != null">
                 loginTime = #{logintime,jdbcType=VARCHAR},
             </if>
-            <if test="endtime != null" >
+            <if test="endtime != null">
                 endTime = #{endtime,jdbcType=VARCHAR},
             </if>
-            <if test="sex != null" >
+            <if test="sex != null">
                 sex = #{sex,jdbcType=INTEGER},
             </if>
-            <if test="deleteTime != null" >
+            <if test="deleteTime != null">
                 delete_time = #{deleteTime,jdbcType=VARCHAR},
             </if>
-            <if test="isDelete != null" >
+            <if test="isDelete != null">
                 is_delete = #{isDelete,jdbcType=INTEGER},
             </if>
-            <if test="grade != null" >
+            <if test="grade != null">
                 grade = #{grade,jdbcType=VARCHAR},
             </if>
-            <if test="updatepasswordtime != null" >
+            <if test="updatepasswordtime != null">
                 updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
             </if>
-            <if test="classes != null" >
+            <if test="classes != null">
                 classes = #{classes,jdbcType=VARCHAR},
             </if>
-            <if test="teamail != null" >
+            <if test="teamail != null">
                 teamail = #{teamail,jdbcType=VARCHAR},
             </if>
-            <if test="imageurl != null" >
+            <if test="imageurl != null">
                 imageURL = #{imageurl,jdbcType=LONGVARCHAR},
             </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Teacher" >
-    update teacher
-    set teaName = #{teaname,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      registeredTime = #{registeredtime,jdbcType=VARCHAR},
-      loginNumber = #{loginnumber,jdbcType=INTEGER},
-      loginTime = #{logintime,jdbcType=VARCHAR},
-      endTime = #{endtime,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      grade = #{grade,jdbcType=VARCHAR},
-      updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
-      classes = #{classes,jdbcType=VARCHAR},
-      teamail = #{teamail,jdbcType=VARCHAR},
-      imageURL = #{imageurl,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Teacher" >
-    update teacher
-    set teaName = #{teaname,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      registeredTime = #{registeredtime,jdbcType=VARCHAR},
-      loginNumber = #{loginnumber,jdbcType=INTEGER},
-      loginTime = #{logintime,jdbcType=VARCHAR},
-      endTime = #{endtime,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=INTEGER},
-      delete_time = #{deleteTime,jdbcType=VARCHAR},
-      is_delete = #{isDelete,jdbcType=INTEGER},
-      grade = #{grade,jdbcType=VARCHAR},
-      updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
-      classes = #{classes,jdbcType=VARCHAR},
-      teamail = #{teamail,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="admin.generator.entity.Teacher">
+        update teacher
+        set teaName = #{teaname,jdbcType=VARCHAR},
+        username = #{username,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
+        registeredTime = #{registeredtime,jdbcType=VARCHAR},
+        loginNumber = #{loginnumber,jdbcType=INTEGER},
+        loginTime = #{logintime,jdbcType=VARCHAR},
+        endTime = #{endtime,jdbcType=VARCHAR},
+        sex = #{sex,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        grade = #{grade,jdbcType=VARCHAR},
+        updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
+        classes = #{classes,jdbcType=VARCHAR},
+        teamail = #{teamail,jdbcType=VARCHAR},
+        imageURL = #{imageurl,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="admin.generator.entity.Teacher">
+        update teacher
+        set teaName = #{teaname,jdbcType=VARCHAR},
+        username = #{username,jdbcType=VARCHAR},
+        password = #{password,jdbcType=VARCHAR},
+        registeredTime = #{registeredtime,jdbcType=VARCHAR},
+        loginNumber = #{loginnumber,jdbcType=INTEGER},
+        loginTime = #{logintime,jdbcType=VARCHAR},
+        endTime = #{endtime,jdbcType=VARCHAR},
+        sex = #{sex,jdbcType=INTEGER},
+        delete_time = #{deleteTime,jdbcType=VARCHAR},
+        is_delete = #{isDelete,jdbcType=INTEGER},
+        grade = #{grade,jdbcType=VARCHAR},
+        updatePasswordTime = #{updatepasswordtime,jdbcType=VARCHAR},
+        classes = #{classes,jdbcType=VARCHAR},
+        teamail = #{teamail,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
 </mapper>

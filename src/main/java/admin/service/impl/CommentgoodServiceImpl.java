@@ -4,8 +4,9 @@ import admin.generator.dao.CommentgoodMapper;
 import admin.generator.entity.Commentgood;
 import admin.service.CommentgoodService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @program: SpringMVC
@@ -30,7 +31,7 @@ public class CommentgoodServiceImpl implements CommentgoodService
     @Override
     public int updateByPrimaryKeySelective(Commentgood record)
     {
-        return  commentgoodMapper.updateByPrimaryKeySelective(record);
+        return commentgoodMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
@@ -43,5 +44,11 @@ public class CommentgoodServiceImpl implements CommentgoodService
     public Commentgood presence(Integer uid, Integer cid)
     {
         return commentgoodMapper.presence(uid, cid);
+    }
+
+    @Override
+    public List<Commentgood> queryAll()
+    {
+        return commentgoodMapper.queryAll();
     }
 }

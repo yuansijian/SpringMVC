@@ -23,7 +23,7 @@ public class CheckLoginInterceptor implements HandlerInterceptor
     {
         String requestUrl = request.getRequestURI();
 
-        if(requestUrl.endsWith("login.ftl"))
+        if (requestUrl.endsWith("login.ftl"))
         {
             return true;
         }
@@ -31,14 +31,13 @@ public class CheckLoginInterceptor implements HandlerInterceptor
         String session = String.valueOf(WebUtils.getSessionAttribute(request, "userId"));
         String session1 = String.valueOf(WebUtils.getSessionAttribute(request, "student"));
 
-        if("null".equals(session) || "null".equals(session1))
+        if ("null".equals(session) || "null".equals(session1))
         {
-            if(request.getHeader("x-requested-with")!=null)
+            if (request.getHeader("x-requested-with") != null)
             {
                 response.setHeader("sessionstatus", "timeout");
             }
-        }
-        else
+        } else
         {
             return true;
         }

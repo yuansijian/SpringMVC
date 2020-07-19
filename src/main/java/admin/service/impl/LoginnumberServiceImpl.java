@@ -21,12 +21,12 @@ public class LoginnumberServiceImpl implements LoginnumberService
     LoginnumberMapper loginnumberMapper;
 
     /**
-    * @Description: 活跃度查询
-    * @Param: 
-    * @return: 
-    * @Author: Defend
-    * @Date: 20-5-25
-    */
+     * @Description: 活跃度查询
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-5-25
+     */
     @Override
     public Loginnumber selectByPrimaryKey(Integer id)
     {
@@ -35,12 +35,12 @@ public class LoginnumberServiceImpl implements LoginnumberService
     }
 
     /**
-    * @Description: 活跃度更新
-    * @Param: 
-    * @return: 
-    * @Author: Defend
-    * @Date: 20-5-26
-    */
+     * @Description: 活跃度更新
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-5-26
+     */
     @Override
     public int updateByPrimaryKeySelective(Loginnumber record)
     {

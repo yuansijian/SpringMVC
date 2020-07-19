@@ -2,7 +2,8 @@ package admin.generator.dao;
 
 import admin.generator.entity.Download1;
 
-public interface Download1Mapper {
+public interface Download1Mapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Download1 record);

@@ -15,15 +15,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class UploadconfigServiceImpl implements UploadconfigService
 {
-     @Autowired
-     UploadconfigMapper uploadconfigMapper;
+    @Autowired
+    UploadconfigMapper uploadconfigMapper;
+
     /**
-    * @Description: 查找
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-29
-    */
+     * @Description: 查找
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-29
+     */
     @Override
     public Uploadconfig selectByPrimaryKey(Integer id)
     {
@@ -31,12 +32,12 @@ public class UploadconfigServiceImpl implements UploadconfigService
     }
 
     /**
-    * @Description: 更新
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-2-29
-    */
+     * @Description: 更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-29
+     */
     @Override
     public int updateByPrimaryKeySelective(Uploadconfig record)
     {
@@ -44,12 +45,12 @@ public class UploadconfigServiceImpl implements UploadconfigService
     }
 
     /**
-    * @Description: 更新
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-29
-    */
+     * @Description: 更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-29
+     */
     @Override
     public int updateByPrimaryKey(Uploadconfig record)
     {

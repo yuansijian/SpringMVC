@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>视频教学</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -23,13 +23,13 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <ul class="nav nav-tabs page-tabs">
-                            <li > <a href="/main/index">图文教学</a> </li>
-                            <li class="active"><a href="#!">视频教学</a> </li>
+                            <li><a href="/main/index">图文教学</a></li>
+                            <li class="active"><a href="#!">视频教学</a></li>
                             <li><a href="/main/practice">练习中心</a></li>
-                            <li><a href="/main/resource">资源中心</a> </li>
-                            <li> <a href="/main/message">留言</a></li>
-                            <li><a href="/main/homework">作业中心</a> </li>
-                            <li><a href="/main/information">个人中心</a> </li>
+                            <li><a href="/main/resource">资源中心</a></li>
+                            <li><a href="/main/message">留言</a></li>
+                            <li><a href="/main/homework">作业中心</a></li>
+                            <li><a href="/main/information">个人中心</a></li>
                         </ul>
 
                         <div class="tab-pane active">
@@ -62,13 +62,15 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-toolbar clearfix">
-                                                <form class="well form-search" method="POST" action="/main/videoTeacher">
+                                                <form class="well form-search" method="POST"
+                                                      action="/main/videoTeacher">
                                                     视频名称：
-                                                    <input type="text" name="vname" style="width: 100px;"  placeholder="">
+                                                    <input type="text" name="vname" style="width: 100px;"
+                                                           placeholder="">
                                                     &nbsp;&nbsp;
 
                                                     &nbsp;&nbsp;
-                                                    <input type="submit" class="btn btn-primary" value="搜索" />
+                                                    <input type="submit" class="btn btn-primary" value="搜索"/>
                                                     <a class="btn btn-danger" href="/main/videoTeacher">返回</a>
                                                 </form>
                                             </div>
@@ -90,16 +92,27 @@
                                                         <tbody>
                                                                               <#list pageInfo.list as uploadfile>
                                                                               <tr>
-                                                                                  <td >${uploadfile.id}</td>
+                                                                                  <td>${uploadfile.id}</td>
                                                                                   <td>${uploadfile.vname}</td>
                                                                                   <td>${uploadfile.description}</td>
                                                                                   <td>${uploadfile.vsizes}Kb</td>
                                                                                   <td>${uploadfile.author}</td>
-                                                                                  <td><font class="text-success">正常</font></td>
+                                                                                  <td><font
+                                                                                          class="text-success">正常</font>
+                                                                                  </td>
                                                                                   <td>
                                                                                       <div class="btn-group">
-                                                                                          <a class="btn btn-xs btn-default" href="/main/videoWatch/${uploadfile.id}" title="观看" data-toggle="tooltip"><i class="mdi mdi-pencil"></i></a>
-                                                                                          <a class="btn btn-xs btn-default" href="/statics/video/${uploadfile.vname}" download="${uploadfile.vname}" title="下载" data-toggle="tooltip"><i class="mdi mdi-arrow-down-bold"></i></a>
+                                                                                          <a class="btn btn-xs btn-default"
+                                                                                             href="/main/videoWatch/${uploadfile.id}"
+                                                                                             title="观看"
+                                                                                             data-toggle="tooltip"><i
+                                                                                                  class="mdi mdi-pencil"></i></a>
+                                                                                          <a class="btn btn-xs btn-default"
+                                                                                             href="/statics/video/${uploadfile.vname}"
+                                                                                             download="${uploadfile.vname}"
+                                                                                             title="下载"
+                                                                                             data-toggle="tooltip"><i
+                                                                                                  class="mdi mdi-arrow-down-bold"></i></a>
                                                                                       </div>
                                                                                   </td>
                                                                               </tr>
@@ -125,31 +138,40 @@
                                           </#if>
 
                                         <#if (pageInfo.pages == 0)>
-                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                            <li class="active disabled"><a href="#!">1</a></li>
                                         <#elseif (pageInfo.pages==1)>
-                                            <li class="active disabled" ><a href="#!">1</a></li>
+                                            <li class="active disabled"><a href="#!">1</a></li>
                                         <#elseif (pageInfo.pages==2)>
-                                            <li class="active"><a href="/community/videoTeacher?pageNum=1&pageSize=10">1</a></li>
+                                            <li class="active"><a
+                                                    href="/community/videoTeacher?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="/community/videoTeacher?pageNum=2&pageSize=10">2</a></li>
                                         <#elseif (pageInfo.pages == 3)>
-                                            <li class="active"><a href="/community/videoTeacher?pageNum=1&pageSize=10">1</a></li>
+                                            <li class="active"><a
+                                                    href="/community/videoTeacher?pageNum=1&pageSize=10">1</a></li>
                                             <li><a href="#!"></a></li>
                                             <li><a href="/community/videoTeacher?pageNum=2&pageSize=10">2</a></li>
                                             <li><a href="/community/videoTeacher?pageNum=3&pageSize=10">3</a></li>
                                         <#else>
                                             <#if pageInfo.isFirstPage>
-                                                <li class="active"><a href="/community/videoTeacher?pageNum=1&pageSize=10">1</a></li>
+                                                <li class="active"><a
+                                                        href="/community/videoTeacher?pageNum=1&pageSize=10">1</a></li>
                                                 <li><a href="/community/videoTeacher?pageNum=2&pageSize=10">2</a></li>
                                                 <li><a href="/community/videoTeacher?pageNum=3&pageSize=10">3</a></li>
                                             <#else>
                                                 <#if pageInfo.hasPreviousPage>
-                                                    <li><a href="/community/videoTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>
+                                                    <li>
+                                                        <a href="/community/videoTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a>
+                                                    </li>
                                                 <#else>
                                                     <li><a href="#!">${pageInfo.pageNum}</a></li>
                                                 </#if>
-                                                <li class="active"><a href="/community/videoTeacher?pageNum=2&pageSize=10">${pageInfo.pageNum}</a></li>
+                                                <li class="active"><a
+                                                        href="/community/videoTeacher?pageNum=2&pageSize=10">${pageInfo.pageNum}</a>
+                                                </li>
                                                 <#if pageInfo.hasNextPage>
-                                                    <li><a href="/community/videoTeacher?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a></li>
+                                                    <li>
+                                                        <a href="/community/videoTeacher?pageNum=${pageInfo.nextPage}&pageSize=10">${pageInfo.nextPage}</a>
+                                                    </li>
                                                 <#else>
                                                 <#--<li><a href="/community/videoTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage - 1}</a></li>-->
                                                 <#--<li><a href="/community/videoTeacher?pageNum=${pageInfo.prePage}&pageSize=10">${pageInfo.prePage}</a></li>-->

@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>教师信息 - 后台管理系统</title>
     <link rel="icon" href="/statics/favicon.ico" type="image/ico">
     <meta name="author" content="Yuan Sijian">
@@ -12,17 +12,15 @@
     <script>
         function update(id) {
             $.ajax({
-                type:"POST",
-                url:"/user/updateTeacherInfo/"+id,
+                type: "POST",
+                url: "/user/updateTeacherInfo/" + id,
                 data: $("#form1").serialize(),
                 success: function (data) {
-                    if(data === 1)
-                    {
+                    if (data === 1) {
                         alert("更新成功");
                         location.reload();
                     }
-                    else
-                    {
+                    else {
                         alert("更新失败")
                     }
                 }
@@ -49,7 +47,8 @@
                     <ul class="topbar-right">
                         <li class="dropdown dropdown-profile">
                             <a href="javascript:void(0)" data-toggle="dropdown">
-                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}" alt="笔下光年" />
+                                <img class="img-avatar img-avatar-48 m-r-10" src="${administrator.imageurl}"
+                                     alt="笔下光年"/>
                                 <span>${administrator.username} <span class="caret"></span></span>
                                 <!--切换主题配色-->
                             </a>
@@ -81,34 +80,36 @@
                                 <form id="form1" method="post" action="" class="site-form">
                                     <div class="form-group">
                                         <label for="teaname">教师姓名</label>
-                                        <input type="text" class="form-control" name="teaname" id="teaname" value="${teacher.teaname}" />
+                                        <input type="text" class="form-control" name="teaname" id="teaname"
+                                               value="${teacher.teaname}"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="username">用户名</label>
-                                        <input type="text" class="form-control" name="username" id="username" value="${teacher.username}">
+                                        <input type="text" class="form-control" name="username" id="username"
+                                               value="${teacher.username}">
                                     </div>
-                                    <#--<div class="form-group">-->
-                                        <#--<label for="stumail">邮箱</label>-->
-                                        <#--<input type="email" class="form-control" name="stumail" id="stumail" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${teacher.stumail}">-->
-                                        <#--<small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>-->
-                                    <#--</div>-->
-                                    <#--<div class="form-group">-->
-                                        <#--<label for="stunumber">学号</label>-->
-                                        <#--<input type="text" class="form-control" name="stunumber" id="stunumber" value="${teacher.stunumber}">-->
-                                    <#--</div>-->
-                                    <#--<div class="form-group">-->
-                                        <#--<label for="class1">班级</label>-->
-                                        <#--<input type="text" class="form-control" name="class1" id="class1" value="${teacher.class1}">-->
-                                    <#--</div>-->
+                                <#--<div class="form-group">-->
+                                <#--<label for="stumail">邮箱</label>-->
+                                <#--<input type="email" class="form-control" name="stumail" id="stumail" aria-describedby="emailHelp" placeholder="请输入正确的邮箱地址" value="${teacher.stumail}">-->
+                                <#--<small id="emailHelp" class="form-text text-muted">请保证您填写的邮箱地址是正确的。</small>-->
+                                <#--</div>-->
+                                <#--<div class="form-group">-->
+                                <#--<label for="stunumber">学号</label>-->
+                                <#--<input type="text" class="form-control" name="stunumber" id="stunumber" value="${teacher.stunumber}">-->
+                                <#--</div>-->
+                                <#--<div class="form-group">-->
+                                <#--<label for="class1">班级</label>-->
+                                <#--<input type="text" class="form-control" name="class1" id="class1" value="${teacher.class1}">-->
+                                <#--</div>-->
                                     <div class="form-group">
-                                        <label class="sex" >性别</label>
+                                        <label class="sex">性别</label>
                                         <select class="form-control" id="select" name="sex" size="1  ">
                                             <#if teacher.sex == 1>
-                                                <option  value="1">男</option>
+                                                <option value="1">男</option>
                                                 <option value="0">女</option>
                                             <#else>
                                                 <option value="0">女</option>
-                                                <option  value="1">男</option>
+                                                <option value="1">男</option>
                                             </#if>
 
                                         </select>
@@ -123,7 +124,8 @@
                                 <#--<input type="hidden" class="form-control" name="updatetime" id="updatetime" value="${teacher.updatetime}">-->
                                 <#--<input type="hidden" class="form-control" name="updatepasswordtime" id="updatepasswordtime" value="${teacher.updatepasswordtime}">-->
                                 <#--<input type="hidden" class="form-control" name="sex" id="sex" value="${teacher.sex}">-->
-                                    <button onclick="update(${teacher.id})" type="button" class="btn btn-primary">保存</button>
+                                    <button onclick="update(${teacher.id})" type="button" class="btn btn-primary">保存
+                                    </button>
                                 </form>
 
                             </div>

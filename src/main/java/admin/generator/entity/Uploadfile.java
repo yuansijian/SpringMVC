@@ -1,6 +1,7 @@
 package admin.generator.entity;
 
-public class Uploadfile {
+public class Uploadfile
+{
     private Integer id;
 
     private String filename;
@@ -19,75 +20,93 @@ public class Uploadfile {
 
     private String description;
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getFilename() {
+    public String getFilename()
+    {
         return filename;
     }
 
-    public void setFilename(String filename) {
+    public void setFilename(String filename)
+    {
         this.filename = filename == null ? null : filename.trim();
     }
 
-    public Integer getFilesize() {
+    public Integer getFilesize()
+    {
         return filesize;
     }
 
-    public void setFilesize(Integer filesize) {
+    public void setFilesize(Integer filesize)
+    {
         this.filesize = filesize;
     }
 
-    public String getFileurl() {
+    public String getFileurl()
+    {
         return fileurl;
     }
 
-    public void setFileurl(String fileurl) {
+    public void setFileurl(String fileurl)
+    {
         this.fileurl = fileurl == null ? null : fileurl.trim();
     }
 
-    public Integer getIsDelete() {
+    public Integer getIsDelete()
+    {
         return isDelete;
     }
 
-    public void setIsDelete(Integer isDelete) {
+    public void setIsDelete(Integer isDelete)
+    {
         this.isDelete = isDelete;
     }
 
-    public String getUploadtime() {
+    public String getUploadtime()
+    {
         return uploadtime;
     }
 
-    public void setUploadtime(String uploadtime) {
+    public void setUploadtime(String uploadtime)
+    {
         this.uploadtime = uploadtime == null ? null : uploadtime.trim();
     }
 
-    public String getDeletetime() {
+    public String getDeletetime()
+    {
         return deletetime;
     }
 
-    public void setDeletetime(String deletetime) {
+    public void setDeletetime(String deletetime)
+    {
         this.deletetime = deletetime == null ? null : deletetime.trim();
     }
 
-    public String getAuthor() {
+    public String getAuthor()
+    {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(String author)
+    {
         this.author = author == null ? null : author.trim();
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description)
+    {
         this.description = description == null ? null : description.trim();
     }
 }

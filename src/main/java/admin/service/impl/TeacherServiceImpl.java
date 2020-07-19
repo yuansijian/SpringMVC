@@ -22,12 +22,12 @@ public class TeacherServiceImpl implements TeacherService
     TeacherMapper teacherMapper;
 
     /**
-    * @Description: 教师表查询
-    * @Param: id
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-21
-    */
+     * @Description: 教师表查询
+     * @Param: id
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-21
+     */
     @Override
     public Teacher selectByPrimaryKey(Integer id)
     {
@@ -35,12 +35,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 教师表总数统计
-    * @Param: 
-    * @return: 
-    * @Author: Yuan Sijian
-    * @Date: 20-2-21
-    */
+     * @Description: 教师表总数统计
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-21
+     */
     @Override
     public long selectByCountPrimaryKey()
     {
@@ -48,12 +48,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 查找所有老师信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-25
-    */
+     * @Description: 查找所有老师信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-25
+     */
     @Override
     public List<Teacher> queryAll()
     {
@@ -61,12 +61,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 注册界面模糊查找老师信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-27
-    */
+     * @Description: 注册界面模糊查找老师信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-27
+     */
     @Override
     public List<Teacher> queryFuzzyRegistered(String teaname, String startTime, String endTime)
     {
@@ -74,12 +74,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 查找老师信息用于更新
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-28
-    */
+     * @Description: 查找老师信息用于更新
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-28
+     */
     @Override
     public Teacher adminUpdateEdit(Integer id)
     {
@@ -87,12 +87,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 更新老师信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-28
-    */
+     * @Description: 更新老师信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-28
+     */
     @Override
     public int updateByPrimaryKeySelective(Teacher record)
     {
@@ -100,12 +100,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 删除数据（真删除
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-28
-    */
+     * @Description: 删除数据（真删除
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-28
+     */
     @Override
     public int deleteByPrimaryKey(Integer id)
     {
@@ -113,12 +113,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 查找最近注册的教师信息
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-2-29
-    */
+     * @Description: 查找最近注册的教师信息
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-2-29
+     */
     @Override
     public List<Teacher> queryRes(String startTime, String endTime)
     {
@@ -126,12 +126,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 活跃度功能
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-4
-    */
+     * @Description: 活跃度功能
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-4
+     */
     @Override
     public int queryCountLogin(String startTime, String endTime)
     {
@@ -139,12 +139,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 插入
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-17
-    */
+     * @Description: 插入
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-17
+     */
     @Override
     public int insert(Teacher record)
     {
@@ -152,12 +152,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 审核教师
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-19
-    */
+     * @Description: 审核教师
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-19
+     */
     @Override
     public List<Teacher> checkTea()
     {
@@ -165,12 +165,12 @@ public class TeacherServiceImpl implements TeacherService
     }
 
     /**
-    * @Description: 登录
-    * @Param:
-    * @return:
-    * @Author: Yuan Sijian
-    * @Date: 20-3-23
-    */
+     * @Description: 登录
+     * @Param:
+     * @return:
+     * @Author: Yuan Sijian
+     * @Date: 20-3-23
+     */
     @Override
     public Teacher queryUsernameAndPassword(String username, String password)
     {

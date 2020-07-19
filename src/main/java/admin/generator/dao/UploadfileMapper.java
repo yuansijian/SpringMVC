@@ -5,7 +5,8 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface UploadfileMapper {
+public interface UploadfileMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Uploadfile record);
@@ -20,5 +21,5 @@ public interface UploadfileMapper {
 
     List<Uploadfile> queryAll();
 
-    List<Uploadfile> fuzzyQuery(@Param("fileName")String fileName, @Param("startTime")String startTime, @Param("endTime")String endTime);
+    List<Uploadfile> fuzzyQuery(@Param("fileName") String fileName, @Param("startTime") String startTime, @Param("endTime") String endTime);
 }

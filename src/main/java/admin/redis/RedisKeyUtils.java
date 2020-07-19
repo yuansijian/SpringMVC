@@ -14,13 +14,13 @@ public class RedisKeyUtils
     public static final String MAP_KEY_USER_LIKED_COUNT = "MAP_USER_LIKED_COUNT";
 
     /**
-    * @Description: 拼接点赞用户id和留言id作为key，格式222::333
-    * @Param:
-    * @return:
-    * @Author: Defend
-    * @Date: 20-6-11
-    */
-    public static  String getLikedKey(String likedUserId, String likedPostId)
+     * @Description: 拼接点赞用户id和留言id作为key，格式222::333
+     * @Param:
+     * @return:
+     * @Author: Defend
+     * @Date: 20-6-11
+     */
+    public static String getLikedKey(String likedUserId, String likedPostId)
     {
         StringBuilder builder = new StringBuilder();
         builder.append(likedUserId);

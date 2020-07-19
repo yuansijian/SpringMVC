@@ -3,7 +3,8 @@ package admin.generator.dao;
 import admin.generator.entity.Administrator;
 import org.apache.ibatis.annotations.Param;
 
-public interface AdministratorMapper {
+public interface AdministratorMapper
+{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Administrator record);
@@ -18,6 +19,6 @@ public interface AdministratorMapper {
 
     int updateByPrimaryKey(Administrator record);
 
-    Administrator queryByUsernameAndPassword(@Param("username")String username, @Param("password")String password);
+    Administrator queryByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
 }
